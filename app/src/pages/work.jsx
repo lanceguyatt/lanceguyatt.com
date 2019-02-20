@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 
 import Default from '../layouts/Default'
 import WorkBench from '../containers/WorkBench'
-import { SEO, Window, Work } from '../components'
+import { SEO, Work } from '../components'
 
 const WorkPage = ({
   data: {
@@ -14,11 +14,8 @@ const WorkPage = ({
   <Default>
     <>
       <SEO title={name} desc={description} pathname={slug} />
-      <WorkBench>
-        <Window name={name} close="/" full={full}>
-          <Work />
-        </Window>
-      </WorkBench>
+      <WorkBench />
+      <Work full={full} />
     </>
   </Default>
 )

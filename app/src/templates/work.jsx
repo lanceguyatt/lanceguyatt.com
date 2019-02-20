@@ -42,77 +42,88 @@ const Dd = styled(Foo).attrs({
   flex: 2,
 })``
 
+const Wrapper = styled(Flex).attrs({
+  position: 'absolute',
+  top: [66, null, '50%'],
+  right: [0, null, 'auto'],
+  bottom: [0, null, 'auto'],
+  left: [0, null, '50%'],
+  width: [1, null, 1 / 2],
+  height: ['calc(100% - 66px)', null, '50rem'],
+})`
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    transform: translate(-50%, -50%);
+  }
+`
+
 const Work = ({
   data: {
     strapiWork: { name, description, slug, url, technologies, datePublished },
   },
 }) => (
   <Default>
-    <SEO
-      title={name}
-      desc={description}
-      pathname={`/work/${slug}`}
-      article
-      node={{
-        name,
-        description,
-        datePublished,
-      }}
-    />
-    <WorkBench>
-      <Window name="Work" close="/">
-        <Qux />
-        {/* {allStrapiWork && (
-          <Directory basepath="/work" list={allStrapiWork.edges} />
-        )} */}
-      </Window>
-
-      <Window name={name} close="/work">
-        <Flex
-          flexDirection="column"
-          justifyContent="space-between"
-          height="100%"
-        >
+    <>
+      <SEO
+        title={name}
+        desc={description}
+        pathname={`/work/${slug}`}
+        article
+        node={{
+          name,
+          description,
+          datePublished,
+        }}
+      />
+      <WorkBench />
+      <Qux />
+      <Wrapper>
+        <Window name={name} close="/work">
           <Flex
-            flexDirection={['column', null, 'row']}
-            mx={[null, null, -2]}
-            alignItems="flex-start"
+            flexDirection="column"
+            justifyContent="space-between"
+            height="100%"
           >
-            <Foo flex={[null, 1]} mx={[null, null, 2]} mb={5}>
-              <Box is="img" src={ap} alt="" mx="auto" display="block" />
-            </Foo>
+            <Flex
+              flexDirection={['column', null, 'row']}
+              mx={[null, null, -2]}
+              alignItems="flex-start"
+            >
+              <Foo flex={[null, 1]} mx={[null, null, 2]} mb={5}>
+                <Box is="img" src={ap} alt="" mx="auto" display="block" />
+              </Foo>
 
-            <Box flex={1} mx={[null, null, 2]}>
-              <Dl>
-                <Dt>Name</Dt>
-                <Dd>{name}</Dd>
-              </Dl>
+              <Box flex={1} mx={[null, null, 2]}>
+                <Dl>
+                  <Dt>Name</Dt>
+                  <Dd>{name}</Dd>
+                </Dl>
 
-              <Dl>
-                <Dt>Url</Dt>
-                <Dd>{url}</Dd>
-              </Dl>
+                <Dl>
+                  <Dt>Url</Dt>
+                  <Dd>{url}</Dd>
+                </Dl>
 
-              <Dl>
-                <Dt>Technologies</Dt>
-                <Dd>
-                  <ul>
-                    {technologies.map(technology => (
-                      <li key={technology.id}>{technology.name}</li>
-                    ))}
-                  </ul>
-                </Dd>
-              </Dl>
-            </Box>
+                <Dl>
+                  <Dt>Technologies</Dt>
+                  <Dd>
+                    <ul>
+                      {technologies.map(technology => (
+                        <li key={technology.id}>{technology.name}</li>
+                      ))}
+                    </ul>
+                  </Dd>
+                </Dl>
+              </Box>
+            </Flex>
+
+            <Flex justifyContent="space-between" flex="none">
+              <Action url="/work" name="Cancel" />
+              <Action url={url} name="Launch" />
+            </Flex>
           </Flex>
-
-          <Flex justifyContent="space-between" flex="none">
-            <Action url="/work" name="Cancel" />
-            <Action url={url} name="Launch" />
-          </Flex>
-        </Flex>
-      </Window>
-    </WorkBench>
+        </Window>
+      </Wrapper>
+    </>
   </Default>
 )
 
