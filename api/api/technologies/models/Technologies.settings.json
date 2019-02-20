@@ -1,0 +1,22 @@
+{
+  "connection": "default",
+  "collectionName": "technologies",
+  "info": {
+    "name": "technologies",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "work": {
+      "collection": "work",
+      "via": "technologies",
+      "dominant": true
+    }
+  }
+}

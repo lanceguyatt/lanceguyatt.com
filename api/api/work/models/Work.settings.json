@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "work",
+  "info": {
+    "name": "work",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "slug": {
+      "default": "",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "type": "text"
+    },
+    "url": {
+      "default": "",
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "technologies": {
+      "collection": "technologies",
+      "via": "work"
+    },
+    "datePublished": {
+      "default": "",
+      "type": "date",
+      "required": true
+    }
+  }
+}
