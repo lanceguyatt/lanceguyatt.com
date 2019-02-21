@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Default from '../layouts/Default'
-import WorkBench from '../containers/WorkBench'
-import { SEO, TitleBar, Window, Work as Qux } from '../components'
+import WorkBench from '../layouts/WorkBench'
+import { SEO, Window, Work } from '../components'
 import { Box, Flex, Action } from '../components/common'
 
 import ap from '../images/ap.png'
@@ -20,6 +19,7 @@ const Foo = styled(Box).attrs({
 
 const Dl = styled(Flex).attrs({
   is: 'dl',
+  flexDirection: ['column', 'row'],
   width: 1,
   mb: 4,
   lineHeight: 0,
@@ -44,7 +44,7 @@ const Dd = styled(Foo).attrs({
 
 const Wrapper = styled(Flex).attrs({
   position: 'absolute',
-  top: ['2.2rem', null, '50%'],
+  top: [0, null, '50%'],
   right: [0, null, 'auto'],
   bottom: [0, null, 'auto'],
   left: [0, null, '50%'],
@@ -56,12 +56,12 @@ const Wrapper = styled(Flex).attrs({
   }
 `
 
-const Work = ({
+const WorkTemplate = ({
   data: {
     strapiWork: { name, description, slug, url, technologies, datePublished },
   },
 }) => (
-  <Default>
+  <WorkBench>
     <>
       <SEO
         title={name}
@@ -74,9 +74,7 @@ const Work = ({
           datePublished,
         }}
       />
-      <TitleBar />
-      <WorkBench />
-      <Qux />
+      <Work />
       <Wrapper>
         <Window name={name} close="/work">
           <Flex
@@ -125,14 +123,14 @@ const Work = ({
         </Window>
       </Wrapper>
     </>
-  </Default>
+  </WorkBench>
 )
 
-Work.propTypes = {
+WorkTemplate.propTypes = {
   data: PropTypes.shape().isRequired,
 }
 
-export default Work
+export default WorkTemplate
 
 export const WorkTemplateQuery = graphql`
   query WorkTemplateQuery($slug: String!) {

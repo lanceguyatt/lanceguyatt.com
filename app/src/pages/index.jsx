@@ -1,17 +1,14 @@
 import React from 'react'
 
-import Default from '../layouts/Default'
-import WorkBench from '../containers/WorkBench'
-import { SEO, TitleBar } from '../components'
+import WorkBench from '../layouts/WorkBench'
+import { SEO } from '../components'
 
 const WorkBenchPage = () => (
-  <Default>
+  <WorkBench>
     <>
       <SEO title="Workbench" />
-      <TitleBar />
-      <WorkBench />
     </>
-  </Default>
+  </WorkBench>
 )
 
 export default WorkBenchPage

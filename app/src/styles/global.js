@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    font-size: 20px;
+    font-size: 16px;
 
     @media (min-width: ${props => props.theme.breakpoints[1]}) {
       font-size: 10px;
@@ -20,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -79,10 +78,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  #___gatsby {
+  /* #___gatsby {
     height: 100vh;
     min-height: min-content;
-  }
+  } */
 
   ul {
     list-style: none;

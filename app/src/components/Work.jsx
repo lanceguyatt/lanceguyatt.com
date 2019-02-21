@@ -11,7 +11,7 @@ const edgeToArray = data => data.edges.map(edge => edge.node)
 
 const Wrapper = styled(Flex).attrs({
   position: 'absolute',
-  top: ['2.2rem', null, '50%'],
+  top: [0, null, '50%'],
   right: [0, null, 'auto'],
   bottom: [0, null, 'auto'],
   left: [0, null, '50%'],
