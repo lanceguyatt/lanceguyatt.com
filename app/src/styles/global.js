@@ -2,7 +2,11 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    font-size: 10px;
+    font-size: 20px;
+
+    @media (min-width: ${props => props.theme.breakpoints[1]}) {
+      font-size: 10px;
+    }
   }
 
   @font-face {

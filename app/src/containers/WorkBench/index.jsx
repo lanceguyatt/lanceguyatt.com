@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Window } from '../../components'
 import { Disk, Drive, Flex } from '../../components/common'
-import { TitleBar, Window } from '../../components'
 
 const Wrapper = styled(Flex).attrs({
-  minHeight: '100vh',
   flexDirection: 'column',
-  bg: 'gray.2',
+  position: 'absolute',
+  top: '2.2rem',
+  left: 0,
+  right: 0,
+  bottom: 0,
 })``
 
 const WorkBench = () => (
   <Wrapper>
-    <TitleBar bg="dark" color="gray.2" borderColor="dark" />
     <Window name="Workbench" close="/kickstart">
       <Flex justifyContent="flex-start">
         <Flex is="nav" flexDirection="column" alignItems="center">

@@ -2,12 +2,13 @@ import React from 'react'
 
 import Default from '../layouts/Default'
 import WorkBench from '../containers/WorkBench'
-import { SEO } from '../components'
+import { SEO, TitleBar } from '../components'
 
 const WorkBenchPage = () => (
   <Default>
     <>
-      <SEO title="Home" />
+      <SEO title="Workbench" />
+      <TitleBar />
       <WorkBench />
     </>
   </Default>

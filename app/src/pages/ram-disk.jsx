@@ -1,10 +1,21 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 import Default from '../layouts/Default'
 import WorkBench from '../containers/WorkBench'
-import { SEO, Window } from '../components'
+import { SEO, TitleBar, Window } from '../components'
+import { Box } from '../components/common'
+
+const Wrapper = styled(Box).attrs({
+  position: 'absolute',
+  top: '2.2rem',
+  right: 0,
+  bottom: 0,
+  left: 0,
+  bg: 'yellow',
+})``
 
 const RamDiskPage = ({
   data: {
@@ -14,9 +25,11 @@ const RamDiskPage = ({
   <Default>
     <>
       <SEO title={name} desc={description} pathname={slug} />
-      <WorkBench>
-        <Window name={name} close="/" full={full} />
-      </WorkBench>
+      <TitleBar />
+      <WorkBench />
+      <Wrapper>
+        <Window name={name} full={full} />
+      </Wrapper>
     </>
   </Default>
 )

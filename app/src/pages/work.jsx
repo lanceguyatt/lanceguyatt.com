@@ -4,21 +4,22 @@ import { graphql } from 'gatsby'
 
 import Default from '../layouts/Default'
 import WorkBench from '../containers/WorkBench'
-import { SEO, Work } from '../components'
+import { SEO, TitleBar, Work } from '../components'
 
-const WorkPage = ({
-  data: {
-    strapiPage: { name, description, slug, full },
-  },
-}) => (
-  <Default>
-    <>
-      <SEO title={name} desc={description} pathname={slug} />
-      <WorkBench />
-      <Work full={full} />
-    </>
-  </Default>
-)
+const WorkPage = ({ data }) => {
+  const { strapiPage } = data
+  const { name, description, slug } = strapiPage
+  return (
+    <Default>
+      <>
+        <SEO title={name} desc={description} pathname={slug} />
+        <TitleBar />
+        <WorkBench />
+        <Work {...strapiPage} />
+      </>
+    </Default>
+  )
+}
 
 WorkPage.propTypes = {
   data: PropTypes.shape().isRequired,

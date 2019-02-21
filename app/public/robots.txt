@@ -1,4 +1,0 @@
-User-Agent: *
-Disallow: */tags/
-
-Sitemap: http://lanceguyatt.com/sitemap.xml

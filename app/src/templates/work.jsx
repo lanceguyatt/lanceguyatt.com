@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import Default from '../layouts/Default'
 import WorkBench from '../containers/WorkBench'
-import { SEO, Window, Work as Qux } from '../components'
+import { SEO, TitleBar, Window, Work as Qux } from '../components'
 import { Box, Flex, Action } from '../components/common'
 
 import ap from '../images/ap.png'
@@ -44,15 +44,15 @@ const Dd = styled(Foo).attrs({
 
 const Wrapper = styled(Flex).attrs({
   position: 'absolute',
-  top: [66, null, '50%'],
+  top: ['2.2rem', null, '50%'],
   right: [0, null, 'auto'],
   bottom: [0, null, 'auto'],
   left: [0, null, '50%'],
   width: [1, null, 1 / 2],
-  height: ['calc(100% - 66px)', null, '50rem'],
+  height: [null, null, '50rem'],
 })`
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    transform: translate(-50%, -50%);
+    transform: translate(-25%, -25%);
   }
 `
 
@@ -74,6 +74,7 @@ const Work = ({
           datePublished,
         }}
       />
+      <TitleBar />
       <WorkBench />
       <Qux />
       <Wrapper>

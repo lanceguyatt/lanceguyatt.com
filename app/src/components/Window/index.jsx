@@ -4,20 +4,27 @@ import styled from 'styled-components'
 
 import sprite from './sprite.svg'
 
-import { Box, Close, Depth, Flex, Zoom, Sizing } from '../common'
+import { Box, Close, Depth, Flex, Zoom } from '../common'
 
 const WindowWrapper = styled(
   /* eslint-disable-next-line */
-  ({ name, close, active, zoom, full, free, ...props }) => (
-    <Flex {...props} />
-  )
+  ({ name, close, active, zoom, full, free, ...props }) => <Flex {...props} />
 ).attrs({
   borderTop: 2,
-  flex: 1,
-  borderColor: 'light',
+  borderRight: 1,
+  borderBottom: 2,
+  borderLeft: 1,
   flexDirection: 'column',
   position: 'relative',
+  height: '100%',
+  width: 1,
 })`
+  border-top-color: #fff;
+  border-right-color: #000;
+  border-bottom-color: #000;
+  border-left-color: #000;
+  overflow: hidden;
+
   ${props =>
     props.active
       ? `background-color: ${props.theme.colors.primary}`
@@ -34,8 +41,6 @@ const WindowHeader = styled(Flex).attrs({
 })``
 
 const WindowName = styled(Box).attrs({
-  lineHeight: 1,
-  fontSize: 2,
   px: 3,
   flex: 1,
 })`
@@ -47,23 +52,17 @@ const WindowName = styled(Box).attrs({
 
 const WindowMain = styled(Box).attrs({
   flex: 1,
-  borderTop: 28,
-  borderRight: 54,
-  borderBottom: 70,
-  borderLeft: 5,
-  position: 'relative',
+  // borderTop: 28,
+  // borderRight: 54,
+  // borderBottom: 70,
+  // borderLeft: 5,
+  // position: 'relative',
+  bg: 'secondary',
+  px: 4,
+  py: 5,
+  borderColor: 'danger',
 })`
-  border-image: url(${sprite}) 28 54 70 5 stretch;
-`
-
-const WindowInner = styled(Flex).attrs({
-  bg: 'gray.2',
-  position: 'absolute',
-  top: '-28px',
-  right: '-36px',
-  bottom: '-50px',
-  left: '-1px',
-})`
+  /* border-image: url(${sprite}) 28 54 70 5 stretch; */
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 
@@ -71,6 +70,24 @@ const WindowInner = styled(Flex).attrs({
     display: none;
   }
 `
+
+// const WindowInner = styled(Flex).attrs({
+//   bg: 'gray.2',
+//   flex: 1,
+//   border: 3,
+//   // position: 'absolute',
+//   // top: '-28px',
+//   // right: '-36px',
+//   // bottom: '-50px',
+//   // left: '-1px',
+// })`
+//   overflow: auto;
+//   -webkit-overflow-scrolling: touch;
+
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+// `
 
 export default class Window extends Component {
   static propTypes = {
@@ -83,9 +100,9 @@ export default class Window extends Component {
 
   static defaultProps = {
     full: 85,
-    free: '129K Free',
+    free: '129K',
     children: null,
-    close: null,
+    close: '/',
   }
 
   state = {
@@ -117,22 +134,16 @@ export default class Window extends Component {
     return (
       <WindowWrapper active={active} zoom={zoom} {...this.props}>
         <WindowHeader>
-          {close && <Close to={close} />}
+          <Close to={close} />
           <WindowName>
-            {name} {full}% full, {free}, 708K
+            {name} {full}% full, {free} free, 708K
           </WindowName>
           <Zoom onClick={this.handleZoom} />
           <Depth />
         </WindowHeader>
 
-        <WindowMain>
-          <WindowInner>
-            <Box flex={1} p={5}>
-              {children}
-            </Box>
-          </WindowInner>
-        </WindowMain>
-        <Sizing position="absolute" bottom={0} right={0} active={active} />
+        <WindowMain>{children}</WindowMain>
+        {/* <Sizing position="absolute" bottom={0} right={0} active={active} /> */}
       </WindowWrapper>
     )
   }
