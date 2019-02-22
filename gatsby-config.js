@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+const { ANALYTICS_ID } = process.env
+
 const website = require('./config/website')
 
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
@@ -69,20 +71,20 @@ module.exports = {
         ssr: true,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-google-analytics',
-    //   options: {
-    //     trackingId: 'UA-19641705-1',
-    //     // Puts tracking script in the head instead of the body
-    //     head: false,
-    //     // Setting this parameter is optional
-    //     // anonymize: true,
-    //     // Setting this parameter is also optional
-    //     // respectDNT: true,
-    //     // Avoids sending pageview hits from custom paths
-    //     // exclude: ['/preview/**', '/do-not-track/me/too/'],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: ANALYTICS_ID,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // Setting this parameter is optional
+        // anonymize: true,
+        // Setting this parameter is also optional
+        // respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        // exclude: ['/preview/**', '/do-not-track/me/too/'],
+      },
+    },
     'gatsby-plugin-offline',
   ],
 }
