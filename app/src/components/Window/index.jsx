@@ -82,7 +82,7 @@ const Window = ({ name, full, free, children, close, level1, level2 }) => (
 Window.propTypes = {
   name: PropTypes.string.isRequired,
   full: PropTypes.number,
-  free: PropTypes.string,
+  free: PropTypes.number,
   children: PropTypes.node,
   close: PropTypes.string,
   level1: PropTypes.bool,

@@ -25,7 +25,6 @@ export const Main = styled(Flex).attrs({
   flex: 1,
   py: 5,
   px: 4,
-  // minHeight: 'min-content',
 })`
   overflow: auto;
   -webkit-overflow-scrolling: touch;

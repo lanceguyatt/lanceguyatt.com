@@ -21,7 +21,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
@@ -30,13 +29,22 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: 'http://localhost:1337',
         contentTypes: ['page', 'work', 'about', 'technologies'],
+        queryLimit: 1000,
       },
     },
-    'gatsby-plugin-sitemap',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -46,10 +54,11 @@ module.exports = {
         start_url: pathPrefix,
         background_color: website.backgroundColor,
         theme_color: website.themeColor,
-        display: 'standalone',
+        display: 'minimal-ui',
         icon: website.favicon,
       },
     },
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
@@ -74,5 +83,6 @@ module.exports = {
     //     // exclude: ['/preview/**', '/do-not-track/me/too/'],
     //   },
     // },
+    'gatsby-plugin-offline',
   ],
 }

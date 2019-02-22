@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 import WorkBench from '../layouts/WorkBench'
 import { Work } from '../containers'
 import { SEO, Window } from '../components'
 import { Box, Flex, Action } from '../components/common'
-
-import ap from '../images/ap.png'
 
 const Foo = styled(Box).attrs({
   border: 4,
@@ -33,7 +32,6 @@ const Dt = styled(Box).attrs({
   mr: [null, 4],
   mb: 3,
   pt: 3,
-  bg: 'orange',
 })`
   &::after {
     content: ':';
@@ -52,6 +50,7 @@ const WorkTemplate = ({ data }) => {
     description,
     slug,
     url,
+    image,
     technologies,
     datePublished,
   } = strapiWork
@@ -71,46 +70,35 @@ const WorkTemplate = ({ data }) => {
         />
         <Work />
         <Window {...strapiWork} close="/work" level2>
-          <Flex
-            flexDirection="column"
-            justifyContent="space-between"
-            height="100%"
-            minHeight="min-content"
-          >
-            <Flex
-              flexDirection={['column', null, 'row']}
-              mx={[null, null, -2]}
-              alignItems="flex-start"
-            >
-              <Foo flex={[null, 1]} mx={[null, null, 2]} mb={5} bg="lime">
-                <Box is="img" src={ap} alt="" mx="auto" display="block" />
+          <Flex flexDirection="column" height="100%" minHeight="min-content">
+            {image && (
+              <Foo flex="none" mx="auto" mb={5} width={100}>
+                <Img fluid={image.childImageSharp.fluid} />
               </Foo>
+            )}
 
-              <Box flex={1} mx={[null, null, 2]} width={1}>
-                <Dl>
-                  <Dt>Name</Dt>
-                  <Dd>{name}</Dd>
-                </Dl>
+            <Dl>
+              <Dt>Name</Dt>
+              <Dd>{name}</Dd>
+            </Dl>
 
-                <Dl>
-                  <Dt>Url</Dt>
-                  <Dd>{url}</Dd>
-                </Dl>
+            <Dl>
+              <Dt>Url</Dt>
+              <Dd>{url}</Dd>
+            </Dl>
 
-                <Dl>
-                  <Dt>Technologies</Dt>
-                  <Dd>
-                    <ul>
-                      {technologies.map(technology => (
-                        <li key={technology.id}>{technology.name}</li>
-                      ))}
-                    </ul>
-                  </Dd>
-                </Dl>
-              </Box>
-            </Flex>
+            <Dl>
+              <Dt>Technologies</Dt>
+              <Dd>
+                <ul>
+                  {technologies.map(technology => (
+                    <li key={technology.id}>{technology.name}</li>
+                  ))}
+                </ul>
+              </Dd>
+            </Dl>
 
-            <Flex justifyContent="space-between">
+            <Flex justifyContent="space-between" mt="auto">
               <Action url="/work" name="Cancel" />
               <Action url={url} name="Launch" />
             </Flex>
@@ -141,6 +129,13 @@ export const WorkTemplateQuery = graphql`
         name
       }
       datePublished
+      image {
+        childImageSharp {
+          fluid(maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 `
