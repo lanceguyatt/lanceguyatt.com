@@ -20,6 +20,8 @@ export const Name = styled(Box).attrs({
 export const Link = styled(GastbyLink)`
   display: block;
   width: 8rem;
+  margin-left: ${props => props.theme.space[3]};
+  margin-right: ${props => props.theme.space[3]};
   margin-bottom: ${props => props.theme.space[4]};
 
   &:focus,

@@ -1,36 +1,23 @@
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
-import { TitleBar, Window } from '../components'
-import { Flex, Disk, Drive, Box } from '../components/common'
-
-const Wrapper = styled(Box).attrs({
-  position: 'absolute',
-  top: '2.2rem',
-  right: 0,
-  bottom: 0,
-  left: 0,
-})``
+import GlobalStyle from '../styles/global'
+import { WorkBench as WB } from '../containers'
+import { TitleBar } from '../components'
+import { Flex } from '../components/common'
 
 const WorkBench = ({ children }) => (
   <ThemeProvider theme={theme}>
     <>
-      <TitleBar />
-      <Wrapper>
-        <Window name="Workbench" close="/kickstart">
-          <Flex justifyContent="flex-start">
-            <Flex is="nav" flexDirection="column" alignItems="center">
-              <Disk name="Ram Disk" to="/ram-disk" />
-              <Drive name="Work" to="/work" />
-              <Drive name="About" to="/about" />
-            </Flex>
-          </Flex>
-        </Window>
-        {children}
-      </Wrapper>
+      <Flex flexDirection="column" height="100%">
+        <TitleBar />
+        <Flex flexDirection="column" height="100%" position="relative">
+          <WB />
+          {children}
+        </Flex>
+      </Flex>
       <GlobalStyle />
     </>
   </ThemeProvider>

@@ -24,6 +24,10 @@
     "full": {
       "default": "",
       "type": "integer"
+    },
+    "free": {
+      "default": "",
+      "type": "integer"
     }
   }
 }

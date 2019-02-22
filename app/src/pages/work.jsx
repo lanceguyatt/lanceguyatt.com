@@ -13,7 +13,7 @@ const WorkPage = ({ data }) => {
     <WorkBench>
       <>
         <SEO title={name} desc={description} pathname={slug} />
-        <Work />
+        <Work level2 />
       </>
     </WorkBench>
   )

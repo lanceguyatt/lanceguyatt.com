@@ -1,65 +1,101 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { CSSTransition, transit } from 'react-css-transition'
 
-import { Close } from '../common'
+import { Close, Flex } from '../common'
 import { Name, Header, Main } from './style'
 
-CSSTransition.childContextTypes = {}
-
-const Wrapper = styled(CSSTransition)`
-  border-top: 2px solid #fff;
-  border-right: 1px solid #000;
-  border-bottom: 2px solid #000;
-  border-left: 1px solid #000;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: ${props => props.theme.colors.primary};
-  position: relative;
+/* eslint-disable-next-line */
+const Wrapper = styled(({ level1, level2, ...props }) => (
+  <Flex {...props} />
+)).attrs({
+  flexDirection: 'column',
+  bg: 'primary',
+  borderTop: 2,
+  borderRight: 1,
+  borderBottom: 2,
+  borderLeft: 1,
+  height: '100%',
+  width: 1,
+  flex: 1,
+})`
+  border-top-color: #fff;
+  border-right-color: #000;
+  border-bottom-color: #000;
+  border-left-color: #000;
 
   ${Header} {
     flex: none;
   }
+
+  ${props =>
+    props.level1 &&
+    `
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+    @media (min-width: ${props.theme.breakpoints[1]}) {
+      left: 50%;
+      top: 50%;
+      width: 50vw;
+      height: 50vh;
+      transform: translate(calc(-50% - 5rem), calc(-50% - 5rem));
+    }
+  `};
+
+  ${props =>
+    props.level2 &&
+    `
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    @media (min-width: ${props.theme.breakpoints[1]}) {
+      left: 50%;
+      top: 50%;
+      width: 50vw;
+      height: 50vh;
+      transform: translate(calc(-50% + 5rem), calc(-50% + 5rem));
+    }
+  `};
 `
 
-const Window = ({ name, full, free, children, close }) => (
-  <Wrapper
-    defaultStyle={{ opacity: 0 }}
-    enterStyle={{ opacity: transit(1, 300, 'ease-in-out') }}
-    leaveStyle={{ opacity: transit(1, 300, 'ease-in-out') }}
-    activeStyle={{ opacity: 1 }}
-    active
-    transitionAppear
-  >
+const Window = ({ name, full, free, children, close, level1, level2 }) => (
+  <Wrapper level1={level1} level2={level2}>
     <Header>
       <Close to={close} />
       <Name>
-        {name} {full}% full, {free} free, 708K
+        {name} {full}% full, {free}k free, 708K
       </Name>
     </Header>
-    <Main>
-      <div>{children}</div>
-    </Main>
+    <Main>{children}</Main>
   </Wrapper>
 )
 
 Window.propTypes = {
   name: PropTypes.string.isRequired,
-  full: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  full: PropTypes.number,
   free: PropTypes.string,
   children: PropTypes.node,
   close: PropTypes.string,
+  level1: PropTypes.bool,
+  level2: PropTypes.bool,
 }
 
 Window.defaultProps = {
-  full: '85',
-  free: '129K',
+  full: 85,
+  free: 128,
   children: null,
   close: '/',
+  level1: null,
+  level2: null,
 }
 
 export default Window

@@ -11,7 +11,7 @@ export const Wrapper = styled(Flex).attrs({
   bg: 'dark',
   minHeight: 'min-content',
   height: '100vh',
-  p: 3,
+  p: 5,
   position: 'relative',
 })`
   overflow: hidden;

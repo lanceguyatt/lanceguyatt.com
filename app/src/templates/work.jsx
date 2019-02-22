@@ -30,8 +30,10 @@ const Dt = styled(Box).attrs({
   is: 'dt',
   color: 'light',
   flex: 1,
-  mr: 4,
+  mr: [null, 4],
+  mb: 3,
   pt: 3,
+  bg: 'orange',
 })`
   &::after {
     content: ':';
@@ -43,56 +45,48 @@ const Dd = styled(Foo).attrs({
   flex: 2,
 })``
 
-const Wrapper = styled(Flex).attrs({
-  position: 'absolute',
-  top: [0, null, '50%'],
-  right: [0, null, 'auto'],
-  bottom: [0, null, 'auto'],
-  left: [0, null, '50%'],
-  width: [1, null, 1 / 2],
-  height: [null, null, '50rem'],
-})`
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    transform: translate(-25%, -25%);
-  }
-`
-
-const WorkTemplate = ({
-  data: {
-    strapiWork: { name, description, slug, url, technologies, datePublished },
-  },
-}) => (
-  <WorkBench>
-    <>
-      <SEO
-        title={name}
-        desc={description}
-        pathname={`/work/${slug}`}
-        article
-        node={{
-          name,
-          description,
-          datePublished,
-        }}
-      />
-      <Work />
-      <Wrapper>
-        <Window name={name} close="/work">
+const WorkTemplate = ({ data }) => {
+  const { strapiWork } = data
+  const {
+    name,
+    description,
+    slug,
+    url,
+    technologies,
+    datePublished,
+  } = strapiWork
+  return (
+    <WorkBench>
+      <>
+        <SEO
+          title={name}
+          desc={description}
+          pathname={`/work/${slug}`}
+          article
+          node={{
+            name,
+            description,
+            datePublished,
+          }}
+        />
+        <Work />
+        <Window {...strapiWork} close="/work" level2>
           <Flex
             flexDirection="column"
             justifyContent="space-between"
             height="100%"
+            minHeight="min-content"
           >
             <Flex
               flexDirection={['column', null, 'row']}
               mx={[null, null, -2]}
               alignItems="flex-start"
             >
-              <Foo flex={[null, 1]} mx={[null, null, 2]} mb={5}>
+              <Foo flex={[null, 1]} mx={[null, null, 2]} mb={5} bg="lime">
                 <Box is="img" src={ap} alt="" mx="auto" display="block" />
               </Foo>
 
-              <Box flex={1} mx={[null, null, 2]}>
+              <Box flex={1} mx={[null, null, 2]} width={1}>
                 <Dl>
                   <Dt>Name</Dt>
                   <Dd>{name}</Dd>
@@ -116,16 +110,16 @@ const WorkTemplate = ({
               </Box>
             </Flex>
 
-            <Flex justifyContent="space-between" flex="none">
+            <Flex justifyContent="space-between">
               <Action url="/work" name="Cancel" />
               <Action url={url} name="Launch" />
             </Flex>
           </Flex>
         </Window>
-      </Wrapper>
-    </>
-  </WorkBench>
-)
+      </>
+    </WorkBench>
+  )
+}
 
 WorkTemplate.propTypes = {
   data: PropTypes.shape().isRequired,
@@ -140,6 +134,8 @@ export const WorkTemplateQuery = graphql`
       description
       url
       slug
+      full
+      free
       technologies {
         id
         name

@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    font-size: 14px;
+    font-size: 12px;
 
     @media (min-width: ${props => props.theme.breakpoints[1]}) {
       font-size: 10px;
@@ -78,23 +78,19 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  #___gatsby {
+    background: orange;
+    min-height: 100vh;
+
+    > div[role="group"] {
+      background: yellow;
+      height: 100vh;
+    }
+  }
+
   ul {
     list-style: none;
   }
-
-  .default-class { opacity: 0; }
-
-  .enter-class {
-    opacity: 1;
-    transition: opacity 300ms ease-in-out;
-  }
-
-  .leave-class {
-    opacity: 0;
-    transition: opacity 300ms ease-in-out;
-  }
-
-  .active-class { opacity: 1; }
 `
 
 export default GlobalStyle

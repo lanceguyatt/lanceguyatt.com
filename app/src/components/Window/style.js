@@ -20,10 +20,12 @@ export const Header = styled(Flex).attrs({
 })``
 
 export const Main = styled(Flex).attrs({
-  flex: 1,
+  flexDirection: 'column',
   bg: 'secondary',
-  px: 4,
+  flex: 1,
   py: 5,
+  px: 4,
+  // minHeight: 'min-content',
 })`
   overflow: auto;
   -webkit-overflow-scrolling: touch;

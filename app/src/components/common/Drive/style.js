@@ -21,6 +21,7 @@ export const Link = styled(GastbyLink)`
   display: block;
   width: 10rem;
   margin-bottom: ${props => props.theme.space[4]};
+
   &:focus,
   &.active {
     ${Image} {

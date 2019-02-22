@@ -39,6 +39,14 @@
       "default": "",
       "type": "date",
       "required": true
+    },
+    "free": {
+      "default": "",
+      "type": "integer"
+    },
+    "full": {
+      "default": "",
+      "type": "integer"
     }
   }
 }

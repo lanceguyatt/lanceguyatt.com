@@ -15,8 +15,8 @@
     },
     "work": {
       "collection": "work",
-      "via": "technologies",
-      "dominant": true
+      "dominant": true,
+      "via": "technologies"
     }
   }
 }

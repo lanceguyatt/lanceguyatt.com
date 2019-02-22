@@ -15,10 +15,6 @@ const Name = styled(Box).attrs({
   white-space: nowrap;
 `
 const Wrapper = styled(Flex).attrs({
-  position: 'absolute',
-  top: 0,
-  right: 0,
-  left: 0,
   bg: 'dark',
   color: 'secondary',
   borderColor: 'dark',
