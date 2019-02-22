@@ -49,8 +49,8 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && gatsby build",
-    "deploy": "GATSBY_SITE_URL=https://lanceguyatt.surge.sh npm run build && npm run surge",
-    "surge": "surge -p public -d lanceguyatt.surge.sh",
+    "deploy": "GATSBY_SITE_URL=https://lanceguyatt.com npm run build && npm run surge",
+    "surge": "surge -p public -d lanceguyatt.com",
     "develop": "gatsby develop",
     "dev": "npm run develop",
     "clean": "rm -rf public .cache",
