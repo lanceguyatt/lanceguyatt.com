@@ -3,7 +3,7 @@
   "description": "Lance Guyatt website",
   "version": "1.0.0",
   "author": "Lance Guyatt <lance@lanceguyatt.com>",
-  "homepage": "https://lanceguyatt-surge.sh",
+  "homepage": "http://lanceguyatt-surge.sh",
   "dependencies": {
     "gatsby": "^2.1.17",
     "gatsby-image": "^2.0.29",
@@ -49,7 +49,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && gatsby build",
-    "deploy": "GATSBY_SITE_URL=https://lanceguyatt.com npm run build && npm run surge",
+    "deploy": "GATSBY_SITE_URL=http://lanceguyatt.com npm run build && npm run surge",
     "surge": "surge -p public -d lanceguyatt.com",
     "develop": "gatsby develop",
     "dev": "npm run develop",
