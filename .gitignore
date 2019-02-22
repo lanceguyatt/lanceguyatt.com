@@ -7,3 +7,5 @@ yarn-error.log
 public
 .DS_Store
 *.code-workspace
+.env
+.env.local
