@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const { ANALYTICS_ID } = process.env
+const { ANALYTICS_ID, GATSBY_SITE_URL } = process.env
 
 const website = require('./config/website')
 
@@ -8,7 +8,7 @@ const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
 
 module.exports = {
   siteMetadata: {
-    siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
+    siteUrl: GATSBY_SITE_URL + pathPrefix, // For gatsby-plugin-sitemap
     pathPrefix,
     title: website.title,
     titleAlt: website.titleAlt,
