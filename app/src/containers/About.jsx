@@ -3,9 +3,9 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import Directory from './Directory'
-import { Window } from './index'
-import { Flex } from './common'
+import Directory from '../components/Directory'
+import { Window } from '../components/index'
+import { Flex } from '../components/common'
 
 const edgeToArray = data => data.edges.map(edge => edge.node)
 
@@ -17,45 +17,56 @@ const Wrapper = styled(Flex).attrs({
   left: [0, null, '50%'],
   width: [1, null, 1 / 2],
   height: [null, null, '50rem'],
+  zIndex: 1,
 })`
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     transform: translate(-50%, -50%);
   }
 `
 
-const Work = ({ name, full }) => (
+const About = () => (
   <StaticQuery
-    query={WorkStaticQuery}
+    query={AboutStaticQuery}
     render={data => (
       <Wrapper>
-        <Window name={name} full={full}>
-          <Directory basepath="/work" list={edgeToArray(data.allStrapiWork)} />
+        <Window {...data.strapiPage}>
+          <Directory
+            basepath="/about"
+            list={edgeToArray(data.allStrapiAbout)}
+          />
         </Window>
       </Wrapper>
     )}
   />
 )
 
-Work.propTypes = {
+About.propTypes = {
   name: PropTypes.string,
-  full: PropTypes.string,
+  full: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
-Work.defaultProps = {
+About.defaultProps = {
   name: null,
   full: null,
 }
 
-export default Work
+export default About
 
-const WorkStaticQuery = graphql`
-  query workStaticQuery {
-    allStrapiWork(sort: { fields: [datePublished], order: DESC }) {
+const AboutStaticQuery = graphql`
+  query aboutStaticQuery {
+    strapiPage(slug: { eq: "/about" }) {
+      name
+      description
+      slug
+      full
+    }
+
+    allStrapiAbout {
       edges {
         node {
           id
           name
-          slug
+          url
         }
       }
     }

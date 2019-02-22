@@ -4,7 +4,8 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import WorkBench from '../layouts/WorkBench'
-import { SEO, Window, Work } from '../components'
+import { Work } from '../containers'
+import { SEO, Window } from '../components'
 import { Box, Flex, Action } from '../components/common'
 
 import ap from '../images/ap.png'
