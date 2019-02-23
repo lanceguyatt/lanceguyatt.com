@@ -21,6 +21,7 @@ const Facebook = ({
     <meta property="og:type" content={type} />
     {siteName && <meta property="og:site_name" content={siteName} />}
     <meta property="og:locale" content={locale} />
+    <meta property="fb:app_id" content="148190791903784" />
   </Helmet>
 )
 

@@ -68,6 +68,7 @@ const WorkTemplate = ({ data }) => {
             flexDirection="column"
             height="calc(100% - 2.2rem)"
             minHeight="min-content"
+            flex={1}
           >
             {logo && (
               <Foo mx="auto" mb={5}>

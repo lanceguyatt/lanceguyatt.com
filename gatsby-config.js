@@ -19,6 +19,8 @@ module.exports = {
     author: website.author,
     twitter: website.twitter,
     facebook: website.facebook,
+    copyright: website.copyright,
+    copyrightYear: website.copyrightYear,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

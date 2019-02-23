@@ -2,12 +2,12 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import theme from '../styles/theme'
+import { workbench } from '../styles/theme'
 import GlobalStyle from '../styles/global'
 import { TitleBar } from '../components'
 
 const WorkBench = ({ children }) => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={workbench}>
     <>
       <TitleBar />
       {children}

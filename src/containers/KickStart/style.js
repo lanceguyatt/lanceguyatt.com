@@ -51,9 +51,9 @@ export const Wrapper = styled(Flex).attrs({
   alignItems: ['center', null, 'flex-end'],
   justifyContent: ['center', null, 'space-between'],
   minHeight: '100vh',
-  bg: 'purple',
+  bg: 'secondary',
   p: 6,
-  color: 'tumbleWeed',
+  color: 'primary',
 })`
   overflow: hidden;
 `

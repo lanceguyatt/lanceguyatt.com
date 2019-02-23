@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { ThemeProvider } from 'styled-components'
 
-import Default from '../layouts/Default'
+import GlobalStyle from '../styles/global'
+import { guruMeditation } from '../styles/theme'
+
 import GuruMeditation from '../containers/GuruMeditation'
 import { SEO } from '../components'
 
@@ -11,12 +14,13 @@ const GuruMeditationPage = ({
     strapiPage: { name, description, url },
   },
 }) => (
-  <Default>
+  <ThemeProvider theme={guruMeditation}>
     <>
       <SEO name={name} description={description} url={url} />
       <GuruMeditation />
+      <GlobalStyle />
     </>
-  </Default>
+  </ThemeProvider>
 )
 
 GuruMeditationPage.propTypes = {
