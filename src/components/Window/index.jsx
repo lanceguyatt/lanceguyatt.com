@@ -6,33 +6,30 @@ import { Close, Flex } from '../common'
 import { Name, Header, Main } from './style'
 
 /* eslint-disable-next-line */
-const Wrapper = styled(({ level1, level2, ...props }) => (
+const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
   <Flex {...props} />
 )).attrs({
   flexDirection: 'column',
-  bg: 'primary',
   borderTop: 2,
   borderRight: 1,
   borderBottom: 2,
   borderLeft: 1,
-  height: '100%',
-  width: 1,
-  flex: 1,
 })`
   border-top-color: #fff;
   border-right-color: #000;
   border-bottom-color: #000;
   border-left-color: #000;
 
-  ${Header} {
-    flex: none;
-  }
+  background-color: ${props =>
+    props.active ? props.theme.colors.primary : props.theme.colors.secondary};
+
+  ${props => props.level0 && `height: calc(100vh - 2.2rem)};`};
 
   ${props =>
     props.level1 &&
     `
     position: absolute;
-    top: 0;
+    top: 2.2rem;
     right: 0;
     bottom: 0;
     left: 0;
@@ -51,7 +48,7 @@ const Wrapper = styled(({ level1, level2, ...props }) => (
     props.level2 &&
     `
     position: absolute;
-    top: 0;
+    top: 2.2rem;
     right: 0;
     bottom: 0;
     left: 0;
@@ -67,8 +64,18 @@ const Wrapper = styled(({ level1, level2, ...props }) => (
   `};
 `
 
-const Window = ({ name, full, free, children, close, level1, level2 }) => (
-  <Wrapper level1={level1} level2={level2}>
+const Window = ({
+  active,
+  children,
+  close,
+  free,
+  full,
+  level0,
+  level1,
+  level2,
+  name,
+}) => (
+  <Wrapper active={active} level0={level0} level1={level1} level2={level2}>
     <Header>
       <Close to={close} />
       <Name>
@@ -80,20 +87,24 @@ const Window = ({ name, full, free, children, close, level1, level2 }) => (
 )
 
 Window.propTypes = {
-  name: PropTypes.string.isRequired,
-  full: PropTypes.number,
-  free: PropTypes.number,
+  active: PropTypes.bool,
   children: PropTypes.node,
   close: PropTypes.string,
+  free: PropTypes.number,
+  full: PropTypes.number,
+  level0: PropTypes.bool,
   level1: PropTypes.bool,
   level2: PropTypes.bool,
+  name: PropTypes.string.isRequired,
 }
 
 Window.defaultProps = {
-  full: 85,
-  free: 128,
+  active: false,
   children: null,
   close: '/',
+  free: 128,
+  full: 85,
+  level0: null,
   level1: null,
   level2: null,
 }

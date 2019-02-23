@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import WorkBench from '../layouts/WorkBench'
-import { Work } from '../containers'
+import { WorkBench as WB, Work } from '../containers'
 import { SEO } from '../components'
 
 const WorkPage = ({ data }) => {
@@ -13,7 +13,8 @@ const WorkPage = ({ data }) => {
     <WorkBench>
       <>
         <SEO title={name} desc={description} pathname={slug} />
-        <Work level2 />
+        <WB />
+        <Work level2 active />
       </>
     </WorkBench>
   )

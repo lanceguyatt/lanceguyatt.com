@@ -8,7 +8,7 @@ import Twitter from './Twitter'
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
 const SEO = props => {
-  const { title, desc, banner, pathname, article, node } = props
+  const { title, desc, image, pathname, website, node } = props
   return (
     <StaticQuery
       query={query}
@@ -20,7 +20,7 @@ const SEO = props => {
             defaultTitle,
             defaultDescription,
             defaultBanner,
-            headline,
+            // headline,
             siteLanguage,
             ogLanguage,
             author,
@@ -32,7 +32,7 @@ const SEO = props => {
         const seo = {
           title: title || defaultTitle,
           description: desc || defaultDescription,
-          image: banner || defaultBanner,
+          image: `${siteUrl}${image}` || defaultBanner,
           url: `${siteUrl}${pathname || ''}`,
         }
 
@@ -44,7 +44,7 @@ const SEO = props => {
           '@context': 'http://schema.org',
           '@type': 'WebPage',
           url: siteUrl,
-          headline,
+          // headline,
           inLanguage: siteLanguage,
           mainEntityOfPage: siteUrl,
           description: defaultDescription,
@@ -70,7 +70,7 @@ const SEO = props => {
           dateModified: buildTime,
           image: {
             '@type': 'ImageObject',
-            url: `${siteUrl}${defaultBanner}`,
+            url: `${siteUrl}${image}`,
           },
         }
 
@@ -87,39 +87,22 @@ const SEO = props => {
           },
         ]
 
-        let schemaArticle = null
+        let schemaWebsite = null
 
-        if (article) {
-          schemaArticle = {
+        if (website) {
+          schemaWebsite = {
             '@context': 'http://schema.org',
-            '@type': 'Article',
-            author: {
-              '@type': 'Person',
-              name: author,
-            },
-            copyrightHolder: {
-              '@type': 'Person',
-              name: author,
-            },
-            copyrightYear: '2019',
+            '@type': 'Website',
             creator: {
               '@type': 'Person',
               name: author,
             },
-            publisher: {
-              '@type': 'Organization',
-              name: author,
-              logo: {
-                '@type': 'ImageObject',
-                url: `${siteUrl}${defaultBanner}`,
-              },
-            },
             datePublished: node.datePublished,
-            dateModified: node.last_publication_date,
+            dateModified: node.dateModified,
             description: seo.description,
             headline: seo.title,
             inLanguage: 'en',
-            url: seo.url,
+            url: node.url,
             name: seo.title,
             image: {
               '@type': 'ImageObject',
@@ -152,15 +135,14 @@ const SEO = props => {
               <html lang={siteLanguage} />
               <meta name="description" content={seo.description} />
               <meta name="image" content={seo.image} />
-              {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
-              {!article && (
+              {!website && (
                 <script type="application/ld+json">
                   {JSON.stringify(schemaOrgWebPage)}
                 </script>
               )}
-              {article && (
+              {website && (
                 <script type="application/ld+json">
-                  {JSON.stringify(schemaArticle)}
+                  {JSON.stringify(schemaWebsite)}
                 </script>
               )}
               <script type="application/ld+json">
@@ -171,7 +153,7 @@ const SEO = props => {
               desc={seo.description}
               image={seo.image}
               title={seo.title}
-              type={article ? 'article' : 'website'}
+              type="website"
               url={seo.url}
               locale={ogLanguage}
               name={facebook}
@@ -192,18 +174,18 @@ const SEO = props => {
 SEO.propTypes = {
   title: PropTypes.string,
   desc: PropTypes.string,
-  banner: PropTypes.string,
+  image: PropTypes.string,
   pathname: PropTypes.string,
-  article: PropTypes.bool,
+  website: PropTypes.bool,
   node: PropTypes.object,
 }
 
 SEO.defaultProps = {
   title: null,
   desc: null,
-  banner: null,
+  image: null,
   pathname: null,
-  article: false,
+  website: false,
   node: null,
 }
 

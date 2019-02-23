@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import WorkBench from '../layouts/WorkBench'
-import { About } from '../containers'
+import { WorkBench as WB, About } from '../containers'
 import { SEO } from '../components'
 
 const AboutPage = ({ data }) => {
@@ -13,7 +13,8 @@ const AboutPage = ({ data }) => {
     <WorkBench>
       <>
         <SEO title={name} desc={description} pathname={slug} />
-        <About />
+        <WB />
+        <About active />
       </>
     </WorkBench>
   )

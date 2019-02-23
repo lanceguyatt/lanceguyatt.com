@@ -1,20 +1,29 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 
 import { Window, Directory } from '../components'
 
 const edgeToArray = data => data.edges.map(edge => edge.node)
 
-const Work = () => (
+const Work = ({ active }) => (
   <StaticQuery
     query={WorkStaticQuery}
     render={data => (
-      <Window {...data.strapiPage} level1>
+      <Window {...data.strapiPage} active={active} level1>
         <Directory basepath="/work" list={edgeToArray(data.allStrapiWork)} />
       </Window>
     )}
   />
 )
+
+Work.propTypes = {
+  active: PropTypes.bool,
+}
+
+Work.defaultProps = {
+  active: false,
+}
 
 export default Work
 
