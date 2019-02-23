@@ -1,8 +1,8 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import { Flex, Box } from './common'
+import website from '../../config/website'
 
 const Name = styled(Box).attrs({
   mx: 3,
@@ -25,32 +25,9 @@ const Wrapper = styled(Flex).attrs({
 })``
 
 const TitleBar = () => (
-  <StaticQuery
-    query={TitleBarQuery}
-    render={data => {
-      const { site } = data
-      const { siteMetadata } = site
-      const { title, copyright } = siteMetadata
-      return (
-        <Wrapper>
-          <Name>
-            {title} {copyright}
-          </Name>
-        </Wrapper>
-      )
-    }}
-  />
+  <Wrapper>
+    <Name>{`Lance Guyatt, Web Developer. ${website.copyright}`}</Name>
+  </Wrapper>
 )
 
 export default TitleBar
-
-const TitleBarQuery = graphql`
-  query titleBarQuery {
-    site {
-      siteMetadata {
-        title
-        copyright
-      }
-    }
-  }
-`

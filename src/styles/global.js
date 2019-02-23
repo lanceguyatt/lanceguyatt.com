@@ -78,6 +78,16 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  #___gatsby {
+    background: orange;
+    min-height: 100vh;
+
+    > div[role="group"] {
+      background: yellow;
+      height: 100vh;
+    }
+  }
+
   ul {
     list-style: none;
   }

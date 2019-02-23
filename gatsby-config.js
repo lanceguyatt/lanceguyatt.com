@@ -8,7 +8,7 @@ const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
 
 module.exports = {
   siteMetadata: {
-    siteUrl: GATSBY_SITE_URL + pathPrefix,
+    siteUrl: GATSBY_SITE_URL + pathPrefix, // For gatsby-plugin-sitemap
     pathPrefix,
     title: website.title,
     titleAlt: website.titleAlt,
@@ -20,8 +20,6 @@ module.exports = {
     author: website.author,
     twitter: website.twitter,
     facebook: website.facebook,
-    copyrightYear: website.copyrightYear,
-    copyright: website.copyright,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

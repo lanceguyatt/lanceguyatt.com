@@ -4,7 +4,7 @@ module.exports = {
   titleAlt: 'Lance Guyatt', // Title for JSONLD
   description: 'Lance Guyatt - Web Developer',
   headline: 'Lance Guyatt - Web Developer', // Headline for schema.org JSONLD
-  url: 'http://lanceguyatt.surge.sh', // Domain of your site. No trailing slash!
+  // url: 'http://lanceguyatt.surge.sh', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   logo: `${process.env.GATSBY_SITE_URL}/images/share.png`, // Used for SEO
   ogLanguage: 'en_GB', // Facebook Language
