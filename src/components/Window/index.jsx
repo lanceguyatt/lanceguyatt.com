@@ -33,7 +33,7 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 0;
+    z-index: ${props.theme.zIndex[1]};
 
     @media (min-width: ${props.theme.breakpoints[1]}) {
       left: 50%;
@@ -52,7 +52,7 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1;
+    z-index: ${props.theme.zIndex[2]};
 
     @media (min-width: ${props.theme.breakpoints[1]}) {
       left: 50%;

@@ -1,4 +1,4 @@
-const breakpoints = ['480px', '768px']
+const breakpoints = ['576px', '768px']
 
 const colors = {
   primary: '#e0a080',
@@ -16,16 +16,10 @@ const space = [
   '6.4rem',
 ]
 
-const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72]
-
-const lineHeights = [1, '1.125', '1.25', '1.5']
-
 const kickstart = {
   breakpoints,
   colors,
   space,
-  fontSizes,
-  lineHeights,
 }
 
 export default kickstart

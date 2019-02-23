@@ -1,4 +1,4 @@
-const breakpoints = ['480px', '768px']
+const breakpoints = ['576px', '768px']
 
 const colors = {
   primary: '#ed1c24',
@@ -16,18 +16,12 @@ const space = [
   '6.4rem',
 ]
 
-const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72]
-
-const lineHeights = [1, '1.125', '1.25', '1.5']
-
 const borders = [0, '0.1rem solid', '0.2rem solid', '0.4rem solid']
 
 const guruMeditation = {
   breakpoints,
   colors,
   space,
-  fontSizes,
-  lineHeights,
   borders,
 }
 

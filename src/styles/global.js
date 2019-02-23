@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     font-size: 12px;
 
-    @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    @media (min-width: 554px) {
       font-size: 10px;
     }
   }
