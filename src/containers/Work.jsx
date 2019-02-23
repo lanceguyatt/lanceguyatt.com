@@ -8,11 +8,14 @@ const edgeToArray = data => data.edges.map(edge => edge.node)
 const Work = () => (
   <StaticQuery
     query={WorkStaticQuery}
-    render={data => (
-      <Window {...data.strapiPage} level1>
-        <Directory basepath="/work" list={edgeToArray(data.allStrapiWork)} />
-      </Window>
-    )}
+    render={data => {
+      const { strapiPage, allStrapiWork } = data
+      return (
+        <Window {...strapiPage} level1>
+          <Directory basepath="/work" list={edgeToArray(allStrapiWork)} />
+        </Window>
+      )
+    }}
   />
 )
 

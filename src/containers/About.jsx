@@ -8,11 +8,14 @@ const edgeToArray = data => data.edges.map(edge => edge.node)
 const About = () => (
   <StaticQuery
     query={AboutStaticQuery}
-    render={data => (
-      <Window {...data.strapiPage} level1>
-        <Directory basepath="/about" list={edgeToArray(data.allStrapiAbout)} />
-      </Window>
-    )}
+    render={data => {
+      const { strapiPage, allStrapiAbout } = data
+      return (
+        <Window {...strapiPage} level1>
+          <Directory basepath="/about" list={edgeToArray(allStrapiAbout)} />
+        </Window>
+      )
+    }}
   />
 )
 
