@@ -5,10 +5,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import Facebook from './Facebook'
 import Twitter from './Twitter'
 
-// Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
-
 const SEO = props => {
-  const { title, desc, image, pathname, website, node } = props
+  const { name, description, url, image, website, node } = props
   return (
     <StaticQuery
       query={query}
@@ -17,10 +15,9 @@ const SEO = props => {
           buildTime,
           siteMetadata: {
             siteUrl,
-            defaultTitle,
-            defaultDescription,
-            defaultBanner,
-            // headline,
+            siteTitle,
+            siteDescription,
+            siteImage,
             siteLanguage,
             ogLanguage,
             author,
@@ -30,10 +27,10 @@ const SEO = props => {
         },
       }) => {
         const seo = {
-          title: title || defaultTitle,
-          description: desc || defaultDescription,
-          image: `${siteUrl}${image}` || defaultBanner,
-          url: `${siteUrl}${pathname || ''}`,
+          name: name || siteTitle,
+          description: description || siteDescription,
+          url: `${siteUrl}${url || ''}`,
+          image: image ? `${siteUrl}${image}` : siteImage,
         }
 
         // schema.org in JSONLD format
@@ -47,8 +44,8 @@ const SEO = props => {
           // headline,
           inLanguage: siteLanguage,
           mainEntityOfPage: siteUrl,
-          description: defaultDescription,
-          name: defaultTitle,
+          description: siteDescription,
+          name: siteTitle,
           author: {
             '@type': 'Person',
             name: author,
@@ -57,7 +54,7 @@ const SEO = props => {
             '@type': 'Person',
             name: author,
           },
-          copyrightYear: '2019',
+          copyrightYear: 2019,
           creator: {
             '@type': 'Person',
             name: author,
@@ -66,16 +63,15 @@ const SEO = props => {
             '@type': 'Person',
             name: author,
           },
-          datePublished: '2019-01-18T10:30:00+01:00',
+          datePublished: '2019-02-23T23:58:00',
           dateModified: buildTime,
           image: {
             '@type': 'ImageObject',
-            url: `${siteUrl}${image}`,
+            url: image,
           },
         }
 
         // Initial breadcrumb list
-
         const itemListElement = [
           {
             '@type': 'ListItem',
@@ -93,29 +89,29 @@ const SEO = props => {
           schemaWebsite = {
             '@context': 'http://schema.org',
             '@type': 'Website',
-            creator: {
-              '@type': 'Person',
-              name: author,
-            },
+            name: seo.name,
+            headline: seo.name,
+            description: seo.description,
+            url: seo.url,
+            mainEntityOfPage: seo.url,
             datePublished: node.datePublished,
             dateModified: node.dateModified,
-            description: seo.description,
-            headline: seo.title,
             inLanguage: 'en',
-            url: node.url,
-            name: seo.title,
             image: {
               '@type': 'ImageObject',
               url: seo.image,
             },
-            mainEntityOfPage: seo.url,
+            creator: {
+              '@type': 'Person',
+              name: author,
+            },
           }
           // Push current blogpost into breadcrumb list
           itemListElement.push({
             '@type': 'ListItem',
             item: {
               '@id': seo.url,
-              name: seo.title,
+              name: seo.name,
             },
             position: 2,
           })
@@ -131,7 +127,7 @@ const SEO = props => {
 
         return (
           <>
-            <Helmet title={seo.title} titleTemplate={`%s - ${defaultTitle}`}>
+            <Helmet title={seo.name} titleTemplate={`%s - ${siteTitle}`}>
               <html lang={siteLanguage} />
               <meta name="description" content={seo.description} />
               <meta name="image" content={seo.image} />
@@ -150,18 +146,19 @@ const SEO = props => {
               </script>
             </Helmet>
             <Facebook
-              desc={seo.description}
-              image={seo.image}
-              title={seo.title}
-              type="website"
+              title={seo.name}
+              description={seo.description}
               url={seo.url}
+              image={seo.image}
+              type="website"
+              siteName={facebook}
               locale={ogLanguage}
-              name={facebook}
             />
             <Twitter
-              title={seo.title}
+              title={seo.name}
+              description={seo.description}
+              url={seo.url}
               image={seo.image}
-              desc={seo.description}
               username={twitter}
             />
           </>
@@ -172,19 +169,19 @@ const SEO = props => {
 }
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  desc: PropTypes.string,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  url: PropTypes.string,
   image: PropTypes.string,
-  pathname: PropTypes.string,
   website: PropTypes.bool,
   node: PropTypes.object,
 }
 
 SEO.defaultProps = {
-  title: null,
-  desc: null,
+  name: null,
+  description: null,
+  url: null,
   image: null,
-  pathname: null,
   website: false,
   node: null,
 }
@@ -196,12 +193,11 @@ const query = graphql`
     site {
       buildTime(formatString: "YYYY-MM-DD")
       siteMetadata {
+        siteTitle: title
+        siteDescription: description
         siteUrl
-        defaultTitle: title
-        defaultDescription: description
-        defaultBanner: banner
-        headline
-        siteLanguage
+        siteImage: image
+        siteLanguage: language
         ogLanguage
         author
         twitter

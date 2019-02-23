@@ -49,32 +49,17 @@ const Dd = styled(Foo).attrs({
 
 const WorkTemplate = ({ data }) => {
   const { strapiWork } = data
-  const {
-    name,
-    description,
-    slug,
-    url,
-    image,
-    logo,
-    technologies,
-    datePublished,
-    dateModified,
-  } = strapiWork
+  const { name, description, slug, url, image, logo, technologies } = strapiWork
   return (
     <WorkBench>
       <>
         <SEO
-          title={name}
-          desc={description}
-          pathname={`/work/${slug}`}
-          website
+          name={name}
+          description={description}
+          url={`/work/${slug}`}
           image={image ? image.childImageSharp.fixed.src : null}
-          node={{
-            name,
-            description,
-            datePublished,
-            dateModified,
-          }}
+          website
+          node={strapiWork}
         />
         <WB />
         <Work />

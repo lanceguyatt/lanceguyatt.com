@@ -8,11 +8,11 @@ import { SEO } from '../components'
 
 const WorkPage = ({ data }) => {
   const { strapiPage } = data
-  const { name, description, slug } = strapiPage
+  const { name, description, url } = strapiPage
   return (
     <WorkBench>
       <>
-        <SEO title={name} desc={description} pathname={slug} />
+        <SEO name={name} description={description} url={url} />
         <WB />
         <Work level2 active />
       </>
@@ -31,8 +31,7 @@ export const WorkPageQuery = graphql`
     strapiPage(slug: { eq: "/work" }) {
       name
       description
-      slug
-      full
+      url: slug
     }
   }
 `

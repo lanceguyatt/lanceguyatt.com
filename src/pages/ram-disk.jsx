@@ -8,13 +8,13 @@ import { SEO, Window } from '../components'
 
 const RamDiskPage = ({ data }) => {
   const { strapiPage } = data
-  const { name, description, slug } = strapiPage
+  const { name, description, url, full } = strapiPage
   return (
     <WorkBench>
       <>
-        <SEO title={name} desc={description} pathname={slug} />
+        <SEO name={name} description={description} url={url} />
         <WB />
-        <Window {...data.strapiPage} level1 active />
+        <Window {...data.strapiPage} level1 active full={full} />
       </>
     </WorkBench>
   )
@@ -31,7 +31,7 @@ export const RamDiskPageQuery = graphql`
     strapiPage(slug: { eq: "/ram-disk" }) {
       name
       description
-      slug
+      url: slug
       full
     }
   }

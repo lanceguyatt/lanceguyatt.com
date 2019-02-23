@@ -6,13 +6,18 @@ import Default from '../layouts/Default'
 import KickStart from '../containers/KickStart'
 import { SEO } from '../components'
 
-const KickStartPage = ({ data: { strapiPage } }) => (
+const KickStartPage = ({
+  data: {
+    strapiPage: { name, description, url, image },
+  },
+}) => (
   <Default>
     <>
       <SEO
-        title={strapiPage.name}
-        desc={strapiPage.description}
-        pathname={strapiPage.slug}
+        name={name}
+        description={description}
+        url={url}
+        image={image.childImageSharp.fixed.src}
       />
       <KickStart />
     </>
@@ -30,7 +35,8 @@ export const KickStartPageQuery = graphql`
     strapiPage(slug: { eq: "/kickstart" }) {
       name
       description
-      slug
+      url: slug
+      ...shareImage
     }
   }
 `

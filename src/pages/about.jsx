@@ -6,19 +6,15 @@ import WorkBench from '../layouts/WorkBench'
 import { WorkBench as WB, About } from '../containers'
 import { SEO } from '../components'
 
-const AboutPage = ({ data }) => {
-  const { strapiPage } = data
-  const { name, description, slug } = strapiPage
-  return (
-    <WorkBench>
-      <>
-        <SEO title={name} desc={description} pathname={slug} />
-        <WB />
-        <About active />
-      </>
-    </WorkBench>
-  )
-}
+const AboutPage = ({ data: { strapiPage } }) => (
+  <WorkBench>
+    <>
+      <SEO {...strapiPage} />
+      <WB />
+      <About active />
+    </>
+  </WorkBench>
+)
 
 AboutPage.propTypes = {
   data: PropTypes.shape().isRequired,
@@ -31,7 +27,7 @@ export const AboutPageQuery = graphql`
     strapiPage(slug: { eq: "/about" }) {
       name
       description
-      slug
+      url: slug
       full
     }
   }
