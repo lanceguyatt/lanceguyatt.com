@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { error, result } = await wrapper(
     graphql(`
       {
-        allStrapiWork {
+        allStrapiWork(filter: { published: { eq: true } }) {
           edges {
             node {
               name

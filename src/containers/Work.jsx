@@ -37,7 +37,10 @@ const WorkStaticQuery = graphql`
       free
     }
 
-    allStrapiWork(sort: { fields: [datePublished], order: DESC }) {
+    allStrapiWork(
+      sort: { fields: [datePublished], order: DESC }
+      filter: { published: { eq: true } }
+    ) {
       edges {
         node {
           id

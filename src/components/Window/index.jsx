@@ -20,19 +20,20 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
   border-bottom-color: #000;
   border-left-color: #000;
 
+  position: absolute;
+  top: 2.2rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
   background-color: ${props =>
     props.active ? props.theme.colors.primary : props.theme.colors.secondary};
 
-  ${props => props.level0 && `height: calc(100vh - 2.2rem)};`};
+  ${props => props.level0 && `z-index: ${props.theme.zIndex[0]};`};
 
   ${props =>
     props.level1 &&
     `
-    position: absolute;
-    top: 2.2rem;
-    right: 0;
-    bottom: 0;
-    left: 0;
     z-index: ${props.theme.zIndex[1]};
 
     @media (min-width: ${props.theme.breakpoints[1]}) {
@@ -47,11 +48,6 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
   ${props =>
     props.level2 &&
     `
-    position: absolute;
-    top: 2.2rem;
-    right: 0;
-    bottom: 0;
-    left: 0;
     z-index: ${props.theme.zIndex[2]};
 
     @media (min-width: ${props.theme.breakpoints[1]}) {

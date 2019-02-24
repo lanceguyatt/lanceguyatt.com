@@ -131,10 +131,8 @@ export const WorkTemplateQuery = graphql`
       dateModified
       logo {
         childImageSharp {
-          fixed(width: 100, height: 100) {
-            ...GatsbyImageSharpFixed
-            width
-            height
+          fixed(width: 144) {
+            ...GatsbyImageSharpFixed_withWebp_noBase64
           }
         }
       }
