@@ -15,6 +15,7 @@ const KickStartPage = ({
 }) => (
   <ThemeProvider theme={kickstart}>
     <>
+      <GlobalStyle />
       <SEO
         name={name}
         description={description}
@@ -22,7 +23,6 @@ const KickStartPage = ({
         image={image.childImageSharp.fixed.src}
       />
       <KickStart />
-      <GlobalStyle />
     </>
   </ThemeProvider>
 )

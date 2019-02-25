@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: '#6687ba',
+        color: website.themeColor,
         showSpinner: false,
       },
     },
@@ -51,7 +51,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: website.title,
+        name: website.titleAlt,
         short_name: website.titleAlt,
         description: website.description,
         start_url: pathPrefix,
@@ -59,6 +59,7 @@ module.exports = {
         theme_color: website.themeColor,
         display: 'minimal-ui',
         icon: website.favicon,
+        include_favicon: true, // Include favicon
       },
     },
     'gatsby-plugin-sitemap',

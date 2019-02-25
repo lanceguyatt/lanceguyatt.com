@@ -42,10 +42,12 @@ class GuruMeditation extends Component {
     return (
       <Wrapper>
         <Alert
-          name="Software Failure. Press left mouse button to continue."
-          description="Guru Meditation #00004040.00004040"
+          description={`
+            Software Failure. Press left mouse button to continue.
+            <br />
+            Guru Meditation #00004040.00004040
+          `}
           url="/"
-          colors="alert.danger"
         />
 
         <Toasty

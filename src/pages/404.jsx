@@ -16,9 +16,9 @@ const GuruMeditationPage = ({
 }) => (
   <ThemeProvider theme={guruMeditation}>
     <>
+      <GlobalStyle />
       <SEO name={name} description={description} url={url} />
       <GuruMeditation />
-      <GlobalStyle />
     </>
   </ThemeProvider>
 )

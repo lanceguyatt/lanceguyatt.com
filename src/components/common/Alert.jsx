@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Link } from 'gatsby'
-import { Box } from './index'
 
-const animation = keyframes`
+const pulse = keyframes`
   0% {
     border-color: currentColor;
   }
@@ -13,38 +12,31 @@ const animation = keyframes`
     border-color: transparent;
   }
 `
-
-/* eslint-disable-next-line */
-const Wrapper = styled(({ name, description, url, ...props }) => (
-  <Box {...props} />
-)).attrs({
-  border: 3,
-  maxWidth: '64rem',
-  p: 6,
-  textAlign: 'center',
-})`
-  animation: ${animation} 0.75s infinite alternate;
+const animation = css`
+  animation: ${pulse} 0.75s infinite alternate;
 `
 
-const Alert = ({ name, description, url, ...props }) => (
-  <Wrapper {...props}>
-    <Link to={url}>
-      <h2>{name}</h2>
-      <p>{description}</p>
-    </Link>
-  </Wrapper>
+/* eslint-disable-next-line */
+const Wrapper = styled(({ description, url, ...props }) => <Link {...props} />)`
+  border: ${props => props.theme.borders[3]};
+  border-color: ${props => props.theme.colors.primary};
+  padding: ${props => props.theme.space[6]};
+  display: block;
+  max-width: 64rem;
+  text-align: center;
+  ${animation};
+`
+
+const Alert = ({ description, url }) => (
+  <Wrapper to={url} dangerouslySetInnerHTML={{ __html: description }} />
 )
 
 Alert.propTypes = {
-  colors: PropTypes.string,
-  name: PropTypes.string,
   description: PropTypes.string,
   url: PropTypes.string,
 }
 
 Alert.defaultProps = {
-  colors: 'danger',
-  name: 'Alert name',
   description: 'Alert description',
   url: '/',
 }

@@ -1,4 +1,4 @@
-# Lance Guyatt [![dependencies Status](https://david-dm.org/lanceguyatt/lanceguyatt/status.svg)](https://david-dm.org/lanceguyatt/fronter) [![devDependency Status](https://david-dm.org/lanceguyatt/lanceguyatt/dev-status.svg?style=flat-square)](https://david-dm.org/lanceguyatt/lanceguyatt#info=devDependencies)
+# Lance Guyatt
 
 > Personal site built with Strapi, GraphQL, Gatsby and Styled Components. Inspired by Amiga Workbench.
 

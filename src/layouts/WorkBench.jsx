@@ -9,9 +9,9 @@ import { TitleBar } from '../components'
 const WorkBench = ({ children }) => (
   <ThemeProvider theme={workbench}>
     <>
+      <GlobalStyle />
       <TitleBar />
       {children}
-      <GlobalStyle />
     </>
   </ThemeProvider>
 )

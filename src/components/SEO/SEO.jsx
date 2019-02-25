@@ -14,9 +14,9 @@ const SEO = props => {
         site: {
           buildTime,
           siteMetadata: {
-            siteUrl,
             siteTitle,
             siteDescription,
+            siteUrl,
             siteImage,
             siteLanguage,
             ogLanguage,
@@ -29,7 +29,7 @@ const SEO = props => {
         const seo = {
           name: name || siteTitle,
           description: description || siteDescription,
-          url: `${siteUrl}${url || ''}`,
+          url: `${siteUrl}${url}` || siteUrl,
           image: image ? `${siteUrl}${image}` : siteImage,
         }
 
