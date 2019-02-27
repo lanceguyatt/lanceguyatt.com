@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Topaz;
+  src: url('/fonts/webfont.eot');
+  src: url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/topaz.ttf') format('truetype'),
+       url('/fonts/topaz.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

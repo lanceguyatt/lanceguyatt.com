@@ -21,12 +21,6 @@ const HTML = ({
         content="width=device-width, minimum-scale=1.0, maximum-scale=5.0, initial-scale=1.0"
       />
       <link rel="author" href="/humans.txt" type="text/plain" />
-      <link
-        rel="preload"
-        href="/fonts/topaz.woff2"
-        as="font"
-        crossOrigin="anonymous"
-      />
     </head>
     <body {...bodyAttributes}>
       {preBodyComponents}

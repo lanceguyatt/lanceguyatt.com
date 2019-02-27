@@ -9,16 +9,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  @font-face {
-    font-family: Topaz;
-    src:
-      url(/fonts/topaz.eot) format('eot'),
-      url(/fonts/topaz.ttf) format('ttf'),
-      url(/fonts/topaz.woff2) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-
   * {
     margin: 0;
     padding: 0;
