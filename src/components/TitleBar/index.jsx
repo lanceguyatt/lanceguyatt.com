@@ -1,31 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 
-import { Flex, Box } from './common'
+import { Name, Wrapper } from './style'
 
-const Name = styled(Box).attrs({
-  mx: 3,
-  flex: 1,
-  lineHeight: 1,
-})`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  user-select: none;
-  white-space: nowrap;
-`
-const Wrapper = styled(Flex).attrs({
-  bg: 'dark',
-  color: 'secondary',
-  borderColor: 'dark',
-  height: '2.2rem',
-  alignItems: 'center',
-  borderTop: 2,
-  borderBottom: 2,
-})``
-
-const TitleBar = ({
+const TitleBarTemplate = ({
   data: {
     site: {
       siteMetadata: { title, copyright },
@@ -39,12 +18,18 @@ const TitleBar = ({
   </Wrapper>
 )
 
-export default props => (
+TitleBarTemplate.propTypes = {
+  data: PropTypes.shape().isRequired,
+}
+
+const TitleBar = () => (
   <StaticQuery
     query={TitleBarQuery}
     render={data => <TitleBar data={data} />}
   />
 )
+
+export default TitleBar
 
 TitleBar.propTypes = {
   data: PropTypes.shape({

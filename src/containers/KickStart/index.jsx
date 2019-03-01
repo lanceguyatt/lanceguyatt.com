@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Wrapper, Tick, DiskDrive, FloppyDisk } from './style'
 import { Box } from '../../components/common'
 
-const KickStart = ({ data }) => {
+const KickStartTemplate = ({ data }) => {
   const { site } = data
   const { siteMetadata } = site
   const { copyrightYear, author } = siteMetadata
@@ -67,16 +67,18 @@ const KickStart = ({ data }) => {
   )
 }
 
-KickStart.propTypes = {
+KickStartTemplate.propTypes = {
   data: PropTypes.shape().isRequired,
 }
 
-export default props => (
+const KickStart = () => (
   <StaticQuery
     query={KickStartStaticQuery}
     render={data => <KickStart data={data} />}
   />
 )
+
+export default KickStart
 
 const KickStartStaticQuery = graphql`
   query kickstartStaticQuery {

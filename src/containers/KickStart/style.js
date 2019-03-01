@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 
 import { Flex, Box } from '../../components/common'
 import tick from './tick.png'
@@ -18,6 +18,11 @@ const insertDisk = keyframes`
     transform-origin: 0% 0%;
   }
 `
+
+const insertDiskAnimation = css`
+  animation: ${insertDisk} 1.5s forwards infinite;
+`
+
 export const Tick = styled(Box).attrs({
   is: 'img',
   src: tick,
@@ -43,17 +48,16 @@ export const FloppyDisk = styled(Box).attrs({
   bottom: 0,
   left: '1.2rem',
 })`
-  animation: ${insertDisk} 1.5s forwards infinite;
+  ${insertDiskAnimation};
 `
 
 export const Wrapper = styled(Flex).attrs({
   flexDirection: ['column', null, 'row'],
   alignItems: ['center', null, 'flex-end'],
   justifyContent: ['center', null, 'space-between'],
-  minHeight: '100vh',
+  minHeight: 'min-content',
+  height: '100vh',
   bg: 'secondary',
   p: 6,
   color: 'primary',
-})`
-  overflow: hidden;
-`
+})``

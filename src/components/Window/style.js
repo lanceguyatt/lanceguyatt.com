@@ -28,6 +28,7 @@ export const Main = styled(Flex).attrs({
 })`
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  min-height: min-content;
 
   &::-webkit-scrollbar {
     display: none;

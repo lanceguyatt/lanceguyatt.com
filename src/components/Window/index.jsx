@@ -41,7 +41,9 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
       top: 50%;
       width: 50vw;
       height: 50vh;
-      transform: translate(calc(-50% - 5rem), calc(-50% - 5rem));
+      margin-top: -5rem;
+      margin-left: -5rem;
+      transform: translate(-50%, -50%);
     }
   `};
 
@@ -55,7 +57,9 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
       top: 50%;
       width: 50vw;
       height: 50vh;
-      transform: translate(calc(-50% + 5rem), calc(-50% + 5rem));
+      margin-top: 5rem;
+      margin-left: 5rem;
+      transform: translate(-50%, -50%);
     }
   `};
 `

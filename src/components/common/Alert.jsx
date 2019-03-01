@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 const pulse = keyframes`
   0% {
-    border-color: currentColor;
+    border-color: inherit;
   }
 
   100% {
@@ -20,8 +20,10 @@ const animation = css`
 const Wrapper = styled(({ description, url, ...props }) => <Link {...props} />)`
   border: ${props => props.theme.borders[3]};
   border-color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.pimary};
   padding: ${props => props.theme.space[6]};
   display: block;
+  width: 100%;
   max-width: 64rem;
   text-align: center;
   ${animation};
@@ -32,13 +34,8 @@ const Alert = ({ description, url }) => (
 )
 
 Alert.propTypes = {
-  description: PropTypes.string,
-  url: PropTypes.string,
-}
-
-Alert.defaultProps = {
-  description: 'Alert description',
-  url: '/',
+  description: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 }
 
 export default Alert

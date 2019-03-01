@@ -5,10 +5,11 @@ import { Box } from '../index'
 import sprite from './sprite.svg'
 
 export const Image = styled(Box).attrs({
-  width: '6.6rem',
+  width: '6.5rem',
   height: '3.8rem',
   backgroundImage: `url(${sprite})`,
   backgroundSize: 'cover',
+  bg: 'pink',
   mb: 3,
   mx: 'auto',
 })``
