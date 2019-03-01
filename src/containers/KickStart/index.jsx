@@ -74,7 +74,7 @@ KickStartTemplate.propTypes = {
 const KickStart = () => (
   <StaticQuery
     query={KickStartStaticQuery}
-    render={data => <KickStart data={data} />}
+    render={data => <KickStartTemplate data={data} />}
   />
 )
 

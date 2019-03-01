@@ -9,7 +9,6 @@ export const Image = styled(Box).attrs({
   height: '3.8rem',
   backgroundImage: `url(${sprite})`,
   backgroundSize: 'cover',
-  bg: 'pink',
   mb: 3,
   mx: 'auto',
 })``

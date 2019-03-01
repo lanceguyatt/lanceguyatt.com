@@ -36,7 +36,6 @@ module.exports = {
       options: {
         custom: {
           families: ['Topaz'],
-          urls: ['/fonts.css'],
         },
       },
     },

@@ -1,6 +1,18 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Topaz';
+    font-display: swap;
+    src: url('/fonts/webfont.eot');
+    src: local('Topaz'),
+        url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/topaz.ttf') format('truetype'),
+        url('/fonts/topaz.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   :root {
     font-size: 12px;
 
@@ -18,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-size: 1.6rem;
     line-height: 1.25;
-    font-family: Topaz, sans-serif;
+    font-family: 'Topaz', sans-serif;
     text-rendering: optimizeLegibility;
     text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;

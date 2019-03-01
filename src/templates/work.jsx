@@ -71,7 +71,7 @@ const WorkTemplate = ({ data }) => {
             flex={1}
           >
             {logo && (
-              <Foo mx="auto" mb={5}>
+              <Foo mx="auto" mb={5} width="15.6rem">
                 <Img fixed={logo.childImageSharp.fixed} />
               </Foo>
             )}
