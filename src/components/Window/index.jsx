@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Close, Flex } from '../common'
+import { Close, Flex } from '../index'
 import { Name, Header, Main } from './style'
 
 /* eslint-disable-next-line */

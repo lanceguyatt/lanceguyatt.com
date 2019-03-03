@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from '../styles/global'
 import { guruMeditation } from '../styles/theme'
-
 import GuruMeditation from '../containers/GuruMeditation'
 import { SEO } from '../components'
 

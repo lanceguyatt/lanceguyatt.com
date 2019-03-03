@@ -1,14 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { workbench } from './theme'
+
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Topaz';
-    font-display: swap;
     src: url('/fonts/webfont.eot');
     src: local('Topaz'),
-        url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/topaz.ttf') format('truetype'),
-        url('/fonts/topaz.woff2') format('woff2');
+         url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/topaz.ttf') format('truetype'),
+         url('/fonts/topaz.woff') format('woff'),
+         url('/fonts/topaz.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
   }
@@ -16,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     font-size: 12px;
 
-    @media (min-width: 554px) {
+    @media (min-width: ${workbench.breakpoints[0]}) {
       font-size: 10px;
     }
   }
@@ -29,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
-    line-height: 1.25;
+    line-height: 1.125;
     font-family: 'Topaz', sans-serif;
     text-rendering: optimizeLegibility;
     text-size-adjust: 100%;

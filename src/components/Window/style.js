@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Box, Flex } from '../common'
+import { Box, Flex } from '../index'
 
 export const Name = styled(Box).attrs({
   px: 3,

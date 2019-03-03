@@ -1,6 +1,6 @@
 const borders = [0, '0.1rem solid', '0.2rem solid', '0.4rem solid']
 
-const breakpoints = ['576px', '768px']
+const breakpoints = ['57.6rem']
 
 const colors = {
   primary: '#6687ba',

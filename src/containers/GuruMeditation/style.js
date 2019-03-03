@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { CSSTransition } from 'react-css-transition'
 
-import { Flex } from '../../components/common'
+import { Flex } from '../../components'
 import toastyImage from './toasty.png'
 
 export const Wrapper = styled(Flex).attrs({

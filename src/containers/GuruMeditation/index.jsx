@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { transit } from 'react-css-transition'
 
-import { Alert, Audio } from '../../components/common'
+import { Alert, Audio } from '../../components'
 import { Wrapper, Toasty } from './style'
 import toastyMp3 from './toasty.mp3'
 

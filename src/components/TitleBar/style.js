@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
-import { Flex, Box } from '../common'
+import { Flex, Box } from '../index'
 
 export const Name = styled(Box).attrs({
   mx: 3,
   flex: 1,
-  lineHeight: 1,
 })`
   overflow: hidden;
   text-overflow: ellipsis;

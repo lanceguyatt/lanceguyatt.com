@@ -2,8 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-import { Window } from '../components'
-import { Flex, Disk, Drive } from '../components/common'
+import { Window, Flex, Disk, Drive } from '../components'
 
 const WorkBench = ({ active }) => (
   <StaticQuery

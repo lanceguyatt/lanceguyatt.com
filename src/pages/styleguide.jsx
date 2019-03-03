@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 
 import WorkBench from '../layouts/WorkBench'
-import { Window } from '../components'
 import {
   Action,
   Box,
   Checkbox,
-  Depth,
   Close,
+  Depth,
+  Flex,
   Label,
   Radio,
   Sizing,
+  Window,
   Zoom,
-  Flex,
-} from '../components/common'
+} from '../components'
 
 class Form extends Component {
   state = {

@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components'
 
-import { Flex, Box } from '../../components/common'
+import { Flex, Box } from '../../components'
 import tick from './tick.png'
 
 const insertDisk = keyframes`

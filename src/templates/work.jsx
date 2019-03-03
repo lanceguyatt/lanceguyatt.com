@@ -6,8 +6,7 @@ import Img from 'gatsby-image'
 
 import WorkBench from '../layouts/WorkBench'
 import { WorkBench as WB, Work } from '../containers'
-import { SEO, Window } from '../components'
-import { Box, Flex, Action } from '../components/common'
+import { SEO, Window, Box, Flex, Action } from '../components'
 
 const Foo = styled(Box).attrs({
   border: 4,
