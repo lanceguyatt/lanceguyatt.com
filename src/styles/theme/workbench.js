@@ -3,10 +3,10 @@ const borders = [0, '0.1rem solid', '0.2rem solid', '0.4rem solid']
 const breakpoints = ['57.6rem', '76.8rem']
 
 const colors = {
-  primary: '#6687ba',
-  secondary: '#aaa',
+  primary: '#6080b0',
+  secondary: '#a0a0a0',
   dark: '#000',
-  light: '#fff',
+  light: '#f0f0f0',
 }
 
 const lineHeights = [1, '1.125', '1.25', '1.5']

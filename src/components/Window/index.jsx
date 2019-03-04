@@ -4,27 +4,22 @@ import styled from 'styled-components'
 
 import { Close, Flex } from '../index'
 import { Name, Header, Main } from './style'
+import window from './window.svg'
 
 /* eslint-disable-next-line */
 const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
   <Flex {...props} />
 )).attrs({
   flexDirection: 'column',
-  borderTop: 2,
-  borderRight: 1,
-  borderBottom: 2,
-  borderLeft: 1,
 })`
-  border-top-color: #fff;
-  border-right-color: #000;
-  border-bottom-color: #000;
-  border-left-color: #000;
-
   position: absolute;
   top: 2.2rem;
   right: 0;
   bottom: 0;
   left: 0;
+  border-style: solid;
+  border-width: 2.2rem 0.4rem 0.4rem 0.4rem;
+  border-image: url(${window}) 22 4 4 4 stretch;
 
   background-color: ${props =>
     props.active ? props.theme.colors.primary : props.theme.colors.secondary};

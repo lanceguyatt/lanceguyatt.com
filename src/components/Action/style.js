@@ -17,6 +17,7 @@ export const link = css`
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 0 ${props => props.theme.space[3]};
+  min-width: 6.7rem;
 
   &:focus,
   &:active {

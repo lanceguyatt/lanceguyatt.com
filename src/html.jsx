@@ -22,8 +22,8 @@ const HTML = ({
       />
       {/* <link rel="preload" as="font" href="/fonts/topaz.eot" /> */}
       {/* <link rel="preload" as="font" href="/fonts/topaz.ttf" /> */}
-      <link rel="preload" as="font" href="/fonts/topaz.woff" />
-      <link rel="preload" as="font" href="/fonts/topaz.woff2" />
+      {/* <link rel="preload" as="font" href="/fonts/topaz.woff" />
+      <link rel="preload" as="font" href="/fonts/topaz.woff2" /> */}
       <link rel="author" href="/humans.txt" type="text/plain" />
     </head>
     <body {...bodyAttributes}>

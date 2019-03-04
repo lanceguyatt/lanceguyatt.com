@@ -1,32 +1,55 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 
+// import { Box, Menu } from '../index'
 import { Name, Wrapper } from './style'
 
-const TitleBarTemplate = ({
-  data: {
-    site: {
-      siteMetadata: { title, copyright },
-    },
-  },
-}) => (
-  <Wrapper>
-    <Name>
-      {title} {copyright}
-    </Name>
-  </Wrapper>
-)
-
-TitleBarTemplate.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        copyright: PropTypes.string.isRequired,
+class TitleBarTemplate extends Component {
+  static propTypes = {
+    data: PropTypes.shape({
+      site: PropTypes.shape({
+        siteMetadata: PropTypes.shape({
+          copyrightYear: PropTypes.number.isRequired,
+          title: PropTypes.string.isRequired,
+        }),
       }),
-    }),
-  }).isRequired,
+    }).isRequired,
+  }
+
+  state = {
+    menu: false,
+  }
+
+  toggleMenu = () => {
+    this.setState(prevState => ({
+      menu: !prevState.menu,
+    }))
+  }
+
+  render() {
+    const { data } = this.props
+    const { site } = data
+    const { siteMetadata } = site
+    const { menu } = this.state
+    return (
+      <Wrapper menu={menu}>
+        <Name>
+          Copyright © 2000-{siteMetadata.copyrightYear} {siteMetadata.title} All
+          Rights Reserved
+        </Name>
+        {/* <Box
+          position="absolute"
+          top={0}
+          left={3}
+          zIndex={4}
+          display={menu ? 'block' : 'none'}
+        >
+          <Menu />
+        </Box> */}
+      </Wrapper>
+    )
+  }
 }
 
 const TitleBar = () => (
@@ -43,7 +66,7 @@ const TitleBarQuery = graphql`
     site {
       siteMetadata {
         title
-        copyright
+        copyrightYear
       }
     }
   }

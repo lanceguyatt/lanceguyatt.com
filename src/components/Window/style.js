@@ -14,9 +14,11 @@ export const Name = styled(Box).attrs({
 
 export const Header = styled(Flex).attrs({
   alignItems: 'center',
-  borderBottom: 2,
-  borderColor: 'dark',
-  height: '2rem',
+  height: '1.8rem',
+  position: 'absolute',
+  top: '-2rem',
+  right: '-0.4rem',
+  left: '-0.4rem',
 })``
 
 export const Main = styled(Flex).attrs({
