@@ -1,7 +1,6 @@
 import styled, { keyframes, css } from 'styled-components'
 
 import { Flex, Box } from '../../components'
-import tick from './tick.png'
 
 const insertDisk = keyframes`
   0% {
@@ -24,12 +23,11 @@ const insertDiskAnimation = css`
 `
 
 export const Tick = styled(Box).attrs({
-  is: 'img',
-  src: tick,
+  is: 'svg',
+  viewBox: '0 0 165 150',
   width: '16.5rem',
   height: '15rem',
   mb: 6,
-  display: 'block',
 })``
 
 export const DiskDrive = styled(Box).attrs({

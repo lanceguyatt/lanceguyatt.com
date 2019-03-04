@@ -8,6 +8,7 @@ import {
   Close,
   Depth,
   Flex,
+  Bevel,
   Label,
   Radio,
   Sizing,
@@ -28,7 +29,16 @@ class Form extends Component {
   render() {
     const { submitted } = this.state
     return (
-      <Window level0 active>
+      <Window name="Styleguide" level0 active>
+        <div>
+          <Bevel>
+            <Box bg="primary" height={32} width={1 / 4} />
+            <Box bg="secondary" height={32} width={1 / 4} />
+            <Box bg="dark" height={32} width={1 / 4} />
+            <Box bg="light" height={32} width={1 / 4} />
+          </Bevel>
+        </div>
+
         <Box
           is="form"
           method="post"

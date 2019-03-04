@@ -10,11 +10,11 @@ module.exports = {
   ogLanguage: 'en_GB', // Facebook Language
 
   // JSONLD / Manifest
-  favicon: 'src/images/favicon.png', // Used for manifest favicon generation
+  favicon: 'src/images/logo.svg', // Used for manifest favicon generation
   shortName: 'Lance Guyatt', // shortname for manifest. MUST be shorter than 12 characters
   author: 'Lance Guyatt', // Author for schemaORGJSONLD
-  themeColor: '#6687ba',
-  backgroundColor: '#aaa',
+  themeColor: '#6080b0',
+  backgroundColor: '#a0a0a0',
 
   twitter: '@lanceguyatt', // Twitter Username
   facebook: 'Lance Guyatt, Web Developer', // Facebook Site Name

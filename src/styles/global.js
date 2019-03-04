@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { workbench } from './theme'
-
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Topaz';
@@ -12,15 +10,10 @@ const GlobalStyle = createGlobalStyle`
          url('/fonts/topaz.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
-    /* font-display: fallback; */
   }
 
   :root {
-    font-size: 12px;
-
-    @media (min-width: ${workbench.breakpoints[0]}) {
-      font-size: 10px;
-    }
+    font-size: 10px;
   }
 
   * {

@@ -20,3 +20,5 @@ export { default as Sizing } from './Sizing'
 export { default as TitleBar } from './TitleBar'
 export { default as Window } from './Window'
 export { default as Zoom } from './Zoom'
+
+export * from './typography'
