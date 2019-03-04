@@ -5,14 +5,14 @@ import { workbench } from './theme'
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Topaz';
-    src: url('/fonts/webfont.eot');
     src: local('Topaz'),
          url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
          url('/fonts/topaz.ttf') format('truetype'),
          url('/fonts/topaz.woff') format('woff'),
          url('/fonts/topaz.woff2') format('woff2');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
+    /* font-display: fallback; */
   }
 
   :root {

@@ -20,8 +20,8 @@ const HTML = ({
         name="viewport"
         content="width=device-width, minimum-scale=1.0, maximum-scale=5.0, initial-scale=1.0"
       />
-      <link rel="preload" as="font" href="/fonts/topaz.eot" />
-      <link rel="preload" as="font" href="/fonts/topaz.ttf" />
+      {/* <link rel="preload" as="font" href="/fonts/topaz.eot" /> */}
+      {/* <link rel="preload" as="font" href="/fonts/topaz.ttf" /> */}
       <link rel="preload" as="font" href="/fonts/topaz.woff" />
       <link rel="preload" as="font" href="/fonts/topaz.woff2" />
       <link rel="author" href="/humans.txt" type="text/plain" />
