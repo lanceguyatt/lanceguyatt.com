@@ -15,14 +15,6 @@ const KickStartTemplate = ({ data }) => {
         <Link to="/">
           <Tick>
             <g fill="none" fillRule="evenodd">
-              <path
-                d="M49 108h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm-10 24v2h-1v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm-5-8h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm-5-8h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm-5-8h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm39 20v2h-3v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2zm-14 20v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm11-18v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2V8h1V6h1V4h1V2h2v2h-1v2h-1v2h-1zm3-8h2v2h-2V0zM18 100h2v2h-2v-2zm25 0h2v2h-2v-2zm7 10h2v2h-2v-2z"
-                fill="#908070"
-              />
-              <path
-                d="M62 128v-2h-1v4h1v2h1v2h1v-4h-1v-2h-2zm-13-20h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm39 20v2h-3v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2zm-14 20v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm11-18v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2V8h1V6h1V4h1V2h2v2h-1v2h-1v2h-1zm3-8h2v2h-2V0zM43 100h2v2h-2v-2zm7 10h2v2h-2v-2z"
-                fill="#908070"
-              />
               <path fill="#F00020" d="M145 0h18v2h-18z" />
               <path fill="#F00010" d="M143 2h18v2h-18zM142 4h18v2h-18z" />
               <path
@@ -85,7 +77,7 @@ const KickStartTemplate = ({ data }) => {
               <path fill="#00F0B0" d="M45 132h18v2H45zM46 134h17v2H46z" />
               <path fill="#00F0A0" d="M47 136h15v2H47zM48 138h13v2H48z" />
               <path fill="#00F090" d="M49.026 140h10v2h-10zM51 142h7v2h-7z" />
-              <path fill="#00F080" d="M52 144h5v2h-5zM53 146h3v2h-3z" />
+              <path fill="#00F080" d="M52 144h5v2h-5zM54 146h2v2h-2z" />
               <g>
                 <path fill="#F00020" d="M120 0h18v2h-18z" />
                 <path fill="#F00010" d="M118 2h18v2h-18zM117 4h18v2h-18z" />
@@ -146,11 +138,19 @@ const KickStartTemplate = ({ data }) => {
                 <path fill="#00D0C0" d="M17 126h18v2H17z" />
                 <path fill="#00E0C0" d="M18 128h18v2H18z" />
                 <path fill="#00F0C0" d="M19 130h18v2H19z" />
-                <path fill="#00F0B0" d="M20 132h18v2H20zM21 134h17v2H21z" />
-                <path fill="#00F0A0" d="M22 136h15v2H22zM23 138h13v2H23z" />
-                <path fill="#00F090" d="M24.026 140h10v2h-10zM26 142h7v2h-7z" />
-                <path fill="#00F080" d="M27 144h5v2h-5zM28 146h3v2h-3z" />
+                <path fill="#00F0B0" d="M20 132h18v2H20zM22 134h16v2H22z" />
+                <path fill="#00F0A0" d="M23 136h14v2H23zM24 138h12v2H24z" />
+                <path fill="#00F090" d="M25.026 140h9v2h-9zM27 142h6v2h-6z" />
+                <path fill="#00F080" d="M28 144h4v2h-4zM29 146h2v2h-2z" />
               </g>
+              <path
+                d="M49 108h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm-10 24v2h-1v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm-5-8h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm-5-8h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm-5-8h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm39 20v2h-3v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2zm-14 20v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm11-18v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2V8h1V6h1V4h1V2h2v2h-1v2h-1v2h-1zm3-8h2v2h-2V0zM18 100h2v2h-2v-2zm25 0h2v2h-2v-2zm7 10h2v2h-2v-2z"
+                fill="#908070"
+              />
+              <path
+                d="M62 128v-2h-1v4h1v2h1v2h1v-4h-1v-2h-2zm-13-20h1v2h-2v-2h-1v-2h-1v-2h-1v-2h2v2h1v2h1v2zm38 20v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm-13 20v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm11-18v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm6-10v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1zm4-8v-2h1v-2h1v-2h1v-2h2v2h-1v2h-1v2h-1v2h-1v2h-2v-2h1zm7-10v2h-2V8h1V6h1V4h1V2h2v2h-1v2h-1v2h-1zm3-8h2v2h-2V0zM43 100h2v2h-2v-2zm7 10h2v2h-2v-2z"
+                fill="#908070"
+              />
             </g>
           </Tick>
           2.0 Roms (37.350)

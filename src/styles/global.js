@@ -5,15 +5,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Topaz';
     src: local('Topaz'),
          url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/topaz.ttf') format('truetype'),
+         /* url('/fonts/topaz.ttf') format('truetype'), */
          url('/fonts/topaz.woff') format('woff'),
          url('/fonts/topaz.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
-  }
-
-  :root {
-    font-size: 10px;
   }
 
   * {
@@ -22,10 +18,16 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
-    font-size: 1.6rem;
+  html {
+    font-size: 10px;
     line-height: 1.125;
     font-family: 'Topaz', sans-serif;
+    position: relative;
+    min-height: 100%;
+  }
+
+  body {
+    font-size: 1.6rem;
     text-rendering: optimizeLegibility;
     text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;

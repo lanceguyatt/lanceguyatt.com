@@ -11,9 +11,12 @@ export const Wrapper = styled(Flex).attrs({
   color: 'primary',
   bg: 'secondary',
   minHeight: 'min-content',
-  height: '100vh',
   p: 5,
-  position: 'relative',
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
 })`
   overflow: hidden;
 `
