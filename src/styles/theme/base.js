@@ -30,7 +30,7 @@ const fonts = {
   sansSerif: '"Topaz", sans-serif',
 }
 
-const workbench = {
+const base = {
   borders,
   breakpoints,
   colors,
@@ -40,5 +40,4 @@ const workbench = {
   zIndex,
 }
 
-
-export default workbench
+export default base

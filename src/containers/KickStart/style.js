@@ -1,6 +1,7 @@
 import styled, { keyframes, css } from 'styled-components'
 
 import { Box, Flex } from '../../primitives'
+import amigaTick from './tick.svg'
 
 const insertDisk = keyframes`
   0% {
@@ -22,9 +23,10 @@ const insertDiskAnimation = css`
   animation: ${insertDisk} 1.5s forwards infinite;
 `
 
-export const Tick = styled(Box).attrs({
-  is: 'svg',
-  viewBox: '0 0 165 150',
+export const AmigaTick = styled(Box).attrs({
+  is: 'img',
+  src: amigaTick,
+  alt: 'Amiga Tick',
   width: '16.5rem',
   height: '15rem',
   display: 'block',

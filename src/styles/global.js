@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { base } from './theme'
+
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Topaz';
@@ -21,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 10px;
     line-height: 1.125;
-    font-family: 'Topaz', sans-serif;
+    font-family: ${base.fonts.sansSerif};
     position: relative;
     min-height: 100%;
   }

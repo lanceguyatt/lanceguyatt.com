@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="156px" height="38px" viewBox="0 0 156 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>disk-drive</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="kickstart" transform="translate(-426.000000, -213.000000)">
-            <g id="disk-drive" transform="translate(426.000000, 213.000000)">
-                <g>
-                    <rect id="Rectangle" fill="#E0A080" x="0" y="0" width="156" height="38"></rect>
-                    <rect id="Rectangle-3" fill="#000000" x="25" y="28" width="8" height="2"></rect>
-                    <rect id="Rectangle-2" fill="#000000" x="8" y="6" width="140" height="8"></rect>
-                    <path d="M142,24 L119,24 L119,30 L118,30 L118,22 L119,22 L143,22 L143,24 L143,26 L142,26 L142,24 Z" id="Combined-Shape" fill="#AD7967"></path>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="156" height="38" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="#E0A080" d="M0 0h156v38H0z"/><path fill="#000" d="M25 28h8v2h-8zM8 6h140v8H8z"/><path d="M142 24h-23v6h-1v-8h25v4h-1v-2z" fill="#AD7967"/></g></svg>
