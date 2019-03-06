@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Flex, Box } from '../index'
+import { Box, Flex } from '../../primitives'
 
 export const Name = styled(Box).attrs({
   px: 3,

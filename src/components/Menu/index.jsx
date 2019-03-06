@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import Box from '../Box'
+import { Box } from '../../primitives'
 // import Flex from '../Flex'
 
 const MenuLink = styled(Link)``

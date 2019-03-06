@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link as GastbyLink } from 'gatsby'
 
-import { Box } from '../index'
+import { Box } from '../../primitives'
 import sprite from './sprite.svg'
 
 export const Image = styled(Box).attrs({

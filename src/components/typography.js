@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import Box from './Box'
-import Flex from './Flex'
+import { Box, Flex } from '../primitives'
 
 export const Foo = styled(Box).attrs({
   border: 4,

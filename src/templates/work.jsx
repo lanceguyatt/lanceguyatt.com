@@ -5,7 +5,8 @@ import Img from 'gatsby-image'
 
 import WorkBench from '../layouts/WorkBench'
 import { WorkBench as WB, Work } from '../containers'
-import { SEO, Window, Foo, Dl, Dt, Dd, Flex, Action } from '../components'
+import { Flex } from '../primitives'
+import { SEO, Window, Foo, Dl, Dt, Dd, Action } from '../components'
 
 const WorkTemplate = ({ data }) => {
   const { strapiWork } = data

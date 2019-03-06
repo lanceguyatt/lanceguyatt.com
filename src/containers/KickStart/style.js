@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components'
 
-import { Flex, Box } from '../../components'
+import { Box, Flex } from '../../primitives'
 
 const insertDisk = keyframes`
   0% {

@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Close, Flex } from '../index'
+import { Flex } from '../../primitives'
+import { Close } from '../index'
 import { Name, Header, Main } from './style'
 import window from './window.svg'
 

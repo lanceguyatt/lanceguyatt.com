@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Box } from '../index'
+import { Box } from '../../primitives'
 import sprite from './sprite.svg'
 
 export const Image = styled(Box).attrs({

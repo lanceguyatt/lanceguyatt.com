@@ -3,7 +3,7 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import { Wrapper, Tick, DiskDrive, FloppyDisk } from './style'
-import { Box } from '../../components'
+import { Box } from '../../primitives'
 
 const KickStartTemplate = ({ data }) => {
   const { site } = data

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Box, Flex } from '../index'
+import { Box, Flex } from '../../primitives'
 
 export const Name = styled(Box).attrs({
   px: '1rem',

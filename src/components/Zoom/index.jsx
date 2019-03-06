@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Box } from '../index'
+import { Box } from '../../primitives'
 import zoom from './zoom.svg'
 
 const Wrapper = styled(Box).attrs({

@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { Box } from '../index'
+import { Box } from '../../primitives'
 import sprite from './sprite.svg'
 
 /* eslint-disable-next-line */

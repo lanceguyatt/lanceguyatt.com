@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 
 import WorkBench from '../layouts/WorkBench'
+import { Box, Flex } from '../primitives'
 import {
   Action,
-  Box,
   Checkbox,
   Close,
   Depth,
-  Flex,
   Bevel,
   Label,
   Radio,

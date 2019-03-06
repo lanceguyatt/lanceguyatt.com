@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Drawer, File, Flex } from './index'
+import { Flex } from '../primitives'
+import { Drawer, File } from './index'
 
 /* eslint-disable-next-line */
 const Wrapper = styled(({ basepath, list, ...props }) => (
