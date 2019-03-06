@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Box, Flex } from '../index'
 
 export const Name = styled(Box).attrs({
-  px: 3,
+  px: '1rem',
   flex: 1,
 })`
   overflow: hidden;
