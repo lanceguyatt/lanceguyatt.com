@@ -1,17 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
-import { Flex } from '../primitives'
-import { Drawer, File } from './index'
-
-/* eslint-disable-next-line */
-const Wrapper = styled(({ basepath, list, ...props }) => (
-  <Flex {...props} />
-)).attrs({
-  flexWrap: 'wrap',
-  mx: -3,
-})``
+import { Drawer, File } from '../index'
+import { Wrapper } from './style'
 
 const Directory = ({ basepath, list, ...props }) => (
   <Wrapper is="nav" {...props}>

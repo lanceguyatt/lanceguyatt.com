@@ -6,7 +6,7 @@ import Facebook from './Facebook'
 import Twitter from './Twitter'
 
 const SEO = props => {
-  const { name, description, url, image, website, node } = props
+  const { index, name, description, url, image, website, node } = props
   return (
     <StaticQuery
       query={query}
@@ -127,7 +127,10 @@ const SEO = props => {
 
         return (
           <>
-            <Helmet title={seo.name} titleTemplate={`%s - ${siteTitle}`}>
+            <Helmet
+              title={seo.name}
+              titleTemplate={index ? null : `${siteTitle} - %s`}
+            >
               <html lang={siteLanguage} />
               <meta name="description" content={seo.description} />
               <meta name="image" content={seo.image} />
@@ -169,6 +172,7 @@ const SEO = props => {
 }
 
 SEO.propTypes = {
+  index: PropTypes.bool,
   name: PropTypes.string,
   description: PropTypes.string,
   url: PropTypes.string,
@@ -178,6 +182,7 @@ SEO.propTypes = {
 }
 
 SEO.defaultProps = {
+  index: false,
   name: null,
   description: null,
   url: null,

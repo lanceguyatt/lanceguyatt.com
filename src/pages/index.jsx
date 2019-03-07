@@ -8,13 +8,13 @@ import { SEO } from '../components'
 
 const Index = ({
   data: {
-    strapiPage: { name, description, url, image },
+    strapiPage: { description, url, image },
   },
 }) => (
   <WorkBench>
     <>
       <SEO
-        name={name}
+        index
         description={description}
         url={url}
         image={image.childImageSharp.fixed.src}

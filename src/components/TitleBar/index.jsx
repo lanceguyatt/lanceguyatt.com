@@ -35,8 +35,8 @@ class TitleBarTemplate extends Component {
     return (
       <Wrapper menu={menu}>
         <Name>
-          Copyright © 2000-{siteMetadata.copyrightYear} {siteMetadata.title} All
-          Rights Reserved
+          {siteMetadata.title}. Copyright © 2000-{siteMetadata.copyrightYear}{' '}
+          All Rights Reserved
         </Name>
         {/* <Box
           position="absolute"
