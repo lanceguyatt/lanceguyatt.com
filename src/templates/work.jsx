@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 import WorkBench from '../layouts/WorkBench'
 import { WorkBench as WB, Work } from '../containers'
 import { Flex } from '../primitives'
-import { SEO, Window, Foo, Dl, Dt, Dd, Action } from '../components'
+import { SEO, Window, Qux, Dl, Dt, Dd, Action } from '../components'
 
 const WorkTemplate = ({ data }) => {
   const { strapiWork } = data
@@ -32,24 +32,24 @@ const WorkTemplate = ({ data }) => {
             flex={1}
           >
             {logo && (
-              <Foo mx="auto" mb={5} width="15.6rem">
+              <Qux mx="auto" mb={5} width="15.2rem">
                 <Img fixed={logo.childImageSharp.fixed} />
-              </Foo>
+              </Qux>
             )}
 
-            <Dl>
-              <Dt>Name</Dt>
-              <Dd>{name}</Dd>
+            <Dl mb={3}>
+              <Dt width={1 / 3}>Name</Dt>
+              <Dd width={2 / 3}>{name}</Dd>
+            </Dl>
+
+            <Dl mb={3}>
+              <Dt width={1 / 3}>Url</Dt>
+              <Dd width={2 / 3}>{url}</Dd>
             </Dl>
 
             <Dl>
-              <Dt>Url</Dt>
-              <Dd>{url}</Dd>
-            </Dl>
-
-            <Dl>
-              <Dt>Technologies</Dt>
-              <Dd>
+              <Dt width={1 / 3}>Technologies</Dt>
+              <Dd width={2 / 3}>
                 <ul>
                   {technologies.map(technology => (
                     <li key={technology.id}>{technology.name}</li>

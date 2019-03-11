@@ -9,7 +9,7 @@ const wrapper = promise =>
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const workTemplate = path.resolve(`./src/templates/work.jsx`)
+  const Work = path.resolve(`./src/templates/Work.jsx`)
 
   const { error, result } = await wrapper(
     graphql(`
@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
     works.forEach(work => {
       createPage({
         path: `/work/${work.node.slug}/`,
-        component: workTemplate,
+        component: Work,
         context: {
           slug: work.node.slug,
         },

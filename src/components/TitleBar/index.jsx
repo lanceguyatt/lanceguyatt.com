@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 
-// import { Box, Menu } from '../index'
+import { Menu } from '../index'
 import { Name, Wrapper } from './style'
 
 class TitleBarTemplate extends Component {
@@ -21,10 +21,12 @@ class TitleBarTemplate extends Component {
     menu: false,
   }
 
-  toggleMenu = () => {
-    this.setState(prevState => ({
-      menu: !prevState.menu,
-    }))
+  openMenu = () => {
+    this.setState({ menu: true })
+  }
+
+  closeMenu = () => {
+    this.setState({ menu: false })
   }
 
   render() {
@@ -33,20 +35,22 @@ class TitleBarTemplate extends Component {
     const { siteMetadata } = site
     const { menu } = this.state
     return (
-      <Wrapper menu={menu}>
-        <Name>
+      <Wrapper
+        menu={menu}
+        onMouseEnter={this.openMenu}
+        onMouseLeave={this.closeMenu}
+      >
+        <Name display={!menu ? 'block' : 'none'}>
           {siteMetadata.title}. Copyright © 2000-{siteMetadata.copyrightYear}{' '}
           All Rights Reserved
         </Name>
-        {/* <Box
+        <Menu
           position="absolute"
           top={0}
           left={3}
           zIndex={4}
           display={menu ? 'block' : 'none'}
-        >
-          <Menu />
-        </Box> */}
+        />
       </Wrapper>
     )
   }

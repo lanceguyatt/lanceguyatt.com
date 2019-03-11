@@ -2,6 +2,7 @@ import { css } from 'styled-components'
 
 import selected from './selected.svg'
 import unselected from './unselected.svg'
+import disabled from './disabled.svg'
 
 export const link = css`
   display: inline-block;
@@ -23,5 +24,9 @@ export const link = css`
   &:active {
     background-color: ${props => props.theme.colors.primary};
     border-image: url(${selected}) 2 stretch;
+  }
+
+  &[disabled] {
+    border-image: url(${disabled}) 2 stretch;
   }
 `

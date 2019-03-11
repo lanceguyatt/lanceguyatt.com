@@ -4,12 +4,12 @@ import styled from 'styled-components'
 
 import { Box } from '../../primitives'
 
-const Wrapper = styled(Box)`
-  user-select: none;
-`
+const Wrapper = styled(Box)``
 
 const Label = ({ children, ...props }) => (
-  <Wrapper {...props}>{children}</Wrapper>
+  <Wrapper is="label" {...props}>
+    {children}
+  </Wrapper>
 )
 
 Label.propTypes = {

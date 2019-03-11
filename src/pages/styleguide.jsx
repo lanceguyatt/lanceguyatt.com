@@ -13,6 +13,9 @@ import {
   Sizing,
   Window,
   Zoom,
+  Dl,
+  Dt,
+  Dd,
 } from '../components'
 
 class Form extends Component {
@@ -48,12 +51,23 @@ class Form extends Component {
         >
           {submitted && <Box>Submitted</Box>}
           <Flex alignItems="center" justifyContent="space-between">
-            <Label htmlFor="foo">Checkbox</Label>
-            <Checkbox id="foo" />
+            <Flex alignItems="center">
+              <Label is="label" htmlFor="foo" bg="red" color="light" mr={3}>
+                Checkbox
+              </Label>
+              <Checkbox id="foo" />
+            </Flex>
             <Radio name="foo" value="bar" />
             <Radio name="foo" value="baz" />
+            <Action disabled name="Submit" type="submit" />
             <Action name="Submit" type="submit" />
           </Flex>
+          <Box>
+            <Dl flex="none" border={3}>
+              <Dt>Default Tool</Dt>
+              <Dd>Installer</Dd>
+            </Dl>
+          </Box>
         </Box>
       </Window>
     )

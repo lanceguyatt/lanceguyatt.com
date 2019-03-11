@@ -1,6 +1,8 @@
+import React from 'react'
 import styled from 'styled-components'
 
-import { Box, Flex } from '../primitives'
+import { Box, Flex } from '../../primitives'
+import selected from './selected.svg'
 
 export const Foo = styled(Box).attrs({
   border: 4,
@@ -26,19 +28,15 @@ export const Bevel = styled(Flex).attrs({
 
 export const Dl = styled(Flex).attrs({
   is: 'dl',
-  flexDirection: ['column', 'row'],
-  width: 1,
+  alignItems: 'center',
   mb: 4,
-  lineHeight: 0,
 })``
 
 export const Dt = styled(Box).attrs({
   is: 'dt',
   color: 'light',
-  flex: 1,
-  mr: [null, 4],
-  mb: 3,
-  pt: 3,
+  pr: '1rem',
+  textAlign: 'right',
 })`
   &::after {
     content: ':';
@@ -47,5 +45,15 @@ export const Dt = styled(Box).attrs({
 
 export const Dd = styled(Foo).attrs({
   is: 'dd',
-  flex: 2,
 })``
+
+export const Qux = styled(({ ...props }) => <Box {...props} />).attrs({
+  border: 2,
+  p: 2,
+})`
+  border-image: url(${selected}) 2 stretch;
+
+  .gatsby-image-wrapper {
+    display: block !important;
+  }
+`
