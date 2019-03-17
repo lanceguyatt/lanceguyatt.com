@@ -1,11 +1,8 @@
 /* eslint no-unused-vars: 0 */
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 
 import { Box } from '../../primitives'
-
-export const MenuLink = styled(Link)``
 
 export const MenuList = styled(Box).attrs({
   bg: 'dark',
@@ -13,23 +10,14 @@ export const MenuList = styled(Box).attrs({
   p: 2,
   border: 2,
   borderColor: 'secondary',
+  position: 'absolute',
+  zIndex: 1,
+  top: '1.8rem',
 })`
-  ${MenuLink} {
-    color: ${props => props.theme.colors.secondary};
-    display: flex;
-    justify-content: space-between;
-    transition-property: background-color, color;
-    transition-duration: 0.25s;
-    padding: 0.1rem 0.2rem;
-    height: 1.8rem;
-
-    &:focus,
-    &:hover,
-    &:active {
-      background-color: ${props => props.theme.colors.light};
-      color: ${props => props.theme.colors.primary};
-    }
-  }
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s;
+  will-change: opacity;
 `
 
 export const MenuToggle = styled(Box).attrs({
@@ -37,13 +25,26 @@ export const MenuToggle = styled(Box).attrs({
   color: 'secondary',
   px: 3,
   pt: 1,
-})``
+  height: '1.8rem',
+})`
+  user-select: none;
+  transition: all 0.25s;
+`
 
-export const Wrapper = styled(({ active, ...props }) => <Box {...props} />)`
+export const Wrapper = styled(({ name, items, menuActive, ...props }) => (
+  <Box {...props} />
+)).attrs({
+  mr: 6,
+})`
   ${props =>
-    props.active &&
+    props.menuActive &&
     `${MenuToggle} { 
       background-color: ${props.theme.colors.light};
       color: ${props.theme.colors.primary};
-    }`};
+    }
+      ${MenuList} {
+        opacity: 1;
+        visibility: visible;
+      }
+    `};
 `

@@ -13,17 +13,13 @@ export const Name = styled(Box).attrs({
   white-space: nowrap;
 `
 /* eslint-disable-next-line */
-export const Wrapper = styled(({ menu, ...props }) => (
+export const Wrapper = styled(({ data, ...props }) => (
   <Flex {...props} />
 )).attrs({
   bg: 'dark',
+  color: 'secondary',
   alignItems: 'center',
   borderColor: 'dark',
   height: '2.2rem',
   position: 'relative',
-})`
-  ${props =>
-    props.menu
-      ? `color: ${props.theme.colors.primary};`
-      : `color: ${props.theme.colors.secondary};`}
-`
+})``
