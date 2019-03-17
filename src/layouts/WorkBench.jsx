@@ -19,10 +19,12 @@ const Wrapper = styled(Box)``
 class WorkBench extends Component {
   state = {
     menuBarActive: false,
-    quitWorkbench: false,
+    execute: false,
+    about: false,
+    quit: false,
   }
 
-  handleRightClick = e => {
+  toggleMenuBar = e => {
     e.preventDefault()
     this.setState(prevState => ({
       menuBarActive: !prevState.menuBarActive,
@@ -33,30 +35,41 @@ class WorkBench extends Component {
     this.setState({ menuBarActive: false })
   }
 
-  handleQuit = () => {
-    this.setState({ quitWorkbench: true })
+  openExecute = () => {
+    this.setState({ execute: true })
   }
 
-  handleAbout = () => {
-    this.setState({ about: true })
-  }
-
-  quit = () => {
+  closeExecute = () => {
     this.setState({
       menuBarActive: false,
-      quitWorkbench: false,
+      execute: false,
     })
   }
 
-  about = () => {
+  openAbout = () => {
+    this.setState({ about: true })
+  }
+
+  closeAbout = () => {
     this.setState({
       menuBarActive: false,
       about: false,
     })
   }
 
+  openQuit = () => {
+    this.setState({ quit: true })
+  }
+
+  closeQuit = () => {
+    this.setState({
+      menuBarActive: false,
+      quit: false,
+    })
+  }
+
   init = () => {
-    document.addEventListener('contextmenu', this.handleRightClick)
+    document.addEventListener('contextmenu', this.toggleMenuBar)
     document.addEventListener('keydown', e => {
       if (e.keyCode === 27) {
         this.closeMenuBar()
@@ -68,13 +81,9 @@ class WorkBench extends Component {
     this.init()
   }
 
-  componentWillUnMount = () => {
-    this.init()
-  }
-
   render() {
     const { children } = this.props
-    const { menuBarActive, quitWorkbench, about } = this.state
+    const { menuBarActive, execute, about, quit } = this.state
     return (
       <ThemeProvider theme={workbench}>
         <Wrapper>
@@ -83,25 +92,36 @@ class WorkBench extends Component {
             <MenuBar>
               <Menu name="Workbench">
                 <MenuItem name="Backdrop..." shortcut="B" ghosted />
-                <MenuItem name="Execute command..." shortcut="E" ghosted />
+                <MenuItem
+                  name="Execute command..."
+                  shortcut="E"
+                  onClick={() => this.openExecute()}
+                />
                 <MenuItem name="Redraw All" ghosted />
                 <MenuItem name="Update All" ghosted />
                 <MenuItem name="Last Message" ghosted />
                 <MenuItem
                   name="About..."
                   shortcut="A"
-                  onClick={e => {
-                    e.preventDefault()
-                    this.handleAbout()
-                  }}
+                  onClick={() => this.openAbout()}
                 />
                 <MenuItem
                   name="Quit..."
                   shortcut="Q"
-                  onClick={this.handleQuit}
+                  onClick={() => this.openQuit()}
                 />
               </Menu>
-              <Menu name="Window" ghosted />
+              <Menu name="Window">
+                <MenuItem name="New Drawer" shortcut="N" />
+                <MenuItem name="Open Parent" />
+                <MenuItem name="Close" shortcut="K" />
+                <MenuItem name="Update" />
+                <MenuItem name="Select Contents" shortcut="A" />
+                <MenuItem name="Clean Up" />
+                <MenuItem name="Snapshot" />
+                <MenuItem name="Show" />
+                <MenuItem name="View By" />
+              </Menu>
               <Menu name="Icons">
                 <MenuItem name="Open" shortcut="O" ghosted />
                 <MenuItem name="Copy" shortcut="C" ghosted />
@@ -121,43 +141,59 @@ class WorkBench extends Component {
           ) : (
             <TitleBar />
           )}
+
           {children}
-          {about && (
-            <Requester
-              width="25.8rem"
-              description={`
-                <p>
-                  Kickstart version 37.350
-                  <br />
-                  Workbench version 37.67
-                </p>
-                <p>
-                  Copyright &copy; 2000-2019
-                  <br />
-                  Lance Guyatt, Inc.
-                  <br />
-                  All Rights Reserved
-                </p>
-              `}
-              actions={
-                <Box mx="auto">
-                  <Action name="OK" onClick={this.about} />
-                </Box>
-              }
-            />
-          )}
-          {quitWorkbench && (
-            <Requester
-              width="21rem"
-              description="Do you really want to quit workbench?"
-              actions={
-                <Flex justifyContent="space-between">
-                  <Action name="OK" url="/kickstart" />
-                  <Action name="CANCEL" onClick={this.quit} />
-                </Flex>
-              }
-            />
-          )}
+
+          <Requester
+            show={execute}
+            name="Execute a File"
+            actions={
+              <Flex justifyContent="space-between">
+                <Action name="OK" url="/kickstart" />
+                <Action name="CANCEL" onClick={() => this.closeExecute()} />
+              </Flex>
+            }
+          >
+            Enter Command and its Arguments:
+          </Requester>
+
+          <Requester
+            show={about}
+            name="Workbench"
+            width="25.8rem"
+            description={`
+              <p>
+                Kickstart version 37.350
+                <br />
+                Workbench version 37.67
+              </p>
+              <p>
+                Copyright &copy; 2000-2019
+                <br />
+                Lance Guyatt, Inc.
+                <br />
+                All Rights Reserved
+              </p>
+            `}
+            actions={
+              <Box mx="auto">
+                <Action name="OK" onClick={() => this.closeAbout()} />
+              </Box>
+            }
+          />
+
+          <Requester
+            show={quit}
+            name="Quit Workbench Request"
+            description="Do you really want to quit workbench?"
+            width="21rem"
+            actions={
+              <Flex justifyContent="space-between">
+                <Action name="OK" url="/kickstart" />
+                <Action name="CANCEL" onClick={() => this.closeQuit()} />
+              </Flex>
+            }
+          />
         </Wrapper>
       </ThemeProvider>
     )

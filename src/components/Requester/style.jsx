@@ -43,16 +43,12 @@ export const Inner = styled(Box).attrs({
 `
 
 /* eslint-disable-next-line */
-export const Wrapper = styled(({ name, description, actions, ...props }) => <Flex {...props} />).attrs({
+export const Wrapper = styled(({ name, description, actions, show, ...props }) => <Flex {...props} />).attrs({
   flexDirection: 'column',
-  top: '50%',
-  left: '50%',
-  position: 'absolute',
-  zIndex: 1,
+  position: 'relative',
 })`
   border-style: solid;
   border-width: 2.2rem 0.4rem 0.4rem 0.4rem;
   border-image: url(${window}) 22 4 4 4 stretch;
   background-color: ${props => props.theme.colors.primary};
-  transform: translate(-50%, -50%);
 `

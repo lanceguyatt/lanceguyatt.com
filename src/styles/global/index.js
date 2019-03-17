@@ -87,6 +87,77 @@ const GlobalStyle = createGlobalStyle`
   ul {
     list-style: none;
   }
+
+  .fade {
+    transition: opacity 0.15s linear;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .fade {
+      transition: none;
+    }
+  }
+
+  .fade:not(.show) {
+    opacity: 0;
+  }
+
+  .modal-open {
+    overflow: hidden;
+  }
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1050;
+    display: none;
+    outline: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .modal-dialog {
+    width: auto;
+  }
+
+  .modal-content {
+    position: relative;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .modal.fade .modal-dialog {
+      transition: none;
+    }
+  }
+
+  .modal.show .modal-dialog {
+    transform: none;
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+  }
+
+  .modal-backdrop.fade {
+    opacity: 0;
+  }
+
+  .modal-backdrop.show {
+    opacity: 0.5;
+  }
+
+  /* .modal-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+  } */
 `
 
 export default GlobalStyle
