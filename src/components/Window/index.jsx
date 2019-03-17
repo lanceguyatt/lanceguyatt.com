@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Flex } from '../../primitives'
-import { Close } from '../index'
+import { Close, Depth, Zoom } from '../index'
 import { Name, Header, Main } from './style'
 import window from './window.svg'
 
@@ -77,6 +77,8 @@ const Window = ({
       <Name>
         {name} {full}% full, {free}k free, 708K
       </Name>
+      <Zoom />
+      <Depth />
     </Header>
     <Main>{children}</Main>
   </Wrapper>

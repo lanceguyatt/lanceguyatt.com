@@ -1,49 +1,49 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import MenuItem from '../MenuItem'
 import { MenuToggle, MenuList, Wrapper } from './style'
 
 class Menu extends Component {
   state = {
-    menuActive: false,
+    menuListActive: false,
   }
 
   static propTypes = {
     name: PropTypes.string.isRequired,
-    items: PropTypes.array,
+    children: PropTypes.node,
+    ghosted: PropTypes.bool,
   }
 
   static defaultProps = {
-    items: null,
+    children: null,
+    ghosted: false,
   }
 
-  showMenu = () => {
-    this.setState({ menuActive: true })
+  showMenuList = () => {
+    this.setState({ menuListActive: true })
   }
 
-  hideMenu = () => {
-    this.setState({ menuActive: false })
+  hideMenuList = () => {
+    this.setState({ menuListActive: false })
   }
 
   render() {
-    const { menuActive } = this.state
-    const { name, items } = this.props
+    const { menuListActive } = this.state
+    const { name, children, ghosted } = this.props
     return (
       <Wrapper
-        onMouseEnter={this.showMenu}
-        onMouseLeave={this.hideMenu}
-        menuActive={menuActive}
+        onMouseEnter={this.showMenuList}
+        onMouseLeave={this.hideMenuList}
+        onFocus={this.showMenuList}
+        menuListActive={menuListActive}
+        tabIndex={!ghosted ? 0 : null}
+        type="button"
+        role="button"
+        {...ghosted}
         {...this.props}
       >
-        <MenuToggle tabIndex={0}>{name}</MenuToggle>
-        {items && (
-          <MenuList is="nav">
-            {items.map(item => (
-              <MenuItem key={item.name} {...item} />
-            ))}
-          </MenuList>
-        )}
+        <MenuToggle>{name}</MenuToggle>
+        {children && <MenuList is="nav">{children}</MenuList>}
       </Wrapper>
     )
   }

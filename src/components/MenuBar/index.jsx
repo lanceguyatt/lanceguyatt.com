@@ -1,25 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Menu } from '../index'
 import { Wrapper } from './style'
-import { workbench, window, icons, tools } from './data'
 
-const MenuBar = () => (
-  <Wrapper>
-    <Menu {...workbench} />
-    <Menu {...window} />
-    <Menu {...icons} />
-    <Menu {...tools} />
-  </Wrapper>
-)
-
-MenuBar.propTypes = {
-  active: PropTypes.bool,
+const MenuBar = props => {
+  const { children } = props
+  return <Wrapper {...props}>{children}</Wrapper>
 }
 
-MenuBar.defaultProps = {
-  active: false,
+MenuBar.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default MenuBar

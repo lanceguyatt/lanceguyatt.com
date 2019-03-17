@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Box } from '../../primitives'
+import ghostedImage from './ghosted.svg'
 
 export const MenuList = styled(Box).attrs({
   bg: 'dark',
@@ -24,20 +25,23 @@ export const MenuToggle = styled(Box).attrs({
   display: 'inline-block',
   color: 'secondary',
   px: 3,
-  pt: 1,
+  pt: 2,
   height: '1.8rem',
+  position: 'relative',
 })`
   user-select: none;
   transition: all 0.25s;
 `
 
-export const Wrapper = styled(({ name, items, menuActive, ...props }) => (
-  <Box {...props} />
-)).attrs({
+export const Wrapper = styled(
+  ({ name, items, menuListActive, ghosted, ...props }) => <Box {...props} />
+).attrs({
   mr: 6,
 })`
+  outline: 0;
+
   ${props =>
-    props.menuActive &&
+    props.menuListActive &&
     `${MenuToggle} { 
       background-color: ${props.theme.colors.light};
       color: ${props.theme.colors.primary};
@@ -47,4 +51,25 @@ export const Wrapper = styled(({ name, items, menuActive, ...props }) => (
         visibility: visible;
       }
     `};
+
+  ${MenuToggle} {
+    ${props =>
+      props.ghosted &&
+      `
+        pointer-events: none;
+        background-color: transparent;
+        color: ${props.theme.colors.secondary};
+
+        &::before {
+          content: '';
+          background-image: url(${ghostedImage});
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+        }
+        `};
+  }
 `

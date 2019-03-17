@@ -2,12 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Box } from '../../primitives'
-import { MenuItemLink } from './style'
+import { Wrapper } from './style'
 
 const MenuItem = props => {
-  const { name, url, shortcut } = props
+  const { name, shortcut, ghosted } = props
   return (
-    <MenuItemLink to={url}>
+    <Wrapper
+      type="button"
+      role="button"
+      tabIndex={!ghosted ? 0 : null}
+      {...ghosted}
+      {...props}
+    >
       {name}
       {shortcut && (
         <Box position="relative" pl="2.5rem" ml="1.2rem">
@@ -30,7 +36,7 @@ const MenuItem = props => {
           {shortcut}
         </Box>
       )}
-    </MenuItemLink>
+    </Wrapper>
   )
 }
 
@@ -38,11 +44,13 @@ MenuItem.propTypes = {
   name: PropTypes.string.isRequired,
   url: PropTypes.string,
   shortcut: PropTypes.string,
+  ghosted: PropTypes.bool,
 }
 
 MenuItem.defaultProps = {
   url: '/',
   shortcut: null,
+  ghosted: false,
 }
 
 export default MenuItem
