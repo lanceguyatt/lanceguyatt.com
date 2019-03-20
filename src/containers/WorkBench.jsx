@@ -18,7 +18,7 @@ const WorkBench = ({ active, backdrop }) => (
           </Flex>
         </Window>
       ) : (
-        <Box bg="secondary" p={4}>
+        <Box bg="secondary" p={4} position="absolute" top="2.2rem" right={0} bottom={0} left={0}>
           <Flex is="nav" flexDirection="column">
             <Disk name="Ram Disk" to="/ram-disk" />
             <Drive name="Work" to="/work" />

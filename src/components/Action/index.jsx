@@ -6,21 +6,16 @@ import { Link } from 'gatsby'
 
 import { link } from './style'
 
-const Button = styled(({ caps, ...props }) => (
-  <button type="button" {...props} />
-))`
+const Button = styled(({ ...props }) => <button type="button" {...props} />)`
   ${link};
-  ${props => props.caps && `text-transform: uppercase;`};
 `
 
-const Internal = styled(({ caps, ...props }) => <Link {...props} />)`
+const Internal = styled(({ ...props }) => <Link {...props} />)`
   ${link};
-  ${props => props.caps && `text-transform: uppercase;`};
 `
 
-const External = styled(({ caps, ...props }) => <a {...props} />)`
+const External = styled(({ ...props }) => <a {...props} />)`
   ${link};
-  ${props => props.caps && `text-transform: uppercase;`};
 `
 
 const Action = ({ name, url, ...props }) => {

@@ -2,20 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Box } from '../../primitives'
-import zoom from './zoom.svg'
+import sprite from './sprite.svg'
 
 const Wrapper = styled(Box).attrs({
-  is: 'button',
   width: '2.3rem',
   height: '2.2rem',
-  backgroundImage: `url(${zoom})`,
+  backgroundImage: `url(${sprite})`,
 })`
   &:active {
-    background-color: ${props => props.theme.colors.primary};
     background-position: -2.3rem 0;
   }
 `
 
-const Zoom = props => <Wrapper title="Zoom" {...props} />
+const Zoom = props => <Wrapper is="button" type="button" {...props} />
 
 export default Zoom

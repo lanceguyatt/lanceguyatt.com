@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${base.fonts.sansSerif};
     position: relative;
     min-height: 100%;
+    user-select: none;
   }
 
   body {

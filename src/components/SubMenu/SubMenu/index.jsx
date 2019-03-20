@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -16,20 +16,9 @@ const Wrapper = styled(Box).attrs({
   top: 0,
 })``
 
-class SubMenu extends Component {
-  state = {
-    subMenuActive: false,
-  }
-
-  render() {
-    const { subMenuActive } = this.state
-    const { children } = this.props
-    return (
-      <Wrapper is="ul" {...subMenuActive}>
-        {children}
-      </Wrapper>
-    )
-  }
+const SubMenu = props => {
+  const { children } = props
+  return <Wrapper is="ul">{children}</Wrapper>
 }
 
 SubMenu.propTypes = {

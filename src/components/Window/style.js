@@ -25,8 +25,7 @@ export const Main = styled(Flex).attrs({
   flexDirection: 'column',
   bg: 'secondary',
   flex: 1,
-  py: 5,
-  px: 4,
+  p: 4,
 })`
   overflow: auto;
   -webkit-overflow-scrolling: touch;

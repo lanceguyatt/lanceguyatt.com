@@ -35,7 +35,7 @@ class Form extends Component {
   render() {
     const { submitted } = this.state
     return (
-      <Window name="Styleguide" level0 active>
+      <Window name="Styleguide" level1 active>
         <label htmlFor="red">
           Red
           <Slider id="red" />
@@ -44,14 +44,6 @@ class Form extends Component {
         <br />
         <br />
         <br />
-
-        <Menu name="Menu" menuActive>
-          <MenuItem name="MenuItem" subMenu>
-            <SubMenu>
-              <SubMenuItem>SubMenuItem</SubMenuItem>
-            </SubMenu>
-          </MenuItem>
-        </Menu>
 
         <div>
           <Bevel>

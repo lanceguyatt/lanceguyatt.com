@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 
 import { Name, Wrapper } from './style'
+import { Depth } from '../index'
 
 const TitleBarTemplate = props => {
   const { data } = props
@@ -14,6 +15,7 @@ const TitleBarTemplate = props => {
         {siteMetadata.title}. Copyright © 2000-{siteMetadata.copyrightYear} All
         Rights Reserved
       </Name>
+      <Depth bg="secondary" />
     </Wrapper>
   )
 }

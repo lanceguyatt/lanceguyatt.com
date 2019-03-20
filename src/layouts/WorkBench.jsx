@@ -100,6 +100,7 @@ class WorkBench extends Component {
                 <MenuItem
                   name="Backdrop..."
                   shortcut="B"
+                  active={!backdrop}
                   onClick={this.backdropToggle}
                 />
                 <MenuItem
@@ -112,13 +113,13 @@ class WorkBench extends Component {
                 <MenuItem name="Last Message" ghosted />
                 <MenuItem
                   name="About..."
-                  shortcut="A"
+                  shortcut="?"
                   onClick={this.aboutOpen}
                 />
                 <MenuItem name="Quit..." shortcut="Q" onClick={this.quitOpen} />
               </Menu>
               <Menu name="Window">
-                <MenuItem name="New Drawer" shortcut="N" />
+                <MenuItem name="New Drawer" shortcut="N" ghosted />
                 <MenuItem name="Open Parent" />
                 <MenuItem name="Close" shortcut="K" />
                 <MenuItem name="Update" />
@@ -126,12 +127,24 @@ class WorkBench extends Component {
                 <MenuItem name="Clean Up" />
                 <MenuItem name="Snapshot" subMenu>
                   <SubMenu>
-                    <SubMenuItem>Window</SubMenuItem>
-                    <SubMenuItem>All</SubMenuItem>
+                    <SubMenuItem name="Window" />
+                    <SubMenuItem name="All" />
                   </SubMenu>
                 </MenuItem>
-                <MenuItem name="Show" />
-                <MenuItem name="View By" />
+                <MenuItem name="Show" subMenu>
+                  <SubMenu>
+                    <SubMenuItem name="Only Icons" active />
+                    <SubMenuItem name="All Files" />
+                  </SubMenu>
+                </MenuItem>
+                <MenuItem name="View By" subMenu>
+                  <SubMenu>
+                    <SubMenuItem name="Icon" active />
+                    <SubMenuItem name="Name" />
+                    <SubMenuItem name="Date" />
+                    <SubMenuItem name="Size" />
+                  </SubMenu>
+                </MenuItem>
               </Menu>
               <Menu name="Icons">
                 <MenuItem name="Open" shortcut="O" ghosted />
@@ -147,61 +160,68 @@ class WorkBench extends Component {
                 <MenuItem name="Format Disk..." ghosted />
                 <MenuItem name="Empty Trash" ghosted />
               </Menu>
-              <Menu name="Tools" ghosted />
+              <Menu name="Tools">
+                <MenuItem name="Reset WB" />
+              </Menu>
             </MenuBar>
           ) : (
             <TitleBar />
           )}
 
-          {children}
-
           <WB active backdrop={backdrop} />
 
-          {execute && (
-            <Requester name="Execute a File" width="40rem">
-              <>
-                Enter Command and its Arguments: <Text />
-                <Flex justifyContent="space-between">
-                  <Action name="Ok" caps onClick={this.executeClose} />
-                  <Action name="Cancel" caps onClick={this.executeClose} />
-                </Flex>
-              </>
-            </Requester>
-          )}
+          {children}
 
-          {about && (
-            <Requester name="Workbench" width="25.8rem" special>
-              <>
-                <p>
-                  Kickstart version 37.350
-                  <br />
-                  Workbench version 37.67
-                  <br />
-                  <br />
-                  Copyright &copy; 2000-2019
-                  <br />
-                  Lance Guyatt, Inc.
-                  <br />
-                  All Rights Reserved
-                </p>
-                <Box mx="auto">
-                  <Action name="Ok" onClick={this.aboutClose} />
+          <Requester name="Execute a File" width="40rem" show={execute}>
+            <>
+              <Box mb={4}>Enter Command and its Arguments:</Box>
+              <Flex alignItems="center" mb={4}>
+                <Box flex="none" color="light" mr={4}>
+                  Command:
                 </Box>
-              </>
-            </Requester>
-          )}
+                <Text autoFocus flex="auto" />
+              </Flex>
+              <Flex justifyContent="space-between">
+                <Action name="Ok" onClick={this.executeClose} />
+                <Action name="Cancel" onClick={this.executeClose} />
+              </Flex>
+            </>
+          </Requester>
 
-          {quit && (
-            <Requester name="Quit Workbench Request" width="21rem" special>
-              <>
-                <p>Do you really want to quit workbench?</p>
-                <Flex justifyContent="space-between">
-                  <Action name="Ok" caps url="/kickstart" />
-                  <Action name="Cancel" caps onClick={this.quitClose} />
-                </Flex>
-              </>
-            </Requester>
-          )}
+          <Requester name="Workbench" width="25.8rem" special show={about}>
+            <>
+              <p>
+                Kickstart version 37.350
+                <br />
+                Workbench version 37.67
+                <br />
+                <br />
+                Copyright &copy; 2000-2019
+                <br />
+                Lance Guyatt, Inc.
+                <br />
+                All Rights Reserved
+              </p>
+              <Box mx="auto">
+                <Action name="OK" onClick={this.aboutClose} />
+              </Box>
+            </>
+          </Requester>
+
+          <Requester
+            name="Quit Workbench Request"
+            width="21rem"
+            special
+            show={quit}
+          >
+            <>
+              <p>Do you really want to quit workbench?</p>
+              <Flex justifyContent="space-between">
+                <Action name="Ok" url="/kickstart" />
+                <Action name="Cancel" onClick={this.quitClose} />
+              </Flex>
+            </>
+          </Requester>
         </Wrapper>
       </ThemeProvider>
     )

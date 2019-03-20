@@ -5,8 +5,8 @@ import styled, { css } from 'styled-components'
 import { Flex } from '../../../primitives'
 import ghostedImage from './ghosted.svg'
 
-export const Wrapper = styled(
-  ({ ghosted, subMenu, menuItemActive, ...props }) => <Flex {...props} />
+export const MenuItemAction = styled(
+  ({ active, subMenu, ghosted, ...props }) => <Flex {...props} />
 ).attrs({
   color: 'secondary',
   justifyContent: 'space-between',
@@ -16,15 +16,11 @@ export const Wrapper = styled(
   minWidth: '100%',
   position: 'relative',
   variant: 'menuItem',
+  textAlign: 'left',
 })`
   transition-property: background-color, color;
   transition-duration: 0.25s;
   outline: 0;
-
-  ul {
-    visibility: hidden;
-    opacity: 0;
-  }
 
   ${props =>
     props.ghosted &&
@@ -42,13 +38,22 @@ export const Wrapper = styled(
       z-index: 1;
     }
     `};
+`
 
-  ${props =>
-    props.menuItemActive &&
-    `
-      ul {
-        visibility: visible;
-        opacity: 1;
-      }
-    `};
+export const Wrapper = styled(Flex).attrs({
+  position: 'relative',
+})`
+  ul {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+    will-change: opacity;
+  }
+
+  &:hover {
+    ul {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 `

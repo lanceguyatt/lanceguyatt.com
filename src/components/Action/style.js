@@ -2,23 +2,24 @@ import { css } from 'styled-components'
 
 import selected from './selected.svg'
 import unselected from './unselected.svg'
-import disabled from './disabled.svg'
+import ghosted from './ghosted.svg'
 
 export const link = css`
   background-color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.dark};
   display: inline-block;
   font-weight: normal;
-  height: 2.8rem;
+  height: 2.4rem;
   font-size: 1.6rem;
-  line-height: 2.8rem;
+  line-height: 1.125;
   text-align: center;
   border-width: 0.2rem;
   border-style: solid;
   border-image: url(${unselected}) 2 stretch;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
+  padding: 0.1rem 1.2rem;
+  position: relative;
 
   &:focus,
   &:active {
@@ -27,6 +28,18 @@ export const link = css`
   }
 
   &[disabled] {
-    border-image: url(${disabled}) 2 stretch;
+    pointer-events: none;
+
+    &::before {
+      content: '';
+      background: url(${ghosted});
+      position: absolute;
+      top: -0.2rem;
+      right: 0.1rem;
+      bottom: -0.2rem;
+      left: -0.1rem;
+      z-index: 1;
+      width: calc(100% + 0.2rem);
+    }
   }
 `

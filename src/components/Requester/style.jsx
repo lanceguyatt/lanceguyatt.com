@@ -28,7 +28,7 @@ export const TitleBar = styled(Flex).attrs({
 export const Main = styled(Flex).attrs({
   flexDirection: 'column',
   flex: 1,
-  p: 3,
+  p: 4,
 })``
 
 /* eslint-disable-next-line */
@@ -41,6 +41,7 @@ export const Wrapper = styled(({ name, show, special, ...props }) => (
   border-width: 2.2rem 0.4rem 0.4rem 0.4rem;
   border-image: url(${window}) 22 4 4 4 stretch;
   background-color: ${props => props.theme.colors.primary};
+  outline: 0;
 
   ${props =>
     props.special

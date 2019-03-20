@@ -8,4 +8,6 @@ export const Wrapper = styled(Flex).attrs({
   alignItems: 'flex-start',
   borderColor: 'dark',
   height: '2.2rem',
+  position: 'relative',
+  zIndex: 3,
 })``
