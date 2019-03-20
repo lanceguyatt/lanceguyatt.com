@@ -4,19 +4,23 @@ import WorkBench from '../layouts/WorkBench'
 import { Box, Flex } from '../primitives'
 import {
   Action,
+  Bevel,
   Checkbox,
   Close,
+  Dd,
   Depth,
-  Bevel,
+  Dl,
+  Dt,
   Label,
   Radio,
   Sizing,
+  Slider,
   Window,
   Zoom,
-  Dl,
-  Dt,
-  Dd,
 } from '../components'
+
+import SubMenu, { SubMenuItem } from '../components/SubMenu'
+import Menu, { MenuItem } from '../components/Menu'
 
 class Form extends Component {
   state = {
@@ -32,6 +36,23 @@ class Form extends Component {
     const { submitted } = this.state
     return (
       <Window name="Styleguide" level0 active>
+        <label htmlFor="red">
+          Red
+          <Slider id="red" />
+        </label>
+
+        <br />
+        <br />
+        <br />
+
+        <Menu name="Menu" menuActive>
+          <MenuItem name="MenuItem" subMenu>
+            <SubMenu>
+              <SubMenuItem>SubMenuItem</SubMenuItem>
+            </SubMenu>
+          </MenuItem>
+        </Menu>
+
         <div>
           <Bevel>
             <Box bg="primary" height={32} width={1 / 4} />

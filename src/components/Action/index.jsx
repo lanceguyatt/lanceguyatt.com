@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0, jsx-a11y/anchor-has-content: 0 */
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -5,15 +6,21 @@ import { Link } from 'gatsby'
 
 import { link } from './style'
 
-const Button = styled.button`
+const Button = styled(({ caps, ...props }) => (
+  <button type="button" {...props} />
+))`
   ${link};
-`
-const Internal = styled(Link)`
-  ${link};
+  ${props => props.caps && `text-transform: uppercase;`};
 `
 
-const External = styled.a`
+const Internal = styled(({ caps, ...props }) => <Link {...props} />)`
   ${link};
+  ${props => props.caps && `text-transform: uppercase;`};
+`
+
+const External = styled(({ caps, ...props }) => <a {...props} />)`
+  ${link};
+  ${props => props.caps && `text-transform: uppercase;`};
 `
 
 const Action = ({ name, url, ...props }) => {

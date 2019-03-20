@@ -5,7 +5,7 @@ import { MenuToggle, MenuList, Wrapper } from './style'
 
 class Menu extends Component {
   state = {
-    menuListActive: false,
+    menuActive: false,
   }
 
   static propTypes = {
@@ -19,31 +19,32 @@ class Menu extends Component {
     ghosted: false,
   }
 
-  showMenuList = () => {
-    this.setState({ menuListActive: true })
+  menuOpen = () => {
+    this.setState({ menuActive: true })
   }
 
-  hideMenuList = () => {
-    this.setState({ menuListActive: false })
+  menuClose = () => {
+    this.setState({ menuActive: false })
   }
 
-  render() {
-    const { menuListActive } = this.state
+  render = () => {
+    const { menuActive } = this.state
     const { name, children, ghosted } = this.props
     return (
       <Wrapper
-        onMouseEnter={this.showMenuList}
-        onMouseLeave={this.hideMenuList}
-        onFocus={this.showMenuList}
-        menuListActive={menuListActive}
+        onMouseEnter={this.menuOpen}
+        onMouseLeave={this.menuClose}
+        onFocus={this.menuOpen}
+        menuActive={menuActive}
         tabIndex={!ghosted ? 0 : null}
         type="button"
         role="button"
         {...ghosted}
-        {...this.props}
       >
-        <MenuToggle>{name}</MenuToggle>
-        {children && <MenuList is="nav">{children}</MenuList>}
+        <MenuToggle type="button" role="button">
+          {name}
+        </MenuToggle>
+        {children && <MenuList is="ul">{children}</MenuList>}
       </Wrapper>
     )
   }

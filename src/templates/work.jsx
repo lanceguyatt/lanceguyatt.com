@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import WorkBench from '../layouts/WorkBench'
-import { WorkBench as WB, Work } from '../containers'
+import { Work } from '../containers'
 import { Flex } from '../primitives'
 import { SEO, Window, Qux, Dl, Dt, Dd, Action } from '../components'
 
@@ -22,7 +22,6 @@ const WorkTemplate = ({ data }) => {
           website
           node={strapiWork}
         />
-        <WB />
         <Work />
         <Window {...strapiWork} close="/work" active level2>
           <Flex

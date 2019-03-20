@@ -30,8 +30,20 @@ const fonts = {
   sansSerif: '"Topaz", sans-serif',
 }
 
+const buttons = {
+  menuItem: {
+    backgroundColor: colors.dark,
+    color: colors.secondary,
+    '&:focus, &:hover, &:active': {
+      backgroundColor: colors.light,
+      color: colors.primary,
+    },
+  },
+}
+
 const workbench = {
   borders,
+  buttons,
   breakpoints,
   colors,
   fonts,

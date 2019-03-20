@@ -1,39 +1,46 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Modal from 'react-bootstrap/Modal'
 
+import { Flex } from '../../primitives'
 import { Depth } from '../index'
-import { Header, Name, Main, Inner, Wrapper } from './style'
+import { TitleBar, Name, Main, Wrapper } from './style'
 
 const Requester = props => {
-  const { name, description, actions, show, children } = props
+  const { name, children } = props
   return (
-    <Modal show={show}>
+    <Flex
+      position="fixed"
+      border={1}
+      top={0}
+      right={0}
+      bottom={0}
+      left={0}
+      alignItems="center"
+      justifyContent="center"
+      zIndex={1}
+    >
       <Wrapper {...props}>
-        <Header>
+        <TitleBar>
           <Name>{name}</Name>
           <Depth />
-        </Header>
-        {children}
-        <Main>
-          <Inner dangerouslySetInnerHTML={{ __html: description }} />
-          {actions}
-        </Main>
+        </TitleBar>
+        <Main>{children}</Main>
       </Wrapper>
-    </Modal>
+    </Flex>
   )
 }
 
 Requester.propTypes = {
   name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  actions: PropTypes.node,
+  children: PropTypes.node,
   show: PropTypes.bool,
+  special: PropTypes.bool,
 }
 
 Requester.defaultProps = {
-  actions: null,
+  children: null,
   show: false,
+  special: false,
 }
 
 export default Requester

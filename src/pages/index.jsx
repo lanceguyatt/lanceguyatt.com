@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import WorkBench from '../layouts/WorkBench'
-import { WorkBench as WB } from '../containers'
 import { SEO } from '../components'
 
 const Index = ({
@@ -19,7 +18,6 @@ const Index = ({
         url={url}
         image={image.childImageSharp.fixed.src}
       />
-      <WB active />
     </>
   </WorkBench>
 )

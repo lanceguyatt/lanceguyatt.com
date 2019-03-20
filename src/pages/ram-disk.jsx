@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import WorkBench from '../layouts/WorkBench'
-import { WorkBench as WB } from '../containers'
 import { SEO, Window } from '../components'
 
 const RamDiskPage = ({ data }) => {
@@ -13,7 +12,6 @@ const RamDiskPage = ({ data }) => {
     <WorkBench>
       <>
         <SEO name={name} description={description} url={url} />
-        <WB />
         <Window {...data.strapiPage} level1 active full={full} />
       </>
     </WorkBench>

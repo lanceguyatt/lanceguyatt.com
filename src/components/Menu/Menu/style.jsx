@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Box } from '../../primitives'
+import { Box } from '../../../primitives'
 import ghostedImage from './ghosted.svg'
 
 export const MenuList = styled(Box).attrs({
@@ -34,14 +34,14 @@ export const MenuToggle = styled(Box).attrs({
 `
 
 export const Wrapper = styled(
-  ({ name, items, menuListActive, ghosted, ...props }) => <Box {...props} />
+  ({ name, items, menuActive, ghosted, ...props }) => <Box {...props} />
 ).attrs({
   mr: 6,
 })`
   outline: 0;
 
   ${props =>
-    props.menuListActive &&
+    props.menuActive &&
     `${MenuToggle} { 
       background-color: ${props.theme.colors.light};
       color: ${props.theme.colors.primary};
