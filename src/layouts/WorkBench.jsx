@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { Box, Flex } from '../primitives'
@@ -10,8 +10,6 @@ import { Action, MenuBar, Requester, Text, TitleBar } from '../components'
 import SubMenu, { SubMenuItem } from '../components/SubMenu'
 import Menu, { MenuItem } from '../components/Menu'
 
-const Wrapper = styled(Box)``
-
 class WorkBench extends Component {
   state = {
     menuBarActive: false,
@@ -19,6 +17,7 @@ class WorkBench extends Component {
     execute: false,
     about: false,
     quit: false,
+    viewBy: 'icons',
   }
 
   menuBarToggle = e => {
@@ -30,6 +29,8 @@ class WorkBench extends Component {
 
   backdropToggle = () => {
     this.setState(prevState => ({ backdrop: !prevState.backdrop }))
+    // const { backdrop } = this.state
+    // localStorage.setItem('backdrop', backdrop)
     this.menuBarClose()
   }
 
@@ -46,6 +47,10 @@ class WorkBench extends Component {
       menuBarActive: false,
       execute: false,
     })
+  }
+
+  handleViewBy = view => {
+    this.setState({ viewBy: view })
   }
 
   aboutOpen = () => {
@@ -89,10 +94,10 @@ class WorkBench extends Component {
 
   render() {
     const { children } = this.props
-    const { menuBarActive, backdrop, execute, about, quit } = this.state
+    const { menuBarActive, backdrop, execute, about, quit, viewBy } = this.state
     return (
       <ThemeProvider theme={workbench}>
-        <Wrapper>
+        <>
           <GlobalStyle />
           {menuBarActive ? (
             <MenuBar>
@@ -139,10 +144,23 @@ class WorkBench extends Component {
                 </MenuItem>
                 <MenuItem name="View By" subMenu>
                   <SubMenu>
-                    <SubMenuItem name="Icon" active />
-                    <SubMenuItem name="Name" />
-                    <SubMenuItem name="Date" />
-                    <SubMenuItem name="Size" />
+                    <SubMenuItem
+                      name="Icon"
+                      active
+                      onClick={() => this.handleViewBy('icon')}
+                    />
+                    <SubMenuItem
+                      name="Name"
+                      onClick={() => this.handleViewBy('name')}
+                    />
+                    <SubMenuItem
+                      name="Date"
+                      onClick={() => this.handleViewBy('date')}
+                    />
+                    <SubMenuItem
+                      name="Size"
+                      onClick={() => this.handleViewBy('size')}
+                    />
                   </SubMenu>
                 </MenuItem>
               </Menu>
@@ -168,7 +186,7 @@ class WorkBench extends Component {
             <TitleBar />
           )}
 
-          <WB active backdrop={backdrop} />
+          <WB active backdrop={backdrop} view={viewBy} />
 
           {children}
 
@@ -222,7 +240,7 @@ class WorkBench extends Component {
               </Flex>
             </>
           </Requester>
-        </Wrapper>
+        </>
       </ThemeProvider>
     )
   }

@@ -27,6 +27,14 @@ const Shortcut = ({ shortcut }) => (
   </Box>
 )
 
+Shortcut.propTypes = {
+  shortcut: PropTypes.string,
+}
+
+Shortcut.defaultProps = {
+  shortcut: null,
+}
+
 const MenuItem = props => {
   const { active, name, shortcut, ghosted, subMenu, children } = props
   return (
@@ -64,6 +72,7 @@ MenuItem.propTypes = {
   ghosted: PropTypes.bool,
   subMenu: PropTypes.bool,
   children: PropTypes.node,
+  active: PropTypes.bool,
 }
 
 MenuItem.defaultProps = {
@@ -73,6 +82,7 @@ MenuItem.defaultProps = {
   ghosted: false,
   subMenu: false,
   children: null,
+  active: false,
 }
 
 export default MenuItem

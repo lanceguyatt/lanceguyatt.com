@@ -46,6 +46,9 @@ const WorkStaticQuery = graphql`
           id
           name
           slug
+          datePublished
+          full
+          free
         }
       }
     }

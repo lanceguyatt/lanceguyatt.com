@@ -12,7 +12,6 @@ const Requester = props => {
       {show ? (
         <Flex
           position="fixed"
-          border={1}
           top={0}
           right={0}
           bottom={0}

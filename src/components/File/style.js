@@ -24,6 +24,7 @@ export const Link = styled(Box).attrs({
   mb: 4,
   width: '10rem',
 })`
+  &:focus,
   &:active {
     ${Image} {
       background-position: -4.6rem 0;

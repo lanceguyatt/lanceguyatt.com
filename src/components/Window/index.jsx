@@ -34,12 +34,12 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
 
     @media (min-width: ${props.theme.breakpoints[1]}) {
       left: 50%;
+      bottom: auto;
+      right: auto;
       top: 50%;
-      width: 50vw;
-      height: 50vh;
-      margin-top: -5rem;
-      margin-left: -5rem;
       transform: translate(-50%, -50%);
+      min-width: 64rem;
+      min-height: 48rem;
     }
   `};
 
@@ -71,7 +71,13 @@ const Window = ({
   level2,
   name,
 }) => (
-  <Wrapper active={active} level0={level0} level1={level1} level2={level2}>
+  <Wrapper
+    active={active}
+    level0={level0}
+    level1={level1}
+    level2={level2}
+    tabIndex={-1}
+  >
     <Header>
       <Close to={close} />
       <Name>

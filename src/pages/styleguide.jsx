@@ -19,9 +19,6 @@ import {
   Zoom,
 } from '../components'
 
-import SubMenu, { SubMenuItem } from '../components/SubMenu'
-import Menu, { MenuItem } from '../components/Menu'
-
 class Form extends Component {
   state = {
     submitted: false,
@@ -36,11 +33,7 @@ class Form extends Component {
     const { submitted } = this.state
     return (
       <Window name="Styleguide" level1 active>
-        <label htmlFor="red">
-          Red
-          <Slider id="red" />
-        </label>
-
+        <Slider id="red" />
         <br />
         <br />
         <br />

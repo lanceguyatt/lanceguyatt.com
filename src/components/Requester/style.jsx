@@ -54,8 +54,8 @@ export const Wrapper = styled(({ name, show, special, ...props }) => (
         border-style: solid;
         border-width: 0.2rem 0.1rem;
         border-image: url(${border}) 2 1 2 1 stretch;
-        padding: 2.4rem;
-        margin-bottom: 0.4rem;
+        padding: ${props.theme.space[5]};
+        margin-bottom: ${props.theme.space[4]};
       }
     }`
       : `${Main} { background-color: ${props.theme.colors.secondary}; }`};
