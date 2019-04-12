@@ -9,7 +9,7 @@ const wrapper = promise =>
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const Work = path.resolve(`./src/templates/Work.jsx`)
+  const Work = path.resolve(`./src/templates/work.jsx`)
 
   const { error, result } = await wrapper(
     graphql(`
