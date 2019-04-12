@@ -3,17 +3,30 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import { Window, Directory } from '../components'
+import { edgeToArray } from '../utils'
 
-const edgeToArray = data => data.edges.map(edge => edge.node)
+const WorkTemplate = ({ data, active }) => {
+  const { contentfulPage, allContentfulWork } = data
+  return (
+    <Window {...contentfulPage} level1 active={active}>
+      <Directory basepath="/work" list={edgeToArray(allContentfulWork)} />
+    </Window>
+  )
+}
+
+WorkTemplate.propTypes = {
+  data: PropTypes.shape().isRequired,
+  active: PropTypes.bool,
+}
+
+WorkTemplate.defaultProps = {
+  active: false,
+}
 
 const Work = ({ active }) => (
   <StaticQuery
     query={WorkStaticQuery}
-    render={data => (
-      <Window {...data.strapiPage} active={active} level1>
-        <Directory basepath="/work" list={edgeToArray(data.allStrapiWork)} />
-      </Window>
-    )}
+    render={data => <WorkTemplate data={data} active={active} />}
   />
 )
 
@@ -29,26 +42,16 @@ export default Work
 
 const WorkStaticQuery = graphql`
   query workStaticQuery {
-    strapiPage(slug: { eq: "/work" }) {
-      name
-      description
-      slug
-      full
-      free
+    contentfulPage(id: { eq: "2cf1d118-a26d-57e4-8a8b-4fa3008561ec" }) {
+      ...page
     }
 
-    allStrapiWork(
-      sort: { fields: [datePublished], order: DESC }
-      filter: { published: { eq: true } }
-    ) {
+    allContentfulWork(sort: { fields: [datePublished], order: DESC }) {
       edges {
         node {
           id
           name
           slug
-          datePublished
-          full
-          free
         }
       }
     }

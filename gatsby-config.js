@@ -1,6 +1,11 @@
 require('dotenv').config()
 
-const { ANALYTICS_ID, GATSBY_SITE_URL } = process.env
+const {
+  ANALYTICS_ID,
+  CONTENTFUL_ACCESS_TOKEN,
+  CONTENTFUL_SPACE_ID,
+  GATSBY_SITE_URL,
+} = process.env
 
 const website = require('./config/website')
 
@@ -49,11 +54,10 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-source-strapi',
+      resolve: 'gatsby-source-contentful',
       options: {
-        apiURL: 'http://localhost:1337',
-        contentTypes: ['page', 'work', 'about', 'technologies'],
-        queryLimit: 1000,
+        spaceId: CONTENTFUL_SPACE_ID,
+        accessToken: CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {
@@ -95,6 +99,6 @@ module.exports = {
         // exclude: ['/preview/**', '/do-not-track/me/too/'],
       },
     },
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
   ],
 }

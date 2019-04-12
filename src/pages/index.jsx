@@ -5,22 +5,17 @@ import PropTypes from 'prop-types'
 import WorkBench from '../layouts/WorkBench'
 import { SEO } from '../components'
 
-const Index = ({
-  data: {
-    strapiPage: { description, url, image },
-  },
-}) => (
-  <WorkBench>
-    <>
-      <SEO
-        index
-        description={description}
-        url={url}
-        image={image.childImageSharp.fixed.src}
-      />
-    </>
-  </WorkBench>
-)
+const Index = ({ data }) => {
+  const { contentfulPage } = data
+  const { meta } = contentfulPage
+  return (
+    <WorkBench>
+      <>
+        <SEO {...meta} index image={meta.image.fixed.src} />
+      </>
+    </WorkBench>
+  )
+}
 
 Index.propTypes = {
   data: PropTypes.shape().isRequired,
@@ -29,22 +24,31 @@ Index.propTypes = {
 export default Index
 
 export const IndexQuery = graphql`
-  fragment shareImage on StrapiPage {
+  fragment meta on ContentfulMeta {
+    name
+    description
     image {
-      childImageSharp {
-        fixed(width: 1200, height: 628) {
-          src
-        }
+      fixed(width: 1200, height: 628) {
+        src
+      }
+    }
+  }
+
+  fragment page on ContentfulPage {
+    name
+    description {
+      internal {
+        content
       }
     }
   }
 
   query indexQuery {
-    strapiPage(slug: { eq: "/" }) {
+    contentfulPage(id: { eq: "faa63991-cf4d-50e6-926f-86475620b3d9" }) {
       name
-      description
-      url: slug
-      ...shareImage
+      meta {
+        ...meta
+      }
     }
   }
 `

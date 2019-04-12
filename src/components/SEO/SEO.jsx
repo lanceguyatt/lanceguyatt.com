@@ -30,7 +30,7 @@ const SEO = props => {
           name: name || siteTitle,
           description: description || siteDescription,
           url: `${siteUrl}${url}` || siteUrl,
-          image: image ? `${siteUrl}${image}` : siteImage,
+          image: image || siteImage,
         }
 
         // schema.org in JSONLD format
@@ -129,7 +129,7 @@ const SEO = props => {
           <>
             <Helmet
               title={seo.name}
-              titleTemplate={index ? null : `${siteTitle} - %s`}
+              titleTemplate={!index && `%s - ${siteTitle}`}
             >
               <html lang={siteLanguage} />
               <meta name="description" content={seo.description} />
@@ -185,7 +185,7 @@ SEO.defaultProps = {
   index: false,
   name: null,
   description: null,
-  url: null,
+  url: '/',
   image: null,
   website: false,
   node: null,

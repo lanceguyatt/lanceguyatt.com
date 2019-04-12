@@ -6,14 +6,18 @@ import WorkBench from '../layouts/WorkBench'
 import { About } from '../containers'
 import { SEO } from '../components'
 
-const AboutPage = ({ data: { strapiPage } }) => (
-  <WorkBench>
-    <>
-      <SEO {...strapiPage} />
-      <About active />
-    </>
-  </WorkBench>
-)
+const AboutPage = ({ data }) => {
+  const { contentfulPage } = data
+  const { meta } = contentfulPage
+  return (
+    <WorkBench>
+      <>
+        <SEO {...meta} url="/about" />
+        <About active />
+      </>
+    </WorkBench>
+  )
+}
 
 AboutPage.propTypes = {
   data: PropTypes.shape().isRequired,
@@ -23,11 +27,11 @@ export default AboutPage
 
 export const AboutPageQuery = graphql`
   query aboutPageQuery {
-    strapiPage(slug: { eq: "/about" }) {
-      name
-      description
-      url: slug
-      full
+    contentfulPage(id: { eq: "790a38a5-2cff-5c43-aaed-7477aaa53409" }) {
+      ...page
+      meta {
+        ...meta
+      }
     }
   }
 `

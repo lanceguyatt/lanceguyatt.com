@@ -52,12 +52,8 @@ export default WorkBench
 
 const WorkBenchQuery = graphql`
   query workBenchQuery {
-    strapiPage(slug: { eq: "/" }) {
-      name
-      description
-      slug
-      full
-      free
+    contentfulPage(id: { eq: "faa63991-cf4d-50e6-926f-86475620b3d9" }) {
+      ...page
     }
   }
 `

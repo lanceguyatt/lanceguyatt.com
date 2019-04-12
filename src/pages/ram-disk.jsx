@@ -6,13 +6,13 @@ import WorkBench from '../layouts/WorkBench'
 import { SEO, Window } from '../components'
 
 const RamDiskPage = ({ data }) => {
-  const { strapiPage } = data
-  const { name, description, url, full } = strapiPage
+  const { contentfulPage } = data
+  const { meta } = contentfulPage
   return (
     <WorkBench>
       <>
-        <SEO name={name} description={description} url={url} />
-        <Window {...data.strapiPage} level1 active full={full} />
+        <SEO {...meta} url="/ram-disk" />
+        <Window {...contentfulPage} level1 active />
       </>
     </WorkBench>
   )
@@ -25,12 +25,12 @@ RamDiskPage.propTypes = {
 export default RamDiskPage
 
 export const RamDiskPageQuery = graphql`
-  query ramDiskageQuery {
-    strapiPage(slug: { eq: "/ram-disk" }) {
-      name
-      description
-      url: slug
-      full
+  query ramDiskPageQuery {
+    contentfulPage(id: { eq: "82129277-e6da-5890-825f-b73f39409ee5" }) {
+      ...page
+      meta {
+        ...meta
+      }
     }
   }
 `

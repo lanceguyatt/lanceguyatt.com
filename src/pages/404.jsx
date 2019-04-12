@@ -8,34 +8,34 @@ import { guruMeditation } from '../styles/theme'
 import GuruMeditation from '../containers/GuruMeditation'
 import { SEO } from '../components'
 
-const GuruMeditationPage = ({
-  data: {
-    strapiPage: { name, description, url },
-  },
-}) => (
-  <ThemeProvider theme={guruMeditation}>
-    <>
-      <GlobalStyle />
-      <SEO name={name} description={description} url={url} />
-      <GuruMeditation />
-    </>
-  </ThemeProvider>
-)
+const GuruMeditationPage = ({ data }) => {
+  const { contentfulPage } = data
+  const { meta } = contentfulPage
+
+  return (
+    <ThemeProvider theme={guruMeditation}>
+      <>
+        <GlobalStyle />
+        <SEO {...meta} url="/404" />
+        <GuruMeditation />
+      </>
+    </ThemeProvider>
+  )
+}
 
 GuruMeditationPage.propTypes = {
-  data: PropTypes.shape({
-    strapiPage: PropTypes.object.isRequired,
-  }).isRequired,
+  data: PropTypes.shape().isRequired,
 }
 
 export default GuruMeditationPage
 
 export const GuruMeditationPageQuery = graphql`
   query guruMeditationPageQuery {
-    strapiPage(slug: { eq: "/404" }) {
-      name
-      description
-      url: slug
+    contentfulPage(id: { eq: "69f9f631-d866-5bf0-a7f3-99b7e062748c" }) {
+      ...page
+      meta {
+        ...meta
+      }
     }
   }
 `

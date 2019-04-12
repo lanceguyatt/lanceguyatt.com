@@ -6,21 +6,20 @@ import { Window, Directory } from '../components'
 import { edgeToArray } from '../utils'
 
 const AboutTemplate = ({ data, active }) => {
-  const { strapiPage, allStrapiAbout } = data
+  const { contentfulPage, allContentfulAbout } = data
   return (
-    <Window {...strapiPage} level1 active={active}>
-      <Directory basepath="/about" list={edgeToArray(allStrapiAbout)} />
+    <Window {...contentfulPage} level1 active={active}>
+      <Directory basepath="/about" list={edgeToArray(allContentfulAbout)} />
     </Window>
   )
 }
 
 AboutTemplate.propTypes = {
-  data: PropTypes.shape(),
+  data: PropTypes.shape().isRequired,
   active: PropTypes.bool,
 }
 
 AboutTemplate.defaultProps = {
-  data: null,
   active: false,
 }
 
@@ -43,15 +42,11 @@ export default About
 
 const AboutQuery = graphql`
   query aboutQuery {
-    strapiPage(slug: { eq: "/about" }) {
-      name
-      description
-      slug
-      full
-      free
+    contentfulPage(id: { eq: "790a38a5-2cff-5c43-aaed-7477aaa53409" }) {
+      ...page
     }
 
-    allStrapiAbout {
+    allContentfulAbout {
       edges {
         node {
           id

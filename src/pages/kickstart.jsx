@@ -8,24 +8,19 @@ import { kickstart } from '../styles/theme'
 import KickStart from '../containers/KickStart'
 import { SEO } from '../components'
 
-const KickStartPage = ({
-  data: {
-    strapiPage: { name, description, url, image },
-  },
-}) => (
-  <ThemeProvider theme={kickstart}>
-    <>
-      <GlobalStyle />
-      <SEO
-        name={name}
-        description={description}
-        url={url}
-        image={image.childImageSharp.fixed.src}
-      />
-      <KickStart />
-    </>
-  </ThemeProvider>
-)
+const KickStartPage = ({ data }) => {
+  const { contentfulPage } = data
+  const { meta } = contentfulPage
+  return (
+    <ThemeProvider theme={kickstart}>
+      <>
+        <GlobalStyle />
+        <SEO {...meta} url="/kickstart" image={meta.image.fixed.src} />
+        <KickStart />
+      </>
+    </ThemeProvider>
+  )
+}
 
 KickStartPage.propTypes = {
   data: PropTypes.shape().isRequired,
@@ -35,11 +30,11 @@ export default KickStartPage
 
 export const KickStartPageQuery = graphql`
   query kickStartPageQuery {
-    strapiPage(slug: { eq: "/kickstart" }) {
+    contentfulPage(id: { eq: "3d2cf256-a387-5316-a7a4-f8e5c731cf8f" }) {
       name
-      description
-      url: slug
-      ...shareImage
+      meta {
+        ...meta
+      }
     }
   }
 `

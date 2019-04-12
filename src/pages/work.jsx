@@ -7,13 +7,13 @@ import { Work } from '../containers'
 import { SEO } from '../components'
 
 const WorkPage = ({ data }) => {
-  const { strapiPage } = data
-  const { name, description, url } = strapiPage
+  const { contentfulPage } = data
+  const { meta } = contentfulPage
   return (
     <WorkBench>
       <>
-        <SEO name={name} description={description} url={url} />
-        <Work level2 active />
+        <SEO {...meta} url="/work" />
+        <Work active />
       </>
     </WorkBench>
   )
@@ -27,10 +27,11 @@ export default WorkPage
 
 export const WorkPageQuery = graphql`
   query workPageQuery {
-    strapiPage(slug: { eq: "/work" }) {
-      name
-      description
-      url: slug
+    contentfulPage(id: { eq: "2cf1d118-a26d-57e4-8a8b-4fa3008561ec" }) {
+      ...page
+      meta {
+        ...meta
+      }
     }
   }
 `

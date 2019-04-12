@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { error, result } = await wrapper(
     graphql(`
       {
-        allStrapiWork(filter: { published: { eq: true } }) {
+        allContentfulWork {
           edges {
             node {
               name
@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
   )
 
   if (!error) {
-    const works = result.data.allStrapiWork.edges
+    const works = result.data.allContentfulWork.edges
 
     works.forEach(work => {
       createPage({

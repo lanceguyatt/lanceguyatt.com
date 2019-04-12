@@ -6,35 +6,34 @@ import Img from 'gatsby-image'
 import WorkBench from '../layouts/WorkBench'
 import { Work } from '../containers'
 import { Flex } from '../primitives'
-import { SEO, Window, Qux, Dl, Dt, Dd, Action } from '../components'
+import { SEO, Window, Dl, Dt, Dd, Action } from '../components'
 
 const WorkTemplate = ({ data }) => {
-  const { strapiWork } = data
-  const { name, description, slug, url, image, logo, technologies } = strapiWork
+  const { contentfulWork } = data
+  const { meta, name, slug, url, technologies } = contentfulWork
   return (
     <WorkBench>
       <>
         <SEO
-          name={name}
-          description={description}
+          {...meta}
           url={`/work/${slug}`}
-          image={image ? image.childImageSharp.fixed.src : null}
+          image={meta.image.fixed.src}
           website
-          node={strapiWork}
+          node={contentfulWork}
         />
         <Work />
-        <Window {...strapiWork} close="/work" active level2>
+        <Window {...contentfulWork} close="/work" active level2>
           <Flex
             flexDirection="column"
             height="calc(100% - 2.2rem)"
             minHeight="min-content"
             flex={1}
           >
-            {logo && (
+            {/* {image && (
               <Qux mx="auto" mb={5} width="15.2rem">
-                <Img fixed={logo.childImageSharp.fixed} />
+                <Img fixed={image.fixed} />
               </Qux>
-            )}
+            )} */}
 
             <Dl mb={3}>
               <Dt width={1 / 3}>Name</Dt>
@@ -76,33 +75,24 @@ export default WorkTemplate
 
 export const WorkTemplateQuery = graphql`
   query WorkTemplateQuery($slug: String!) {
-    strapiWork(slug: { eq: $slug }) {
+    contentfulWork(slug: { eq: $slug }) {
       name
-      description
+      meta {
+        ...meta
+      }
       url
       slug
-      full
-      free
       technologies {
         id
         name
       }
       datePublished
-      dateModified
-      logo {
-        childImageSharp {
-          fixed(width: 144) {
-            ...GatsbyImageSharpFixed_withWebp_noBase64
-          }
-        }
-      }
-      image {
-        childImageSharp {
-          fixed(width: 1200, height: 628) {
-            src
-          }
-        }
-      }
     }
   }
 `
+
+// image {
+//   fixed(width: 144) {
+//     src
+//   }
+// }
