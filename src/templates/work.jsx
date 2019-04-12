@@ -85,6 +85,7 @@ export const WorkTemplateQuery = graphql`
         id
         name
       }
+      dateModified: updatedAt
       datePublished
     }
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
@@ -52,20 +52,20 @@ const Icon = props => {
   return (
     <Foo is="nav" {...props}>
       {list.map(item => (
-        <React.Fragment key={item.id}>
+        <Fragment key={item.id}>
           {item.slug ? (
             <Drawer name={item.name} to={`${basepath}/${item.slug}`} />
           ) : (
             <File name={item.name} href={item.url} />
           )}
-        </React.Fragment>
+        </Fragment>
       ))}
     </Foo>
   )
 }
 
 Icon.propTypes = {
-  list: PropTypes.shape().isRequired,
+  list: PropTypes.array.isRequired,
   basepath: PropTypes.string,
 }
 
