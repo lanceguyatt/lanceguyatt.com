@@ -17,7 +17,7 @@ const WorkTemplate = ({ data }) => {
         <SEO
           {...meta}
           url={`/work/${slug}`}
-          image={meta.image.fixed.src}
+          image={meta || (meta.image && meta.image.fixed.src)}
           website
           node={contentfulWork}
         />
