@@ -1,9 +1,21 @@
 {
   "name": "lanceguyatt",
-  "description": "Lance Guyatt website",
   "version": "1.0.0",
+  "private": true,
+  "description": "Personal site built with Contentful, GraphQL, Gatsby and Styled Components. Inspired by Amiga Workbench.",
   "author": "Lance Guyatt <lance@lanceguyatt.com>",
   "homepage": "http://lanceguyatt.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lanceguyatt/lanceguyatt.git"
+  },
+  "keywords": [
+    "gatsby",
+    "styled-components",
+    "graphql",
+    "amiga",
+    "contentful"
+  ],
   "dependencies": {
     "gatsby": "^2.3.21",
     "gatsby-image": "^2.0.38",
@@ -12,13 +24,10 @@
     "gatsby-plugin-nprogress": "^2.0.10",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sharp": "^2.0.34",
     "gatsby-plugin-sitemap": "^2.0.12",
     "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-contentful": "^2.0.48",
-    "gatsby-source-filesystem": "^2.0.29",
-    "gatsby-transformer-sharp": "^2.1.18",
+    "gatsby-transformer-remark": "^2.3.8",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-css-transition": "^0.7.4",
@@ -45,14 +54,9 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.6.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && gatsby build",
-    "deploy": "GATSBY_SITE_URL=http://lanceguyatt.com npm run build && npm run surge",
-    "surge": "surge -p public -d lanceguyatt.com",
     "develop": "gatsby develop",
     "dev": "npm run develop",
     "clean": "rm -rf public .cache",

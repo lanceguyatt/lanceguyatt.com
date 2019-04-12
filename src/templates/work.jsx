@@ -6,21 +6,15 @@ import Img from 'gatsby-image'
 import WorkBench from '../layouts/WorkBench'
 import { Work } from '../containers'
 import { Flex } from '../primitives'
-import { SEO, Window, Dl, Dt, Dd, Action } from '../components'
+import { SEO, Window, Dl, Dt, Dd, Action, Qux } from '../components'
 
 const WorkTemplate = ({ data }) => {
   const { contentfulWork } = data
-  const { meta, name, slug, url, technologies } = contentfulWork
+  const { meta, name, image, slug, url, technologies } = contentfulWork
   return (
     <WorkBench>
       <>
-        <SEO
-          {...meta}
-          url={`/work/${slug}`}
-          image={meta || (meta.image && meta.image.fixed.src)}
-          website
-          node={contentfulWork}
-        />
+        <SEO {...meta} url={`/work/${slug}`} website node={contentfulWork} />
         <Work />
         <Window {...contentfulWork} close="/work" active level2>
           <Flex
@@ -29,11 +23,11 @@ const WorkTemplate = ({ data }) => {
             minHeight="min-content"
             flex={1}
           >
-            {/* {image && (
+            {image && (
               <Qux mx="auto" mb={5} width="15.2rem">
                 <Img fixed={image.fixed} />
               </Qux>
-            )} */}
+            )}
 
             <Dl mb={3}>
               <Dt width={1 / 3}>Name</Dt>
@@ -76,12 +70,17 @@ export default WorkTemplate
 export const WorkTemplateQuery = graphql`
   query WorkTemplateQuery($slug: String!) {
     contentfulWork(slug: { eq: $slug }) {
-      name
       meta {
         ...meta
       }
+      name
       url
       slug
+      image {
+        fixed(width: 144) {
+          ...GatsbyContentfulFixed_withWebp
+        }
+      }
       technologies {
         id
         name
@@ -90,9 +89,3 @@ export const WorkTemplateQuery = graphql`
     }
   }
 `
-
-// image {
-//   fixed(width: 144) {
-//     src
-//   }
-// }

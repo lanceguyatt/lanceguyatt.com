@@ -36,23 +36,6 @@ module.exports = {
         showSpinner: false,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-web-font-loader',
-    //   options: {
-    //     custom: {
-    //       families: ['Topaz'],
-    //     },
-    //   },
-    // },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/src/images`,
-      },
-    },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-contentful',
       options: {
@@ -99,6 +82,8 @@ module.exports = {
         // exclude: ['/preview/**', '/do-not-track/me/too/'],
       },
     },
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
   ],
 }
