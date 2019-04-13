@@ -1,21 +1,33 @@
 {
   "name": "lanceguyatt",
   "version": "1.0.0",
-  "private": true,
-  "description": "Personal site built with Contentful, GraphQL, Gatsby and Styled Components. Inspired by Amiga Workbench.",
-  "author": "Lance Guyatt <lance@lanceguyatt.com>",
-  "homepage": "https://lanceguyatt.com/",
+  "description": "Personal site built with Contentful, Gatsby, GraphQL, and Styled Components. Inspired by Amiga Workbench.",
+  "keywords": [
+    "contentful",
+    "react",
+    "gatsby",
+    "graphql",
+    "styled-components",
+    "amiga"
+  ],
+  "homepage": "https://github.com/lanceguyatt/lanceguyatt",
+  "license": "MIT",
+  "author": "Lance Guyatt <lance@lanceguyatt.com> (https://lanceguyatt.com/)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/lanceguyatt/lanceguyatt.git"
+    "url": "https://github.com/lanceguyatt/lanceguyatt.git"
   },
-  "keywords": [
-    "gatsby",
-    "styled-components",
-    "graphql",
-    "amiga",
-    "contentful"
-  ],
+  "scripts": {
+    "build": "npm run clean && gatsby build",
+    "dev": "gatsby develop",
+    "clean": "rm -rf public .cache",
+    "format": "prettier --write \"./src/**/*.js\" \"./src/**/*.jsx\"",
+    "lint:css": "stylelint \"./src/**/*.js\"",
+    "diff": "prettier --config prettier.config.js --list-different \"**/*.js\" \"**/*.jsx\"",
+    "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
+    "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check",
+    "offline": "GATSBY_CONTENTFUL_OFFLINE=true yarn run dev"
+  },
   "dependencies": {
     "gatsby": "^2.3.21",
     "gatsby-image": "^2.0.38",
@@ -54,18 +66,7 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.6.0"
   },
-  "license": "MIT",
-  "scripts": {
-    "build": "npm run clean && gatsby build",
-    "develop": "gatsby develop",
-    "dev": "npm run develop",
-    "clean": "rm -rf public .cache",
-    "format": "prettier --write \"./src/**/*.js\" \"./src/**/*.jsx\"",
-    "lint:css": "stylelint \"./src/**/*.js\"",
-    "diff": "prettier --config prettier.config.js --list-different \"**/*.js\" \"**/*.jsx\"",
-    "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
-    "eslint-check": "eslint --print-config .eslintrc | eslint-config-prettier-check"
-  },
+  "private": true,
   "browserslist": [
     "> 1%",
     "last 2 versions",
