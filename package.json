@@ -1,7 +1,7 @@
 {
   "name": "lanceguyatt",
   "version": "1.0.0",
-  "description": "Personal site built with Contentful, Gatsby, GraphQL, and Styled Components. Inspired by Amiga Workbench.",
+  "description": "Personal site built with Contentful, ReactJS, GatsbyJS, GraphQL, and Styled Components. Inspired by Amiga Workbench 2.0.",
   "keywords": [
     "contentful",
     "react",
