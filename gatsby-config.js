@@ -82,8 +82,13 @@ module.exports = {
         // exclude: ['/preview/**', '/do-not-track/me/too/'],
       },
     },
-    'gatsby-transformer-remark',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-offline',
+    // 'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/styleguide'],
+      },
+    },
+    'gatsby-plugin-remove-serviceworker',
   ],
 }
