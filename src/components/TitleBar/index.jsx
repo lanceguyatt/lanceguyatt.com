@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 
 import { Name, Wrapper } from './style'
-import { Depth } from '../index'
+import Depth from '../Depth'
 
 const TitleBarTemplate = props => {
   const { data } = props

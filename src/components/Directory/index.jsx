@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 import { Box } from '../../primitives'
-import { Drawer, File } from '../index'
+import Drawer from '../Drawer'
+import File from '../File'
 import { Foo, Wrapper } from './style'
 
 const Name = () => <Box>Name</Box>

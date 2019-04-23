@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Flex } from '../../primitives'
-import { Close, Depth, Zoom } from '../index'
+import Close from '../Close'
+import Depth from '../Depth'
+import Zoom from '../Zoom'
 import { Name, Header, Main } from './style'
 import window from './window.svg'
 

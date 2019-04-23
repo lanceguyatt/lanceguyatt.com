@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Flex } from '../../primitives'
-import { Depth } from '../index'
+import Depth from '../Depth'
 import { TitleBar, Name, Main, Wrapper } from './style'
 
 const Requester = props => {
