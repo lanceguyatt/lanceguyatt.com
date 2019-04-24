@@ -57,7 +57,6 @@ module.exports = {
         include_favicon: true, // Include favicon
       },
     },
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
@@ -87,6 +86,12 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         exclude: ['/styleguide'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: GATSBY_SITE_URL,
       },
     },
     'gatsby-plugin-remove-serviceworker',
