@@ -29,6 +29,7 @@
     "offline": "GATSBY_CONTENTFUL_OFFLINE=true yarn run dev"
   },
   "dependencies": {
+    "dotenv": "^7.0.0",
     "gatsby": "^2.3.27",
     "gatsby-image": "^2.0.40",
     "gatsby-plugin-canonical-urls": "^2.0.12",
@@ -51,7 +52,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
