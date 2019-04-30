@@ -5,6 +5,12 @@ import { Alert, Audio } from '../../components'
 import { Wrapper, Toasty } from './style'
 import toastyMp3 from './toasty.mp3'
 
+const alert = {
+  description:
+    'Software Failure. Press left mouse button to continue.<br />Guru Meditation #00004040.00004040',
+  url: '/',
+}
+
 class GuruMeditation extends Component {
   state = {
     toasty: false,
@@ -41,14 +47,7 @@ class GuruMeditation extends Component {
     const { toasty } = this.state
     return (
       <Wrapper>
-        <Alert
-          description={`
-            Software Failure. Press left mouse button to continue.
-            <br />
-            Guru Meditation #00004040.00004040
-          `}
-          url="/"
-        />
+        <Alert alert={alert} />
 
         <Toasty
           defaultStyle={{ transform: 'translate(20rem, 0)' }}
