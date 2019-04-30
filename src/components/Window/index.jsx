@@ -79,11 +79,14 @@ const Window = ({
     level1={level1}
     level2={level2}
     tabIndex={-1}
+    is="article"
   >
     <Header>
       <Close to={close} />
       <Name>
-        {name} {full}% full, {free}k free, 708K
+        <h1>
+          {name} {full}% full, {free}k free, 708K
+        </h1>
       </Name>
       <Zoom />
       <Depth />

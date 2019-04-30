@@ -10,7 +10,7 @@ const TitleBarTemplate = props => {
   const { site } = data
   const { siteMetadata } = site
   return (
-    <Wrapper>
+    <Wrapper role="banner">
       <Name>
         {siteMetadata.title}. Copyright © 2000-{siteMetadata.copyrightYear} All
         Rights Reserved

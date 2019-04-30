@@ -42,6 +42,7 @@ const MenuItem = props => {
       <MenuItemAction
         is="button"
         type="button"
+        role="menuitem"
         tabIndex={ghosted ? '-1' : null}
         {...ghosted}
         {...props}

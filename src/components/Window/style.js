@@ -19,6 +19,7 @@ export const Header = styled(Flex).attrs({
   top: '-2rem',
   right: '-0.4rem',
   left: '-0.4rem',
+  is: 'header',
 })``
 
 export const Main = styled(Flex).attrs({
