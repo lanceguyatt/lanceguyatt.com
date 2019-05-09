@@ -33,6 +33,12 @@ const SEO = props => {
           image: image || siteImage,
         }
 
+        let titleTemplate
+
+        if (!index) {
+          titleTemplate = `%s - ${siteTitle}`
+        }
+
         // schema.org in JSONLD format
         // https://developers.google.com/search/docs/guides/intro-structured-data
         // You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
@@ -127,10 +133,7 @@ const SEO = props => {
 
         return (
           <>
-            <Helmet
-              title={seo.name}
-              titleTemplate={!index && `%s - ${siteTitle}`}
-            >
+            <Helmet title={seo.name} titleTemplate={titleTemplate}>
               <html lang={siteLanguage} />
               <meta name="description" content={seo.description} />
               <meta name="image" content={seo.image} />

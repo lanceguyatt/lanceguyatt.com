@@ -8,7 +8,7 @@ import { edgeToArray } from '../utils'
 const WorkTemplate = ({ data, active }) => {
   const { contentfulPage, allContentfulWork } = data
   return (
-    <Window {...contentfulPage} level1 active={active}>
+    <Window {...contentfulPage} level1 active={active} heading="h1">
       <Directory basepath="/work" list={edgeToArray(allContentfulWork)} />
     </Window>
   )

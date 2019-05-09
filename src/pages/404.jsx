@@ -10,14 +10,22 @@ import { SEO } from '../components'
 
 const GuruMeditationPage = ({ data }) => {
   const { contentfulPage } = data
-  const { meta } = contentfulPage
+  const { meta, name } = contentfulPage
 
   return (
     <ThemeProvider theme={guruMeditation}>
       <>
         <GlobalStyle />
         <SEO {...meta} url="/404" />
-        <GuruMeditation />
+        <main>
+          <article hidden>
+            <header>
+              <h1>{name}</h1>
+            </header>
+            <p>{meta.description}</p>
+          </article>
+          <GuruMeditation />
+        </main>
       </>
     </ThemeProvider>
   )

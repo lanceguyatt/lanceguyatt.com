@@ -19,17 +19,20 @@ const Wrapper = styled(({ name, ...props }) => <Link {...props} />)`
   }
 `
 
-const Close = ({ name, to, ...props }) => (
-  <Wrapper title={name} to={to} {...props} />
+const Close = ({ to, ...props }) => (
+  <Wrapper
+    to={to}
+    aria-label="Close this window"
+    title="Close this window"
+    {...props}
+  />
 )
 
 Close.propTypes = {
-  name: PropTypes.string,
   to: PropTypes.string,
 }
 
 Close.defaultProps = {
-  name: 'Close',
   to: '/',
 }
 

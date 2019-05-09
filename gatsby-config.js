@@ -94,6 +94,6 @@ module.exports = {
         siteUrl: GATSBY_SITE_URL,
       },
     },
-    'gatsby-plugin-remove-serviceworker',
+    'gatsby-plugin-offline',
   ],
 }

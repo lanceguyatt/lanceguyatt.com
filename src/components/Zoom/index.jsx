@@ -9,11 +9,14 @@ const Wrapper = styled(Box).attrs({
   height: '2.2rem',
   backgroundImage: `url(${sprite})`,
 })`
+  &:focus,
   &:active {
     background-position: -2.3rem 0;
   }
 `
 
-const Zoom = props => <Wrapper is="button" type="button" {...props} />
+const Zoom = props => (
+  <Wrapper is="button" type="button" aria-label="Zoom" {...props} />
+)
 
 export default Zoom

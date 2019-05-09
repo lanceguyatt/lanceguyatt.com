@@ -14,6 +14,8 @@ const Wrapper = styled(Box).attrs({
   }
 `
 
-const Depth = props => <Wrapper is="button" type="button" {...props} />
+const Depth = props => (
+  <Wrapper is="button" type="button" aria-label="Depth" {...props} />
+)
 
 export default Depth

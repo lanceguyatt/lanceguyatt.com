@@ -10,16 +10,14 @@ const KickStartTemplate = ({ data }) => {
   const { siteMetadata } = site
   const { copyrightYear, author } = siteMetadata
   return (
-    <Wrapper>
+    <Wrapper is="main">
       <Box width="18rem" ml={[null, null, 6]} mb={6}>
-        <Link to="/">
+        <Link to="/" aria-label="Return to Workbench">
           <AmigaTick />
           2.0 Roms (37.350)
           <br />
           {`Copyright © 2000-${copyrightYear}`}
-          <br />
-          {author}, Inc.
-          <br />
+          <h1>{author}, Inc.</h1>
           All Rights Reserved
         </Link>
       </Box>
@@ -31,7 +29,7 @@ const KickStartTemplate = ({ data }) => {
         mb={[null, null, 6]}
         position="relative"
       >
-        <Link to="/">
+        <Link to="/" aria-label="Return to Workbench">
           <DiskDrive>
             <g fill="none" fillRule="evenodd">
               <path fill="#E0A080" d="M0 0h156v38H0z" />

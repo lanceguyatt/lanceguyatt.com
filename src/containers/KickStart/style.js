@@ -51,7 +51,9 @@ export const FloppyDisk = styled(Box).attrs({
   left: '1.2rem',
   display: 'block',
 })`
-  ${insertDiskAnimation};
+  @supports (animation-name: ${insertDisk}) {
+    ${insertDiskAnimation};
+  }
 `
 
 export const Wrapper = styled(Flex).attrs({
