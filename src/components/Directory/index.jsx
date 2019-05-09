@@ -55,7 +55,11 @@ const Icon = props => {
       {list.map(item => (
         <Fragment key={item.id}>
           {item.slug ? (
-            <Drawer name={item.name} to={`${basepath}/${item.slug}`} />
+            <Drawer
+              heading="h2"
+              name={item.name}
+              to={`${basepath}/${item.slug}`}
+            />
           ) : (
             <File name={item.name} href={item.url} />
           )}

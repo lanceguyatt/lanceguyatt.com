@@ -20,7 +20,12 @@ const Wrapper = styled(({ name, ...props }) => <Link {...props} />)`
 `
 
 const Close = ({ to, ...props }) => (
-  <Wrapper to={to} aria-label="Close" {...props} />
+  <Wrapper
+    to={to}
+    aria-label="Close this window"
+    title="Close this window"
+    {...props}
+  />
 )
 
 Close.propTypes = {

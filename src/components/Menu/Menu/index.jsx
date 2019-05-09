@@ -9,6 +9,7 @@ class Menu extends Component {
   }
 
   static propTypes = {
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     children: PropTypes.node,
     ghosted: PropTypes.bool,
@@ -29,19 +30,20 @@ class Menu extends Component {
 
   render = () => {
     const { menuActive } = this.state
-    const { name, children, ghosted } = this.props
+    const { id, name, children, ghosted } = this.props
     return (
       <Wrapper
         onMouseEnter={this.menuOpen}
         onMouseLeave={this.menuClose}
         onFocus={this.menuOpen}
+        onBlur={this.menuClose}
         menuActive={menuActive}
-        tabIndex={!ghosted ? 0 : null}
-        type="button"
-        role="button"
+        // tabIndex={!ghosted ? -1 : 0}
+        role="menu"
+        aria-labelledby={id}
         {...ghosted}
       >
-        <MenuToggle type="button" role="button">
+        <MenuToggle type="button" role="button" id={id} tabIndex={0}>
           {name}
         </MenuToggle>
         {children && <MenuList is="ul">{children}</MenuList>}

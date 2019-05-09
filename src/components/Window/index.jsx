@@ -6,7 +6,7 @@ import { Flex } from '../../primitives'
 import Close from '../Close'
 import Depth from '../Depth'
 import Zoom from '../Zoom'
-import { Name, Header, Main } from './style'
+import { Name, Header, Inner, Main } from './style'
 import window from './window.svg'
 
 /* eslint-disable-next-line */
@@ -72,6 +72,7 @@ const Window = ({
   level1,
   level2,
   name,
+  heading,
 }) => (
   <Wrapper
     active={active}
@@ -81,13 +82,12 @@ const Window = ({
     tabIndex={-1}
     is="article"
   >
-    <Header>
+    <Header is="header">
       <Close to={close} />
-      <Name>
-        <h1>
-          {name} {full}% full, {free}k free, 708K
-        </h1>
-      </Name>
+      <Inner>
+        <Name is={heading}>{name}</Name>
+        {full}% full, {free}k free, 708K
+      </Inner>
       <Zoom />
       <Depth />
     </Header>
@@ -105,6 +105,7 @@ Window.propTypes = {
   level1: PropTypes.bool,
   level2: PropTypes.bool,
   name: PropTypes.string.isRequired,
+  heading: PropTypes.string,
 }
 
 Window.defaultProps = {
@@ -116,6 +117,7 @@ Window.defaultProps = {
   level0: null,
   level1: null,
   level2: null,
+  heading: 'div',
 }
 
 export default Window

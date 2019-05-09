@@ -84,12 +84,12 @@ class WorkBench extends Component {
   }
 
   init = () => {
-    document.addEventListener('contextmenu', this.menuBarToggle)
-    document.addEventListener('keydown', e => {
-      if (e.keyCode === 27) {
-        this.menuBarClose()
-      }
-    })
+    // document.addEventListener('contextmenu', this.menuBarToggle)
+    // document.addEventListener('keydown', e => {
+    //   if (e.keyCode === 27) {
+    //     this.menuBarClose()
+    //   }
+    // })
   }
 
   render() {
@@ -99,96 +99,102 @@ class WorkBench extends Component {
       <ThemeProvider theme={workbench}>
         <>
           <GlobalStyle />
-          {menuBarActive ? (
-            <MenuBar>
-              <Menu name="Workbench">
-                <MenuItem
-                  name="Backdrop..."
-                  shortcut="B"
-                  active={!backdrop}
-                  onClick={this.backdropToggle}
-                />
-                <MenuItem
-                  name="Execute command..."
-                  shortcut="E"
-                  onClick={this.executeOpen}
-                />
-                <MenuItem name="Redraw All" ghosted />
-                <MenuItem name="Update All" ghosted />
-                <MenuItem name="Last Message" ghosted />
-                <MenuItem
-                  name="About..."
-                  shortcut="?"
-                  onClick={this.aboutOpen}
-                />
-                <MenuItem name="Quit..." shortcut="Q" onClick={this.quitOpen} />
-              </Menu>
-              <Menu name="Window">
-                <MenuItem name="New Drawer" shortcut="N" ghosted />
-                <MenuItem name="Open Parent" />
-                <MenuItem name="Close" shortcut="K" />
-                <MenuItem name="Update" />
-                <MenuItem name="Select Contents" shortcut="A" />
-                <MenuItem name="Clean Up" />
-                <MenuItem name="Snapshot" subMenu>
-                  <SubMenu>
-                    <SubMenuItem name="Window" />
-                    <SubMenuItem name="All" />
-                  </SubMenu>
-                </MenuItem>
-                <MenuItem name="Show" subMenu>
-                  <SubMenu>
-                    <SubMenuItem name="Only Icons" active />
-                    <SubMenuItem name="All Files" />
-                  </SubMenu>
-                </MenuItem>
-                <MenuItem name="View By" subMenu>
-                  <SubMenu>
-                    <SubMenuItem
-                      name="Icon"
-                      active
-                      onClick={() => this.handleViewBy('icon')}
-                    />
-                    <SubMenuItem
-                      name="Name"
-                      onClick={() => this.handleViewBy('name')}
-                    />
-                    <SubMenuItem
-                      name="Date"
-                      onClick={() => this.handleViewBy('date')}
-                    />
-                    <SubMenuItem
-                      name="Size"
-                      onClick={() => this.handleViewBy('size')}
-                    />
-                  </SubMenu>
-                </MenuItem>
-              </Menu>
-              <Menu name="Icons">
-                <MenuItem name="Open" shortcut="O" ghosted />
-                <MenuItem name="Copy" shortcut="C" ghosted />
-                <MenuItem name="Rename..." shortcut="R" ghosted />
-                <MenuItem name="Information..." shortcut="I" ghosted />
-                <MenuItem name="Snapshot" shortcut="S" ghosted />
-                <MenuItem name="UnSnapshot" shortcut="U" ghosted />
-                <MenuItem name="Leave Out" shortcut="L" ghosted />
-                <MenuItem name="Put Away" shortcut="P" ghosted />
-                <div>...............</div>
-                <MenuItem name="Delete..." ghosted />
-                <MenuItem name="Format Disk..." ghosted />
-                <MenuItem name="Empty Trash" ghosted />
-              </Menu>
-              <Menu name="Tools">
-                <MenuItem name="Reset WB" />
-              </Menu>
-            </MenuBar>
-          ) : (
-            <TitleBar />
-          )}
-
-          <WB active backdrop={backdrop} view={viewBy} />
-
-          {children}
+          <header>
+            {menuBarActive ? (
+              <MenuBar is="nav" aria-label="Workbench menu">
+                <Menu id="workbench" name="Workbench">
+                  <MenuItem
+                    name="Backdrop..."
+                    shortcut="B"
+                    active={!backdrop}
+                    onClick={this.backdropToggle}
+                  />
+                  <MenuItem
+                    name="Execute command..."
+                    shortcut="E"
+                    onClick={this.executeOpen}
+                  />
+                  <MenuItem name="Redraw All" ghosted />
+                  <MenuItem name="Update All" ghosted />
+                  <MenuItem name="Last Message" ghosted />
+                  <MenuItem
+                    name="About..."
+                    shortcut="?"
+                    onClick={this.aboutOpen}
+                  />
+                  <MenuItem
+                    name="Quit..."
+                    shortcut="Q"
+                    onClick={this.quitOpen}
+                  />
+                </Menu>
+                <Menu id="window" name="Window">
+                  <MenuItem name="New Drawer" shortcut="N" ghosted />
+                  <MenuItem name="Open Parent" />
+                  <MenuItem name="Close" shortcut="K" />
+                  <MenuItem name="Update" />
+                  <MenuItem name="Select Contents" shortcut="A" />
+                  <MenuItem name="Clean Up" />
+                  <MenuItem name="Snapshot" subMenu>
+                    <SubMenu>
+                      <SubMenuItem name="Window" />
+                      <SubMenuItem name="All" />
+                    </SubMenu>
+                  </MenuItem>
+                  <MenuItem name="Show" subMenu>
+                    <SubMenu>
+                      <SubMenuItem name="Only Icons" active />
+                      <SubMenuItem name="All Files" />
+                    </SubMenu>
+                  </MenuItem>
+                  <MenuItem name="View By" subMenu>
+                    <SubMenu>
+                      <SubMenuItem
+                        name="Icon"
+                        active
+                        onClick={() => this.handleViewBy('icon')}
+                      />
+                      <SubMenuItem
+                        name="Name"
+                        onClick={() => this.handleViewBy('name')}
+                      />
+                      <SubMenuItem
+                        name="Date"
+                        onClick={() => this.handleViewBy('date')}
+                      />
+                      <SubMenuItem
+                        name="Size"
+                        onClick={() => this.handleViewBy('size')}
+                      />
+                    </SubMenu>
+                  </MenuItem>
+                </Menu>
+                <Menu id="icons" name="Icons">
+                  <MenuItem name="Open" shortcut="O" ghosted />
+                  <MenuItem name="Copy" shortcut="C" ghosted />
+                  <MenuItem name="Rename..." shortcut="R" ghosted />
+                  <MenuItem name="Information..." shortcut="I" ghosted />
+                  <MenuItem name="Snapshot" shortcut="S" ghosted />
+                  <MenuItem name="UnSnapshot" shortcut="U" ghosted />
+                  <MenuItem name="Leave Out" shortcut="L" ghosted />
+                  <MenuItem name="Put Away" shortcut="P" ghosted />
+                  <div>...............</div>
+                  <MenuItem name="Delete..." ghosted />
+                  <MenuItem name="Format Disk..." ghosted />
+                  <MenuItem name="Empty Trash" ghosted />
+                </Menu>
+                <Menu id="tools" name="Tools">
+                  <MenuItem name="Reset WB" />
+                </Menu>
+              </MenuBar>
+            ) : (
+              <TitleBar />
+            )}
+          </header>
+          <main>
+            <WB active backdrop={backdrop} view={viewBy} />
+            {children}
+          </main>
 
           <Requester name="Execute a File" width="40rem" show={execute}>
             <>

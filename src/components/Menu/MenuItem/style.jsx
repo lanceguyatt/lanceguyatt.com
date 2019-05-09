@@ -6,7 +6,9 @@ import { Flex } from '../../../primitives'
 import ghostedImage from './ghosted.svg'
 
 export const MenuItemAction = styled(
-  ({ active, subMenu, ghosted, ...props }) => <Flex {...props} />
+  ({ active, name, url, shortcut, subMenu, ghosted, ...props }) => (
+    <Flex {...props} />
+  )
 ).attrs({
   color: 'secondary',
   justifyContent: 'space-between',

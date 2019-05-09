@@ -38,12 +38,13 @@ Shortcut.defaultProps = {
 const MenuItem = props => {
   const { active, name, shortcut, ghosted, subMenu, children } = props
   return (
-    <Wrapper is="li">
+    <Wrapper is="li" role="none">
       <MenuItemAction
         is="button"
         type="button"
         role="menuitem"
         tabIndex={ghosted ? '-1' : null}
+        aria-label={name}
         {...ghosted}
         {...props}
       >

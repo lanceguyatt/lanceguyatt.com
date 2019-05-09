@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import WorkBench from '../layouts/WorkBench'
-import { Work } from '../containers'
+// import { Work } from '../containers'
 import { Flex } from '../primitives'
 import { SEO, Window, Dl, Dt, Dd, Action, Qux } from '../components'
 
@@ -15,8 +15,7 @@ const WorkTemplate = ({ data }) => {
     <WorkBench>
       <>
         <SEO {...meta} url={`/work/${slug}`} website node={contentfulWork} />
-        <Work />
-        <Window {...contentfulWork} close="/work" active level2>
+        <Window {...contentfulWork} close="/work" active level2 heading="h1">
           <Flex
             flexDirection="column"
             height="calc(100% - 2.2rem)"
@@ -51,11 +50,12 @@ const WorkTemplate = ({ data }) => {
             </Dl>
 
             <Flex justifyContent="space-between" mt="auto">
-              <Action url="/work" name="Cancel" />
+              <Action url="/work" name="Cancel" aria-label="Cancel" />
               <Action url={url} name="Launch" />
             </Flex>
           </Flex>
         </Window>
+        {/* <Work /> */}
       </>
     </WorkBench>
   )
