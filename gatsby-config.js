@@ -49,7 +49,7 @@ module.exports = {
         name: website.titleAlt,
         short_name: website.titleAlt,
         description: website.description,
-        start_url: GATSBY_SITE_URL,
+        start_url: '/',
         background_color: website.backgroundColor,
         theme_color: website.themeColor,
         display: 'minimal-ui',
