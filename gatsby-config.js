@@ -13,7 +13,7 @@ const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
 
 module.exports = {
   siteMetadata: {
-    siteUrl: GATSBY_SITE_URL + pathPrefix, // For gatsby-plugin-sitemap
+    siteUrl: GATSBY_SITE_URL + pathPrefix,
     pathPrefix,
     title: website.title,
     titleAlt: website.titleAlt,
@@ -49,12 +49,12 @@ module.exports = {
         name: website.titleAlt,
         short_name: website.titleAlt,
         description: website.description,
-        start_url: pathPrefix,
+        start_url: '/',
         background_color: website.backgroundColor,
         theme_color: website.themeColor,
         display: 'minimal-ui',
         icon: website.favicon,
-        include_favicon: true, // Include favicon
+        include_favicon: true,
       },
     },
     {
@@ -81,7 +81,6 @@ module.exports = {
         // exclude: ['/preview/**', '/do-not-track/me/too/'],
       },
     },
-    // 'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
