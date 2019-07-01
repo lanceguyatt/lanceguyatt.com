@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import WorkBench from '../layouts/WorkBench'
-// import { Work } from '../containers'
+import { Work } from '../containers'
 import { Flex } from '../primitives'
 import { SEO, Window, Dl, Dt, Dd, Action, Qux } from '../components'
 
@@ -55,7 +55,7 @@ const WorkTemplate = ({ data }) => {
             </Flex>
           </Flex>
         </Window>
-        {/* <Work /> */}
+        <Work />
       </>
     </WorkBench>
   )
