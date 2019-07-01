@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const Work = path.resolve(`./src/templates/work.jsx`)
+  const Doc = path.resolve(`./src/templates/Doc.jsx`)
 
   const { error, result } = await wrapper(
     graphql(`
@@ -19,6 +20,17 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               name
               slug
+            }
+          }
+        }
+
+        allMdx(filter: { fileAbsolutePath: { ne: null} }) {
+          edges {
+            node {
+              frontmatter {
+                name
+                slug
+              }
             }
           }
         }
@@ -37,6 +49,20 @@ exports.createPages = async ({ graphql, actions }) => {
           slug: work.node.slug,
         },
       })
+    })
+
+    const docs = result.data.allMdx.edges
+
+    docs.forEach(doc => {
+      if (doc.node.frontmatter.slug !== null) {
+        createPage({
+          path: `${doc.node.frontmatter.slug}`,
+          component: Doc,
+          context: {
+            slug: doc.node.frontmatter.slug,
+          },
+        })
+      }
     })
 
     return

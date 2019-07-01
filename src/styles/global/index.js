@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { base } from '../theme'
 // import clock from './clock.svg'
 import pointer from './pointer.svg'
 
@@ -25,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 10px;
     line-height: 1.125;
-    font-family: ${base.fonts.sansSerif};
+    font-family: ${props => props.theme.fonts.sansSerif};
     position: relative;
     min-height: 100%;
     user-select: none;

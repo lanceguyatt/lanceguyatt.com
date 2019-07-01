@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import sprite from './sprite.svg'
 
 /* eslint-disable-next-line */
-const Wrapper = styled(({ name, ...props }) => <Link {...props} />)`
+const Wrapper = styled(Link)`
   display: inline-block;
   width: 2rem;
   height: 2.2rem;
@@ -19,14 +19,7 @@ const Wrapper = styled(({ name, ...props }) => <Link {...props} />)`
   }
 `
 
-const Close = ({ to, ...props }) => (
-  <Wrapper
-    to={to}
-    aria-label="Close this window"
-    title="Close this window"
-    {...props}
-  />
-)
+const Close = ({ to }) => <Wrapper to={to} aria-label="Close this window" />
 
 Close.propTypes = {
   to: PropTypes.string,

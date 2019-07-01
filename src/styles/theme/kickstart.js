@@ -16,9 +16,14 @@ const space = [
   '6.4rem',
 ]
 
+const fonts = {
+  sansSerif: '"Topaz", sans-serif',
+}
+
 const kickstart = {
   breakpoints,
   colors,
+  fonts,
   space,
 }
 

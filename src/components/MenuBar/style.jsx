@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { Flex } from '../../primitives'
 
 export const Wrapper = styled(Flex).attrs({
-  bg: 'dark',
+  bg: 'black',
   colors: 'secondary',
   alignItems: 'flex-start',
-  borderColor: 'dark',
+  borderColor: 'black',
   height: '2.2rem',
   position: 'relative',
   zIndex: 3,
