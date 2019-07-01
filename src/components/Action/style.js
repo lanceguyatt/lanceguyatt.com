@@ -6,7 +6,7 @@ import ghosted from './ghosted.svg'
 
 export const link = css`
   background-color: ${props => props.theme.colors.secondary};
-  color: ${props => props.theme.colors.dark};
+  color: ${props => props.theme.colors.black};
   display: inline-block;
   font-weight: normal;
   height: 2.4rem;

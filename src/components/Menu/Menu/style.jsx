@@ -6,7 +6,7 @@ import { Box } from '../../../primitives'
 import ghostedImage from './ghosted.svg'
 
 export const MenuList = styled(Box).attrs({
-  bg: 'dark',
+  bg: 'black',
   color: 'secondary',
   p: 2,
   border: 2,

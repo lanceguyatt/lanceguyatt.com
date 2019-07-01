@@ -42,7 +42,7 @@ class Form extends Component {
           <Bevel>
             <Box bg="primary" height={32} width={1 / 4} />
             <Box bg="secondary" height={32} width={1 / 4} />
-            <Box bg="dark" height={32} width={1 / 4} />
+            <Box bg="black" height={32} width={1 / 4} />
             <Box bg="light" height={32} width={1 / 4} />
           </Bevel>
         </div>

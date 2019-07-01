@@ -17,7 +17,7 @@ const Wrapper = styled(Box).attrs({
   &::-webkit-slider-thumb {
     height: 1.4rem;
     width: 1rem;
-    background-color: ${props => props.theme.colors.dark};
+    background-color: ${props => props.theme.colors.black};
     appearance: none;
   }
 `

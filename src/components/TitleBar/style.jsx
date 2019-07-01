@@ -16,10 +16,10 @@ export const Name = styled(Box).attrs({
 export const Wrapper = styled(({ data, ...props }) => (
   <Flex {...props} />
 )).attrs({
-  bg: 'dark',
+  bg: 'black',
   color: 'secondary',
   alignItems: 'center',
-  borderColor: 'dark',
+  borderColor: 'black',
   height: '2.2rem',
   position: 'relative',
 })``
