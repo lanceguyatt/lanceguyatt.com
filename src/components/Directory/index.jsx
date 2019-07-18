@@ -70,7 +70,7 @@ const Icon = props => {
 }
 
 Icon.propTypes = {
-  list: PropTypes.array.isRequired,
+  list: PropTypes.oneOfType([PropTypes.array]).isRequired,
   basepath: PropTypes.string,
 }
 

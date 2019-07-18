@@ -5,6 +5,17 @@ import PropTypes from 'prop-types'
 import { Wrapper, AmigaTick, DiskDrive, FloppyDisk } from './style'
 import { Box } from '../../primitives'
 
+const KickStartStaticQuery = graphql`
+  query kickstartStaticQuery {
+    site {
+      siteMetadata {
+        author
+        copyrightYear
+      }
+    }
+  }
+`
+
 const KickStartTemplate = ({ data }) => {
   const { site } = data
   const { siteMetadata } = site
@@ -78,14 +89,3 @@ const KickStart = () => (
 )
 
 export default KickStart
-
-const KickStartStaticQuery = graphql`
-  query kickstartStaticQuery {
-    site {
-      siteMetadata {
-        author
-        copyrightYear
-      }
-    }
-  }
-`

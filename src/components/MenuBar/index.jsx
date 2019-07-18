@@ -1,7 +1,18 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { Wrapper } from './style'
+import { Flex } from '../../primitives'
+
+const Wrapper = styled(Flex).attrs({
+  bg: 'black',
+  colors: 'secondary',
+  alignItems: 'flex-start',
+  borderColor: 'black',
+  height: '2.2rem',
+  position: 'relative',
+  zIndex: 3,
+})``
 
 const MenuBar = props => {
   const { children } = props

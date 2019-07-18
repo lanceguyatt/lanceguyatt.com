@@ -5,6 +5,25 @@ import { StaticQuery, graphql } from 'gatsby'
 import Facebook from './Facebook'
 import Twitter from './Twitter'
 
+const query = graphql`
+  query SEO {
+    site {
+      buildTime(formatString: "YYYY-MM-DD")
+      siteMetadata {
+        siteTitle: title
+        siteDescription: description
+        siteUrl
+        siteImage: image
+        siteLanguage: language
+        ogLanguage
+        author
+        twitter
+        facebook
+      }
+    }
+  }
+`
+
 const SEO = props => {
   const { index, name, description, url, image, website, node } = props
   return (
@@ -181,7 +200,7 @@ SEO.propTypes = {
   url: PropTypes.string,
   image: PropTypes.string,
   website: PropTypes.bool,
-  node: PropTypes.object,
+  node: PropTypes.shape(),
 }
 
 SEO.defaultProps = {
@@ -195,22 +214,3 @@ SEO.defaultProps = {
 }
 
 export default SEO
-
-const query = graphql`
-  query SEO {
-    site {
-      buildTime(formatString: "YYYY-MM-DD")
-      siteMetadata {
-        siteTitle: title
-        siteDescription: description
-        siteUrl
-        siteImage: image
-        siteLanguage: language
-        ogLanguage
-        author
-        twitter
-        facebook
-      }
-    }
-  }
-`

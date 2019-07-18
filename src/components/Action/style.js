@@ -43,3 +43,5 @@ export const link = css`
     }
   }
 `
+
+export default link

@@ -5,6 +5,14 @@ import PropTypes from 'prop-types'
 import { Box, Flex } from '../primitives'
 import { Window, Disk, Drive } from '../components'
 
+const WorkBenchQuery = graphql`
+  query workBenchQuery {
+    contentfulPage(id: { eq: "faa63991-cf4d-50e6-926f-86475620b3d9" }) {
+      ...page
+    }
+  }
+`
+
 const WorkBenchTemplate = ({ data, active, backdrop }) => {
   const { contentfulPage } = data
   return backdrop ? (
@@ -65,11 +73,3 @@ WorkBench.defaultProps = {
 }
 
 export default WorkBench
-
-const WorkBenchQuery = graphql`
-  query workBenchQuery {
-    contentfulPage(id: { eq: "faa63991-cf4d-50e6-926f-86475620b3d9" }) {
-      ...page
-    }
-  }
-`

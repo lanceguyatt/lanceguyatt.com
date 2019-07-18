@@ -5,6 +5,24 @@ import PropTypes from 'prop-types'
 import { Window, Directory } from '../components'
 import { edgeToArray } from '../utils'
 
+const WorkStaticQuery = graphql`
+  query workStaticQuery {
+    contentfulPage(id: { eq: "2cf1d118-a26d-57e4-8a8b-4fa3008561ec" }) {
+      ...page
+    }
+
+    allContentfulWork(sort: { fields: [datePublished], order: DESC }) {
+      edges {
+        node {
+          id
+          name
+          slug
+        }
+      }
+    }
+  }
+`
+
 const WorkTemplate = ({ data, active }) => {
   const { contentfulPage, allContentfulWork } = data
   return (
@@ -39,21 +57,3 @@ Work.defaultProps = {
 }
 
 export default Work
-
-const WorkStaticQuery = graphql`
-  query workStaticQuery {
-    contentfulPage(id: { eq: "2cf1d118-a26d-57e4-8a8b-4fa3008561ec" }) {
-      ...page
-    }
-
-    allContentfulWork(sort: { fields: [datePublished], order: DESC }) {
-      edges {
-        node {
-          id
-          name
-          slug
-        }
-      }
-    }
-  }
-`

@@ -5,6 +5,24 @@ import PropTypes from 'prop-types'
 import { Window, Directory } from '../components'
 import { edgeToArray } from '../utils'
 
+const AboutQuery = graphql`
+  query aboutQuery {
+    contentfulPage(id: { eq: "790a38a5-2cff-5c43-aaed-7477aaa53409" }) {
+      ...page
+    }
+
+    allContentfulAbout {
+      edges {
+        node {
+          id
+          name
+          url
+        }
+      }
+    }
+  }
+`
+
 const AboutTemplate = ({ data, active }) => {
   const { contentfulPage, allContentfulAbout } = data
   return (
@@ -39,21 +57,3 @@ About.defaultProps = {
 }
 
 export default About
-
-const AboutQuery = graphql`
-  query aboutQuery {
-    contentfulPage(id: { eq: "790a38a5-2cff-5c43-aaed-7477aaa53409" }) {
-      ...page
-    }
-
-    allContentfulAbout {
-      edges {
-        node {
-          id
-          name
-          url
-        }
-      }
-    }
-  }
-`

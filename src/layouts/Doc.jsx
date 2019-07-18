@@ -1,26 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { workbench } from '../styles/theme'
 import GlobalStyle from '../styles/global'
 
-const Basic = props => {
+const Doc = props => {
   const { children } = props
   return (
     <ThemeProvider theme={workbench}>
       <>
         <GlobalStyle />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </>
     </ThemeProvider>
   )
 }
 
-Basic.propTypes = {
+Doc.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Basic
+export default Doc

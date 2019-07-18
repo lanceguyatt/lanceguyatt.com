@@ -31,15 +31,6 @@ TitleBarTemplate.propTypes = {
   }).isRequired,
 }
 
-const TitleBar = props => (
-  <StaticQuery
-    query={TitleBarQuery}
-    render={data => <TitleBarTemplate data={data} {...props} />}
-  />
-)
-
-export default TitleBar
-
 const TitleBarQuery = graphql`
   query titleBarQuery {
     site {
@@ -50,3 +41,12 @@ const TitleBarQuery = graphql`
     }
   }
 `
+
+const TitleBar = props => (
+  <StaticQuery
+    query={TitleBarQuery}
+    render={data => <TitleBarTemplate data={data} {...props} />}
+  />
+)
+
+export default TitleBar

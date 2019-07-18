@@ -3,12 +3,11 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import { MDXProvider } from '@mdx-js/react'
-// import Img from 'gatsby-image'
 
-import Basic from '../layouts/Basic'
-// import { Work } from '../containers'
+import Doc from '../layouts/Doc'
 import { Box } from '../primitives'
-import { SEO, Window, Dl, Dt, Dd, Action, Qux } from '../components'
+import { Action } from '../components'
+
 const components = {
   Action,
 }
@@ -19,7 +18,7 @@ const DocTemplate = props => {
   const { frontmatter, code } = mdx
   const { name } = frontmatter
   return (
-    <Basic>
+    <Doc>
       <Box bg="secondary" p={4}>
         <h1>{name}</h1>
         {code.body && (
@@ -28,7 +27,7 @@ const DocTemplate = props => {
           </MDXProvider>
         )}
       </Box>
-    </Basic>
+    </Doc>
   )
 }
 
