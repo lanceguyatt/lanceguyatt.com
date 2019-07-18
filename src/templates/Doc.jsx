@@ -7,7 +7,7 @@ import { MDXProvider } from '@mdx-js/react'
 
 import Basic from '../layouts/Basic'
 // import { Work } from '../containers'
-// import { Flex } from '../primitives'
+import { Box } from '../primitives'
 import { SEO, Window, Dl, Dt, Dd, Action, Qux } from '../components'
 const components = {
   Action,
@@ -20,14 +20,14 @@ const DocTemplate = props => {
   const { name } = frontmatter
   return (
     <Basic>
-      <Window name={name} active>
+      <Box bg="secondary" p={4}>
         <h1>{name}</h1>
         {code.body && (
           <MDXProvider components={components}>
             <MDXRenderer>{code.body}</MDXRenderer>
           </MDXProvider>
         )}
-      </Window>
+      </Box>
     </Basic>
   )
 }

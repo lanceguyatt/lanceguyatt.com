@@ -38,15 +38,11 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6, ul, ol, p, table, dl, figure {
     font-size: inherit;
     font-weight: normal;
     line-height: inherit;
+    margin-bottom: 1.8rem;
   }
 
   body,
@@ -61,7 +57,11 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     user-select: none;
 
-    &:focus {
+    &:hover,
+    &:focus,
+    &:active {
+      /* background-color: ${props => props.theme.colors.light};
+      color: ${props => props.theme.colors.primary}; */
       outline: 0;
     }
   }
@@ -86,6 +86,18 @@ const GlobalStyle = createGlobalStyle`
 
   ul {
     list-style: none;
+  }
+
+  table {
+    margin: 0 0 1.5em;
+    font-size: 1.6rem;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    font-weight: normal;
+    text-align: left;
   }
 
   .fade {

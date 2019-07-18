@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { Link as GastbyLink } from 'gatsby'
+import css from '@styled-system/css'
+import { buttonStyle } from 'styled-system'
 
 import { Box } from '../../primitives'
 import sprite from './sprite.svg'
@@ -18,9 +20,15 @@ export const Name = styled(Box).attrs({
 })``
 
 export const Link = styled(GastbyLink)`
-  display: block;
+  ${buttonStyle};
+
+  ${css({
+    display: 'block',
+    mb: 4,
+    variant: 'default',
+  })}
+
   width: 8.5rem;
-  margin-bottom: ${props => props.theme.space[4]};
 
   &:focus,
   &.active {
@@ -29,3 +37,16 @@ export const Link = styled(GastbyLink)`
     }
   }
 `
+
+// `
+//   display: block;
+//   width: 8.5rem;
+//   margin-bottom: ${props => props.theme.space[4]};
+
+//   &:focus,
+//   &.active {
+//     ${Image} {
+//       background-position: -4.3rem 0;
+//     }
+//   }
+// `

@@ -30,6 +30,14 @@ const fonts = {
 }
 
 const buttons = {
+  default: {
+    backgroundColor: 'transparent',
+    color: colors.black,
+    '&:focus, &:hover, &:active': {
+      backgroundColor: 'transparent',
+      color: colors.black,
+    },
+  },
   menuItem: {
     backgroundColor: colors.black,
     color: colors.secondary,

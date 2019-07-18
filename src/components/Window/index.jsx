@@ -85,7 +85,9 @@ const Window = ({
     <Header is="header">
       <Close to={close} />
       <Inner>
-        <Name is={heading}>{name}</Name>
+        <Name is={heading} mb={0}>
+          {name}
+        </Name>
         {full}% full, {free}k free, 708K
       </Inner>
       <Zoom />

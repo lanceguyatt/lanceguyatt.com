@@ -1,6 +1,8 @@
-import system from 'system-components'
+import system from '@rebass/components'
 
 const Box = system(
+  {},
+
   // Core
   'space',
   'width',
