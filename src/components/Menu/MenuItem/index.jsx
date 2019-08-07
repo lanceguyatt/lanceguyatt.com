@@ -58,7 +58,11 @@ const MenuItem = props => {
           </svg>
         )}
         {name}
+<<<<<<< HEAD
         {subMenu && <div>&gt;&gt;</div>}
+=======
+        {subMenu && <div>`&gt;`&gt;`</div>}
+>>>>>>> bugs/general
         {children}
         {shortcut && <Shortcut shortcut={shortcut} />}
       </MenuItemAction>
