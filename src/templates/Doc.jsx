@@ -4,11 +4,7 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 
-<<<<<<< HEAD
 import Doc from '../layouts/Doc'
-=======
-import Basic from '../layouts/Basic'
->>>>>>> bugs/general
 import { Box } from '../primitives'
 import { Action } from '../components'
 
