@@ -24,7 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
-        allMdx(filter: { fileAbsolutePath: { ne: null} }) {
+        allMdx(filter: { fileAbsolutePath: { ne: null } }) {
           edges {
             node {
               frontmatter {

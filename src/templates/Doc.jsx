@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
-// import Img from 'gatsby-image'
 
 import Basic from '../layouts/Basic'
-// import { Work } from '../containers'
 import { Box } from '../primitives'
-import { SEO, Window, Dl, Dt, Dd, Action, Qux } from '../components'
+import { Action } from '../components'
+
 const components = {
   Action,
 }
@@ -16,15 +15,15 @@ const components = {
 const DocTemplate = props => {
   const { data } = props
   const { mdx } = data
-  const { frontmatter, code } = mdx
+  const { frontmatter, body } = mdx
   const { name } = frontmatter
   return (
     <Basic>
       <Box bg="secondary" p={4}>
         <h1>{name}</h1>
-        {code.body && (
+        {body && (
           <MDXProvider components={components}>
-            <MDXRenderer>{code.body}</MDXRenderer>
+            <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         )}
       </Box>
@@ -45,9 +44,7 @@ export const DocQuery = graphql`
         name
         slug
       }
-      code {
-        body
-      }
+      body
     }
   }
 `
