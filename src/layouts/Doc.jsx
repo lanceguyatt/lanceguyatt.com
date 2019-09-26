@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { workbench } from '../styles/theme'
+import { workbench } from '../themes'
 import GlobalStyle from '../styles/global'
 
 const Doc = props => {

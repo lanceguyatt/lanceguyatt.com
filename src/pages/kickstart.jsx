@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from '../styles/global'
-import { kickstart } from '../styles/theme'
+import { kickstart } from '../themes'
 import KickStart from '../containers/KickStart'
 import { SEO } from '../components'
 
