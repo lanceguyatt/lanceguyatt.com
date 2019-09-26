@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { Box } from '../../primitives'
@@ -22,27 +22,22 @@ const Wrapper = styled(Box).attrs({
   }
 `
 
-class Slider extends Component {
-  state = {
-    value: 50,
+function Slider(props) {
+  const [value, setValue] = useState(50)
+
+  function handleChange(event) {
+    setValue(event.target.value)
   }
 
-  handleChange = event => {
-    this.setState({ value: event.target.value })
-  }
-
-  render() {
-    const { value } = this.state
-    return (
-      <Wrapper
-        is="input"
-        type="range"
-        value={value}
-        onChange={this.handleChange}
-        {...this.props}
-      />
-    )
-  }
+  return (
+    <Wrapper
+      is="input"
+      type="range"
+      value={value}
+      onChange={handleChange}
+      {...props}
+    />
+  )
 }
 
 export default Slider

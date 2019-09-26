@@ -1,55 +1,49 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { node, string, bool } from 'prop-types'
 
 import { MenuToggle, MenuList, Wrapper } from './style'
 
-class Menu extends Component {
-  state = {
-    menuActive: false,
+function Menu({ id, name, children, ghosted }) {
+  const [menu, setMenu] = useState(false)
+
+  function menuOpen() {
+    setMenu(true)
   }
 
-  static propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    ghosted: PropTypes.bool,
+  function menuClose() {
+    setMenu(false)
   }
 
-  static defaultProps = {
-    children: null,
-    ghosted: false,
-  }
+  return (
+    <Wrapper
+      onMouseEnter={menuOpen}
+      onMouseLeave={menuClose}
+      onFocus={menuOpen}
+      onBlur={menuClose}
+      menuActive={menu}
+      // tabIndex={!ghosted ? -1 : 0}
+      role="menu"
+      aria-labelledby={id}
+      {...ghosted}
+    >
+      <MenuToggle type="button" role="button" id={id} tabIndex={0}>
+        {name}
+      </MenuToggle>
+      {children && <MenuList is="ul">{children}</MenuList>}
+    </Wrapper>
+  )
+}
 
-  menuOpen = () => {
-    this.setState({ menuActive: true })
-  }
+Menu.propTypes = {
+  id: string.isRequired,
+  name: string.isRequired,
+  children: node,
+  ghosted: bool,
+}
 
-  menuClose = () => {
-    this.setState({ menuActive: false })
-  }
-
-  render = () => {
-    const { menuActive } = this.state
-    const { id, name, children, ghosted } = this.props
-    return (
-      <Wrapper
-        onMouseEnter={this.menuOpen}
-        onMouseLeave={this.menuClose}
-        onFocus={this.menuOpen}
-        onBlur={this.menuClose}
-        menuActive={menuActive}
-        // tabIndex={!ghosted ? -1 : 0}
-        role="menu"
-        aria-labelledby={id}
-        {...ghosted}
-      >
-        <MenuToggle type="button" role="button" id={id} tabIndex={0}>
-          {name}
-        </MenuToggle>
-        {children && <MenuList is="ul">{children}</MenuList>}
-      </Wrapper>
-    )
-  }
+Menu.defaultProps = {
+  children: null,
+  ghosted: false,
 }
 
 export default Menu

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { Box } from '../../primitives'
@@ -13,28 +13,23 @@ const Wrapper = styled(Box).attrs({
   border-image: url(${sprite}) 2;
 `
 
-class Text extends Component {
-  state = {
-    value: '',
+function Text(props) {
+  const [value, setValue] = useState('')
+
+  function handleChange(event) {
+    setValue(event.target.value)
   }
 
-  handleChange = event => {
-    this.setState({ value: event.target.value })
-  }
-
-  render() {
-    const { value } = this.state
-    return (
-      <Wrapper
-        is="input"
-        type="text"
-        value={value}
-        onChange={this.handleChange}
-        spellCheck="false"
-        {...this.props}
-      />
-    )
-  }
+  return (
+    <Wrapper
+      is="input"
+      type="text"
+      value={value}
+      onChange={handleChange}
+      spellCheck="false"
+      {...props}
+    />
+  )
 }
 
 export default Text

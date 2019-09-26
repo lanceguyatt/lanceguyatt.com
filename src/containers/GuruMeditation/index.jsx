@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { transit } from 'react-css-transition'
 
 import { Alert, Audio } from '../../components'
@@ -11,20 +11,10 @@ const alert = {
   url: '/',
 }
 
-class GuruMeditation extends Component {
-  state = {
-    toasty: false,
-  }
+function GuruMeditation() {
+  const [toasty, setToasty] = useState(false)
 
-  componentDidMount = () => {
-    this.init()
-  }
-
-  componentWillUnMount = () => {
-    this.init()
-  }
-
-  init = () => {
+  useEffect(() => {
     let konamiCodeArray = []
     const konamiCodeKey = '38,38,40,40,37,39,37,39,66,65'
     const toastyAudio = document.getElementById('js-toasty-audio')
@@ -36,39 +26,34 @@ class GuruMeditation extends Component {
         toastyAudio.load()
         toastyAudio.play()
         konamiCodeArray = []
-        this.setState({
-          toasty: true,
-        })
+        setToasty(true)
       }
     })
-  }
+  })
 
-  render = () => {
-    const { toasty } = this.state
-    return (
-      <Wrapper>
-        <Alert alert={alert} />
+  return (
+    <Wrapper>
+      <Alert alert={alert} />
 
-        <Toasty
-          defaultStyle={{ transform: 'translate(20rem, 0)' }}
-          enterStyle={{
-            transform: transit('translate(0, 0)', 400, 'ease-in-out'),
-          }}
-          leaveStyle={{
-            transform: transit('translate(20rem, 0)', 300, 'ease-in-out'),
-          }}
-          activeStyle={{ transform: 'translate(0, 0)' }}
-          transitionDelay={{ enter: 0, leave: 100 }}
-          onTransitionComplete={() => this.setState({ toasty: false })}
-          active={toasty}
-        />
+      <Toasty
+        defaultStyle={{ transform: 'translate(20rem, 0)' }}
+        enterStyle={{
+          transform: transit('translate(0, 0)', 400, 'ease-in-out'),
+        }}
+        leaveStyle={{
+          transform: transit('translate(20rem, 0)', 300, 'ease-in-out'),
+        }}
+        activeStyle={{ transform: 'translate(0, 0)' }}
+        transitionDelay={{ enter: 0, leave: 100 }}
+        onTransitionComplete={() => setToasty(false)}
+        active={toasty}
+      />
 
-        <Audio id="js-toasty-audio">
-          <source src={toastyMp3} type="audio/mp3" />
-        </Audio>
-      </Wrapper>
-    )
-  }
+      <Audio id="js-toasty-audio">
+        <source src={toastyMp3} type="audio/mp3" />
+      </Audio>
+    </Wrapper>
+  )
 }
 
 export default GuruMeditation
