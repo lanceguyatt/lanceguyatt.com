@@ -1,36 +1,35 @@
 import React from 'react'
+import { Styled } from 'theme-ui'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import { ThemeProvider } from 'styled-components'
 
-import GlobalStyle from '../styles/global'
-import { kickstart } from '../themes'
-import KickStart from '../containers/KickStart'
+import GlobalStyles from '../styles/global'
 import { SEO } from '../components'
+import KickStart from '../containers/KickStart'
 
 const KickStartPage = ({ data }) => {
   const { contentfulPage } = data
   const { meta } = contentfulPage
   return (
-    <ThemeProvider theme={kickstart}>
-      <>
-        <GlobalStyle />
-        <SEO {...meta} url="/kickstart" image={meta.image.fixed.src} />
+    <>
+      <GlobalStyles />
+      <SEO {...meta} url="/kickstart" image={meta.image.fixed.src} />
+      <Styled.root>
         <KickStart />
-      </>
-    </ThemeProvider>
+      </Styled.root>
+    </>
   )
 }
 
 KickStartPage.propTypes = {
-  data: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired
 }
 
 export default KickStartPage
 
 export const KickStartPageQuery = graphql`
   query kickStartPageQuery {
-    contentfulPage(id: { eq: "3d2cf256-a387-5316-a7a4-f8e5c731cf8f" }) {
+    contentfulPage(id: { eq: "0ccb3f50-06b6-5803-b5d9-41e7f57b0afa" }) {
       name
       meta {
         ...meta

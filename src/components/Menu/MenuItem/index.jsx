@@ -1,20 +1,25 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
+import { Box } from '@theme-ui/components'
 
-import { Box } from '../../../primitives'
 import { MenuItemAction, Wrapper } from './style'
 
 const Shortcut = ({ shortcut }) => (
-  <Box is="span" display="block" position="relative" pl="2.5rem" ml="1.2rem">
-    <Box
-      is="svg"
-      width="2.3rem"
-      height="1.6rem"
+  <Box
+    as="span"
+    sx={{ display: 'block', position: 'relative', pl: 25, ml: 12 }}
+  >
+    <svg
       viewBox="0 0 23 16"
-      position="absolute"
-      left={0}
-      mr="0.3rem"
-      top="-0.1rem"
+      sx={{
+        width: 23,
+        height: 16,
+        position: 'absolute',
+        left: 0,
+        mr: 3,
+        top: -1
+      }}
     >
       <g fill="none" fillRule="evenodd">
         <path
@@ -22,23 +27,23 @@ const Shortcut = ({ shortcut }) => (
           fill="currentColor"
         />
       </g>
-    </Box>
+    </svg>
     {shortcut}
   </Box>
 )
 
 Shortcut.propTypes = {
-  shortcut: PropTypes.string,
+  shortcut: PropTypes.string
 }
 
 Shortcut.defaultProps = {
-  shortcut: null,
+  shortcut: null
 }
 
 const MenuItem = props => {
   const { active, name, shortcut, ghosted, subMenu, children } = props
   return (
-    <Wrapper is="li" role="none">
+    <Wrapper as="li" role="none">
       <MenuItemAction
         is="button"
         type="button"
@@ -74,7 +79,7 @@ MenuItem.propTypes = {
   ghosted: PropTypes.bool,
   subMenu: PropTypes.bool,
   children: PropTypes.node,
-  active: PropTypes.bool,
+  active: PropTypes.bool
 }
 
 MenuItem.defaultProps = {
@@ -84,7 +89,7 @@ MenuItem.defaultProps = {
   ghosted: false,
   subMenu: false,
   children: null,
-  active: false,
+  active: false
 }
 
 export default MenuItem

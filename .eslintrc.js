@@ -1,20 +1,20 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es6: true
   },
   parser: 'babel-eslint',
   extends: ['airbnb', 'prettier', 'prettier/react'],
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    SharedArrayBuffer: 'readonly'
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['react', 'prettier'],
   rules: {
@@ -24,11 +24,10 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        trailingComma: 'es5',
         semi: false,
         singleQuote: true,
-        printWidth: 80,
-      },
-    ],
-  },
+        printWidth: 80
+      }
+    ]
+  }
 }

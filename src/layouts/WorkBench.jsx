@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
+import { Box, Flex } from '@theme-ui/components'
 
-import { Box, Flex } from '../primitives'
 import { workbench } from '../themes'
-import GlobalStyle from '../styles/global'
+import GlobalStyles from '../styles/global'
 import { WorkBench as WB } from '../containers'
 import { Action, MenuBar, Requester, Text, TitleBar } from '../components'
 import SubMenu, { SubMenuItem } from '../components/SubMenu'
@@ -72,7 +72,7 @@ function WorkBench({ children }) {
   return (
     <ThemeProvider theme={workbench}>
       <>
-        <GlobalStyle />
+        <GlobalStyles />
         <header>
           {menuBar ? (
             <MenuBar is="nav" aria-label="Workbench menu">
@@ -157,10 +157,10 @@ function WorkBench({ children }) {
             <TitleBar />
           )}
         </header>
-        <main>
+        <Box as="main">
           <WB active backdrop={backdrop} view={viewBy} />
           {children}
-        </main>
+        </Box>
 
         <Requester name="Execute a File" width="40rem" show={execute}>
           <>
@@ -218,7 +218,7 @@ function WorkBench({ children }) {
 }
 
 WorkBench.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default WorkBench

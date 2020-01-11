@@ -3,7 +3,7 @@ import { configure, addDecorator, addParameters } from '@storybook/react'
 import { Styled, ThemeProvider } from 'theme-ui'
 import { Global } from '@emotion/core'
 
-import theme from '../src/themes/default'
+import theme from '../src/gatsby-plugin-theme-ui'
 
 addParameters({
   options: {

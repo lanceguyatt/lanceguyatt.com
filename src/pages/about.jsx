@@ -27,7 +27,7 @@ export default AboutPage
 
 export const AboutPageQuery = graphql`
   query aboutPageQuery {
-    contentfulPage(id: { eq: "790a38a5-2cff-5c43-aaed-7477aaa53409" }) {
+    contentfulPage(id: { eq: "cfe45b2f-f19e-5d09-a940-924cfe08fd4c" }) {
       ...page
       meta {
         ...meta

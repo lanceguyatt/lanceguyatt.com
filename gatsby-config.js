@@ -30,6 +30,9 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
+      resolve: 'gatsby-plugin-theme-ui',
+    },
+    {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: website.themeColor,

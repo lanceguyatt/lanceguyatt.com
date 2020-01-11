@@ -1,14 +1,15 @@
 import React from 'react'
 import { Box } from '@theme-ui/components'
-import { ThemeProvider, Styled } from 'theme-ui'
+import { Styled } from 'theme-ui'
 import { Global } from '@emotion/core'
+import { Link } from 'gatsby'
 
-import theme from '../themes/default'
 import Button from '../components/Button'
+import { Alert } from '../components'
 
 export default function Foo() {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Global
         styles={() => ({
           '@font-face': {
@@ -24,10 +25,13 @@ export default function Foo() {
       />
       <Styled.root>
         <Box p={4}>
-          <Button>Foo</Button>
+          <Alert>Alert</Alert>
+          <Button as={Link} to="/work/novagraaf">
+            Foo
+          </Button>
           <Button disabled>Foo</Button>
         </Box>
       </Styled.root>
-    </ThemeProvider>
+    </>
   )
 }

@@ -12,7 +12,7 @@ const Drive = ({ name, to }) => (
 
 Drive.propTypes = {
   name: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired
 }
 
 export default Drive

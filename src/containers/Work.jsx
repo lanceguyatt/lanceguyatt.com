@@ -34,11 +34,11 @@ const WorkTemplate = ({ data, active }) => {
 
 WorkTemplate.propTypes = {
   data: PropTypes.shape().isRequired,
-  active: PropTypes.bool,
+  active: PropTypes.bool
 }
 
 WorkTemplate.defaultProps = {
-  active: false,
+  active: false
 }
 
 const Work = ({ active }) => (
@@ -49,11 +49,11 @@ const Work = ({ active }) => (
 )
 
 Work.propTypes = {
-  active: PropTypes.bool,
+  active: PropTypes.bool
 }
 
 Work.defaultProps = {
-  active: false,
+  active: false
 }
 
 export default Work

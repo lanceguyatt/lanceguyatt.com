@@ -34,11 +34,11 @@ const AboutTemplate = ({ data, active }) => {
 
 AboutTemplate.propTypes = {
   data: PropTypes.shape().isRequired,
-  active: PropTypes.bool,
+  active: PropTypes.bool
 }
 
 AboutTemplate.defaultProps = {
-  active: false,
+  active: false
 }
 
 const About = ({ active }) => (
@@ -49,11 +49,11 @@ const About = ({ active }) => (
 )
 
 About.propTypes = {
-  active: PropTypes.bool,
+  active: PropTypes.bool
 }
 
 About.defaultProps = {
-  active: false,
+  active: false
 }
 
 export default About

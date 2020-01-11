@@ -1,32 +1,37 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { Box } from '@theme-ui/components'
 
 import sprite from './sprite.svg'
 
-/* eslint-disable-next-line */
-const Wrapper = styled(Link)`
-  display: inline-block;
-  width: 2rem;
-  height: 2.2rem;
-  background-image: url(${sprite});
-  background-size: cover;
-
-  &:focus,
-  &:active {
-    background-position: -2rem 0;
-  }
-`
-
-const Close = ({ to }) => <Wrapper to={to} aria-label="Close this window" />
-
-Close.propTypes = {
-  to: PropTypes.string,
+const propTypes = {
+  to: PropTypes.string
 }
 
-Close.defaultProps = {
-  to: '/',
+const defaultProps = {
+  to: '/'
 }
 
-export default Close
+export default function Close({ to, ...props }) {
+  return (
+    <Box
+      as={Link}
+      __css={{
+        display: 'inline-block',
+        width: 20,
+        height: 22,
+        backgroundImage: `url(${sprite})`,
+        '&:focus, &:active': {
+          backgroundPosition: '-20px 0'
+        }
+      }}
+      to={to}
+      aria-label="Close this window"
+      {...props}
+    />
+  )
+}
+
+Close.propTypes = propTypes
+Close.defaultProps = defaultProps

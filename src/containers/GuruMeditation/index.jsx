@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { transit } from 'react-css-transition'
+import { Link } from 'gatsby'
 
 import { Alert, Audio } from '../../components'
 import { Wrapper, Toasty } from './style'
 import toastyMp3 from './toasty.mp3'
-
-const alert = {
-  description:
-    'Software Failure. Press left mouse button to continue.<br />Guru Meditation #00004040.00004040',
-  url: '/',
-}
 
 function GuruMeditation() {
   const [toasty, setToasty] = useState(false)
@@ -33,15 +28,19 @@ function GuruMeditation() {
 
   return (
     <Wrapper>
-      <Alert alert={alert} />
+      <Alert as={Link} to="/">
+        Software Failure. Press left mouse button to continue.
+        <br />
+        Guru Meditation #00004040.00004040
+      </Alert>
 
       <Toasty
-        defaultStyle={{ transform: 'translate(20rem, 0)' }}
+        defaultStyle={{ transform: 'translate(200px, 0)' }}
         enterStyle={{
           transform: transit('translate(0, 0)', 400, 'ease-in-out'),
         }}
         leaveStyle={{
-          transform: transit('translate(20rem, 0)', 300, 'ease-in-out'),
+          transform: transit('translate(200px, 0)', 300, 'ease-in-out'),
         }}
         activeStyle={{ transform: 'translate(0, 0)' }}
         transitionDelay={{ enter: 0, leave: 100 }}
