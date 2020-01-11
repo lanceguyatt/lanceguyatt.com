@@ -1,0 +1,30 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks'
+
+import theme from '../themes/default'
+
+<Meta title="Design System/Colors" />
+
+# Colors
+
+<ColorPalette>
+  <ColorItem
+    title="theme.color.text"
+    subtitle="Text"
+    colors={[theme.colors.text]}
+  />
+  <ColorItem
+    title="theme.color.background"
+    subtitle="Background"
+    colors={[theme.colors.background]}
+  />
+  <ColorItem
+    title="theme.color.primary"
+    subtitle="Primary"
+    colors={[theme.colors.primary]}
+  />
+  <ColorItem
+    title="theme.color.secondary"
+    subtitle="Secondary"
+    colors={[theme.colors.secondary]}
+  />
+</ColorPalette>
