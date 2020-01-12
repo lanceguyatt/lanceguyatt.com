@@ -15,6 +15,22 @@ const variants = {
       }
     }
   },
+  titlebar: {
+    primary: {
+      bg: 'text',
+      color: 'background'
+    },
+    secondary: {
+      bg: 'background',
+      color: 'text'
+    }
+  },
+  iconButton: {
+    appearnce: 'none',
+    bg: 'transparent',
+    border: 0,
+    borderRadius: 0
+  },
   text: {
     heading: {
       fontSize: 'heading',

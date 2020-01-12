@@ -11,11 +11,11 @@ const GlobalStyles = () => (
              url('/fonts/topaz.woff') format('woff'),
              url('/fonts/topaz.woff2') format('woff2')`,
         fontWeight: 400,
-        fontStyle: 'normal',
+        fontStyle: 'normal'
       },
       body: {
-        margin: 0,
-      },
+        margin: 0
+      }
     })}
   />
 )

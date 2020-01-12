@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Box, Flex } from '@theme-ui/components'
+// import { graphql, useStaticQuery } from 'gatsby'
 
 import { workbench } from '../themes'
 import GlobalStyles from '../styles/global'
@@ -10,7 +11,22 @@ import { Action, MenuBar, Requester, Text, TitleBar } from '../components'
 import SubMenu, { SubMenuItem } from '../components/SubMenu'
 import Menu, { MenuItem } from '../components/Menu'
 
+// const WorkBenchQuery = graphql`
+//   query workBenchQuery {
+//     site {
+//       siteMetadata {
+//         title
+//         copyrightYear
+//       }
+//     }
+//   }
+// `
+
 function WorkBench({ children }) {
+  // const data = useStaticQuery(WorkBenchQuery)
+  // const { site } = data
+  // const { siteMetadata } = site
+
   const [menuBar, setMenuBar] = useState(false)
   const [backdrop, setBackdrop] = useState(true)
   const [execute, setExecute] = useState(false)
@@ -154,7 +170,10 @@ function WorkBench({ children }) {
               </Menu>
             </MenuBar>
           ) : (
-            <TitleBar />
+            <TitleBar>
+              Lance Guyatt, Web Developer. Copyright © 2000-2020 All Rights
+              Reserved
+            </TitleBar>
           )}
         </header>
         <Box as="main">

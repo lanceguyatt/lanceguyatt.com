@@ -10,10 +10,27 @@ const APPEARANCES = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
   TERTIARY: 'tertiary',
-  LINK: 'link',
+  LINK: 'link'
 }
 
-const Button = ({ appearance, children, ...props }) => {
+const propTypes = {
+  appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
+  children: PropTypes.node.isRequired,
+  external: PropTypes.bool
+}
+
+const defaultProps = {
+  appearance: APPEARANCES.PRIMARY,
+  external: false
+}
+
+function Button({ appearance, children, external, ...props }) {
+  let externalAction
+
+  if (external) {
+    externalAction = 'target="_blank"'
+  }
+
   return (
     <Box
       as="button"
@@ -30,6 +47,7 @@ const Button = ({ appearance, children, ...props }) => {
         borderWidth: 2,
         borderStyle: 'solid',
         borderImage: `url(${unselected}) 2 stretch`,
+        textDecoration: 'none',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
@@ -38,7 +56,7 @@ const Button = ({ appearance, children, ...props }) => {
         outline: 0,
         position: 'relative',
         '&:focus, &:active': {
-          borderImage: `url(${selected}) 2 stretch`,
+          borderImage: `url(${selected}) 2 stretch`
         },
         '&[disabled]': {
           pointerEvents: 'none',
@@ -51,10 +69,11 @@ const Button = ({ appearance, children, ...props }) => {
             bottom: -2,
             left: -1,
             zIndex: 1,
-            width: 'calc(100% + 0.2rem)',
-          },
-        },
+            width: 'calc(100% + 0.2rem)'
+          }
+        }
       }}
+      {...externalAction}
       variant={appearance}
       {...props}
     >
@@ -63,12 +82,7 @@ const Button = ({ appearance, children, ...props }) => {
   )
 }
 
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
-}
+Button.propTypes = propTypes
+Button.defaultProps = defaultProps
 
-Button.defaultProps = {
-  appearance: APPEARANCES.PRIMARY,
-}
 export default Button
