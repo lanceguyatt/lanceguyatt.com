@@ -49,6 +49,7 @@ const Button = props => {
         borderStyle: 'solid',
         borderImage: `url(${unselected}) 2 stretch`,
         textDecoration: 'none',
+        verticalAlign: 'top',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
         overflow: 'hidden',

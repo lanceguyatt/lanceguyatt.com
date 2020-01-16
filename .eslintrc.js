@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     'react/jsx-props-no-spreading': 0,
     'react/no-danger': 0,
+    'import/no-extraneous-dependencies': 1,
     'import/prefer-default-export': 1,
     'prettier/prettier': [
       'error',

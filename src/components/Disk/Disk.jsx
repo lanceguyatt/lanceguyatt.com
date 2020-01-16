@@ -7,16 +7,27 @@ const propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default function Disk({ children, ...props }) {
+/**
+ * `Disk` description
+ */
+const Disk = props => {
+  const { children, ...other } = props
   return (
     <Box
-      {...props}
+      as="a"
+      href="#"
       __css={{
-        display: 'block',
-        textDecoration: 'none'
+        color: 'inherit',
+        display: 'inline-flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        px: 4,
+        textDecoration: 'none',
+        bg: 'primary'
       }}
+      {...other}
     >
-      <svg viewBox="0 0 46 46" width={46} heigh={46}>
+      <Box as="svg" viewBox="0 0 43 46" width={43} heigh={46}>
         <g fill="none" fillRule="evenodd">
           <path fill="#AAA" d="M0 0h43v46H0z" />
           <path d="M5 8V6h32v2h2v32H4V8h1z" fill="#000" />
@@ -31,10 +42,12 @@ export default function Disk({ children, ...props }) {
           <path d="M42 46H1v-2h41V2h1v44h-1z" fill="#000" />
           <path d="M1 2v44H0V0h43v2H1z" fill="#FFF" />
         </g>
-      </svg>
+      </Box>
       <Box __css={{ textAlign: 'center', mt: 3 }}>{children}</Box>
     </Box>
   )
 }
 
 Disk.propTypes = propTypes
+
+export default Disk

@@ -4,15 +4,6 @@ import { Global } from '@emotion/core'
 const GlobalStyles = () => (
   <Global
     styles={() => ({
-      '@font-face': {
-        fontFamily: 'Topaz',
-        src: `local('Topaz'),
-             url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
-             url('/fonts/topaz.woff') format('woff'),
-             url('/fonts/topaz.woff2') format('woff2')`,
-        fontWeight: 400,
-        fontStyle: 'normal'
-      },
       body: {
         margin: 0
       }
