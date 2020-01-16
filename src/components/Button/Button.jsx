@@ -24,7 +24,8 @@ const defaultProps = {
   external: false
 }
 
-function Button({ appearance, children, external, ...props }) {
+const Button = props => {
+  const { appearance, children, external, ...other } = props
   let externalAction
 
   if (external) {
@@ -75,7 +76,7 @@ function Button({ appearance, children, external, ...props }) {
       }}
       {...externalAction}
       variant={appearance}
-      {...props}
+      {...other}
     >
       {children}
     </Box>

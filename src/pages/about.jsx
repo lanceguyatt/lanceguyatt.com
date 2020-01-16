@@ -20,7 +20,7 @@ const AboutPage = ({ data }) => {
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired
 }
 
 export default AboutPage

@@ -13,7 +13,7 @@ import window from './window.svg'
 const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
   <Flex {...props} />
 )).attrs({
-  flexDirection: 'column',
+  flexDirection: 'column'
 })`
   position: absolute;
   top: 2.2rem;
@@ -72,7 +72,7 @@ const Window = ({
   level1,
   level2,
   name,
-  heading,
+  heading
 }) => (
   <Wrapper
     active={active}
@@ -107,7 +107,7 @@ Window.propTypes = {
   level1: PropTypes.bool,
   level2: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  heading: PropTypes.string,
+  heading: PropTypes.string
 }
 
 Window.defaultProps = {
@@ -119,7 +119,7 @@ Window.defaultProps = {
   level0: null,
   level1: null,
   level2: null,
-  heading: 'div',
+  heading: 'div'
 }
 
 export default Window

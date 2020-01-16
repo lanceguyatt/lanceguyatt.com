@@ -10,11 +10,11 @@ export const Image = styled(Box).attrs({
   backgroundImage: `url(${sprite})`,
   backgroundSize: 'cover',
   mb: 3,
-  mx: 'auto',
+  mx: 'auto'
 })``
 
 export const Name = styled(Box).attrs({
-  textAlign: 'center',
+  textAlign: 'center'
 })``
 
 export const Link = styled(GastbyLink)`

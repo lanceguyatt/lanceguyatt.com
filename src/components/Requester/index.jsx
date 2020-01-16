@@ -43,13 +43,13 @@ Requester.propTypes = {
   name: PropTypes.string.isRequired,
   children: PropTypes.node,
   show: PropTypes.bool,
-  special: PropTypes.bool,
+  special: PropTypes.bool
 }
 
 Requester.defaultProps = {
   children: null,
   show: false,
-  special: false,
+  special: false
 }
 
 export default Requester

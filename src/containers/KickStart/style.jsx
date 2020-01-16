@@ -33,7 +33,7 @@ export const AmigaTick = props => (
       width: 165,
       height: 150,
       display: 'block',
-      mb: 6,
+      mb: 6
     }}
     {...props}
   />
@@ -60,7 +60,7 @@ export const FloppyDisk = () => (
     sx={{
       position: 'absolute',
       bottom: 0,
-      left: 12,
+      left: 12
     }}
   >
     <g fill="none" fillRule="evenodd">
@@ -88,7 +88,7 @@ export const Wrapper = props => (
       width: '100vw',
       bg: 'purple',
       p: 6,
-      color: 'tan',
+      color: 'tan'
     }}
     {...props}
   />

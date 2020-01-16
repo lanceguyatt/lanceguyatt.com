@@ -9,7 +9,7 @@ const HTML = ({
   bodyAttributes,
   preBodyComponents,
   body,
-  postBodyComponents,
+  postBodyComponents
 }) => (
   <html lang={website.siteLanguage} dir={website.dir} {...htmlAttributes}>
     <head>

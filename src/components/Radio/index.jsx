@@ -9,7 +9,7 @@ const Wrapper = styled(Box).attrs({
   type: 'radio',
   width: '1.7rem',
   height: '1.8rem',
-  backgroundImage: `url(${sprite})`,
+  backgroundImage: `url(${sprite})`
 })`
   &:checked {
     background-position: -1.7rem 0;

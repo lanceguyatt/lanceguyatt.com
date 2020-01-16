@@ -23,10 +23,10 @@ Twitter.propTypes = {
   url: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   type: PropTypes.string,
-  username: PropTypes.string,
+  username: PropTypes.string
 }
 
 Twitter.defaultProps = {
   type: 'summary_large_image',
-  username: null,
+  username: null
 }

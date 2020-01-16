@@ -8,7 +8,7 @@ const Audio = props => {
 }
 
 Audio.propTypes = {
-  children: PropTypes.shape().isRequired,
+  children: PropTypes.shape().isRequired
 }
 
 export default Audio

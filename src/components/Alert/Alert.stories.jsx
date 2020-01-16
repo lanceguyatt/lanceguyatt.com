@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Alert from './Alert'
+import Alert from '.'
 
 export default {
   title: 'Alert',
   component: Alert,
   parameters: {
-    componentSubtitle: 'Button subtitle',
-  },
+    componentSubtitle: 'Button subtitle'
+  }
 }
 
 export const allButtons = () => (

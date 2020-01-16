@@ -9,7 +9,7 @@ const Wrapper = styled(Box).attrs({
   backgroundSize: 'cover',
   display: 'block',
   width: '2rem',
-  height: '2.4rem',
+  height: '2.4rem'
 })``
 
 const Cycle = props => (

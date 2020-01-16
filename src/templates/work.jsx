@@ -62,7 +62,7 @@ const WorkTemplate = ({ data }) => {
 }
 
 WorkTemplate.propTypes = {
-  data: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired
 }
 
 export default WorkTemplate

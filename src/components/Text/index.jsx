@@ -8,7 +8,7 @@ const Wrapper = styled(Box).attrs({
   border: 2,
   height: '2.4rem',
   lineHeight: '2rem',
-  p: 2,
+  p: 2
 })`
   border-image: url(${sprite}) 2;
 `

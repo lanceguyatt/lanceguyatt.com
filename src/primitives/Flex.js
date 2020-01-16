@@ -88,7 +88,7 @@ const Flex = system(
   'buttonStyle',
 
   {
-    display: 'flex',
+    display: 'flex'
   }
 )
 

@@ -11,7 +11,7 @@ const Wrapper = styled(Flex).attrs({
   borderColor: 'black',
   height: '2.2rem',
   position: 'relative',
-  zIndex: 3,
+  zIndex: 3
 })``
 
 const MenuBar = props => {
@@ -20,7 +20,7 @@ const MenuBar = props => {
 }
 
 MenuBar.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default MenuBar

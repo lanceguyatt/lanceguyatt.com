@@ -13,11 +13,11 @@ const Label = ({ children, ...props }) => (
 )
 
 Label.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 }
 
 Label.defaultProps = {
-  children: null,
+  children: null
 }
 
 export default Label

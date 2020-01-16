@@ -9,7 +9,7 @@ const Wrapper = styled(Box).attrs({
   type: 'checkbox',
   width: '2.6rem',
   height: '2.2rem',
-  backgroundImage: `url(${sprite})`,
+  backgroundImage: `url(${sprite})`
 })`
   &:active {
     background-position: -2.6rem 0;

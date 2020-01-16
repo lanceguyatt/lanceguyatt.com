@@ -13,7 +13,7 @@ export const MenuList = styled(Box).attrs({
   borderColor: 'secondary',
   position: 'absolute',
   zIndex: 1,
-  top: '1.8rem',
+  top: '1.8rem'
 })`
   visibility: hidden;
   opacity: 0;
@@ -27,7 +27,7 @@ export const MenuToggle = styled(Box).attrs({
   px: 3,
   pt: 2,
   height: '1.8rem',
-  position: 'relative',
+  position: 'relative'
 })`
   user-select: none;
   transition: all 0.25s;
@@ -36,7 +36,7 @@ export const MenuToggle = styled(Box).attrs({
 export const Wrapper = styled(
   ({ name, items, menuActive, ghosted, ...props }) => <Box {...props} />
 ).attrs({
-  mr: 6,
+  mr: 6
 })`
   outline: 0;
 

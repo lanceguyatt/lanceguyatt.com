@@ -9,7 +9,7 @@ const Facebook = ({
   image,
   type,
   siteName,
-  locale,
+  locale
 }) => (
   <Helmet>
     <meta property="og:title" content={title} />
@@ -34,10 +34,10 @@ Facebook.propTypes = {
   image: PropTypes.string.isRequired,
   type: PropTypes.string,
   siteName: PropTypes.string,
-  locale: PropTypes.string.isRequired,
+  locale: PropTypes.string.isRequired
 }
 
 Facebook.defaultProps = {
   type: 'website',
-  siteName: null,
+  siteName: null
 }

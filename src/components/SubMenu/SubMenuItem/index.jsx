@@ -16,7 +16,7 @@ const Action = styled(({ active, ...props }) => <Flex {...props} />).attrs({
   minWidth: '100%',
   position: 'relative',
   variant: 'menuItem',
-  textAlign: 'left',
+  textAlign: 'left'
 })`
   transition-property: background-color, color;
   transition-duration: 0.25s;
@@ -44,11 +44,11 @@ const SubMenuItem = props => {
 
 SubMenuItem.propTypes = {
   name: PropTypes.string.isRequired,
-  active: PropTypes.bool,
+  active: PropTypes.bool
 }
 
 SubMenuItem.defaultProps = {
-  active: false,
+  active: false
 }
 
 export default SubMenuItem

@@ -7,7 +7,7 @@ import image from './image.svg'
 const Wrapper = styled(Box).attrs({
   border: 2,
   height: '2.2rem',
-  p: 2,
+  p: 2
 })`
   border-image: url(${image}) 2;
 

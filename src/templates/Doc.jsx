@@ -9,7 +9,7 @@ import { Box } from '../primitives'
 import { Action } from '../components'
 
 const components = {
-  Action,
+  Action
 }
 
 const DocTemplate = props => {
@@ -32,7 +32,7 @@ const DocTemplate = props => {
 }
 
 DocTemplate.propTypes = {
-  data: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired
 }
 
 export default DocTemplate

@@ -13,7 +13,7 @@ const Wrapper = styled(Box).attrs({
   position: 'absolute',
   minWidth: '10rem',
   left: '100%',
-  top: 0,
+  top: 0
 })``
 
 const SubMenu = props => {
@@ -22,7 +22,7 @@ const SubMenu = props => {
 }
 
 SubMenu.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default SubMenu

@@ -12,7 +12,7 @@ const File = ({ name, href }) => (
 
 File.propTypes = {
   name: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired
 }
 
 export default File

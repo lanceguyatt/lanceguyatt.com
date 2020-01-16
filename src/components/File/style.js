@@ -9,11 +9,11 @@ export const Image = styled(Box).attrs({
   backgroundImage: `url(${sprite})`,
   backgroundSize: 'cover',
   mb: 3,
-  mx: 'auto',
+  mx: 'auto'
 })``
 
 export const Name = styled(Box).attrs({
-  textAlign: 'center',
+  textAlign: 'center'
 })``
 
 export const Link = styled(Box).attrs({
@@ -22,7 +22,7 @@ export const Link = styled(Box).attrs({
   rel: 'noopener noreferrer',
   display: 'block',
   mb: 4,
-  width: '10rem',
+  width: '10rem'
 })`
   &:focus,
   &:active {

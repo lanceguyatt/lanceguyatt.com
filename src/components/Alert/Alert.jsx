@@ -2,7 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from '@theme-ui/components'
 
-export default function Alert({ children, status, ...props }) {
+const propTypes = {
+  children: PropTypes.node.isRequired,
+  status: PropTypes.string
+}
+
+const defaultProps = {
+  status: 'error'
+}
+
+const Alert = props => {
+  const { children, status, ...other } = props
   return (
     <Box
       role="alert"
@@ -13,22 +23,18 @@ export default function Alert({ children, status, ...props }) {
         borderWidth: 3,
         borderStyle: 'solid',
         p: 4,
-        maxWidth: 640,
         textDecoration: 'none',
-        textAlign: 'center',
+        textAlign: 'center'
       }}
-      {...props}
       variant={status}
+      {...other}
     >
       {children}
     </Box>
   )
 }
 
-Alert.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+Alert.propTypes = propTypes
+Alert.defaultProps = defaultProps
 
-Alert.defaultProps = {
-  status: 'error',
-}
+export default Alert

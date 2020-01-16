@@ -7,7 +7,7 @@ const colors = {
   secondary: '#a0a0a0',
   light: '#f0f0f0',
   black: '#000',
-  white: '#fff',
+  white: '#fff'
 }
 
 const lineHeights = [1, 1.125, 1.25, 1.5]
@@ -20,13 +20,13 @@ const space = [
   '0.8rem',
   '1.6rem',
   '3.2rem',
-  '6.4rem',
+  '6.4rem'
 ]
 
 const zIndex = [0, 1, 2, 3, 4]
 
 const fonts = {
-  sansSerif: '"Topaz", sans-serif',
+  sansSerif: '"Topaz", sans-serif'
 }
 
 const buttons = {
@@ -35,17 +35,17 @@ const buttons = {
     color: colors.black,
     '&:focus, &:hover, &:active': {
       backgroundColor: 'transparent',
-      color: colors.black,
-    },
+      color: colors.black
+    }
   },
   menuItem: {
     backgroundColor: colors.black,
     color: colors.secondary,
     '&:focus, &:hover, &:active': {
       backgroundColor: colors.light,
-      color: colors.primary,
-    },
-  },
+      color: colors.primary
+    }
+  }
 }
 
 const workbench = {
@@ -56,7 +56,7 @@ const workbench = {
   fonts,
   lineHeights,
   space,
-  zIndex,
+  zIndex
 }
 
 export default workbench

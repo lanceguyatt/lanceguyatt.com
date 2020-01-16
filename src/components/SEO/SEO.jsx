@@ -41,15 +41,15 @@ const SEO = props => {
             ogLanguage,
             author,
             twitter,
-            facebook,
-          },
-        },
+            facebook
+          }
+        }
       }) => {
         const seo = {
           name: name || siteTitle,
           description: description || siteDescription,
           url: `${siteUrl}${url}` || siteUrl,
-          image: image || siteImage,
+          image: image || siteImage
         }
 
         let titleTemplate
@@ -73,27 +73,27 @@ const SEO = props => {
           name: siteTitle,
           author: {
             '@type': 'Person',
-            name: author,
+            name: author
           },
           copyrightHolder: {
             '@type': 'Person',
-            name: author,
+            name: author
           },
           copyrightYear: 2019,
           creator: {
             '@type': 'Person',
-            name: author,
+            name: author
           },
           publisher: {
             '@type': 'Person',
-            name: author,
+            name: author
           },
           datePublished: '2019-02-23T23:58:00',
           dateModified: buildTime,
           image: {
             '@type': 'ImageObject',
-            url: image,
-          },
+            url: image
+          }
         }
 
         // Initial breadcrumb list
@@ -102,10 +102,10 @@ const SEO = props => {
             '@type': 'ListItem',
             item: {
               '@id': siteUrl,
-              name: 'Homepage',
+              name: 'Homepage'
             },
-            position: 1,
-          },
+            position: 1
+          }
         ]
 
         let schemaWebsite = null
@@ -124,21 +124,21 @@ const SEO = props => {
             inLanguage: 'en',
             image: {
               '@type': 'ImageObject',
-              url: seo.image,
+              url: seo.image
             },
             creator: {
               '@type': 'Person',
-              name: author,
-            },
+              name: author
+            }
           }
           // Push current blogpost into breadcrumb list
           itemListElement.push({
             '@type': 'ListItem',
             item: {
               '@id': seo.url,
-              name: seo.name,
+              name: seo.name
             },
-            position: 2,
+            position: 2
           })
         }
 
@@ -147,7 +147,7 @@ const SEO = props => {
           '@type': 'BreadcrumbList',
           description: 'Breadcrumbs list',
           name: 'Breadcrumbs',
-          itemListElement,
+          itemListElement
         }
 
         return (
@@ -200,7 +200,7 @@ SEO.propTypes = {
   url: PropTypes.string,
   image: PropTypes.string,
   website: PropTypes.bool,
-  node: PropTypes.shape(),
+  node: PropTypes.shape()
 }
 
 SEO.defaultProps = {
@@ -210,7 +210,7 @@ SEO.defaultProps = {
   url: '/',
   image: null,
   website: false,
-  node: null,
+  node: null
 }
 
 export default SEO

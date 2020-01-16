@@ -18,11 +18,11 @@ const Drawer = props => {
 Drawer.propTypes = {
   name: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
-  heading: PropTypes.string,
+  heading: PropTypes.string
 }
 
 Drawer.defaultProps = {
-  heading: 'div',
+  heading: 'div'
 }
 
 export default Drawer

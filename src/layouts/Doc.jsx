@@ -18,7 +18,7 @@ const Doc = props => {
 }
 
 Doc.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Doc

@@ -8,7 +8,7 @@ export const Foo = styled(({ basepath, list, ...props }) => (
   <Flex {...props} />
 )).attrs({
   mx: -2,
-  flexWrap: 'wrap',
+  flexWrap: 'wrap'
 })`
   a {
     margin-left: ${props => props.theme.space[3]};

@@ -46,8 +46,8 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/work/${work.node.slug}/`,
         component: Work,
         context: {
-          slug: work.node.slug,
-        },
+          slug: work.node.slug
+        }
       })
     })
 
@@ -59,8 +59,8 @@ exports.createPages = async ({ graphql, actions }) => {
           path: `${doc.node.frontmatter.slug}`,
           component: Doc,
           context: {
-            slug: doc.node.frontmatter.slug,
-          },
+            slug: doc.node.frontmatter.slug
+          }
         })
       }
     })
@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-    },
+      modules: [path.resolve(__dirname, 'src'), 'node_modules']
+    }
   })
 }

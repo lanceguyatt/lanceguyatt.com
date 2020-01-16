@@ -4,10 +4,10 @@ import Button from './Button'
 
 export default {
   title: 'Gadgets/Button',
-  component: Button,
   parameters: {
-    componentSubtitle: 'Button subtitle',
+    componentSubtitle: 'Button subtitle'
   },
+  component: Button
 }
 
 export const allButtons = () => (

@@ -7,7 +7,7 @@ import sprite from './sprite.svg'
 const Wrapper = styled(Box).attrs({
   width: '2.3rem',
   height: '2.2rem',
-  backgroundImage: `url(${sprite})`,
+  backgroundImage: `url(${sprite})`
 })`
   &:focus,
   &:active {

@@ -20,7 +20,7 @@ const WorkPage = ({ data }) => {
 }
 
 WorkPage.propTypes = {
-  data: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired
 }
 
 export default WorkPage

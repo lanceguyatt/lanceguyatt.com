@@ -8,7 +8,7 @@ import border from './border.svg'
 
 export const Name = styled(Box).attrs({
   px: 3,
-  flex: 1,
+  flex: 1
 })`
   overflow: hidden;
   text-overflow: ellipsis;
@@ -22,20 +22,20 @@ export const TitleBar = styled(Flex).attrs({
   position: 'absolute',
   top: '-2rem',
   right: '-0.4rem',
-  left: '-0.4rem',
+  left: '-0.4rem'
 })``
 
 export const Main = styled(Flex).attrs({
   flexDirection: 'column',
   flex: 1,
-  p: 4,
+  p: 4
 })``
 
 /* eslint-disable-next-line */
 export const Wrapper = styled(({ name, show, special, ...props }) => (
   <Box {...props} />
 )).attrs({
-  position: 'relative',
+  position: 'relative'
 })`
   border-style: solid;
   border-width: 2.2rem 0.4rem 0.4rem 0.4rem;

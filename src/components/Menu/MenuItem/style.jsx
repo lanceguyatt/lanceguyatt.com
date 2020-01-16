@@ -18,7 +18,7 @@ export const MenuItemAction = styled(
   minWidth: '100%',
   position: 'relative',
   variant: 'menuItem',
-  textAlign: 'left',
+  textAlign: 'left'
 })`
   transition-property: background-color, color;
   transition-duration: 0.25s;
@@ -43,7 +43,7 @@ export const MenuItemAction = styled(
 `
 
 export const Wrapper = styled(Flex).attrs({
-  position: 'relative',
+  position: 'relative'
 })`
   ul {
     visibility: hidden;

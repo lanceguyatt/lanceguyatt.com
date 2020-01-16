@@ -18,7 +18,7 @@ const Index = ({ data }) => {
 }
 
 Index.propTypes = {
-  data: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired
 }
 
 export default Index

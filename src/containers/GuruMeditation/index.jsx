@@ -37,10 +37,10 @@ function GuruMeditation() {
       <Toasty
         defaultStyle={{ transform: 'translate(200px, 0)' }}
         enterStyle={{
-          transform: transit('translate(0, 0)', 400, 'ease-in-out'),
+          transform: transit('translate(0, 0)', 400, 'ease-in-out')
         }}
         leaveStyle={{
-          transform: transit('translate(200px, 0)', 300, 'ease-in-out'),
+          transform: transit('translate(200px, 0)', 300, 'ease-in-out')
         }}
         activeStyle={{ transform: 'translate(0, 0)' }}
         transitionDelay={{ enter: 0, leave: 100 }}

@@ -40,12 +40,12 @@ const Action = ({ name, url, ...props }) => {
 
 Action.propTypes = {
   name: PropTypes.string,
-  url: PropTypes.string,
+  url: PropTypes.string
 }
 
 Action.defaultProps = {
   name: 'Action name',
-  url: null,
+  url: null
 }
 
 export default Action

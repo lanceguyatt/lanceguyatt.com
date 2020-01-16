@@ -39,11 +39,11 @@ const Date = props => {
 
 Date.propTypes = {
   list: PropTypes.shape().isRequired,
-  basepath: PropTypes.string,
+  basepath: PropTypes.string
 }
 
 Date.defaultProps = {
-  basepath: null,
+  basepath: null
 }
 
 const Size = () => <Box>Size</Box>
@@ -71,11 +71,11 @@ const Icon = props => {
 
 Icon.propTypes = {
   list: PropTypes.oneOfType([PropTypes.array]).isRequired,
-  basepath: PropTypes.string,
+  basepath: PropTypes.string
 }
 
 Icon.defaultProps = {
-  basepath: null,
+  basepath: null
 }
 
 class Directory extends Component {
@@ -107,13 +107,13 @@ class Directory extends Component {
 
 Directory.propTypes = {
   // basepath: PropTypes.string,
-  view: PropTypes.oneOf(['name', 'date', 'size', 'icon']),
+  view: PropTypes.oneOf(['name', 'date', 'size', 'icon'])
   // list: PropTypes.arrayOf(PropTypes.shape).isRequired,
 }
 
 Directory.defaultProps = {
   // basepath: null,
-  view: 'icon',
+  view: 'icon'
 }
 
 export default Directory

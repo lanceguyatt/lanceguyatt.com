@@ -13,7 +13,7 @@ export const Wrapper = props => (
       bg: 'text',
       height: '100vh',
       width: '100vw',
-      overflow: 'hidden',
+      overflow: 'hidden'
     }}
     {...props}
   />
@@ -28,7 +28,7 @@ export const Toasty = props => (
       position: 'absolute',
       right: -200,
       bottom: 0,
-      size: 200,
+      size: 200
     }}
     {...props}
   />

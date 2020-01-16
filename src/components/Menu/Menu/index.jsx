@@ -38,12 +38,12 @@ Menu.propTypes = {
   id: string.isRequired,
   name: string.isRequired,
   children: node,
-  ghosted: bool,
+  ghosted: bool
 }
 
 Menu.defaultProps = {
   children: null,
-  ghosted: false,
+  ghosted: false
 }
 
 export default Menu
