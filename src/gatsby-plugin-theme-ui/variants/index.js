@@ -1,5 +1,9 @@
 const variants = {
   alerts: {
+    primary: {
+      borderColor: 'primary',
+      color: 'primary'
+    },
     error: {
       borderColor: 'red',
       color: 'red'
@@ -27,9 +31,14 @@ const variants = {
   },
   iconButton: {
     appearnce: 'none',
-    bg: 'transparent',
+    bg: 'lime',
     border: 0,
-    borderRadius: 0
+    borderRadius: 0,
+    cursor: 'pointer',
+    outline: 0,
+    userSelect: 'none',
+    fontSize: 'inherit',
+    fontFamily: 'inherit'
   },
   text: {
     heading: {
@@ -37,6 +46,12 @@ const variants = {
       fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading'
+    }
+  },
+  layout: {
+    workbench: {
+      bg: 'secondary',
+      p: 4
     }
   }
 }

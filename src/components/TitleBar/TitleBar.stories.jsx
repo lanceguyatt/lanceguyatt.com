@@ -1,13 +1,13 @@
 import React from 'react'
 
 import TitleBar from './TitleBar'
-import Depth from './Depth'
+import Depth from '../Depth'
 
 export default {
-  title: 'Title bar',
   component: TitleBar,
+  title: 'TitleBar',
   parameters: {
-    componentSubtitle: 'Title bar subtitle'
+    componentSubtitle: 'TitleBar subtitle'
   }
 }
 

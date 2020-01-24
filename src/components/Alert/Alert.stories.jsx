@@ -1,17 +1,26 @@
 import React from 'react'
+import { Box } from '@theme-ui/components'
 
-import Alert from '.'
+import Alert from './Alert'
 
 export default {
-  title: 'Alert',
   component: Alert,
+  title: 'Alert',
   parameters: {
-    componentSubtitle: 'Button subtitle'
-  }
+    componentSubtitle: 'Alert subtitle'
+  },
+  decorators: [
+    story => (
+      <Box variant="layout.workbench" bg="text">
+        {story()}
+      </Box>
+    )
+  ]
 }
 
-export const allButtons = () => (
+export const alerts = () => (
   <>
+    <Alert status="primary">Alert</Alert>
     <Alert status="error">Alert</Alert>
   </>
 )

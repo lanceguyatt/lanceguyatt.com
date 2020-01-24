@@ -11,8 +11,9 @@ const defaultProps = {
   status: 'error'
 }
 
+/** `Alert` description */
 const Alert = props => {
-  const { children, status, ...other } = props
+  const { children, status, ...rest } = props
   return (
     <Box
       role="alert"
@@ -27,7 +28,7 @@ const Alert = props => {
         textAlign: 'center'
       }}
       variant={status}
-      {...other}
+      {...rest}
     >
       {children}
     </Box>

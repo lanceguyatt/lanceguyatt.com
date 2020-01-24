@@ -1,22 +1,30 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Box } from '@theme-ui/components'
 
-import { Box, Flex } from '../../primitives'
 import sprite from './sprite.svg'
 
-const Wrapper = styled(Box).attrs({
-  backgroundImage: `url(${sprite})`,
-  backgroundSize: 'cover',
-  display: 'block',
-  width: '2rem',
-  height: '2.4rem'
-})``
-
 const Cycle = props => (
-  <Flex {...props} style={{ textTransform: 'uppercase' }}>
-    <Wrapper is="button" type="button" aria-label="Cycle" />
-    <Box>Enabled</Box>
-  </Flex>
+  <Box
+    as="button"
+    aria-label="Cycle"
+    variant="iconButton"
+    __css={{
+      bg: 'yellow',
+      display: 'inline-flex',
+      alignItems: 'center'
+    }}
+    {...props}
+  >
+    <Box
+      sx={{
+        backgroundImage: `url(${sprite})`,
+        display: 'block',
+        width: 20,
+        height: 24
+      }}
+    />
+    <Box sx={{ textTransform: 'uppercase', ml: 3 }}>Enabled</Box>
+  </Box>
 )
 
 export default Cycle

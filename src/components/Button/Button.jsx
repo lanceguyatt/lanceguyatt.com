@@ -16,22 +16,16 @@ const APPEARANCES = {
 const propTypes = {
   appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
   children: PropTypes.node.isRequired,
-  external: PropTypes.bool
+  isExternal: PropTypes.bool
 }
 
 const defaultProps = {
   appearance: APPEARANCES.PRIMARY,
-  external: false
+  isExternal: false
 }
 
-const Button = props => {
-  const { appearance, children, external, ...other } = props
-  let externalAction
-
-  if (external) {
-    externalAction = 'target="_blank"'
-  }
-
+/** `Button` description */
+const Button = ({ appearance, children, isExternal, isDisabled, ...rest }) => {
   return (
     <Box
       as="button"
@@ -60,24 +54,32 @@ const Button = props => {
         '&:focus, &:active': {
           borderImage: `url(${selected}) 2 stretch`
         },
-        '&[disabled]': {
-          pointerEvents: 'none',
-          '&::before': {
-            content: '""',
-            background: `url(${ghosted})`,
-            position: 'absolute',
-            top: -2,
-            right: 1,
-            bottom: -2,
-            left: -1,
-            zIndex: 1,
-            width: 'calc(100% + 0.2rem)'
+        ...(isDisabled && {
+          cursor: 'not-allowed !important',
+          opacity: 0.5,
+          '&[disabled]': {
+            pointerEvents: 'none',
+            '&::before': {
+              content: '""',
+              background: `url(${ghosted})`,
+              position: 'absolute',
+              top: -2,
+              right: 1,
+              bottom: -2,
+              left: -1,
+              zIndex: 1,
+              width: 'calc(100% + 0.2rem)'
+            }
           }
-        }
+        })
       }}
-      {...externalAction}
+      {...(isExternal && {
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      })}
       variant={appearance}
-      {...other}
+      disabled={isDisabled}
+      {...rest}
     >
       {children}
     </Box>

@@ -52,7 +52,7 @@ const theme = {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
-      bg: 'background',
+      bg: 'secondary',
       color: 'text'
     }
   },

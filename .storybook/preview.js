@@ -48,6 +48,9 @@ addDecorator(story => (
           src: `local('Topaz'), url('/fonts/topaz.woff2') format('woff2')`,
           fontWeight: 400,
           fontStyle: 'normal'
+        },
+        body: {
+          margin: 0
         }
       })}
     />

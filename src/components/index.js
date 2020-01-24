@@ -24,4 +24,4 @@ export { default as Window } from './Window'
 export { default as Zoom } from './Zoom'
 
 export * from './typography'
-export * from './modal/Modal'
+// export * from './modal/Modal'

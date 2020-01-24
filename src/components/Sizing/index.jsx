@@ -1,19 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Box } from '@theme-ui/components'
 
-import { Box } from '../../primitives'
 import sprite from './sprite.svg'
 
-const Wrapper = styled(Box).attrs({
-  width: '1.8rem',
-  height: '2rem',
-  backgroundImage: `url(${sprite})`
-})`
-  &:active {
-    background-position: -1.8rem 0;
-  }
-`
-
-const Sizing = props => <Wrapper is="button" type="button" {...props} />
+const Sizing = props => (
+  <Box
+    as="button"
+    __css={{
+      width: 18,
+      height: 20,
+      backgroundImage: `url(${sprite})`,
+      '&:focus, &:active': {
+        backgroundPosition: '-18px 0'
+      }
+    }}
+    variant="iconButton"
+    {...props}
+  />
+)
 
 export default Sizing

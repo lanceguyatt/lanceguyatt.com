@@ -3,11 +3,10 @@ import { Box } from '@theme-ui/components'
 
 import sprite from './sprite.svg'
 
-function Depth(props) {
+const Depth = ({ ...rest }) => {
   return (
     <Box
       as="button"
-      type="button"
       aria-label="Depth"
       __css={{
         width: 23,
@@ -18,7 +17,7 @@ function Depth(props) {
         }
       }}
       variant="iconButton"
-      {...props}
+      {...rest}
     />
   )
 }
