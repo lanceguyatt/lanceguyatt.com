@@ -1,18 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { Box } from '@theme-ui/components'
 
-import { Image, Name, Link } from './style'
+import sprite from './sprite.svg'
 
-const File = ({ name, href }) => (
-  <Link href={href}>
-    <Image />
-    <Name>{name}</Name>
-  </Link>
+const File = props => (
+  <Box
+    __css={{
+      width: 46,
+      height: 62,
+      backgroundImage: `url(${sprite})`,
+      backgroundSize: 'cover'
+    }}
+    {...props}
+  />
 )
-
-File.propTypes = {
-  name: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired
-}
 
 export default File

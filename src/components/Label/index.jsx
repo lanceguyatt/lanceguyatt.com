@@ -1,23 +1,23 @@
 import React from 'react'
+import { Box } from '@theme-ui/components'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
-import { Box } from '../../primitives'
+const propTypes = {
+  children: PropTypes.node.isRequired
+}
 
-const Wrapper = styled(Box)``
-
-const Label = ({ children, ...props }) => (
-  <Wrapper is="label" {...props}>
+const Label = ({ children, ...rest }) => (
+  <Box
+    as="label"
+    __css={{
+      display: 'block'
+    }}
+    {...rest}
+  >
     {children}
-  </Wrapper>
+  </Box>
 )
 
-Label.propTypes = {
-  children: PropTypes.node
-}
-
-Label.defaultProps = {
-  children: null
-}
+Label.propTypes = propTypes
 
 export default Label

@@ -4,8 +4,8 @@ import { Box } from '../../primitives'
 import sprite from './sprite.svg'
 
 export const Image = styled(Box).attrs({
-  width: '4.6rem',
-  height: '6.2rem',
+  width: 46,
+  height: 62,
   backgroundImage: `url(${sprite})`,
   backgroundSize: 'cover',
   mb: 3,

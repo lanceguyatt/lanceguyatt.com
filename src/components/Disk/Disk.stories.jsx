@@ -3,11 +3,11 @@ import React from 'react'
 import Disk from './Disk'
 
 export default {
+  component: Disk,
   title: 'Disk',
   parameters: {
     componentSubtitle: 'Disk subtitle'
-  },
-  component: Disk
+  }
 }
 
 export const all = () => (

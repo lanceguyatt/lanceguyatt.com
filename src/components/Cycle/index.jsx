@@ -9,18 +9,20 @@ const Cycle = props => (
     aria-label="Cycle"
     variant="iconButton"
     __css={{
-      bg: 'yellow',
       display: 'inline-flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      p: 0
     }}
     {...props}
   >
     <Box
       sx={{
         backgroundImage: `url(${sprite})`,
+        bg: 'red',
         display: 'block',
-        width: 20,
-        height: 24
+        width: 16,
+        height: 20,
+        flex: '0 0 auto'
       }}
     />
     <Box sx={{ textTransform: 'uppercase', ml: 3 }}>Enabled</Box>

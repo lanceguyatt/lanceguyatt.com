@@ -11,6 +11,7 @@ const fonts = {
 }
 
 const theme = {
+  borders: [0, '1px solid', '2px solid'],
   fonts,
   colors: {
     primary: '#6080b0',

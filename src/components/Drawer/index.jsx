@@ -1,28 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { Box } from '@theme-ui/components'
 
-import { Image, Name, Link } from './style'
+import sprite from './sprite.svg'
 
 const Drawer = props => {
-  const { name, to, heading } = props
   return (
-    <Link to={to} activeClassName="active" aria-labelledby={to}>
-      <Image />
-      <Name id={to} is={heading}>
-        {name}
-      </Name>
-    </Link>
+    <Box
+      __css={{
+        width: 65,
+        height: 38,
+        backgroundImage: `url(${sprite})`,
+        backgroundSize: 'cover'
+      }}
+      {...props}
+    />
   )
-}
-
-Drawer.propTypes = {
-  name: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
-  heading: PropTypes.string
-}
-
-Drawer.defaultProps = {
-  heading: 'div'
 }
 
 export default Drawer

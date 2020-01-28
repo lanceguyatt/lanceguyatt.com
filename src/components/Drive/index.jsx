@@ -1,18 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { Box } from '@theme-ui/components'
 
-import { Image, Name, Link } from './style'
+import sprite from './sprite.svg'
 
-const Drive = ({ name, to }) => (
-  <Link to={to} activeClassName="active">
-    <Image />
-    <Name>{name}</Name>
-  </Link>
+const Drive = props => (
+  <Box
+    __css={{
+      width: 85,
+      height: 44,
+      backgroundImage: `url(${sprite})`,
+      backgroundSize: 'cover'
+    }}
+    {...props}
+  />
 )
-
-Drive.propTypes = {
-  name: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired
-}
 
 export default Drive
