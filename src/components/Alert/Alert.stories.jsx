@@ -20,7 +20,9 @@ export default {
 
 export const alerts = () => (
   <>
-    <Alert status="primary">Alert</Alert>
+    <Alert status="primary" mb={4}>
+      Alert
+    </Alert>
     <Alert status="error">Alert</Alert>
   </>
 )

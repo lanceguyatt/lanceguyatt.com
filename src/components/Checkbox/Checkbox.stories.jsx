@@ -5,7 +5,7 @@ import Checkbox from './Checkbox'
 
 export default {
   component: Checkbox,
-  title: 'Checkbox',
+  title: 'forms/Checkbox',
   parameters: {
     componentSubtitle: 'Checkbox subtitle'
   },
@@ -13,6 +13,8 @@ export default {
 }
 
 export const all = () => <Checkbox name="agreed">I agree to the terms</Checkbox>
+
+all.story = { name: 'Default' }
 
 export const checked = () => (
   <Checkbox name="foo" checked>

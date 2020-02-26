@@ -21,8 +21,7 @@ const Alert = props => {
       __themeKey="alerts"
       __css={{
         display: 'block',
-        borderWidth: 3,
-        borderStyle: 'solid',
+        border: 3,
         p: 4,
         textDecoration: 'none',
         textAlign: 'center'

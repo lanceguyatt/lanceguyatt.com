@@ -2,8 +2,8 @@ import variants from './variants'
 
 const fontSizes = [12, 14, 16]
 
-fontSizes.body = 16
-fontSizes.heading = 16
+fontSizes.body = fontSizes[2]
+fontSizes.heading = fontSizes[2]
 
 const fonts = {
   body: '"Topaz", sans-serif',
@@ -11,7 +11,7 @@ const fonts = {
 }
 
 const theme = {
-  borders: [0, '1px solid', '2px solid'],
+  borders: [0, '1px solid', '2px solid', '4px solid', '8px solid'],
   fonts,
   colors: {
     primary: '#6080b0',

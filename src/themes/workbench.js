@@ -12,16 +12,7 @@ const colors = {
 
 const lineHeights = [1, 1.125, 1.25, 1.5]
 
-const space = [
-  0,
-  '0.1rem',
-  '0.2rem',
-  '0.4rem',
-  '0.8rem',
-  '1.6rem',
-  '3.2rem',
-  '6.4rem'
-]
+const space = [0, 1, 2, 4, 8, 16, 32, 64]
 
 const zIndex = [0, 1, 2, 3, 4]
 
