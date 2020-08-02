@@ -44,7 +44,7 @@ export const IndexQuery = graphql`
   }
 
   query indexQuery {
-    contentfulPage(id: { eq: "faa63991-cf4d-50e6-926f-86475620b3d9" }) {
+    contentfulPage(contentful_id: { eq: "6QMSSgGweTn9zg8KC840TD" }) {
       name
       meta {
         ...meta

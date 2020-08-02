@@ -39,7 +39,7 @@ export default GuruMeditationPage
 
 export const GuruMeditationPageQuery = graphql`
   query guruMeditationPageQuery {
-    contentfulPage(id: { eq: "69f9f631-d866-5bf0-a7f3-99b7e062748c" }) {
+    contentfulPage(contentful_id: { eq: "66TpcoOxvNvb8Jx3FgEVFQ" }) {
       ...page
       meta {
         ...meta

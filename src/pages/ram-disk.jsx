@@ -26,7 +26,7 @@ export default RamDiskPage
 
 export const RamDiskPageQuery = graphql`
   query ramDiskPageQuery {
-    contentfulPage(id: { eq: "82129277-e6da-5890-825f-b73f39409ee5" }) {
+    contentfulPage(contentful_id: { eq: "5CxgcTlDWWc1saglTNbpH5" }) {
       ...page
       meta {
         ...meta

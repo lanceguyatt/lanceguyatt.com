@@ -30,7 +30,7 @@ export default KickStartPage
 
 export const KickStartPageQuery = graphql`
   query kickStartPageQuery {
-    contentfulPage(id: { eq: "3d2cf256-a387-5316-a7a4-f8e5c731cf8f" }) {
+    contentfulPage(contentful_id: { eq: "2BnXNmuFpBFmgEqeiEcK4m" }) {
       name
       meta {
         ...meta

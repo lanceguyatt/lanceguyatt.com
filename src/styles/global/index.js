@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Topaz';
     src: local('Topaz'),
          url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
-         /* url('/fonts/topaz.ttf') format('truetype'), */
+         url('/fonts/topaz.ttf') format('truetype'),
          url('/fonts/topaz.woff') format('woff'),
          url('/fonts/topaz.woff2') format('woff2');
     font-weight: 400;
@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 10px;
     line-height: 1.125;
-    font-family: ${props => props.theme.fonts.sansSerif};
+    font-family: ${(props) => props.theme.fonts.sansSerif};
     position: relative;
     min-height: 100%;
     user-select: none;
@@ -60,8 +60,8 @@ const GlobalStyle = createGlobalStyle`
     &:hover,
     &:focus,
     &:active {
-      /* background-color: ${props => props.theme.colors.light};
-      color: ${props => props.theme.colors.primary}; */
+      /* background-color: ${(props) => props.theme.colors.light};
+      color: ${(props) => props.theme.colors.primary}; */
       outline: 0;
     }
   }

@@ -27,7 +27,7 @@ export default WorkPage
 
 export const WorkPageQuery = graphql`
   query workPageQuery {
-    contentfulPage(id: { eq: "2cf1d118-a26d-57e4-8a8b-4fa3008561ec" }) {
+    contentfulPage(contentful_id: { eq: "4W0j6CDUm05JH6MvkzwI0Y" }) {
       ...page
       meta {
         ...meta
