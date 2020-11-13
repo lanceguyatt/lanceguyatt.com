@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-
 import { Box } from 'theme-ui';
+
 import image from './image.svg';
 
-const Wrapper = styled(Box).attrs({
-  border: 2,
-  height: '2.2rem',
-  p: 2,
-})`
-  border-image: url(${image}) 2;
-
-  &::-webkit-slider-runnable-track {
-  }
-
-  &::-webkit-slider-thumb {
-    height: 1.4rem;
-    width: 1rem;
-    background-color: ${(props) => props.theme.colors.black};
-    appearance: none;
-  }
-`;
+const Wrapper = (props) => (
+  <Box
+    __css={{
+      border: 2,
+      height: '2.2rem',
+      p: 2,
+      borderImage: `url(${image}) 2`,
+      '&::-webkit-slider-runnable-track': {},
+      '&::-webkit-slider-thumb': {
+        height: '1.4rem',
+        width: '1rem',
+        backgroundColor: 'text',
+        appearance: 'none',
+      },
+    }}
+    {...props}
+  />
+);
 
 function Slider(props) {
   const [value, setValue] = useState(50);

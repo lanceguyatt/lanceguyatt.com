@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex } from 'theme-ui';
+import { Box, Flex } from 'theme-ui';
 
 import Close from '../Close';
 import Depth from '../Depth';
 import Zoom from '../Zoom';
-import { Name, Header, Inner, Main } from './style';
+import { Header, Inner, Main } from './style';
 // import window from './window.svg';
 
 /* eslint-disable-next-line */
@@ -95,9 +95,9 @@ const Window = ({
     <Header is="header">
       <Close to={close} />
       <Inner>
-        <Name is={heading} mb={0}>
+        <Box as={heading} mb={0} mr={3}>
           {name}
-        </Name>
+        </Box>
         {full}% full, {free}k free, 708K
       </Inner>
       <Zoom />

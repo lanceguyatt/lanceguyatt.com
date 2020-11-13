@@ -1,3 +1,4 @@
+/* eslint no-restricted-syntax: 0 */
 export const edgeToArray = (data) => data.edges.map((edge) => edge.node);
 
 export const getProps = (test) => (props) => {

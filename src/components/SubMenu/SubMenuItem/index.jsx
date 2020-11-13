@@ -1,31 +1,30 @@
-/* eslint no-unused-vars: 0 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { Box, Flex } from 'theme-ui';
 
-import { Box, Flex } from '../../../primitives';
-
-const Wrapper = styled(Box)``;
-
-const Action = styled(({ active, ...props }) => <Flex {...props} />).attrs({
-  color: 'secondary',
-  justifyContent: 'space-between',
-  py: 2,
-  px: 1,
-  height: '1.8rem',
-  minWidth: '100%',
-  position: 'relative',
-  variant: 'menuItem',
-  textAlign: 'left',
-})`
-  transition-property: background-color, color;
-  transition-duration: 0.25s;
-`;
+const Action = (props) => (
+  <Flex
+    __css={{
+      color: 'secondary',
+      justifyContent: 'space-between',
+      py: 2,
+      px: 1,
+      height: '1.8rem',
+      minWidth: '100%',
+      position: 'relative',
+      variant: 'menuItem',
+      textAlign: 'left',
+      transitionProperty: 'background-color, color',
+      transitionDuration: '0.25s',
+    }}
+    {...props}
+  />
+);
 
 const SubMenuItem = (props) => {
   const { name, active } = props;
   return (
-    <Wrapper is="li">
+    <Box as="li">
       <Action type="button" role="button" {...props}>
         {name}
         {active && (
@@ -38,7 +37,7 @@ const SubMenuItem = (props) => {
           </svg>
         )}
       </Action>
-    </Wrapper>
+    </Box>
   );
 };
 
