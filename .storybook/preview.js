@@ -1,59 +1,32 @@
-import React from 'react'
-import { addDecorator, addParameters } from '@storybook/react'
-import { Styled, ThemeProvider } from 'theme-ui'
-import { Global } from '@emotion/core'
-import { withA11y } from '@storybook/addon-a11y'
-/* https://github.com/storybookjs/storybook-addon-console/issues/27 */
-import '@storybook/addon-console'
-// import { setConsoleOptions, withConsole } from '@storybook/addon-console';
-import {
-  INITIAL_VIEWPORTS
-  // or MINIMAL_VIEWPORTS,
-} from '@storybook/addon-viewport'
+import React from 'react';
+import { ThemeProvider } from 'theme-ui';
 
-import theme from '../src/gatsby-plugin-theme-ui'
-import { globalStyles } from '../src/utils'
+import theme from '../src/gatsby-plugin-theme-ui';
 
-// setConsoleOptions({
-//   panelExclude: []
-// });
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+};
 
-addParameters({
-  viewport: {
-    viewports: {
-      // ...customViewports,
-      ...INITIAL_VIEWPORTS
-      // or ...MINIMAL_VIEWPORTS,
-    }
-  }
-})
+export const decorators = [
+  (Story) => (
+    <ThemeProvider theme={theme}>
+      <Story />
+    </ThemeProvider>
+  ),
+];
 
-// addParameters({
-//   options: {
-//     showRoots: true
-//   }
-// });
-
-addDecorator(withA11y)
-
-// addDecorator((storyFn, context) => withConsole()(storyFn)(context));
-
-// Add theme-ui ThemeProvider as a default decorator
-addDecorator(story => (
-  <ThemeProvider theme={theme}>
-    <Global
-      styles={() => ({
-        '@font-face': {
-          fontFamily: 'Topaz',
-          src: `local('Topaz'), url('/fonts/topaz.woff2') format('woff2')`,
-          fontWeight: 400,
-          fontStyle: 'normal'
-        },
-        body: {
-          margin: 0
-        }
-      })}
-    />
-    <Styled.root>{story()}</Styled.root>
-  </ThemeProvider>
-))
+// Gatsby's Link overrides:
+// Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
+// This global object isn't set in storybook context, requiring you to override it to empty functions (no-op),
+// so Gatsby Link doesn't throw any errors.
+global.___loader = {
+  enqueue: () => {},
+  hovering: () => {},
+};
+// This global variable is prevents the "__BASE_PATH__ is not defined" error inside Storybook.
+global.__BASE_PATH__ = '/';
+// Navigating through a gatsby app using gatsby-link or any other gatsby component will use the `___navigate` method.
+// In Storybook it makes more sense to log an action than doing an actual navigate. Checkout the actions addon docs for more info: https://github.com/storybookjs/storybook/tree/master/addons/actions.
+window.___navigate = (pathname) => {
+  action('NavigateTo:')(pathname);
+};

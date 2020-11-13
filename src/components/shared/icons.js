@@ -1,3 +1,4 @@
+/* eslint import/prefer-default-export: 0 */
 // Icon paths
 export const icons = {
   mobile:

@@ -1,19 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { icons } from './shared/icons'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { icons } from './shared/icons';
 
 const Svg = styled.svg`
-  display: ${props => (props.block ? 'block' : 'inline-block')};
+  display: ${(props) => (props.block ? 'block' : 'inline-block')};
   vertical-align: middle;
 
   shape-rendering: inherit;
   transform: translate3d(0, 0, 0);
-`
+`;
 
 const Path = styled.path`
   fill: currentColor;
-`
+`;
 
 /**
  * An Icon is a piece of visual element, but we must ensure its accessibility while using it.
@@ -33,16 +33,16 @@ function Icon({ icon, block, ...props }) {
     >
       <Path d={icons[icon]} />
     </Svg>
-  )
+  );
 }
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
-  block: PropTypes.bool
-}
+  block: PropTypes.bool,
+};
 
 Icon.defaultProps = {
-  block: false
-}
+  block: false,
+};
 
-export default Icon
+export default Icon;

@@ -1,10 +1,10 @@
-const fontSizes = [12, 14, 16]
+const fontSizes = [12, 14, 16];
 
-fontSizes.body = 16
+fontSizes.body = 16;
 
 const fonts = {
-  body: '"Topaz", sans-serif'
-}
+  body: '"Topaz", sans-serif',
+};
 
 const theme = {
   fonts,
@@ -12,11 +12,11 @@ const theme = {
     primary: '#6080b0',
     secondary: '#a0a0a0',
     text: '#000',
-    background: '#fff'
+    background: '#fff',
   },
   fontSizes,
   lineHeights: {
-    body: 1.125
+    body: 1.125,
   },
   space: [1, 2, 4, 8, 16, 32],
   styles: {
@@ -27,8 +27,8 @@ const theme = {
       lineHeight: 'body',
       fontWeight: 'body',
       bg: 'background',
-      color: 'text'
-    }
+      color: 'text',
+    },
   },
   buttons: {
     primary: {
@@ -36,10 +36,10 @@ const theme = {
       color: 'text',
       '&:focus, &:active': {
         bg: 'primary',
-        color: 'text'
-      }
-    }
-  }
-}
+        color: 'text',
+      },
+    },
+  },
+};
 
-export default theme
+export default theme;

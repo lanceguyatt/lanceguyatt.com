@@ -1,9 +1,9 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import sprite from './sprite.svg'
+import sprite from './sprite.svg';
 
-const Input = props => {
+const Input = (props) => {
   return (
     <Box
       as="input"
@@ -16,11 +16,11 @@ const Input = props => {
         fontSize: 'inherit',
         lineHeight: '20px',
         p: 2,
-        borderImage: `url(${sprite}) 2`
+        borderImage: `url(${sprite}) 2`,
       }}
       {...props}
     />
-  )
-}
+  );
+};
 
-export default Input
+export default Input;

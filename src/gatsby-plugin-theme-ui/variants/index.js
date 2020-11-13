@@ -2,12 +2,12 @@ const variants = {
   alerts: {
     primary: {
       borderColor: 'primary',
-      color: 'primary'
+      color: 'primary',
     },
     error: {
       borderColor: 'red',
-      color: 'red'
-    }
+      color: 'red',
+    },
   },
   buttons: {
     primary: {
@@ -15,19 +15,19 @@ const variants = {
       color: 'text',
       '&:focus, &:active': {
         bg: 'primary',
-        color: 'text'
-      }
-    }
+        color: 'text',
+      },
+    },
   },
   titlebar: {
     primary: {
       bg: 'text',
-      color: 'background'
+      color: 'background',
     },
     secondary: {
       bg: 'background',
-      color: 'text'
-    }
+      color: 'text',
+    },
   },
   iconButton: {
     appearnce: 'none',
@@ -38,22 +38,22 @@ const variants = {
     outline: 0,
     userSelect: 'none',
     fontSize: 'inherit',
-    fontFamily: 'inherit'
+    fontFamily: 'inherit',
   },
   text: {
     heading: {
       fontSize: 'heading',
       fontFamily: 'heading',
       fontWeight: 'heading',
-      lineHeight: 'heading'
-    }
+      lineHeight: 'heading',
+    },
   },
   layout: {
     workbench: {
       bg: 'secondary',
-      p: 4
-    }
-  }
-}
+      p: 4,
+    },
+  },
+};
 
-export default variants
+export default variants;

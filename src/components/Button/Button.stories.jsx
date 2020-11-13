@@ -1,24 +1,27 @@
-/* eslint import/no-extraneous-dependencies: 0 */
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
 
-import Button from './Button'
+import Button from './Button';
 
 export default {
+  title: 'Design System/Components/Button',
   component: Button,
-  title: 'Button',
-  parameters: {
-    componentSubtitle: 'Button subtitle'
-  },
-  decorators: [story => <Box variant="layout.workbench">{story()}</Box>]
-}
+  // argTypes: {
+  //   backgroundColor: { control: 'color' },
+  // },
+};
 
-export const first = () => (
-  <>
-    <Button>Default</Button>
-    <Button isExternal href="google.com" as="a">
-      External
-    </Button>
-    <Button isDisabled>Disabled</Button>
-  </>
-)
+const Template = (args) => <Button {...args}>{args.children}</Button>;
+
+export const Primary = Template.bind({});
+
+Primary.args = {
+  children: 'Button',
+  // backgroundColor: '#e00',
+};
+
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  appearance: 'secondary',
+  children: 'Button',
+};

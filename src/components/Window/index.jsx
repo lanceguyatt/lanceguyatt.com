@@ -1,66 +1,76 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Flex } from 'theme-ui';
 
-import { Flex } from '../../primitives'
-import Close from '../Close'
-import Depth from '../Depth'
-import Zoom from '../Zoom'
-import { Name, Header, Inner, Main } from './style'
-import window from './window.svg'
+import Close from '../Close';
+import Depth from '../Depth';
+import Zoom from '../Zoom';
+import { Name, Header, Inner, Main } from './style';
+// import window from './window.svg';
 
 /* eslint-disable-next-line */
-const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
-  <Flex {...props} />
-)).attrs({
-  flexDirection: 'column'
-})`
-  position: absolute;
-  top: 2.2rem;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-style: solid;
-  border-width: 2.2rem 0.4rem 0.4rem 0.4rem;
-  border-image: url(${window}) 22 4 4 4 stretch;
+const Wrapper = ({ active, level0, level1, level2, ...props }) => (
+  <Flex
+    {...props}
+    sx={{
+      flexDirection: 'column',
+      position: 'absolute',
+      top: 22,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      borderStyle: 'solid',
+      borderWidth: '22 4 4 4',
+      borderImage: `url(${window}) 22 4 4 4 stretch`,
+    }}
+  />
+);
+// `
+//   position: absolute;
+//   top: 2.2rem;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   border-style: solid;
+//   border-width: 2.2rem 0.4rem 0.4rem 0.4rem;
+//   border-image: url(${window}) 22 4 4 4 stretch;
 
-  background-color: ${props =>
-    props.active ? props.theme.colors.primary : props.theme.colors.secondary};
+//   background-color: ${(props) =>
+//     props.active ? props.theme.colors.primary : props.theme.colors.secondary};
 
-  ${props => props.level0 && `z-index: ${props.theme.zIndex[0]};`};
+//   ${(props) => props.level0 && `z-index: ${props.theme.zIndex[0]};`};
 
-  ${props =>
-    props.level1 &&
-    `
-    z-index: ${props.theme.zIndex[1]};
+//   ${(props) =>
+//     props.level1 &&
+//     `
+//     z-index: ${props.theme.zIndex[1]};
 
-    @media (min-width: ${props.theme.breakpoints[1]}) {
-      left: 50%;
-      bottom: auto;
-      right: auto;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 64rem;
-      min-height: 48rem;
-    }
-  `};
+//     @media (min-width: ${props.theme.breakpoints[1]}) {
+//       left: 50%;
+//       bottom: auto;
+//       right: auto;
+//       top: 50%;
+//       transform: translate(-50%, -50%);
+//       min-width: 64rem;
+//       min-height: 48rem;
+//     }
+//   `};
 
-  ${props =>
-    props.level2 &&
-    `
-    z-index: ${props.theme.zIndex[2]};
+//   ${(props) =>
+//     props.level2 &&
+//     `
+//     z-index: ${props.theme.zIndex[2]};
 
-    @media (min-width: ${props.theme.breakpoints[1]}) {
-      left: 50%;
-      top: 50%;
-      width: 50vw;
-      height: 50vh;
-      margin-top: 5rem;
-      margin-left: 5rem;
-      transform: translate(-50%, -50%);
-    }
-  `};
-`
+//     @media (min-width: ${props.theme.breakpoints[1]}) {
+//       left: 50%;
+//       top: 50%;
+//       width: 50vw;
+//       height: 50vh;
+//       margin-top: 5rem;
+//       margin-left: 5rem;
+//       transform: translate(-50%, -50%);
+//     }
+//   `};
 
 const Window = ({
   active,
@@ -72,7 +82,7 @@ const Window = ({
   level1,
   level2,
   name,
-  heading
+  heading,
 }) => (
   <Wrapper
     active={active}
@@ -95,7 +105,7 @@ const Window = ({
     </Header>
     <Main>{children}</Main>
   </Wrapper>
-)
+);
 
 Window.propTypes = {
   active: PropTypes.bool,
@@ -107,8 +117,8 @@ Window.propTypes = {
   level1: PropTypes.bool,
   level2: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  heading: PropTypes.string
-}
+  heading: PropTypes.string,
+};
 
 Window.defaultProps = {
   active: false,
@@ -119,7 +129,7 @@ Window.defaultProps = {
   level0: null,
   level1: null,
   level2: null,
-  heading: 'div'
-}
+  heading: 'div',
+};
 
-export default Window
+export default Window;

@@ -1,33 +1,21 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import { Box, Flex } from 'theme-ui';
 
-import { Box, Flex } from '../../primitives'
+export const Foo = props => <Flex __css={{ bg: 'lime', flexWrap: 'wrap', mx: -2, a: { m: 3 } }} {...props} />;
 
-/* eslint-disable-next-line */
-export const Foo = styled(({ basepath, list, ...props }) => (
-  <Flex {...props} />
-)).attrs({
-  mx: -2,
-  flexWrap: 'wrap'
-})`
-  a {
-    margin-left: ${props => props.theme.space[3]};
-    margin-right: ${props => props.theme.space[3]};
-    margin-bottom: ${props => props.theme.space[4]};
-  }
-`
-
-export const Wrapper = styled(Box)`
-  table {
-    margin: -0.2rem;
-  }
-
-  th {
-    display: none;
-  }
-
-  th,
-  td {
-    padding: 0.2rem;
-  }
-`
+export const Wrapper = props => (
+  <Box
+    __css={{
+  table: {
+    margin: '-0.2rem',
+  },
+  th: {
+    display: 'none'
+  },
+  'th, td': {
+    p: 1,
+  },
+}}
+    {...props}
+  />
+);

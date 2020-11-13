@@ -1,8 +1,8 @@
-import React, { Children } from 'react'
-import { PropTypes } from 'prop-types'
-import { compose, withState, withHandlers } from 'recompose'
+import React, { Children } from 'react';
+import { PropTypes } from 'prop-types';
+import { compose, withState, withHandlers } from 'recompose';
 
-import Modal from './Modal'
+import Modal from './Modal';
 
 function WithModal({ isOpen, onOpen, onClose, modal, children }) {
   return (
@@ -12,7 +12,7 @@ function WithModal({ isOpen, onOpen, onClose, modal, children }) {
         {modal}
       </Modal>
     </>
-  )
+  );
 }
 
 WithModal.propTypes = {
@@ -20,18 +20,18 @@ WithModal.propTypes = {
   onOpen: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   modal: PropTypes.func.isRequired,
-  children: PropTypes.func.isRequired
-}
+  children: PropTypes.func.isRequired,
+};
 
 export default compose(
   withState('isOpen', 'onSetIsOpen', ({ startOpen }) => !!startOpen),
   withHandlers({
     onOpen: ({ onSetIsOpen }) => () => onSetIsOpen(true),
     onClose: ({ onSetIsOpen, onClose }) => () => {
-      onSetIsOpen(false)
+      onSetIsOpen(false);
       if (onClose) {
-        onClose()
+        onClose();
       }
-    }
+    },
   })
-)(WithModal)
+)(WithModal);

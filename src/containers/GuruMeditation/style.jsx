@@ -1,25 +1,11 @@
-import React from 'react'
-import { Box, Flex } from '@theme-ui/components'
-import { CSSTransition } from 'react-css-transition'
+/* eslint import/prefer-default-export: 0 */
+import React from 'react';
+import { Box } from 'theme-ui';
+import { CSSTransition } from 'react-css-transition';
 
-import toastyImage from './toasty.png'
+import toastyImage from './toasty.png';
 
-export const Wrapper = props => (
-  <Flex
-    __css={{
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      bg: 'text',
-      height: '100vh',
-      width: '100vw',
-      overflow: 'hidden'
-    }}
-    {...props}
-  />
-)
-
-export const Toasty = props => (
+export const Toasty = (props) => (
   <Box
     as={CSSTransition}
     __css={{
@@ -28,8 +14,8 @@ export const Toasty = props => (
       position: 'absolute',
       right: -200,
       bottom: 0,
-      size: 200
+      size: 200,
     }}
     {...props}
   />
-)
+);

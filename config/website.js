@@ -13,5 +13,5 @@ module.exports = {
   backgroundColor: '#a0a0a0',
   twitter: '@lanceguyatt',
   facebook: 'Lance Guyatt, Web Developer',
-  copyrightYear: new Date().getFullYear()
-}
+  copyrightYear: new Date().getFullYear(),
+};

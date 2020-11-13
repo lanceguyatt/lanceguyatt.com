@@ -1,28 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Box } from 'theme-ui';
 
-import selected from './selected.svg'
-import unselected from './unselected.svg'
-import ghosted from './ghosted.svg'
+import selected from './selected.svg';
+import unselected from './unselected.svg';
+import ghosted from './ghosted.svg';
 
 const APPEARANCES = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
   TERTIARY: 'tertiary',
-  LINK: 'link'
-}
+  LINK: 'link',
+};
 
 const propTypes = {
   appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
   children: PropTypes.node.isRequired,
-  isExternal: PropTypes.bool
-}
+  isExternal: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+};
 
 const defaultProps = {
   appearance: APPEARANCES.PRIMARY,
-  isExternal: false
-}
+  isExternal: false,
+  isDisabled: false,
+};
 
 /** `Button` description */
 const Button = ({ appearance, children, isExternal, isDisabled, ...rest }) => {
@@ -34,7 +36,7 @@ const Button = ({ appearance, children, isExternal, isDisabled, ...rest }) => {
         appearance: 'none',
         display: 'inline-block',
         height: 24,
-        fontFamily: 'inherit',
+        fontFamily: 'body',
         fontSize: 'body',
         lineHeight: 'body',
         textAlign: 'center',
@@ -52,7 +54,7 @@ const Button = ({ appearance, children, isExternal, isDisabled, ...rest }) => {
         outline: 0,
         position: 'relative',
         '&:focus, &:active': {
-          borderImage: `url(${selected}) 2 stretch`
+          borderImage: `url(${selected}) 2 stretch`,
         },
         ...(isDisabled && {
           cursor: 'not-allowed !important',
@@ -68,14 +70,14 @@ const Button = ({ appearance, children, isExternal, isDisabled, ...rest }) => {
               bottom: -2,
               left: -1,
               zIndex: 1,
-              width: 'calc(100% + 0.2rem)'
-            }
-          }
-        })
+              width: 'calc(100% + 0.2rem)',
+            },
+          },
+        }),
       }}
       {...(isExternal && {
         target: '_blank',
-        rel: 'noopener noreferrer'
+        rel: 'noopener noreferrer',
       })}
       variant={appearance}
       disabled={isDisabled}
@@ -83,10 +85,10 @@ const Button = ({ appearance, children, isExternal, isDisabled, ...rest }) => {
     >
       {children}
     </Box>
-  )
-}
+  );
+};
 
-Button.propTypes = propTypes
-Button.defaultProps = defaultProps
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
 
-export default Button
+export default Button;

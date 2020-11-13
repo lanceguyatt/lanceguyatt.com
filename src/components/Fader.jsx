@@ -1,7 +1,7 @@
-import React from 'react'
-import { CSSTransition, transit } from 'react-css-transition'
+import React from 'react';
+import { CSSTransition, transit } from 'react-css-transition';
 
-CSSTransition.childContextTypes = {}
+CSSTransition.childContextTypes = {};
 
 export default function Fader(props) {
   return (
@@ -12,5 +12,5 @@ export default function Fader(props) {
       activeStyle={{ opacity: 1 }}
       {...props}
     />
-  )
+  );
 }

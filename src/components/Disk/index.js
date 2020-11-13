@@ -1,3 +1,3 @@
-import Disk from './Disk'
+import Disk from './Disk';
 
-export default Disk
+export default Disk;

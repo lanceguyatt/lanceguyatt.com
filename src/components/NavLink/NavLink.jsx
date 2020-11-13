@@ -1,33 +1,33 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Box } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-import Disk from '../Disk'
-import Drawer from '../Drawer'
-import Drive from '../Drive'
-import File from '../File'
+import Disk from '../Disk';
+import Drawer from '../Drawer';
+import Drive from '../Drive';
+import File from '../File';
 
 const ICONS = {
   DISK: 'disk',
   DRIVE: 'drive',
   DRAWER: 'drawer',
-  FILE: 'file'
-}
+  FILE: 'file',
+};
 
 const propTypes = {
   as: PropTypes.oneOf(['a', 'button', 'div', 'span']),
   children: PropTypes.node,
   name: PropTypes.string.isRequired,
   icon: PropTypes.oneOf(Object.values(ICONS)),
-  isExternal: PropTypes.bool
-}
+  isExternal: PropTypes.bool,
+};
 
 const defaultProps = {
   as: 'a',
   children: null,
   icon: ICONS.DISK,
-  isExternal: false
-}
+  isExternal: false,
+};
 
 const NavLink = ({ as, name, children, icon, isExternal, ...rest }) => {
   return (
@@ -43,7 +43,7 @@ const NavLink = ({ as, name, children, icon, isExternal, ...rest }) => {
         // justifyContent: 'space-between',
         p: 0,
         ...(as === 'a' && {
-          textDecoration: 'none'
+          textDecoration: 'none',
         }),
         ...(as === 'button' && {
           appearance: 'none',
@@ -52,19 +52,19 @@ const NavLink = ({ as, name, children, icon, isExternal, ...rest }) => {
           fontSize: 'inherit',
           fontWeight: 'inherit',
           border: 0,
-          borderRadius: 0
+          borderRadius: 0,
         }),
         '&:focus': {
           outline: 0,
           bg: 'primary',
-          color: 'background'
+          color: 'background',
           // border: 1,
           // borderColor: 'red'
-        }
+        },
       }}
       {...(isExternal && {
         target: '_blank',
-        rel: 'noopener noreferrer'
+        rel: 'noopener noreferrer',
       })}
       {...rest}
     >
@@ -74,10 +74,10 @@ const NavLink = ({ as, name, children, icon, isExternal, ...rest }) => {
       {icon === 'file' && <File />}
       <Box __css={{ mt: 4, textAlign: 'center' }}>{name || children}</Box>
     </Box>
-  )
-}
+  );
+};
 
-NavLink.propTypes = propTypes
-NavLink.defaultProps = defaultProps
+NavLink.propTypes = propTypes;
+NavLink.defaultProps = defaultProps;
 
-export default NavLink
+export default NavLink;

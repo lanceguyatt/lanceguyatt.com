@@ -1,9 +1,9 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import Facebook from './Facebook'
-import Twitter from './Twitter'
+import React from 'react';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
+import Facebook from './Facebook';
+import Twitter from './Twitter';
 
 const query = graphql`
   query SEO {
@@ -22,10 +22,10 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
-const SEO = props => {
-  const { index, name, description, url, image, website, node } = props
+const SEO = (props) => {
+  const { index, name, description, url, image, website, node } = props;
   return (
     <StaticQuery
       query={query}
@@ -41,21 +41,21 @@ const SEO = props => {
             ogLanguage,
             author,
             twitter,
-            facebook
-          }
-        }
+            facebook,
+          },
+        },
       }) => {
         const seo = {
           name: name || siteTitle,
           description: description || siteDescription,
           url: `${siteUrl}${url}` || siteUrl,
-          image: image || siteImage
-        }
+          image: image || siteImage,
+        };
 
-        let titleTemplate
+        let titleTemplate;
 
         if (!index) {
-          titleTemplate = `%s - ${siteTitle}`
+          titleTemplate = `%s - ${siteTitle}`;
         }
 
         // schema.org in JSONLD format
@@ -73,28 +73,28 @@ const SEO = props => {
           name: siteTitle,
           author: {
             '@type': 'Person',
-            name: author
+            name: author,
           },
           copyrightHolder: {
             '@type': 'Person',
-            name: author
+            name: author,
           },
           copyrightYear: 2019,
           creator: {
             '@type': 'Person',
-            name: author
+            name: author,
           },
           publisher: {
             '@type': 'Person',
-            name: author
+            name: author,
           },
           datePublished: '2019-02-23T23:58:00',
           dateModified: buildTime,
           image: {
             '@type': 'ImageObject',
-            url: image
-          }
-        }
+            url: image,
+          },
+        };
 
         // Initial breadcrumb list
         const itemListElement = [
@@ -102,13 +102,13 @@ const SEO = props => {
             '@type': 'ListItem',
             item: {
               '@id': siteUrl,
-              name: 'Homepage'
+              name: 'Homepage',
             },
-            position: 1
-          }
-        ]
+            position: 1,
+          },
+        ];
 
-        let schemaWebsite = null
+        let schemaWebsite = null;
 
         if (website) {
           schemaWebsite = {
@@ -124,22 +124,22 @@ const SEO = props => {
             inLanguage: 'en',
             image: {
               '@type': 'ImageObject',
-              url: seo.image
+              url: seo.image,
             },
             creator: {
               '@type': 'Person',
-              name: author
-            }
-          }
+              name: author,
+            },
+          };
           // Push current blogpost into breadcrumb list
           itemListElement.push({
             '@type': 'ListItem',
             item: {
               '@id': seo.url,
-              name: seo.name
+              name: seo.name,
             },
-            position: 2
-          })
+            position: 2,
+          });
         }
 
         const breadcrumb = {
@@ -147,8 +147,8 @@ const SEO = props => {
           '@type': 'BreadcrumbList',
           description: 'Breadcrumbs list',
           name: 'Breadcrumbs',
-          itemListElement
-        }
+          itemListElement,
+        };
 
         return (
           <>
@@ -187,11 +187,11 @@ const SEO = props => {
               username={twitter}
             />
           </>
-        )
+        );
       }}
     />
-  )
-}
+  );
+};
 
 SEO.propTypes = {
   index: PropTypes.bool,
@@ -200,8 +200,8 @@ SEO.propTypes = {
   url: PropTypes.string,
   image: PropTypes.string,
   website: PropTypes.bool,
-  node: PropTypes.shape()
-}
+  node: PropTypes.shape(),
+};
 
 SEO.defaultProps = {
   index: false,
@@ -210,7 +210,7 @@ SEO.defaultProps = {
   url: '/',
   image: null,
   website: false,
-  node: null
-}
+  node: null,
+};
 
-export default SEO
+export default SEO;

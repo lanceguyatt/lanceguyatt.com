@@ -1,20 +1,23 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import sprite from './sprite.svg'
+import sprite from './sprite.svg';
 
-const Drawer = props => {
+/**
+ * `Drawer` description
+ */
+const Drawer = (props) => {
   return (
     <Box
       __css={{
         width: 65,
         height: 38,
         backgroundImage: `url(${sprite})`,
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
       }}
       {...props}
     />
-  )
-}
+  );
+};
 
-export default Drawer
+export default Drawer;

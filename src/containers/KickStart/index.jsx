@@ -1,10 +1,9 @@
-import React from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
-import { Styled } from 'theme-ui'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Link, graphql, StaticQuery } from 'gatsby';
+import PropTypes from 'prop-types';
+import { Styled, Box } from 'theme-ui';
 
-import { Wrapper, AmigaTick, DiskDrive, FloppyDisk } from './style'
+import { Wrapper, AmigaTick, DiskDrive, FloppyDisk } from './style';
 
 const KickStartStaticQuery = graphql`
   query kickstartStaticQuery {
@@ -15,12 +14,12 @@ const KickStartStaticQuery = graphql`
       }
     }
   }
-`
+`;
 
 const KickStartTemplate = ({ data }) => {
-  const { site } = data
-  const { siteMetadata } = site
-  const { copyrightYear, author } = siteMetadata
+  const { site } = data;
+  const { siteMetadata } = site;
+  const { copyrightYear, author } = siteMetadata;
   return (
     <Wrapper as="main">
       <Box __css={{ width: 180, ml: [null, null, 6], mb: 6 }}>
@@ -40,7 +39,7 @@ const KickStartTemplate = ({ data }) => {
           width: 156,
           mr: [null, null, 6],
           mb: [null, null, 6],
-          position: 'relative'
+          position: 'relative',
         }}
       >
         <Link to="/" aria-label="Return to Workbench">
@@ -49,18 +48,18 @@ const KickStartTemplate = ({ data }) => {
         </Link>
       </Box>
     </Wrapper>
-  )
-}
+  );
+};
 
 KickStartTemplate.propTypes = {
-  data: PropTypes.shape().isRequired
-}
+  data: PropTypes.shape().isRequired,
+};
 
 const KickStart = () => (
   <StaticQuery
     query={KickStartStaticQuery}
-    render={data => <KickStartTemplate data={data} />}
+    render={(data) => <KickStartTemplate data={data} />}
   />
-)
+);
 
-export default KickStart
+export default KickStart;

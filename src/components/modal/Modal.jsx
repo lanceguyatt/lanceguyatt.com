@@ -1,14 +1,14 @@
-import React, { Children } from 'react'
-import { PropTypes } from 'prop-types'
-import { Box, Flex } from '@theme-ui/components'
-import ReactModal from 'react-modal'
+import React, { Children } from 'react';
+import { PropTypes } from 'prop-types';
+import { Box, Flex } from 'theme-ui';
+import ReactModal from 'react-modal';
 
-import Button from '../Button'
+import Button from '../Button';
 
 function Modal({ isOpen, onClose, children }) {
   const actions = {
-    onClose
-  }
+    onClose,
+  };
 
   return (
     <ReactModal
@@ -23,7 +23,7 @@ function Modal({ isOpen, onClose, children }) {
           // 1 less that max, to allow intercom over the top
           zIndex: 2147483646,
           overflowX: 'hidden',
-          overflowY: 'auto'
+          overflowY: 'auto',
         },
         content: {
           left: '0',
@@ -35,8 +35,8 @@ function Modal({ isOpen, onClose, children }) {
           overflow: 'visible',
           padding: '0',
           width: '100%',
-          margin: 'auto'
-        }
+          margin: 'auto',
+        },
       }}
     >
       <Flex p={5}>
@@ -44,13 +44,13 @@ function Modal({ isOpen, onClose, children }) {
       </Flex>
       <Button onClick={onClose}>Close</Button>
     </ReactModal>
-  )
+  );
 }
 
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  children: PropTypes.func.isRequired
-}
+  children: PropTypes.func.isRequired,
+};
 
-export default Modal
+export default Modal;

@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import Radio from './Radio'
+import Radio from './Radio';
 
 export default {
   title: 'forms/Radio',
   parameters: {
-    componentSubtitle: 'Radio subtitle'
+    componentSubtitle: 'Radio subtitle',
   },
-  component: Radio
-}
+  component: Radio,
+};
 
-export const all = () => <Radio name="foo">I agree to the terms</Radio>
+export const all = () => <Radio name="foo">I agree to the terms</Radio>;

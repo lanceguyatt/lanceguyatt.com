@@ -1,18 +1,18 @@
-import React from 'react'
-import { Flex, Box } from '@theme-ui/components'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Flex, Box } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-import { getMargin, omitMargin } from '../../utils'
-import sprite from './sprite.svg'
+import { getMargin, omitMargin } from '../../utils';
+import sprite from './sprite.svg';
 
 const propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired,
+};
 
 /** `Radio` component */
-const Radio = props => {
-  const { children, name, ...rest } = props
+const Radio = (props) => {
+  const { children, name, ...rest } = props;
   return (
     <Box {...getMargin(rest)}>
       <Flex
@@ -21,7 +21,7 @@ const Radio = props => {
         __css={{
           alignItems: 'flex-start',
           userSelect: 'none',
-          lineHeight: '18px'
+          lineHeight: '18px',
         }}
       >
         <Box
@@ -37,17 +37,17 @@ const Radio = props => {
             mr: 4,
             outline: 0,
             '&:checked': {
-              backgroundPosition: '-17px 0'
-            }
+              backgroundPosition: '-17px 0',
+            },
           }}
           {...omitMargin(rest)}
         />
         <Box __css={{ flex: '1 1 auto' }}>{children}</Box>
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
-Radio.propTypes = propTypes
+Radio.propTypes = propTypes;
 
-export default Radio
+export default Radio;

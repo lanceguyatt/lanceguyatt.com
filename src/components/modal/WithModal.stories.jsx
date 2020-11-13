@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import Button from '../Button'
-import WithModal from './WithModal'
+import Button from '../Button';
+import WithModal from './WithModal';
 
 // eslint-disable-next-line react/prop-types
 const ModalContents = ({ onClose }) => (
@@ -27,30 +27,30 @@ const ModalContents = ({ onClose }) => (
       Close
     </Button>
   </div>
-)
+);
 
 export default {
   title: 'Design System/modal/WithModal',
 
   decorators: [
-    storyFn => (
+    (storyFn) => (
       <div
         style={{
           width: '1200px',
           height: '800px',
           background: 'purple',
-          color: 'white'
+          color: 'white',
         }}
       >
         This is an example background {storyFn()}
       </div>
-    )
+    ),
   ],
 
   parameters: {
-    component: WithModal
-  }
-}
+    component: WithModal,
+  },
+};
 
 export const startsClosed = () => (
   <WithModal modal={ModalContents}>
@@ -67,11 +67,11 @@ export const startsClosed = () => (
       </div>
     )}
   </WithModal>
-)
+);
 
 startsClosed.story = {
-  name: 'starts closed'
-}
+  name: 'starts closed',
+};
 
 export const startsOpen = () => (
   <WithModal startOpen modal={ModalContents}>
@@ -88,8 +88,8 @@ export const startsOpen = () => (
       </div>
     )}
   </WithModal>
-)
+);
 
 startsOpen.story = {
-  name: 'starts open'
-}
+  name: 'starts open',
+};

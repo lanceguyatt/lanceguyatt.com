@@ -1,9 +1,9 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import sprite from './sprite.svg'
+import sprite from './sprite.svg';
 
-const Cycle = props => (
+const Cycle = (props) => (
   <Box
     as="button"
     aria-label="Cycle"
@@ -11,7 +11,7 @@ const Cycle = props => (
     __css={{
       display: 'inline-flex',
       alignItems: 'center',
-      p: 0
+      p: 0,
     }}
     {...props}
   >
@@ -22,11 +22,11 @@ const Cycle = props => (
         display: 'block',
         width: 16,
         height: 20,
-        flex: '0 0 auto'
+        flex: '0 0 auto',
       }}
     />
     <Box sx={{ textTransform: 'uppercase', ml: 3 }}>Enabled</Box>
   </Box>
-)
+);
 
-export default Cycle
+export default Cycle;

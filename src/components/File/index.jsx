@@ -1,18 +1,18 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import sprite from './sprite.svg'
+import sprite from './sprite.svg';
 
-const File = props => (
+const File = (props) => (
   <Box
     __css={{
       width: 46,
       height: 62,
       backgroundImage: `url(${sprite})`,
-      backgroundSize: 'cover'
+      backgroundSize: 'cover',
     }}
     {...props}
   />
-)
+);
 
-export default File
+export default File;

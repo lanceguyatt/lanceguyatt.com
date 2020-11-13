@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { ThemeProvider } from 'styled-components'
-import PropTypes from 'prop-types'
-import { Box, Flex } from '@theme-ui/components'
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Box, Flex, Styled } from 'theme-ui';
 // import { graphql, useStaticQuery } from 'gatsby'
 
-import { workbench } from '../themes'
-import GlobalStyles from '../styles/global'
-import { WorkBench as WB } from '../containers'
-import { Action, MenuBar, Requester, Text, TitleBar } from '../components'
-import SubMenu, { SubMenuItem } from '../components/SubMenu'
-import Menu, { MenuItem } from '../components/Menu'
+import GlobalStyles from '../styles/global';
+import { WorkBench as WB } from '../containers';
+import { Action, MenuBar, Requester, TitleBar } from '../components';
+import SubMenu, { SubMenuItem } from '../components/SubMenu';
+import Menu, { MenuItem } from '../components/Menu';
 
 // const WorkBenchQuery = graphql`
 //   query workBenchQuery {
@@ -27,68 +25,68 @@ function WorkBench({ children }) {
   // const { site } = data
   // const { siteMetadata } = site
 
-  const [menuBar, setMenuBar] = useState(false)
-  const [backdrop, setBackdrop] = useState(true)
-  const [execute, setExecute] = useState(false)
-  const [about, setAbout] = useState(false)
-  const [quit, setQuit] = useState(false)
-  const [viewBy, setViewBy] = useState('icons')
+  const [menuBar, setMenuBar] = useState(false);
+  const [backdrop, setBackdrop] = useState(true);
+  const [execute, setExecute] = useState(false);
+  const [about, setAbout] = useState(false);
+  const [quit, setQuit] = useState(false);
+  const [viewBy, setViewBy] = useState('icons');
 
   function menuBarClose() {
-    setMenuBar(false)
+    setMenuBar(false);
   }
 
   function menuBarToggle(e) {
-    e.preventDefault()
-    setMenuBar(menuBar === false && true)
+    e.preventDefault();
+    setMenuBar(menuBar === false && true);
   }
 
   function backdropToggle() {
-    setBackdrop(backdrop === false && true)
+    setBackdrop(backdrop === false && true);
     // localStorage.setItem('backdrop', backdrop)
-    setMenuBar(false)
+    setMenuBar(false);
   }
 
   function executeOpen() {
-    setExecute(true)
+    setExecute(true);
   }
 
   function executeClose() {
-    setMenuBar(false)
-    setExecute(false)
+    setMenuBar(false);
+    setExecute(false);
   }
 
   function aboutOpen() {
-    setAbout(true)
+    setAbout(true);
   }
 
   function aboutClose() {
-    setMenuBar(false)
-    setAbout(false)
+    setMenuBar(false);
+    setAbout(false);
   }
 
   function quitOpen() {
-    setQuit(true)
+    setQuit(true);
   }
 
   function quitClose() {
-    setMenuBar(false)
-    setQuit(false)
+    setMenuBar(false);
+    setQuit(false);
   }
 
   useEffect(() => {
-    document.addEventListener('contextmenu', menuBarToggle)
-    document.addEventListener('keydown', e => {
+    document.addEventListener('contextmenu', menuBarToggle);
+    document.addEventListener('keydown', (e) => {
       if (e.keyCode === 27) {
-        menuBarClose()
+        menuBarClose();
       }
-    })
-  })
+    });
+  });
 
   return (
-    <ThemeProvider theme={workbench}>
-      <>
-        <GlobalStyles />
+    <>
+      <GlobalStyles />
+      <Styled.root>
         <header>
           {menuBar ? (
             <MenuBar is="nav" aria-label="Workbench menu">
@@ -188,7 +186,7 @@ function WorkBench({ children }) {
               <Box flex="none" color="light" mr={4}>
                 Command:
               </Box>
-              <Text autoFocus flex="auto" />
+              {/* <Text autoFocus flex="auto" /> */}
             </Flex>
             <Flex justifyContent="space-between">
               <Action name="Ok" onClick={executeClose} />
@@ -231,13 +229,13 @@ function WorkBench({ children }) {
             </Flex>
           </>
         </Requester>
-      </>
-    </ThemeProvider>
-  )
+      </Styled.root>
+    </>
+  );
 }
 
 WorkBench.propTypes = {
-  children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired,
+};
 
-export default WorkBench
+export default WorkBench;

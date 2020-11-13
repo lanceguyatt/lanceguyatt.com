@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Box } from '../../primitives'
-import sprite from './sprite.svg'
+import { Box } from 'theme-ui';
+import sprite from './sprite.svg';
 
 export const Image = styled(Box).attrs({
   width: 46,
@@ -9,12 +9,12 @@ export const Image = styled(Box).attrs({
   backgroundImage: `url(${sprite})`,
   backgroundSize: 'cover',
   mb: 3,
-  mx: 'auto'
-})``
+  mx: 'auto',
+})``;
 
 export const Name = styled(Box).attrs({
-  textAlign: 'center'
-})``
+  textAlign: 'center',
+})``;
 
 export const Link = styled(Box).attrs({
   is: 'a',
@@ -22,7 +22,7 @@ export const Link = styled(Box).attrs({
   rel: 'noopener noreferrer',
   display: 'block',
   mb: 4,
-  width: '10rem'
+  width: '10rem',
 })`
   &:focus,
   &:active {
@@ -30,4 +30,4 @@ export const Link = styled(Box).attrs({
       background-position: -4.6rem 0;
     }
   }
-`
+`;

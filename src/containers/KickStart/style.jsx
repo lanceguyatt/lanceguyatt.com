@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Flex } from 'theme-ui';
 // import styled, { keyframes, css } from 'styled-components'
-import { Flex } from '@theme-ui/components'
 
-import amigaTick from './tick.svg'
+import amigaTick from './tick.svg';
 
 // const insertDisk = keyframes`
 //   0% {
@@ -25,7 +24,7 @@ import amigaTick from './tick.svg'
 //   animation: ${insertDisk} 1.5s forwards infinite;
 // `
 
-export const AmigaTick = props => (
+export const AmigaTick = (props) => (
   <img
     src={amigaTick}
     alt="Amiga Tick"
@@ -33,11 +32,11 @@ export const AmigaTick = props => (
       width: 165,
       height: 150,
       display: 'block',
-      mb: 6
+      mb: 6,
     }}
     {...props}
   />
-)
+);
 
 export const DiskDrive = () => (
   <svg viewBox="0 0 156 38" width={156} height={38}>
@@ -50,7 +49,7 @@ export const DiskDrive = () => (
       />
     </g>
   </svg>
-)
+);
 
 export const FloppyDisk = () => (
   <svg
@@ -60,7 +59,7 @@ export const FloppyDisk = () => (
     sx={{
       position: 'absolute',
       bottom: 0,
-      left: 12
+      left: 12,
     }}
   >
     <g fill="none" fillRule="evenodd">
@@ -76,9 +75,9 @@ export const FloppyDisk = () => (
       <path d="M6 8V6h2v2h1v2h1v2H8v4H6v-4H4v-2h1V8h1z" fill="#202060" />
     </g>
   </svg>
-)
+);
 
-export const Wrapper = props => (
+export const Wrapper = (props) => (
   <Flex
     __css={{
       flexDirection: ['column', null, 'row'],
@@ -88,8 +87,8 @@ export const Wrapper = props => (
       width: '100vw',
       bg: 'purple',
       p: 6,
-      color: 'tan'
+      color: 'tan',
     }}
     {...props}
   />
-)
+);

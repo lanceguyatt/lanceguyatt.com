@@ -1,22 +1,22 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import Alert from './Alert'
+import Alert from './Alert';
 
 export default {
   component: Alert,
   title: 'Alert',
   parameters: {
-    componentSubtitle: 'Alert subtitle'
+    componentSubtitle: 'Alert subtitle',
   },
   decorators: [
-    story => (
+    (story) => (
       <Box variant="layout.workbench" bg="text">
         {story()}
       </Box>
-    )
-  ]
-}
+    ),
+  ],
+};
 
 export const alerts = () => (
   <>
@@ -25,4 +25,4 @@ export const alerts = () => (
     </Alert>
     <Alert status="error">Alert</Alert>
   </>
-)
+);

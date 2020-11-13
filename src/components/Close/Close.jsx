@@ -1,41 +1,39 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Box } from 'theme-ui';
 
-// import sprite from './sprite.svg'
+import sprite from './sprite.svg';
 
 const propTypes = {
-  to: PropTypes.string
-}
+  to: PropTypes.string,
+};
 
 const defaultProps = {
-  to: '/'
-}
+  to: '/',
+};
 
-const Close = ({ to, ...rest }) => {
+const Close = (props) => {
   return (
     <Box
-      as="a"
+      as="button"
       __css={{
         bg: 'lime',
         display: 'inline-block',
         width: 20,
         height: 22,
-        // backgroundImage: `url(${sprite})`,
+        backgroundImage: `url(${sprite})`,
         '&:focus, &:active': {
-          backgroundPosition: '-20px 0'
-        }
+          backgroundPosition: '-20px 0',
+        },
       }}
-      to={to}
       aria-label="Close this window"
       variant="iconButton"
-      {...rest}
+      {...props}
     />
-  )
-}
+  );
+};
 
-Close.propTypes = propTypes
-Close.defaultProps = defaultProps
+Close.propTypes = propTypes;
+Close.defaultProps = defaultProps;
 
-export default Close
+export default Close;

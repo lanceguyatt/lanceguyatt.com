@@ -1,22 +1,22 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import Cycle from './Cycle'
-import Depth from './Depth'
-import Sizing from './Sizing'
-import Zoom from './Zoom'
+import Cycle from './Cycle';
+import Depth from './Depth';
+import Sizing from './Sizing';
+import Zoom from './Zoom';
 
-import Label from './Label'
-import Input from './Input'
-import Button from './Button'
+import Label from './Label';
+import Input from './Input';
+import Button from './Button';
 
 export default {
   title: 'Kitchen Sink',
   parameters: {
-    componentSubtitle: 'Kitchen Sink subtitle'
+    componentSubtitle: 'Kitchen Sink subtitle',
   },
-  decorators: [story => <Box p={4}>{story()}</Box>]
-}
+  decorators: [(story) => <Box p={4}>{story()}</Box>],
+};
 
 export const gadgets = () => (
   <>
@@ -25,7 +25,7 @@ export const gadgets = () => (
     <Sizing />
     <Zoom />
   </>
-)
+);
 
 export const form = () => (
   <form>
@@ -36,4 +36,4 @@ export const form = () => (
 
     <Button type="submit">Button</Button>
   </form>
-)
+);

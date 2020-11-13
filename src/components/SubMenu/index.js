@@ -1,5 +1,5 @@
-import SubMenu from './SubMenu'
-import SubMenuItem from './SubMenuItem'
+import SubMenu from './SubMenu';
+import SubMenuItem from './SubMenuItem';
 
-export { SubMenuItem }
-export default SubMenu
+export { SubMenuItem };
+export default SubMenu;

@@ -1,14 +1,14 @@
-import React from 'react'
-import { Flex, Box } from '@theme-ui/components'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Flex, Box } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-import { getMargin, omitMargin } from '../../utils'
-import sprite from './sprite.svg'
+import { getMargin, omitMargin } from '../../utils';
+import sprite from './sprite.svg';
 
 const propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired,
+};
 
 /** `Checkbox` description */
 const Checkbox = ({ children, name, ...rest }) => {
@@ -20,7 +20,7 @@ const Checkbox = ({ children, name, ...rest }) => {
         __css={{
           alignItems: 'flex-start',
           userSelect: 'none',
-          lineHeight: '22px'
+          lineHeight: '22px',
         }}
       >
         <Box
@@ -37,19 +37,19 @@ const Checkbox = ({ children, name, ...rest }) => {
             mr: 4,
             outline: 0,
             '&:focus': {
-              bg: 'primary'
+              bg: 'primary',
             },
             '&:checked': {
-              backgroundPosition: '-52px 0'
-            }
+              backgroundPosition: '-52px 0',
+            },
           }}
         />
         <Box __css={{ flex: '1 1 auto' }}>{children}</Box>
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
-Checkbox.propTypes = propTypes
+Checkbox.propTypes = propTypes;
 
-export default Checkbox
+export default Checkbox;

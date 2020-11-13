@@ -1,18 +1,18 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import sprite from './sprite.svg'
+import sprite from './sprite.svg';
 
-const Drive = props => (
+const Drive = (props) => (
   <Box
     __css={{
       width: 85,
       height: 44,
       backgroundImage: `url(${sprite})`,
-      backgroundSize: 'cover'
+      backgroundSize: 'cover',
     }}
     {...props}
   />
-)
+);
 
-export default Drive
+export default Drive;

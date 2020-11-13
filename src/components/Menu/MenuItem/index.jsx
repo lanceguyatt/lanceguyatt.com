@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import PropTypes from 'prop-types'
-import { Box } from '@theme-ui/components'
+import { jsx, Box } from 'theme-ui';
+import PropTypes from 'prop-types';
 
-import { MenuItemAction, Wrapper } from './style'
+import { MenuItemAction, Wrapper } from './style';
 
 const Shortcut = ({ shortcut }) => (
   <Box
@@ -18,7 +17,7 @@ const Shortcut = ({ shortcut }) => (
         position: 'absolute',
         left: 0,
         mr: 3,
-        top: -1
+        top: -1,
       }}
     >
       <g fill="none" fillRule="evenodd">
@@ -30,18 +29,18 @@ const Shortcut = ({ shortcut }) => (
     </svg>
     {shortcut}
   </Box>
-)
+);
 
 Shortcut.propTypes = {
-  shortcut: PropTypes.string
-}
+  shortcut: PropTypes.string,
+};
 
 Shortcut.defaultProps = {
-  shortcut: null
-}
+  shortcut: null,
+};
 
-const MenuItem = props => {
-  const { active, name, shortcut, ghosted, subMenu, children } = props
+const MenuItem = (props) => {
+  const { active, name, shortcut, ghosted, subMenu, children } = props;
   return (
     <Wrapper as="li" role="none">
       <MenuItemAction
@@ -68,8 +67,8 @@ const MenuItem = props => {
         {shortcut && <Shortcut shortcut={shortcut} />}
       </MenuItemAction>
     </Wrapper>
-  )
-}
+  );
+};
 
 MenuItem.propTypes = {
   // prefix: PropTypes.shape(),
@@ -79,8 +78,8 @@ MenuItem.propTypes = {
   ghosted: PropTypes.bool,
   subMenu: PropTypes.bool,
   children: PropTypes.node,
-  active: PropTypes.bool
-}
+  active: PropTypes.bool,
+};
 
 MenuItem.defaultProps = {
   // prefix: null,
@@ -89,7 +88,7 @@ MenuItem.defaultProps = {
   ghosted: false,
   subMenu: false,
   children: null,
-  active: false
-}
+  active: false,
+};
 
-export default MenuItem
+export default MenuItem;

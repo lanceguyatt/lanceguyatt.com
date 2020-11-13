@@ -1,26 +1,31 @@
-import React from 'react'
-import { Flex, Box } from '@theme-ui/components'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Flex, Box } from 'theme-ui';
+import PropTypes from 'prop-types';
 
 const APPEARANCES = {
   PRIMARY: 'primary',
-  SECONDARY: 'secondary'
-}
+  SECONDARY: 'secondary',
+};
 
 const propTypes = {
   appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
-  children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired,
+};
 
 const defaultProps = {
-  appearance: APPEARANCES.PRIMARY
-}
+  appearance: APPEARANCES.PRIMARY,
+};
 
 function TitleBar({ appearance, children, ...props }) {
   return (
     <Flex
       __themeKey="titlebar"
-      __css={{ alignItems: 'center', height: 22, position: 'relative' }}
+      __css={{
+        alignItems: 'center',
+        height: 22,
+        position: 'relative',
+        bg: 'red',
+      }}
       {...props}
       variant={appearance}
     >
@@ -31,16 +36,16 @@ function TitleBar({ appearance, children, ...props }) {
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           userSelect: 'none',
-          whiteSpace: 'nowrap'
+          whiteSpace: 'nowrap',
         }}
       >
         {children}
       </Box>
     </Flex>
-  )
+  );
 }
 
-TitleBar.propTypes = propTypes
-TitleBar.defaultProps = defaultProps
+TitleBar.propTypes = propTypes;
+TitleBar.defaultProps = defaultProps;
 
-export default TitleBar
+export default TitleBar;

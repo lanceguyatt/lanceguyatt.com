@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-import TitleBar from './TitleBar'
-import Depth from '../Depth'
+import TitleBar from './TitleBar';
+import Depth from '../Depth';
 
 export default {
   component: TitleBar,
   title: 'TitleBar',
   parameters: {
-    componentSubtitle: 'TitleBar subtitle'
-  }
-}
+    componentSubtitle: 'TitleBar subtitle',
+  },
+};
 
 export const all = () => (
   <>
@@ -19,4 +19,4 @@ export const all = () => (
       <Depth />
     </TitleBar>
   </>
-)
+);

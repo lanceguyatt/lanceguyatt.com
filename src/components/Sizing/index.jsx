@@ -1,9 +1,9 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import sprite from './sprite.svg'
+import sprite from './sprite.svg';
 
-const Sizing = props => (
+const Sizing = (props) => (
   <Box
     as="button"
     __css={{
@@ -11,12 +11,12 @@ const Sizing = props => (
       height: 20,
       backgroundImage: `url(${sprite})`,
       '&:focus, &:active': {
-        backgroundPosition: '-18px 0'
-      }
+        backgroundPosition: '-18px 0',
+      },
     }}
     variant="iconButton"
     {...props}
   />
-)
+);
 
-export default Sizing
+export default Sizing;

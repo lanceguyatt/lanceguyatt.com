@@ -1,32 +1,32 @@
-import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { action } from '@storybook/addon-actions';
+import { Box } from 'theme-ui';
 
-import Modal from './Modal'
-import Button from '../Button'
+import Modal from './Modal';
+import Button from '../Button';
 
 export const actions = {
-  onClose: action('onClose')
-}
+  onClose: action('onClose'),
+};
 
 export default {
   title: 'Design System/modal/Modal',
   component: Modal,
   decorators: [
-    storyFn => (
+    (storyFn) => (
       <div
         style={{
           width: '1200px',
           height: '800px',
-          border: '1rem solid red'
+          border: '1rem solid red',
         }}
       >
         This is an example background {storyFn()}
       </div>
-    )
+    ),
   ],
-  excludeStories: ['actions']
-}
+  excludeStories: ['actions'],
+};
 
 export const visibleShort = () => (
   <Modal isOpen {...actions}>
@@ -61,11 +61,11 @@ export const visibleShort = () => (
       </Box>
     )}
   </Modal>
-)
+);
 
 visibleShort.story = {
-  name: 'visible short'
-}
+  name: 'visible short',
+};
 
 export const visibleTall = () => (
   <Modal isOpen {...actions}>
@@ -100,11 +100,11 @@ export const visibleTall = () => (
       </div>
     )}
   </Modal>
-)
+);
 
 visibleTall.story = {
-  name: 'visible tall'
-}
+  name: 'visible tall',
+};
 
 export const notVisible = () => (
   <Modal isOpen={false} {...actions}>
@@ -121,8 +121,8 @@ export const notVisible = () => (
       </div>
     )}
   </Modal>
-)
+);
 
 notVisible.story = {
-  name: 'not visible'
-}
+  name: 'not visible',
+};

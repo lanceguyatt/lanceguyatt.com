@@ -1,19 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Box } from 'theme-ui';
 
 const propTypes = {
   children: PropTypes.node.isRequired,
-  status: PropTypes.string
-}
+  status: PropTypes.string,
+};
 
 const defaultProps = {
-  status: 'error'
-}
+  status: 'error',
+};
 
 /** `Alert` description */
-const Alert = props => {
-  const { children, status, ...rest } = props
+const Alert = (props) => {
+  const { children, status, ...rest } = props;
   return (
     <Box
       role="alert"
@@ -24,17 +24,17 @@ const Alert = props => {
         border: 3,
         p: 4,
         textDecoration: 'none',
-        textAlign: 'center'
+        textAlign: 'center',
       }}
       variant={status}
       {...rest}
     >
       {children}
     </Box>
-  )
-}
+  );
+};
 
-Alert.propTypes = propTypes
-Alert.defaultProps = defaultProps
+Alert.propTypes = propTypes;
+Alert.defaultProps = defaultProps;
 
-export default Alert
+export default Alert;

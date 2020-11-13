@@ -1,3 +1,3 @@
-import Depth from './Depth'
+import Depth from './Depth';
 
-export default Depth
+export default Depth;

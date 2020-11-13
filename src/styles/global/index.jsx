@@ -1,17 +1,17 @@
-import React from 'react'
-import { Global } from '@emotion/core'
+import React from 'react';
+import { Global } from '@emotion/react';
 
 const GlobalStyles = () => (
   <Global
     styles={() => ({
       body: {
-        margin: 0
-      }
+        margin: 0,
+      },
     })}
   />
-)
+);
 
-export default GlobalStyles
+export default GlobalStyles;
 
 // import { createGlobalStyle } from 'styled-components'
 

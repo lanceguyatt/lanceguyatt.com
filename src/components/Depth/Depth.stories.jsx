@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import Depth from './Depth'
+import Depth from './Depth';
 
 export default {
   component: Depth,
   title: 'Depth',
   parameters: {
-    componentSubtitle: 'Depth subtitle'
-  }
-}
+    componentSubtitle: 'Depth subtitle',
+  },
+};
 
-export const all = () => <Depth />
+export const all = () => <Depth />;

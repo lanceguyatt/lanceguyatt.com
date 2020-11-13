@@ -1,16 +1,16 @@
-import React from 'react'
-import { Box } from '@theme-ui/components'
+import React from 'react';
+import { Box } from 'theme-ui';
 
-import NavLink from './NavLink'
+import NavLink from './NavLink';
 
 export default {
   component: NavLink,
   title: 'NavLink',
   parameters: {
-    componentSubtitle: 'NavLink subtitle'
+    componentSubtitle: 'NavLink subtitle',
   },
-  decorators: [story => <Box p={4}>{story()}</Box>]
-}
+  decorators: [(story) => <Box p={4}>{story()}</Box>],
+};
 
 export const all = () => (
   <>
@@ -27,9 +27,9 @@ export const all = () => (
       File
     </NavLink>
   </>
-)
+);
 
-export const button = () => <NavLink as="button">Button</NavLink>
+export const button = () => <NavLink as="button">Button</NavLink>;
 
 export const isExternal = () => (
   <NavLink
@@ -38,7 +38,7 @@ export const isExternal = () => (
     icon="file"
     href="https://www.instagram.com/lanceguyatt/"
   />
-)
+);
 
 export const div = () => (
   <NavLink
@@ -49,4 +49,4 @@ export const div = () => (
   >
     Div
   </NavLink>
-)
+);
