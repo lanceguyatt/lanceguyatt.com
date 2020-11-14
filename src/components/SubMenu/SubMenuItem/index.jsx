@@ -1,11 +1,11 @@
 /* eslint no-unused-vars: 0 */
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Box, Flex } from '../../../primitives'
+import { Box, Flex } from '../../../primitives';
 
-const Wrapper = styled(Box)``
+const Wrapper = styled(Box)``;
 
 const Action = styled(({ active, ...props }) => <Flex {...props} />).attrs({
   color: 'secondary',
@@ -20,10 +20,10 @@ const Action = styled(({ active, ...props }) => <Flex {...props} />).attrs({
 })`
   transition-property: background-color, color;
   transition-duration: 0.25s;
-`
+`;
 
-const SubMenuItem = props => {
-  const { name, active } = props
+const SubMenuItem = (props) => {
+  const { name, active } = props;
   return (
     <Wrapper is="li">
       <Action type="button" role="button" {...props}>
@@ -39,16 +39,16 @@ const SubMenuItem = props => {
         )}
       </Action>
     </Wrapper>
-  )
-}
+  );
+};
 
 SubMenuItem.propTypes = {
   name: PropTypes.string.isRequired,
   active: PropTypes.bool,
-}
+};
 
 SubMenuItem.defaultProps = {
   active: false,
-}
+};
 
-export default SubMenuItem
+export default SubMenuItem;

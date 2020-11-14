@@ -1,7 +1,7 @@
 /* eslint react/prop-types: 0 */
-import React from 'react'
+import React from 'react';
 
-import website from '../config/website'
+import website from '../config/website';
 
 const HTML = ({
   htmlAttributes,
@@ -36,6 +36,6 @@ const HTML = ({
       {postBodyComponents}
     </body>
   </html>
-)
+);
 
-export default HTML
+export default HTML;

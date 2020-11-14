@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import { node, string, bool } from 'prop-types'
+import React, { useState } from 'react';
+import { node, string, bool } from 'prop-types';
 
-import { MenuToggle, MenuList, Wrapper } from './style'
+import { MenuToggle, MenuList, Wrapper } from './style';
 
 function Menu({ id, name, children, ghosted }) {
-  const [menu, setMenu] = useState(false)
+  const [menu, setMenu] = useState(false);
 
   function menuOpen() {
-    setMenu(true)
+    setMenu(true);
   }
 
   function menuClose() {
-    setMenu(false)
+    setMenu(false);
   }
 
   return (
@@ -31,7 +31,7 @@ function Menu({ id, name, children, ghosted }) {
       </MenuToggle>
       {children && <MenuList is="ul">{children}</MenuList>}
     </Wrapper>
-  )
+  );
 }
 
 Menu.propTypes = {
@@ -39,11 +39,11 @@ Menu.propTypes = {
   name: string.isRequired,
   children: node,
   ghosted: bool,
-}
+};
 
 Menu.defaultProps = {
   children: null,
   ghosted: false,
-}
+};
 
-export default Menu
+export default Menu;

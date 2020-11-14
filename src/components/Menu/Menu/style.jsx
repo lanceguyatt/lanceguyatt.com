@@ -1,9 +1,9 @@
 /* eslint no-unused-vars: 0 */
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Box } from '../../../primitives'
-import ghostedImage from './ghosted.svg'
+import { Box } from '../../../primitives';
+import ghostedImage from './ghosted.svg';
 
 export const MenuList = styled(Box).attrs({
   bg: 'black',
@@ -19,7 +19,7 @@ export const MenuList = styled(Box).attrs({
   opacity: 0;
   transition: opacity 0.25s;
   will-change: opacity;
-`
+`;
 
 export const MenuToggle = styled(Box).attrs({
   display: 'inline-block',
@@ -31,7 +31,7 @@ export const MenuToggle = styled(Box).attrs({
 })`
   user-select: none;
   transition: all 0.25s;
-`
+`;
 
 export const Wrapper = styled(
   ({ name, items, menuActive, ghosted, ...props }) => <Box {...props} />
@@ -40,7 +40,7 @@ export const Wrapper = styled(
 })`
   outline: 0;
 
-  ${props =>
+  ${(props) =>
     props.menuActive &&
     `${MenuToggle} { 
       background-color: ${props.theme.colors.light};
@@ -53,7 +53,7 @@ export const Wrapper = styled(
     `};
 
   ${MenuToggle} {
-    ${props =>
+    ${(props) =>
       props.ghosted &&
       `
       pointer-events: none;
@@ -72,4 +72,4 @@ export const Wrapper = styled(
       }
     `};
   }
-`
+`;

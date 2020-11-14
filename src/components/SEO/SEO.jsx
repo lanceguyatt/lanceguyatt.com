@@ -1,9 +1,9 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import Facebook from './Facebook'
-import Twitter from './Twitter'
+import React from 'react';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
+import Facebook from './Facebook';
+import Twitter from './Twitter';
 
 const query = graphql`
   query SEO {
@@ -22,10 +22,10 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
-const SEO = props => {
-  const { index, name, description, url, image, website, node } = props
+const SEO = (props) => {
+  const { index, name, description, url, image, website, node } = props;
   return (
     <StaticQuery
       query={query}
@@ -50,12 +50,12 @@ const SEO = props => {
           description: description || siteDescription,
           url: `${siteUrl}${url}` || siteUrl,
           image: image || siteImage,
-        }
+        };
 
-        let titleTemplate
+        let titleTemplate;
 
         if (!index) {
-          titleTemplate = `%s - ${siteTitle}`
+          titleTemplate = `%s - ${siteTitle}`;
         }
 
         // schema.org in JSONLD format
@@ -94,7 +94,7 @@ const SEO = props => {
             '@type': 'ImageObject',
             url: image,
           },
-        }
+        };
 
         // Initial breadcrumb list
         const itemListElement = [
@@ -106,9 +106,9 @@ const SEO = props => {
             },
             position: 1,
           },
-        ]
+        ];
 
-        let schemaWebsite = null
+        let schemaWebsite = null;
 
         if (website) {
           schemaWebsite = {
@@ -130,7 +130,7 @@ const SEO = props => {
               '@type': 'Person',
               name: author,
             },
-          }
+          };
           // Push current blogpost into breadcrumb list
           itemListElement.push({
             '@type': 'ListItem',
@@ -139,7 +139,7 @@ const SEO = props => {
               name: seo.name,
             },
             position: 2,
-          })
+          });
         }
 
         const breadcrumb = {
@@ -148,7 +148,7 @@ const SEO = props => {
           description: 'Breadcrumbs list',
           name: 'Breadcrumbs',
           itemListElement,
-        }
+        };
 
         return (
           <>
@@ -187,11 +187,11 @@ const SEO = props => {
               username={twitter}
             />
           </>
-        )
+        );
       }}
     />
-  )
-}
+  );
+};
 
 SEO.propTypes = {
   index: PropTypes.bool,
@@ -201,7 +201,7 @@ SEO.propTypes = {
   image: PropTypes.string,
   website: PropTypes.bool,
   node: PropTypes.shape(),
-}
+};
 
 SEO.defaultProps = {
   index: false,
@@ -211,6 +211,6 @@ SEO.defaultProps = {
   image: null,
   website: false,
   node: null,
-}
+};
 
-export default SEO
+export default SEO;

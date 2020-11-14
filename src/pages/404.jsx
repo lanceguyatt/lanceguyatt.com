@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { ThemeProvider } from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import { ThemeProvider } from 'styled-components';
 
-import GlobalStyle from '../styles/global'
-import { guruMeditation } from '../themes'
-import GuruMeditation from '../containers/GuruMeditation'
-import { SEO } from '../components'
+import GlobalStyle from '../styles/global';
+import { guruMeditation } from '../themes';
+import GuruMeditation from '../containers/GuruMeditation';
+import { SEO } from '../components';
 
 const GuruMeditationPage = ({ data }) => {
-  const { contentfulPage } = data
-  const { meta, name } = contentfulPage
+  const { contentfulPage } = data;
+  const { meta, name } = contentfulPage;
 
   return (
     <ThemeProvider theme={guruMeditation}>
@@ -28,14 +28,14 @@ const GuruMeditationPage = ({ data }) => {
         </main>
       </>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 GuruMeditationPage.propTypes = {
   data: PropTypes.shape().isRequired,
-}
+};
 
-export default GuruMeditationPage
+export default GuruMeditationPage;
 
 export const GuruMeditationPageQuery = graphql`
   query guruMeditationPageQuery {
@@ -46,4 +46,4 @@ export const GuruMeditationPageQuery = graphql`
       }
     }
   }
-`
+`;

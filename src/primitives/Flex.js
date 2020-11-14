@@ -1,4 +1,4 @@
-import system from 'system-components'
+import system from 'system-components';
 
 const Flex = system(
   // Core
@@ -90,6 +90,6 @@ const Flex = system(
   {
     display: 'flex',
   }
-)
+);
 
-export default Flex
+export default Flex;

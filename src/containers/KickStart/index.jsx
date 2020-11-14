@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Link, graphql, StaticQuery } from 'gatsby';
+import PropTypes from 'prop-types';
 
-import { Wrapper, AmigaTick, DiskDrive, FloppyDisk } from './style'
-import { Box } from '../../primitives'
+import { Wrapper, AmigaTick, DiskDrive, FloppyDisk } from './style';
+import { Box } from '../../primitives';
 
 const KickStartStaticQuery = graphql`
   query kickstartStaticQuery {
@@ -14,12 +14,12 @@ const KickStartStaticQuery = graphql`
       }
     }
   }
-`
+`;
 
 const KickStartTemplate = ({ data }) => {
-  const { site } = data
-  const { siteMetadata } = site
-  const { copyrightYear, author } = siteMetadata
+  const { site } = data;
+  const { siteMetadata } = site;
+  const { copyrightYear, author } = siteMetadata;
   return (
     <Wrapper is="main">
       <Box width="18rem" ml={[null, null, 6]} mb={6}>
@@ -74,18 +74,18 @@ const KickStartTemplate = ({ data }) => {
         </Link>
       </Box>
     </Wrapper>
-  )
-}
+  );
+};
 
 KickStartTemplate.propTypes = {
   data: PropTypes.shape().isRequired,
-}
+};
 
 const KickStart = () => (
   <StaticQuery
     query={KickStartStaticQuery}
-    render={data => <KickStartTemplate data={data} />}
+    render={(data) => <KickStartTemplate data={data} />}
   />
-)
+);
 
-export default KickStart
+export default KickStart;

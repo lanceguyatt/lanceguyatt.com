@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Box } from '../../primitives'
-import sprite from './sprite.svg'
+import { Box } from '../../primitives';
+import sprite from './sprite.svg';
 
 const Wrapper = styled(Box).attrs({
   is: 'input',
@@ -14,8 +14,8 @@ const Wrapper = styled(Box).attrs({
   &:checked {
     background-position: -1.7rem 0;
   }
-`
+`;
 
-const Radio = props => <Wrapper {...props} />
+const Radio = (props) => <Wrapper {...props} />;
 
-export default Radio
+export default Radio;

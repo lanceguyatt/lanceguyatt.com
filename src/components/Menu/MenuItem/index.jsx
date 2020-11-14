@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Box } from '../../../primitives'
-import { MenuItemAction, Wrapper } from './style'
+import { Box } from '../../../primitives';
+import { MenuItemAction, Wrapper } from './style';
 
 const Shortcut = ({ shortcut }) => (
   <Box is="span" display="block" position="relative" pl="2.5rem" ml="1.2rem">
@@ -25,18 +25,18 @@ const Shortcut = ({ shortcut }) => (
     </Box>
     {shortcut}
   </Box>
-)
+);
 
 Shortcut.propTypes = {
   shortcut: PropTypes.string,
-}
+};
 
 Shortcut.defaultProps = {
   shortcut: null,
-}
+};
 
-const MenuItem = props => {
-  const { active, name, shortcut, ghosted, subMenu, children } = props
+const MenuItem = (props) => {
+  const { active, name, shortcut, ghosted, subMenu, children } = props;
   return (
     <Wrapper is="li" role="none">
       <MenuItemAction
@@ -63,8 +63,8 @@ const MenuItem = props => {
         {shortcut && <Shortcut shortcut={shortcut} />}
       </MenuItemAction>
     </Wrapper>
-  )
-}
+  );
+};
 
 MenuItem.propTypes = {
   // prefix: PropTypes.shape(),
@@ -75,7 +75,7 @@ MenuItem.propTypes = {
   subMenu: PropTypes.bool,
   children: PropTypes.node,
   active: PropTypes.bool,
-}
+};
 
 MenuItem.defaultProps = {
   // prefix: null,
@@ -85,6 +85,6 @@ MenuItem.defaultProps = {
   subMenu: false,
   children: null,
   active: false,
-}
+};
 
-export default MenuItem
+export default MenuItem;

@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import { Link as GastbyLink } from 'gatsby'
+import styled from 'styled-components';
+import { Link as GastbyLink } from 'gatsby';
 
-import { Box } from '../../primitives'
-import sprite from './sprite.svg'
+import { Box } from '../../primitives';
+import sprite from './sprite.svg';
 
 export const Image = styled(Box).attrs({
   width: '6.5rem',
@@ -11,11 +11,11 @@ export const Image = styled(Box).attrs({
   backgroundSize: 'cover',
   mb: 3,
   mx: 'auto',
-})``
+})``;
 
 export const Name = styled(Box).attrs({
   textAlign: 'center',
-})``
+})``;
 
 export const Link = styled(GastbyLink)`
   display: block;
@@ -27,4 +27,4 @@ export const Link = styled(GastbyLink)`
       background-position: -6.5rem 0;
     }
   }
-`
+`;

@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
-import { Box } from '../../primitives'
-import Drawer from '../Drawer'
-import File from '../File'
-import { Foo, Wrapper } from './style'
+import { Box } from '../../primitives';
+import Drawer from '../Drawer';
+import File from '../File';
+import { Foo, Wrapper } from './style';
 
-const Name = () => <Box>Name</Box>
+const Name = () => <Box>Name</Box>;
 
-const Date = props => {
-  const { list, basepath } = props
+const Date = (props) => {
+  const { list, basepath } = props;
   return (
     <Box flex="none">
       <table>
@@ -21,7 +21,7 @@ const Date = props => {
           <th>Date</th>
           <th>Time</th>
         </tr>
-        {list.map(item => (
+        {list.map((item) => (
           <tr key={item.id}>
             <td>
               <Link to={`${basepath}/${item.slug}`}>{item.name}</Link>
@@ -34,25 +34,25 @@ const Date = props => {
         ))}
       </table>
     </Box>
-  )
-}
+  );
+};
 
 Date.propTypes = {
   list: PropTypes.shape().isRequired,
   basepath: PropTypes.string,
-}
+};
 
 Date.defaultProps = {
   basepath: null,
-}
+};
 
-const Size = () => <Box>Size</Box>
+const Size = () => <Box>Size</Box>;
 
-const Icon = props => {
-  const { list, basepath } = props
+const Icon = (props) => {
+  const { list, basepath } = props;
   return (
     <Foo is="nav" {...props}>
-      {list.map(item => (
+      {list.map((item) => (
         <Fragment key={item.id}>
           {item.slug ? (
             <Drawer
@@ -66,42 +66,42 @@ const Icon = props => {
         </Fragment>
       ))}
     </Foo>
-  )
-}
+  );
+};
 
 Icon.propTypes = {
   list: PropTypes.oneOfType([PropTypes.array]).isRequired,
   basepath: PropTypes.string,
-}
+};
 
 Icon.defaultProps = {
   basepath: null,
-}
+};
 
 class Directory extends Component {
-  renderView = view => {
+  renderView = (view) => {
     if (view === 'name') {
-      return <Name {...this.props} />
+      return <Name {...this.props} />;
     }
 
     if (view === 'date') {
-      return <Date {...this.props} />
+      return <Date {...this.props} />;
     }
 
     if (view === 'size') {
-      return <Size {...this.props} />
+      return <Size {...this.props} />;
     }
 
     if (view === 'icon') {
-      return <Icon {...this.props} />
+      return <Icon {...this.props} />;
     }
 
-    return <Icon {...this.props} />
-  }
+    return <Icon {...this.props} />;
+  };
 
   render() {
-    const { view } = this.props
-    return <Wrapper>{this.renderView(view)}</Wrapper>
+    const { view } = this.props;
+    return <Wrapper>{this.renderView(view)}</Wrapper>;
   }
 }
 
@@ -109,11 +109,11 @@ Directory.propTypes = {
   // basepath: PropTypes.string,
   view: PropTypes.oneOf(['name', 'date', 'size', 'icon']),
   // list: PropTypes.arrayOf(PropTypes.shape).isRequired,
-}
+};
 
 Directory.defaultProps = {
   // basepath: null,
   view: 'icon',
-}
+};
 
-export default Directory
+export default Directory;

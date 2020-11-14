@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Box } from '../../primitives'
-import sprite from './sprite.svg'
+import { Box } from '../../primitives';
+import sprite from './sprite.svg';
 
 export const Image = styled(Box).attrs({
   width: '4.6rem',
@@ -10,11 +10,11 @@ export const Image = styled(Box).attrs({
   backgroundSize: 'cover',
   mb: 3,
   mx: 'auto',
-})``
+})``;
 
 export const Name = styled(Box).attrs({
   textAlign: 'center',
-})``
+})``;
 
 export const Link = styled(Box).attrs({
   is: 'a',
@@ -30,4 +30,4 @@ export const Link = styled(Box).attrs({
       background-position: -4.6rem 0;
     }
   }
-`
+`;

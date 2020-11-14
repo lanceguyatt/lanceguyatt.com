@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
-import WorkBench from '../layouts/WorkBench'
-import { Work } from '../containers'
-import { SEO } from '../components'
+import WorkBench from '../layouts/WorkBench';
+import { Work } from '../containers';
+import { SEO } from '../components';
 
 const WorkPage = ({ data }) => {
-  const { contentfulPage } = data
-  const { meta } = contentfulPage
+  const { contentfulPage } = data;
+  const { meta } = contentfulPage;
   return (
     <WorkBench>
       <>
@@ -16,14 +16,14 @@ const WorkPage = ({ data }) => {
         <Work active />
       </>
     </WorkBench>
-  )
-}
+  );
+};
 
 WorkPage.propTypes = {
   data: PropTypes.shape().isRequired,
-}
+};
 
-export default WorkPage
+export default WorkPage;
 
 export const WorkPageQuery = graphql`
   query workPageQuery {
@@ -34,4 +34,4 @@ export const WorkPageQuery = graphql`
       }
     }
   }
-`
+`;

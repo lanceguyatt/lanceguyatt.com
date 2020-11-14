@@ -1,12 +1,12 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
-import selected from './selected.svg'
-import unselected from './unselected.svg'
-import ghosted from './ghosted.svg'
+import selected from './selected.svg';
+import unselected from './unselected.svg';
+import ghosted from './ghosted.svg';
 
 export const link = css`
-  background-color: ${props => props.theme.colors.secondary};
-  color: ${props => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.black};
   display: inline-block;
   font-weight: normal;
   height: 2.4rem;
@@ -23,7 +23,7 @@ export const link = css`
 
   &:focus,
   &:active {
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.primary};
     border-image: url(${selected}) 2 stretch;
   }
 
@@ -42,6 +42,6 @@ export const link = css`
       width: calc(100% + 0.2rem);
     }
   }
-`
+`;
 
-export default link
+export default link;

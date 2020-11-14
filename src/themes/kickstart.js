@@ -1,9 +1,9 @@
-const breakpoints = ['576px', '768px']
+const breakpoints = ['576px', '768px'];
 
 const colors = {
   primary: '#e0a080',
   secondary: '#441044',
-}
+};
 
 const space = [
   0,
@@ -14,17 +14,17 @@ const space = [
   '1.6rem',
   '3.2rem',
   '6.4rem',
-]
+];
 
 const fonts = {
   sansSerif: '"Topaz", sans-serif',
-}
+};
 
 const kickstart = {
   breakpoints,
   colors,
   fonts,
   space,
-}
+};
 
-export default kickstart
+export default kickstart;

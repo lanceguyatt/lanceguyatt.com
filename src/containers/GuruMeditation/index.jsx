@@ -1,35 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import { transit } from 'react-css-transition'
+import React, { useState, useEffect } from 'react';
+import { transit } from 'react-css-transition';
 
-import { Alert, Audio } from '../../components'
-import { Wrapper, Toasty } from './style'
-import toastyMp3 from './toasty.mp3'
+import { Alert, Audio } from '../../components';
+import { Wrapper, Toasty } from './style';
+import toastyMp3 from './toasty.mp3';
 
 const alert = {
   description:
     'Software Failure. Press left mouse button to continue.<br />Guru Meditation #00004040.00004040',
   url: '/',
-}
+};
 
 function GuruMeditation() {
-  const [toasty, setToasty] = useState(false)
+  const [toasty, setToasty] = useState(false);
 
   useEffect(() => {
-    let konamiCodeArray = []
-    const konamiCodeKey = '38,38,40,40,37,39,37,39,66,65'
-    const toastyAudio = document.getElementById('js-toasty-audio')
+    let konamiCodeArray = [];
+    const konamiCodeKey = '38,38,40,40,37,39,37,39,66,65';
+    const toastyAudio = document.getElementById('js-toasty-audio');
 
-    document.addEventListener('keydown', e => {
-      konamiCodeArray.push(e.keyCode)
+    document.addEventListener('keydown', (e) => {
+      konamiCodeArray.push(e.keyCode);
 
       if (konamiCodeArray.toString().indexOf(konamiCodeKey) >= 0) {
-        toastyAudio.load()
-        toastyAudio.play()
-        konamiCodeArray = []
-        setToasty(true)
+        toastyAudio.load();
+        toastyAudio.play();
+        konamiCodeArray = [];
+        setToasty(true);
       }
-    })
-  })
+    });
+  });
 
   return (
     <Wrapper>
@@ -53,7 +53,7 @@ function GuruMeditation() {
         <source src={toastyMp3} type="audio/mp3" />
       </Audio>
     </Wrapper>
-  )
+  );
 }
 
-export default GuruMeditation
+export default GuruMeditation;

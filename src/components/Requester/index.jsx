@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Flex } from '../../primitives'
-import Depth from '../Depth'
-import { TitleBar, Name, Main, Wrapper } from './style'
+import { Flex } from '../../primitives';
+import Depth from '../Depth';
+import { TitleBar, Name, Main, Wrapper } from './style';
 
-const Requester = props => {
-  const { show, name, children } = props
+const Requester = (props) => {
+  const { show, name, children } = props;
   return (
     <>
       {show ? (
@@ -36,20 +36,20 @@ const Requester = props => {
         </Flex>
       ) : null}
     </>
-  )
-}
+  );
+};
 
 Requester.propTypes = {
   name: PropTypes.string.isRequired,
   children: PropTypes.node,
   show: PropTypes.bool,
   special: PropTypes.bool,
-}
+};
 
 Requester.defaultProps = {
   children: null,
   show: false,
   special: false,
-}
+};
 
-export default Requester
+export default Requester;

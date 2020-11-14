@@ -1,9 +1,9 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
-import { Box, Flex } from '../primitives'
-import { Window, Disk, Drive } from '../components'
+import { Box, Flex } from '../primitives';
+import { Window, Disk, Drive } from '../components';
 
 const WorkBenchQuery = graphql`
   query workBenchQuery {
@@ -11,10 +11,10 @@ const WorkBenchQuery = graphql`
       ...page
     }
   }
-`
+`;
 
 const WorkBenchTemplate = ({ data, active, backdrop }) => {
-  const { contentfulPage } = data
+  const { contentfulPage } = data;
   return backdrop ? (
     <Window {...contentfulPage} level0 active={active} close="/kickstart">
       <Flex is="nav" flexDirection="column">
@@ -39,37 +39,37 @@ const WorkBenchTemplate = ({ data, active, backdrop }) => {
         <Drive name="About" to="/about" />
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
 WorkBenchTemplate.propTypes = {
   data: PropTypes.shape().isRequired,
   active: PropTypes.bool,
   backdrop: PropTypes.bool,
-}
+};
 
 WorkBenchTemplate.defaultProps = {
   active: false,
   backdrop: false,
-}
+};
 
 const WorkBench = ({ active, backdrop }) => (
   <StaticQuery
     query={WorkBenchQuery}
-    render={data => (
+    render={(data) => (
       <WorkBenchTemplate data={data} active={active} backdrop={backdrop} />
     )}
   />
-)
+);
 
 WorkBench.propTypes = {
   active: PropTypes.bool,
   backdrop: PropTypes.bool,
-}
+};
 
 WorkBench.defaultProps = {
   active: false,
   backdrop: true,
-}
+};
 
-export default WorkBench
+export default WorkBench;

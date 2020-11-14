@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import WorkBench from '../layouts/WorkBench'
-import { Work } from '../containers'
-import { Flex } from '../primitives'
-import { SEO, Window, Dl, Dt, Dd, Action, Qux } from '../components'
+import WorkBench from '../layouts/WorkBench';
+import { Work } from '../containers';
+import { Flex } from '../primitives';
+import { SEO, Window, Dl, Dt, Dd, Action, Qux } from '../components';
 
 const WorkTemplate = ({ data }) => {
-  const { contentfulWork } = data
-  const { meta, name, image, slug, url, technologies } = contentfulWork
+  const { contentfulWork } = data;
+  const { meta, name, image, slug, url, technologies } = contentfulWork;
   return (
     <WorkBench>
       <>
@@ -42,7 +42,7 @@ const WorkTemplate = ({ data }) => {
               <Dt width={1 / 3}>Technologies</Dt>
               <Dd width={2 / 3}>
                 <ul>
-                  {technologies.map(technology => (
+                  {technologies.map((technology) => (
                     <li key={technology.id}>{technology.name}</li>
                   ))}
                 </ul>
@@ -58,14 +58,14 @@ const WorkTemplate = ({ data }) => {
         <Work />
       </>
     </WorkBench>
-  )
-}
+  );
+};
 
 WorkTemplate.propTypes = {
   data: PropTypes.shape().isRequired,
-}
+};
 
-export default WorkTemplate
+export default WorkTemplate;
 
 export const WorkTemplateQuery = graphql`
   query WorkTemplateQuery($slug: String!) {
@@ -89,4 +89,4 @@ export const WorkTemplateQuery = graphql`
       datePublished
     }
   }
-`
+`;

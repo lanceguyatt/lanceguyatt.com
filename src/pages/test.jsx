@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import WorkBench from '../layouts/WorkBench'
-import { Box } from '../primitives'
-import { Text } from '../components'
+import WorkBench from '../layouts/WorkBench';
+import { Box } from '../primitives';
+import { Text } from '../components';
 
 function Test() {
   return (
@@ -11,7 +11,7 @@ function Test() {
         <Text placeholder="Enter text" />
       </Box>
     </WorkBench>
-  )
+  );
 }
 
-export default Test
+export default Test;

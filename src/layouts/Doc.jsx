@@ -1,12 +1,12 @@
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import PropTypes from 'prop-types';
 
-import { workbench } from '../themes'
-import GlobalStyle from '../styles/global'
+import { workbench } from '../themes';
+import GlobalStyle from '../styles/global';
 
-const Doc = props => {
-  const { children } = props
+const Doc = (props) => {
+  const { children } = props;
   return (
     <ThemeProvider theme={workbench}>
       <>
@@ -14,11 +14,11 @@ const Doc = props => {
         <main>{children}</main>
       </>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 Doc.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Doc
+export default Doc;

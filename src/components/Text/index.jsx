@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import { Box } from '../../primitives'
-import sprite from './sprite.svg'
+import { Box } from '../../primitives';
+import sprite from './sprite.svg';
 
 const Wrapper = styled(Box).attrs({
   border: 2,
@@ -11,13 +11,13 @@ const Wrapper = styled(Box).attrs({
   p: 2,
 })`
   border-image: url(${sprite}) 2;
-`
+`;
 
 function Text(props) {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState('');
 
   function handleChange(event) {
-    setValue(event.target.value)
+    setValue(event.target.value);
   }
 
   return (
@@ -29,7 +29,7 @@ function Text(props) {
       spellCheck="false"
       {...props}
     />
-  )
+  );
 }
 
-export default Text
+export default Text;

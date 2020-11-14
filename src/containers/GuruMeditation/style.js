@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import { CSSTransition } from 'react-css-transition'
+import styled from 'styled-components';
+import { CSSTransition } from 'react-css-transition';
 
-import { Flex } from '../../primitives'
-import toastyImage from './toasty.png'
+import { Flex } from '../../primitives';
+import toastyImage from './toasty.png';
 
 export const Wrapper = styled(Flex).attrs({
   flexDirection: 'column',
@@ -10,7 +10,8 @@ export const Wrapper = styled(Flex).attrs({
   alignItems: 'center',
   color: 'primary',
   bg: 'secondary',
-  minHeight: 'min-content',
+  width: '100vw',
+  height: '100vh',
   p: 5,
   position: 'absolute',
   top: 0,
@@ -19,7 +20,7 @@ export const Wrapper = styled(Flex).attrs({
   left: 0,
 })`
   overflow: hidden;
-`
+`;
 
 export const Toasty = styled(CSSTransition)`
   background-image: url('${toastyImage}');
@@ -29,4 +30,4 @@ export const Toasty = styled(CSSTransition)`
   bottom: 0;
   width: 20rem;
   height: 20rem;
-`
+`;

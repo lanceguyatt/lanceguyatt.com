@@ -1,27 +1,27 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
-import WorkBench from '../layouts/WorkBench'
-import { SEO } from '../components'
+import WorkBench from '../layouts/WorkBench';
+import { SEO } from '../components';
 
 const Index = ({ data }) => {
-  const { contentfulPage } = data
-  const { meta } = contentfulPage
+  const { contentfulPage } = data;
+  const { meta } = contentfulPage;
   return (
     <WorkBench>
       <>
         <SEO {...meta} index image={meta.image.fixed.src} />
       </>
     </WorkBench>
-  )
-}
+  );
+};
 
 Index.propTypes = {
   data: PropTypes.shape().isRequired,
-}
+};
 
-export default Index
+export default Index;
 
 export const IndexQuery = graphql`
   fragment meta on ContentfulMeta {
@@ -51,4 +51,4 @@ export const IndexQuery = graphql`
       }
     }
   }
-`
+`;

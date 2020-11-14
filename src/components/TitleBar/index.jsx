@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql, StaticQuery } from 'gatsby';
 
-import { Name, Wrapper } from './style'
-import Depth from '../Depth'
+import { Name, Wrapper } from './style';
+import Depth from '../Depth';
 
-const TitleBarTemplate = props => {
-  const { data } = props
-  const { site } = data
-  const { siteMetadata } = site
+const TitleBarTemplate = (props) => {
+  const { data } = props;
+  const { site } = data;
+  const { siteMetadata } = site;
   return (
     <Wrapper {...props}>
       <Name>
@@ -17,8 +17,8 @@ const TitleBarTemplate = props => {
       </Name>
       <Depth bg="secondary" />
     </Wrapper>
-  )
-}
+  );
+};
 
 TitleBarTemplate.propTypes = {
   data: PropTypes.shape({
@@ -29,7 +29,7 @@ TitleBarTemplate.propTypes = {
       }),
     }),
   }).isRequired,
-}
+};
 
 const TitleBarQuery = graphql`
   query titleBarQuery {
@@ -40,13 +40,13 @@ const TitleBarQuery = graphql`
       }
     }
   }
-`
+`;
 
-const TitleBar = props => (
+const TitleBar = (props) => (
   <StaticQuery
     query={TitleBarQuery}
-    render={data => <TitleBarTemplate data={data} {...props} />}
+    render={(data) => <TitleBarTemplate data={data} {...props} />}
   />
-)
+);
 
-export default TitleBar
+export default TitleBar;

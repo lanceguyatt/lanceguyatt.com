@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Box } from '../../primitives'
-import sprite from './sprite.svg'
+import { Box } from '../../primitives';
+import sprite from './sprite.svg';
 
 const Wrapper = styled(Box).attrs({
   is: 'input',
@@ -18,8 +18,8 @@ const Wrapper = styled(Box).attrs({
   &:checked {
     background-position: -5.2rem 0;
   }
-`
+`;
 
-const Checkbox = props => <Wrapper {...props} />
+const Checkbox = (props) => <Wrapper {...props} />;
 
-export default Checkbox
+export default Checkbox;

@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Box, Flex } from '../../primitives'
-import selected from './selected.svg'
+import { Box, Flex } from '../../primitives';
+import selected from './selected.svg';
 
 export const Foo = styled(Box).attrs({
   border: 4,
@@ -14,7 +14,7 @@ export const Foo = styled(Box).attrs({
   .gatsby-image-wrapper {
     display: block !important;
   }
-`
+`;
 
 export const Bevel = styled(Flex).attrs({
   border: 2,
@@ -24,13 +24,13 @@ export const Bevel = styled(Flex).attrs({
 })`
   border-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA2NCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+YnV0dG9uPC90aXRsZT48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xIDIyaDYzdjJIMXYtMnpNNjIgMmgydjIwaC0yVjJ6bTEtMmgxdjJoLTFWMHoiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMCAwaDYzdjJIMFYwem0wIDJoMnYyMEgwVjJ6bTAgMjBoMXYySDB2LTJ6IiBmaWxsPSIjRkZGIi8+PC9nPjwvc3ZnPgo=)
     2 stretch;
-`
+`;
 
 export const Dl = styled(Flex).attrs({
   is: 'dl',
   alignItems: 'center',
   mb: 4,
-})``
+})``;
 
 export const Dt = styled(Box).attrs({
   is: 'dt',
@@ -41,11 +41,11 @@ export const Dt = styled(Box).attrs({
   &::after {
     content: ':';
   }
-`
+`;
 
 export const Dd = styled(Foo).attrs({
   is: 'dd',
-})``
+})``;
 
 export const Qux = styled(({ ...props }) => <Box {...props} />).attrs({
   border: 2,
@@ -56,7 +56,7 @@ export const Qux = styled(({ ...props }) => <Box {...props} />).attrs({
   .gatsby-image-wrapper {
     display: block !important;
   }
-`
+`;
 
 export const HV = styled(Box).attrs({
   is: 'span',
@@ -70,4 +70,4 @@ export const HV = styled(Box).attrs({
   position: absolute !important;
   width: 1px !important;
   white-space: nowrap !important;
-`
+`;

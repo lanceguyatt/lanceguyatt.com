@@ -1,17 +1,16 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 // import clock from './clock.svg'
-import pointer from './pointer.svg'
+import pointer from './pointer.svg';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Topaz';
-    src: local('Topaz'),
-         url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
+    src: url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
          url('/fonts/topaz.ttf') format('truetype'),
          url('/fonts/topaz.woff') format('woff'),
          url('/fonts/topaz.woff2') format('woff2');
-    font-weight: 400;
+    font-weight: normal;
     font-style: normal;
   }
 
@@ -36,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
     text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    cursor: url(${pointer}), default;
   }
 
   h1, h2, h3, h4, h5, h6, ul, ol, p, table, dl, figure {
@@ -45,14 +45,8 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 1.8rem;
   }
 
-  body,
-  button,
-  a,
-  input {
-    cursor: url(${pointer}), default;
-  }
-
   a {
+    cursor: inherit;
     color: inherit;
     text-decoration: none;
     user-select: none;
@@ -170,6 +164,6 @@ const GlobalStyle = createGlobalStyle`
     height: 50px;
     overflow: scroll;
   } */
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

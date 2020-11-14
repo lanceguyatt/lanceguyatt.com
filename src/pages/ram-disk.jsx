@@ -1,13 +1,13 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
-import WorkBench from '../layouts/WorkBench'
-import { SEO, Window } from '../components'
+import WorkBench from '../layouts/WorkBench';
+import { SEO, Window } from '../components';
 
 const RamDiskPage = ({ data }) => {
-  const { contentfulPage } = data
-  const { meta } = contentfulPage
+  const { contentfulPage } = data;
+  const { meta } = contentfulPage;
   return (
     <WorkBench>
       <>
@@ -15,14 +15,14 @@ const RamDiskPage = ({ data }) => {
         <Window {...contentfulPage} level1 active />
       </>
     </WorkBench>
-  )
-}
+  );
+};
 
 RamDiskPage.propTypes = {
   data: PropTypes.shape().isRequired,
-}
+};
 
-export default RamDiskPage
+export default RamDiskPage;
 
 export const RamDiskPageQuery = graphql`
   query ramDiskPageQuery {
@@ -33,4 +33,4 @@ export const RamDiskPageQuery = graphql`
       }
     }
   }
-`
+`;

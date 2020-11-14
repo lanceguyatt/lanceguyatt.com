@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Box, Flex } from '../../primitives'
+import { Box, Flex } from '../../primitives';
 
 export const Name = styled(Box).attrs({
   px: 3,
@@ -11,7 +11,7 @@ export const Name = styled(Box).attrs({
   text-overflow: ellipsis;
   user-select: none;
   white-space: nowrap;
-`
+`;
 /* eslint-disable-next-line */
 export const Wrapper = styled(({ data, ...props }) => (
   <Flex {...props} />
@@ -22,4 +22,4 @@ export const Wrapper = styled(({ data, ...props }) => (
   borderColor: 'black',
   height: '2.2rem',
   position: 'relative',
-})``
+})``;

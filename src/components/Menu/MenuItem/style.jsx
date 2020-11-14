@@ -1,9 +1,9 @@
 /* eslint no-unused-vars: 0 */
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { Flex } from '../../../primitives'
-import ghostedImage from './ghosted.svg'
+import { Flex } from '../../../primitives';
+import ghostedImage from './ghosted.svg';
 
 export const MenuItemAction = styled(
   ({ active, name, url, shortcut, subMenu, ghosted, ...props }) => (
@@ -24,7 +24,7 @@ export const MenuItemAction = styled(
   transition-duration: 0.25s;
   outline: 0;
 
-  ${props =>
+  ${(props) =>
     props.ghosted &&
     `
     pointer-events: none;
@@ -40,7 +40,7 @@ export const MenuItemAction = styled(
       z-index: 1;
     }
     `};
-`
+`;
 
 export const Wrapper = styled(Flex).attrs({
   position: 'relative',
@@ -58,4 +58,4 @@ export const Wrapper = styled(Flex).attrs({
       opacity: 1;
     }
   }
-`
+`;

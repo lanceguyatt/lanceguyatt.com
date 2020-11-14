@@ -1,4 +1,4 @@
-import system from '@rebass/components'
+import system from '@rebass/components';
 
 const Box = system(
   {},
@@ -88,6 +88,6 @@ const Box = system(
   'textStyle',
   'colorStyle',
   'buttonStyle'
-)
+);
 
-export default Box
+export default Box;

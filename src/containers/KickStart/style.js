@@ -1,7 +1,7 @@
-import styled, { keyframes, css } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components';
 
-import { Box, Flex } from '../../primitives'
-import amigaTick from './tick.svg'
+import { Box, Flex } from '../../primitives';
+import amigaTick from './tick.svg';
 
 const insertDisk = keyframes`
   0% {
@@ -17,11 +17,11 @@ const insertDisk = keyframes`
     transform: rotateX(83deg) translateY(-35rem);
     transform-origin: 0% 0%;
   }
-`
+`;
 
 const insertDiskAnimation = css`
   animation: ${insertDisk} 1.5s forwards infinite;
-`
+`;
 
 export const AmigaTick = styled(Box).attrs({
   is: 'img',
@@ -31,7 +31,7 @@ export const AmigaTick = styled(Box).attrs({
   height: '15rem',
   display: 'block',
   mb: 6,
-})``
+})``;
 
 export const DiskDrive = styled(Box).attrs({
   is: 'svg',
@@ -39,7 +39,7 @@ export const DiskDrive = styled(Box).attrs({
   width: '15.6rem',
   height: '3.8rem',
   display: 'b2lock',
-})``
+})``;
 
 export const FloppyDisk = styled(Box).attrs({
   is: 'svg',
@@ -54,13 +54,14 @@ export const FloppyDisk = styled(Box).attrs({
   @supports (animation-name: ${insertDisk}) {
     ${insertDiskAnimation};
   }
-`
+`;
 
 export const Wrapper = styled(Flex).attrs({
   flexDirection: ['column', null, 'row'],
   alignItems: ['center', null, 'flex-end'],
   justifyContent: ['center', null, 'space-between'],
-  minHeight: 'min-content',
+  width: '100vw',
+   height: '100vh',
   bg: 'secondary',
   p: 6,
   position: 'absolute',
@@ -69,4 +70,4 @@ export const Wrapper = styled(Flex).attrs({
   bottom: 0,
   left: 0,
   color: 'primary',
-})``
+})``;

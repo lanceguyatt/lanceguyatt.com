@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import Helmet from 'react-helmet'
+import PropTypes from 'prop-types';
+import React from 'react';
+import Helmet from 'react-helmet';
 
 const Facebook = ({
   title,
@@ -23,9 +23,9 @@ const Facebook = ({
     <meta property="og:locale" content={locale} />
     <meta property="fb:app_id" content="148190791903784" />
   </Helmet>
-)
+);
 
-export default Facebook
+export default Facebook;
 
 Facebook.propTypes = {
   title: PropTypes.string.isRequired,
@@ -35,9 +35,9 @@ Facebook.propTypes = {
   type: PropTypes.string,
   siteName: PropTypes.string,
   locale: PropTypes.string.isRequired,
-}
+};
 
 Facebook.defaultProps = {
   type: 'website',
   siteName: null,
-}
+};

@@ -1,13 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Flex } from '../../primitives'
-import Close from '../Close'
-import Depth from '../Depth'
-import Zoom from '../Zoom'
-import { Name, Header, Inner, Main } from './style'
-import window from './window.svg'
+import { Flex } from '../../primitives';
+import Close from '../Close';
+import Depth from '../Depth';
+import Zoom from '../Zoom';
+import { Name, Header, Inner, Main } from './style';
+import window from './window.svg';
 
 /* eslint-disable-next-line */
 const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
@@ -24,12 +24,12 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
   border-width: 2.2rem 0.4rem 0.4rem 0.4rem;
   border-image: url(${window}) 22 4 4 4 stretch;
 
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.active ? props.theme.colors.primary : props.theme.colors.secondary};
 
-  ${props => props.level0 && `z-index: ${props.theme.zIndex[0]};`};
+  ${(props) => props.level0 && `z-index: ${props.theme.zIndex[0]};`};
 
-  ${props =>
+  ${(props) =>
     props.level1 &&
     `
     z-index: ${props.theme.zIndex[1]};
@@ -45,7 +45,7 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
     }
   `};
 
-  ${props =>
+  ${(props) =>
     props.level2 &&
     `
     z-index: ${props.theme.zIndex[2]};
@@ -60,7 +60,7 @@ const Wrapper = styled(({ active, level0, level1, level2, ...props }) => (
       transform: translate(-50%, -50%);
     }
   `};
-`
+`;
 
 const Window = ({
   active,
@@ -95,7 +95,7 @@ const Window = ({
     </Header>
     <Main>{children}</Main>
   </Wrapper>
-)
+);
 
 Window.propTypes = {
   active: PropTypes.bool,
@@ -108,7 +108,7 @@ Window.propTypes = {
   level2: PropTypes.bool,
   name: PropTypes.string.isRequired,
   heading: PropTypes.string,
-}
+};
 
 Window.defaultProps = {
   active: false,
@@ -120,6 +120,6 @@ Window.defaultProps = {
   level1: null,
   level2: null,
   heading: 'div',
-}
+};
 
-export default Window
+export default Window;

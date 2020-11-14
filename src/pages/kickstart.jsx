@@ -1,16 +1,16 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import PropTypes from 'prop-types'
-import { ThemeProvider } from 'styled-components'
+import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 
-import GlobalStyle from '../styles/global'
-import { kickstart } from '../themes'
-import KickStart from '../containers/KickStart'
-import { SEO } from '../components'
+import GlobalStyle from '../styles/global';
+import { kickstart } from '../themes';
+import KickStart from '../containers/KickStart';
+import { SEO } from '../components';
 
 const KickStartPage = ({ data }) => {
-  const { contentfulPage } = data
-  const { meta } = contentfulPage
+  const { contentfulPage } = data;
+  const { meta } = contentfulPage;
   return (
     <ThemeProvider theme={kickstart}>
       <>
@@ -19,14 +19,14 @@ const KickStartPage = ({ data }) => {
         <KickStart />
       </>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 KickStartPage.propTypes = {
   data: PropTypes.shape().isRequired,
-}
+};
 
-export default KickStartPage
+export default KickStartPage;
 
 export const KickStartPageQuery = graphql`
   query kickStartPageQuery {
@@ -37,4 +37,4 @@ export const KickStartPageQuery = graphql`
       }
     }
   }
-`
+`;

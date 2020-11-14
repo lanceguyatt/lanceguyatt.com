@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Box, Flex } from '../../primitives'
+import { Box, Flex } from '../../primitives';
 
 export const Name = styled(Box).attrs({
   mr: 3,
-})``
+})``;
 
 export const Header = styled(Flex).attrs({
   alignItems: 'center',
@@ -13,7 +13,7 @@ export const Header = styled(Flex).attrs({
   top: '-2rem',
   right: '-0.4rem',
   left: '-0.4rem',
-})``
+})``;
 
 export const Inner = styled(Flex).attrs({
   px: 3,
@@ -23,7 +23,7 @@ export const Inner = styled(Flex).attrs({
   text-overflow: ellipsis;
   user-select: none;
   white-space: nowrap;
-`
+`;
 
 export const Main = styled(Flex).attrs({
   flexDirection: 'column',
@@ -38,4 +38,4 @@ export const Main = styled(Flex).attrs({
   &::-webkit-scrollbar {
     display: none;
   }
-`
+`;

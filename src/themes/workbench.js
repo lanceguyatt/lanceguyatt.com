@@ -1,6 +1,6 @@
-const borders = [0, '0.1rem solid', '0.2rem solid', '0.4rem solid']
+const borders = [0, '0.1rem solid', '0.2rem solid', '0.4rem solid'];
 
-const breakpoints = ['576px', '768px']
+const breakpoints = ['576px', '768px'];
 
 const colors = {
   primary: '#6080b0',
@@ -8,9 +8,9 @@ const colors = {
   light: '#f0f0f0',
   black: '#000',
   white: '#fff',
-}
+};
 
-const lineHeights = [1, 1.125, 1.25, 1.5]
+const lineHeights = [1, 1.125, 1.25, 1.5];
 
 const space = [
   0,
@@ -21,13 +21,13 @@ const space = [
   '1.6rem',
   '3.2rem',
   '6.4rem',
-]
+];
 
-const zIndex = [0, 1, 2, 3, 4]
+const zIndex = [0, 1, 2, 3, 4];
 
 const fonts = {
   sansSerif: '"Topaz", sans-serif',
-}
+};
 
 const buttons = {
   default: {
@@ -46,7 +46,7 @@ const buttons = {
       color: colors.primary,
     },
   },
-}
+};
 
 const workbench = {
   borders,
@@ -57,6 +57,6 @@ const workbench = {
   lineHeights,
   space,
   zIndex,
-}
+};
 
-export default workbench
+export default workbench;

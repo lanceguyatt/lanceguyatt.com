@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Box } from '../../primitives'
-import sprite from './sprite.svg'
+import { Box } from '../../primitives';
+import sprite from './sprite.svg';
 
 const Wrapper = styled(Box).attrs({
   size: ['2.3rem', '2.2rem'],
@@ -12,10 +12,10 @@ const Wrapper = styled(Box).attrs({
   &:focus {
     background-position: -2.3rem 0;
   }
-`
+`;
 
-const Depth = props => (
+const Depth = (props) => (
   <Wrapper is="button" type="button" aria-label="Depth" {...props} />
-)
+);
 
-export default Depth
+export default Depth;

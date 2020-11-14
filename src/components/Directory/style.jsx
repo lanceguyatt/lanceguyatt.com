@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Box, Flex } from '../../primitives'
+import { Box, Flex } from '../../primitives';
 
 /* eslint-disable-next-line */
 export const Foo = styled(({ basepath, list, ...props }) => (
@@ -11,11 +11,11 @@ export const Foo = styled(({ basepath, list, ...props }) => (
   flexWrap: 'wrap',
 })`
   a {
-    margin-left: ${props => props.theme.space[3]};
-    margin-right: ${props => props.theme.space[3]};
-    margin-bottom: ${props => props.theme.space[4]};
+    margin-left: ${(props) => props.theme.space[3]};
+    margin-right: ${(props) => props.theme.space[3]};
+    margin-bottom: ${(props) => props.theme.space[4]};
   }
-`
+`;
 
 export const Wrapper = styled(Box)`
   table {
@@ -30,4 +30,4 @@ export const Wrapper = styled(Box)`
   td {
     padding: 0.2rem;
   }
-`
+`;

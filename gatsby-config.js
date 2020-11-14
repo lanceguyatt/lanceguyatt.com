@@ -1,15 +1,15 @@
-require('dotenv').config()
+require('dotenv').config();
 
 const {
   ANALYTICS_ID,
   CONTENTFUL_ACCESS_TOKEN,
   CONTENTFUL_SPACE_ID,
   GATSBY_SITE_URL,
-} = process.env
+} = process.env;
 
-const website = require('./config/website')
+const website = require('./config/website');
 
-const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
+const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
 
 module.exports = {
   siteMetadata: {
@@ -109,7 +109,6 @@ module.exports = {
         fileName: false,
         minify: true,
         pure: true,
-        ssr: true,
       },
     },
     {
@@ -140,4 +139,4 @@ module.exports = {
     },
     'gatsby-plugin-offline',
   ],
-}
+};
