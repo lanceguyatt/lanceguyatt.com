@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Box } from 'theme-ui';
 
-import { SEO } from '../components';
+import GlobalStyles from '../styles/global';
 import GuruMeditation from '../containers/GuruMeditation';
+import { SEO } from '../components';
+
+const propTypes = {
+  data: PropTypes.shape().isRequired,
+};
 
 const GuruMeditationPage = ({ data }) => {
   const { contentfulPage } = data;
@@ -13,6 +18,7 @@ const GuruMeditationPage = ({ data }) => {
   return (
     <>
       <SEO {...meta} url="/404" />
+      <GlobalStyles />
       <Box as="main">
         <GuruMeditation />
       </Box>
@@ -20,15 +26,13 @@ const GuruMeditationPage = ({ data }) => {
   );
 };
 
-GuruMeditationPage.propTypes = {
-  data: PropTypes.shape().isRequired,
-};
+GuruMeditationPage.propTypes = propTypes;
 
 export default GuruMeditationPage;
 
 export const GuruMeditationPageQuery = graphql`
   query guruMeditationPageQuery {
-    contentfulPage(id: { eq: "c11aa070-c9cc-549e-a7bb-e5111bdd6b0f" }) {
+    contentfulPage(contentful_id: { eq: "66TpcoOxvNvb8Jx3FgEVFQ" }) {
       ...page
       meta {
         ...meta

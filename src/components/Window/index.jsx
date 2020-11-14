@@ -6,7 +6,7 @@ import Close from '../Close';
 import Depth from '../Depth';
 import Zoom from '../Zoom';
 import { Header, Inner, Main } from './style';
-// import window from './window.svg';
+import window from './window.svg';
 
 /* eslint-disable-next-line */
 const Wrapper = ({ active, level0, level1, level2, ...props }) => (

@@ -22,7 +22,7 @@ const Alert = (props) => {
       __css={{
         display: 'block',
         border: 3,
-        p: 4,
+        p: 5,
         textDecoration: 'none',
         textAlign: 'center',
       }}

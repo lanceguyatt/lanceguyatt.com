@@ -2,8 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import { SEO } from '../components';
+import GlobalStyles from '../styles/global';
 import KickStart from '../containers/KickStart';
+import { SEO } from '../components';
 
 const KickStartPage = ({ data }) => {
   const { contentfulPage } = data;
@@ -11,6 +12,7 @@ const KickStartPage = ({ data }) => {
   return (
     <>
       <SEO {...meta} url="/kickstart" image={meta.image.fixed.src} />
+      <GlobalStyles />
       <KickStart />
     </>
   );

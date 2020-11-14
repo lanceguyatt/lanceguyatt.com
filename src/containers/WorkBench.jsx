@@ -22,8 +22,12 @@ const WorkBenchTemplate = ({ data, active }) => {
           <Disk as={Link} to="/ram-disk">
             Ram Disk
           </Disk>
-          <Drive name="Work" to="/work" />
-          <Drive name="About" to="/about" />
+          <Drive as={Link} to="/work">
+            Work
+          </Drive>
+          <Drive as={Link} to="/about">
+            About
+          </Drive>
         </nav>
       </Window>
     </Styled.root>

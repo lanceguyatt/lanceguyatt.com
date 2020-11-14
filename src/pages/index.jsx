@@ -10,9 +10,7 @@ const Index = ({ data }) => {
   const { meta } = contentfulPage;
   return (
     <WorkBench>
-      <>
-        <SEO {...meta} index image={meta.image.fixed.src} />
-      </>
+      <SEO {...meta} index image={meta.image.fixed.src} />
     </WorkBench>
   );
 };

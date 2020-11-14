@@ -34,6 +34,9 @@ const KickStartTemplate = ({ data }) => {
       </Box>
 
       <Box
+        as={Link}
+        to="/"
+        aria-label="Return to Workbench"
         __css={{
           height: 169,
           width: 156,
@@ -42,10 +45,11 @@ const KickStartTemplate = ({ data }) => {
           position: 'relative',
         }}
       >
-        <Link to="/" aria-label="Return to Workbench">
-          <DiskDrive />
-          <FloppyDisk />
-        </Link>
+        <DiskDrive />
+        <FloppyDisk
+          animate
+          sx={{ position: 'absolute', bottom: -25, left: 12 }}
+        />
       </Box>
     </Wrapper>
   );

@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { transit } from 'react-css-transition';
+import { CSSTransition, transit } from 'react-css-transition';
 import { Link } from 'gatsby';
-import { Flex, Styled } from 'theme-ui';
+import { Box, Flex } from 'theme-ui';
 
-import theme from '../../gatsby-plugin-theme-ui';
 import { Alert, Audio } from '../../components';
-import { Toasty } from './style';
 import toastyMp3 from './toasty.mp3';
+import toastyImage from './toasty.png';
+
+const Toasty = (props) => (
+  <Box
+    __css={{
+      bg: 'lime',
+      backgroundImage: `url(${toastyImage})`,
+      backgroundSize: 'cover',
+      position: 'absolute',
+      right: -200,
+      bottom: 0,
+      size: 200,
+      transition: 'right 0.25s',
+    }}
+    {...props}
+  />
+);
 
 function GuruMeditation() {
   const [toasty, setToasty] = useState(false);
@@ -16,8 +31,8 @@ function GuruMeditation() {
     const konamiCodeKey = '38,38,40,40,37,39,37,39,66,65';
     const toastyAudio = document.getElementById('js-toasty-audio');
 
-    document.addEventListener('keydown', (e) => {
-      konamiCodeArray.push(e.keyCode);
+    document.addEventListener('keydown', (event) => {
+      konamiCodeArray.push(event.keyCode);
 
       if (konamiCodeArray.toString().indexOf(konamiCodeKey) >= 0) {
         toastyAudio.load();
@@ -30,11 +45,10 @@ function GuruMeditation() {
 
   return (
     <Flex
-      sx={{
+      __css={{
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        border: '1rem solid red',
         bg: 'text',
         minHeight: '100vh',
         overflow: 'hidden',
@@ -47,9 +61,15 @@ function GuruMeditation() {
         Guru Meditation #00004040.00004040
       </Alert>
 
-      <Styled.pre>{JSON.stringify(theme, null, 2)}</Styled.pre>
+      <button
+        onClick={() => setToasty((prevState) => !prevState)}
+        type="button"
+      >
+        Toasty
+      </button>
 
       <Toasty
+        as={CSSTransition}
         defaultStyle={{ transform: 'translate(200px, 0)' }}
         enterStyle={{
           transform: transit('translate(0, 0)', 400, 'ease-in-out'),
@@ -61,6 +81,7 @@ function GuruMeditation() {
         transitionDelay={{ enter: 0, leave: 100 }}
         onTransitionComplete={() => setToasty(false)}
         active={toasty}
+        // sx={{ ...(toasty && { right: 0 }) }}
       />
 
       <Audio id="js-toasty-audio">

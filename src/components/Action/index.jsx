@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from 'theme-ui';
 
-import { link } from './style';
+// import { link } from './style';
 
 const Action = ({ name, children, ...props }) => {
   return (
-    <Box as="button" {...props} css={link}>
+    <Box as="button" {...props}>
       {name || children}
     </Box>
   );
