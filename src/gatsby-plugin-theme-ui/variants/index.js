@@ -49,10 +49,25 @@ const variants = {
     },
   },
   layout: {
+    bg: 'lime',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+    main: {
+      bg: 'hotpink',
+      flex: '1 1 auto',
+    },
     workbench: {
       bg: 'secondary',
       p: 4,
     },
+  },
+  row: {
+    bg: 'red',
+    display: 'grid',
+    gridTemplateColumns: [null, '200px 1fr'],
+    gap: 4,
+    alignItems: 'center',
   },
 };
 

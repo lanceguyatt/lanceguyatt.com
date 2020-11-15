@@ -34,7 +34,6 @@ const Checkbox = ({ children, name, ...rest }) => {
             width: 26,
             height: 22,
             background: `url(${sprite})`,
-            mr: 4,
             outline: 0,
             '&:focus': {
               bg: 'primary',

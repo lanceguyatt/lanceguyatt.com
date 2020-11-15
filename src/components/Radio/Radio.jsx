@@ -34,7 +34,6 @@ const Radio = (props) => {
             width: 17,
             height: 18,
             background: `url(${sprite})`,
-            mr: 4,
             outline: 0,
             '&:checked': {
               backgroundPosition: '-17px 0',

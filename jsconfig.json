@@ -1,0 +1,9 @@
+{
+  "exclude": ["node_modules", ".next", "storybook_static"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@amiga/components": ["/src/components"]
+    }
+  }
+}

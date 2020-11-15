@@ -10,6 +10,10 @@ const fonts = {
   heading: 'inherit',
 };
 
+const sizes = {
+  foo: 20,
+};
+
 export default {
   /* Enables CSS custom properties to help mitigate a flash of unstyled content during rehydration */
   useCustomProperties: true,
@@ -25,6 +29,7 @@ export default {
   useLocalStorage: true,
   space: [0, 1, 2, 4, 8, 16, 32],
   fonts,
+  sizes,
   borders: [0, '1px solid', '2px solid', '4px solid'],
   borderWidths: [0, 1, 2, 4, 8],
   borderStyles: {

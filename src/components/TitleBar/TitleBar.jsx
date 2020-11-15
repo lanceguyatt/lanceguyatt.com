@@ -24,7 +24,6 @@ function TitleBar({ appearance, children, ...props }) {
         alignItems: 'center',
         height: 22,
         position: 'relative',
-        bg: 'red',
       }}
       {...props}
       variant={appearance}
