@@ -23,7 +23,6 @@ const GlobalStyles = () => (
       }
 
       a {
-        cursor: inherit;
         color: inherit;
       }
     `}

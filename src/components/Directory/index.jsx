@@ -51,17 +51,15 @@ const Size = () => <Box>Size</Box>;
 const Icon = (props) => {
   const { list, basepath } = props;
   return (
-    <Foo is="nav" {...props}>
+    <Foo as="nav" {...props}>
       {list.map((item) => (
         <Fragment key={item.id}>
           {item.slug ? (
-            <Drawer
-              heading="h2"
-              name={item.name}
-              to={`${basepath}/${item.slug}`}
-            />
+            <Drawer name={item.name} to={`${basepath}/${item.slug}`} />
           ) : (
-            <File name={item.name} href={item.url} />
+            <File as={Link} to={item.url} target="_blank">
+              {item.name}
+            </File>
           )}
         </Fragment>
       ))}
@@ -97,7 +95,7 @@ class Directory extends Component {
     }
 
     return <Icon {...this.props} />;
-  };
+  }
 
   render() {
     const { view } = this.props;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Flex, Grid } from 'theme-ui';
+import { Link } from 'gatsby';
 
-import { TitleBar, Button, Input, Label, Radio } from '../components';
+import { TitleBar, Button, Input, Label, Radio, NavLink } from '../components';
 
 const Test = () => {
   return (
@@ -9,6 +10,12 @@ const Test = () => {
       <TitleBar appearance="secondary">Test</TitleBar>
       <Box variant="layout.main">
         <Box __css={{ p: 4, bg: 'primary', width: 'foo' }}>Box</Box>
+        <Flex>
+          <NavLink>About</NavLink>
+          <NavLink icon="drive" as={Link} to="/work">
+            Work
+          </NavLink>
+        </Flex>
         <form>
           <Grid gap="test" p="test">
             <Box variant="row">
