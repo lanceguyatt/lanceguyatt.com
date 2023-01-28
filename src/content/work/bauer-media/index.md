@@ -14,4 +14,5 @@ tags:
   - Laravel Mix (bundler)
   - Tailwind CSS
   - Post CSS
+disabled: true
 ---
