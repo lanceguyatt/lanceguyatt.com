@@ -12,9 +12,6 @@
     "format": "yarn prettier -w .",
     "surge": "surge -p dist -d lanceguyatt.surge.sh"
   },
-  "engines": {
-    "node": "16"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
