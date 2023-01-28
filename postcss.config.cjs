@@ -3,7 +3,7 @@ module.exports = {
     'tailwindcss/nesting': {},
     tailwindcss: {},
     autoprefixer: {
-      grid: true
-    }
-  }
+      grid: true,
+    },
+  },
 }

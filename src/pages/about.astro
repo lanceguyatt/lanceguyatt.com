@@ -7,7 +7,7 @@ import * as page from '@content/pages/about.md'
 const {
   frontmatter: { name },
   url,
-  Content
+  Content,
 } = page
 
 const title: string = `${name} - ${SITE.name}`
@@ -31,13 +31,13 @@ const ldData = {
     givenName,
     familyName,
     url: `${SITE.url}${url}`,
-    sameAs
+    sameAs,
   },
   copyrightHolder: {
     '@type': 'Person',
-    name: 'Lance Guyatt'
+    name: 'Lance Guyatt',
   },
-  copyrightYear: SITE.copyrightYear
+  copyrightYear: SITE.copyrightYear,
 }
 ---
 

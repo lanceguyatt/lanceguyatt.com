@@ -17,7 +17,7 @@ const {
   title = SITE.title,
   description = SITE.description,
   url = '',
-  image = SITE.image
+  image = SITE.image,
 } = Astro.props as Props
 
 const openGraph = {
@@ -26,8 +26,8 @@ const openGraph = {
     description,
     type: 'WebPage',
     image,
-    url
-  }
+    url,
+  },
 }
 ---
 

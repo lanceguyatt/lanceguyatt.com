@@ -54,4 +54,4 @@ module.exports = {
     // 'react/jsx-wrap-multilines': 0,
     // 'react/jsx-one-expression-per-line': 0,
   },
-};
+}

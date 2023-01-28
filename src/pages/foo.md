@@ -5,7 +5,7 @@ name: Foo
 
 All successful businesses need momentum. Companies will only build that momentum if they keep adding new engines to power growth. In the modern economy, most new business engines will be digital.
 
-## h2 
+## h2
 
 ### h3
 
@@ -131,5 +131,3 @@ Right aligned columns
 [link with title](http://nodeca.github.io/pica/demo/ 'title text!')
 
 Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-
