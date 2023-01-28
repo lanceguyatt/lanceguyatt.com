@@ -1,0 +1,17 @@
+---
+name: Hearst Global Solutions
+description: Hearst Global Solutions corporate website
+image:
+  url: /images/work/hearst.png
+  width: 200
+  height: 200
+alt: Hearst Global Solutions logo
+sameAs: https://hearstglobalsolutions.com
+tags:
+  - Drupal 9
+  - Laravel mix
+  - Tailwind CSS
+  - Post CSS
+  - UI Patterns
+datePublished: 2022-06-10
+---

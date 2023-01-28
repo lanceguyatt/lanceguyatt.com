@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string
+  animate?: boolean
+}
+
+const { class: className, animate, ...attrs } = Astro.props as Props
+---
+
+<div
+  role="dialog"
+  class:list={['alert', className, { animate: 'animate-pulse' }]}
+  {...attrs}
+>
+  <slot />
+</div>
+
+<style>
+  .alert {
+    @apply border-2 max-w-xl text-red p-4 text-center;
+  }
+</style>

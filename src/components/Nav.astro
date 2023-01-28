@@ -1,0 +1,31 @@
+---
+export interface Props {
+  class?: string
+  id: string
+  name: string
+  vertical?: boolean
+}
+
+const {
+  id,
+  name,
+  class: className,
+  vertical = false,
+  ...props
+} = Astro.props as Props
+---
+
+<nav
+  aria-labelledby={id}
+  class:list={[
+    'inline-flex',
+    'flex-wrap',
+    'gap-3',
+    { 'flex-col': vertical },
+    className
+  ]}
+  {...props}
+>
+  <h2 id={id} class="sr-only">{name}</h2>
+  <slot />
+</nav>

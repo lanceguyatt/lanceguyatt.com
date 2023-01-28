@@ -1,0 +1,68 @@
+---
+import { SITE, LANCE_GUYATT } from '@config'
+import Workbench from '@layouts/Workbench.astro'
+import { Window, File } from '@components/index.astro'
+import * as page from '@content/pages/about.md'
+
+const {
+  frontmatter: { name },
+  url,
+  Content
+} = page
+
+const title: string = `${name} - ${SITE.name}`
+const { givenName, familyName, sameAs } = LANCE_GUYATT
+
+const ldData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name,
+  description: LANCE_GUYATT.description,
+  url: `${SITE.url}${url}`,
+  // image: {
+  //   '@type': 'ImageObject',
+  //   url: `${SITE.url}${image.url}`,
+  //   width: image.width,
+  //   height: image.height,
+  //   description: image.alt
+  // },
+  mainEntity: {
+    '@type': 'Person',
+    givenName,
+    familyName,
+    url: `${SITE.url}${url}`,
+    sameAs
+  },
+  copyrightHolder: {
+    '@type': 'Person',
+    name: 'Lance Guyatt'
+  },
+  copyrightYear: SITE.copyrightYear
+}
+---
+
+<Workbench title={title} url={url}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(ldData, null, 2)}
+  ></script>
+
+  <Window id="about" name={name} url="/">
+    <nav aria-labelledby="about-items">
+      <h3 class="sr-only" id="about-items">About items</h3>
+      <ul class="inline-flex flex-wrap gap-3">
+        {
+          sameAs.map(({ name, url }) => (
+            <li>
+              <File name={name} url={url} target="_blank" rel="external" />
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="prose prose-black">
+      <Content />
+    </div>
+  </Window>
+</Workbench>

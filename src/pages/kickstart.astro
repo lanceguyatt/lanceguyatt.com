@@ -1,0 +1,42 @@
+---
+import Default from '@layouts/Default.astro'
+
+import * as page from '@content/pages/kickstart.md'
+import SchemaWebPage from '@components/SchemaWebPage.astro'
+import FloppyDrive from '@components/FloppyDrive.astro'
+import FloppyDisk from '@components/FloppyDisk.astro'
+
+const {
+  Content,
+  frontmatter: { name, description },
+  url
+} = page
+
+const meta = { name, description, url }
+---
+
+<Default title={name} {...meta}>
+  <SchemaWebPage slot="head" {...meta} />
+  <div class="page">
+    <div class="flex flex-col gap-6 w-44">
+      <div class="prose prose-tan">
+        <Content />
+      </div>
+    </div>
+    <a class="relative block w-[9.75rem] h-[10.5625rem]" href="/">
+      <span class="sr-only">Return to Workbench</span>
+      <FloppyDrive />
+      <FloppyDisk class="absolute bottom-[-25px] left-[12px] animate-disk" />
+    </a>
+  </div>
+</Default>
+
+<style lang="postcss">
+  .page {
+    @apply flex flex-col p-6 justify-center items-center gap-6 min-h-screen bg-purple text-tan;
+
+    @screen md {
+      @apply p-12 flex-row items-end justify-between gap-12;
+    }
+  }
+</style>

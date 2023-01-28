@@ -1,0 +1,32 @@
+---
+import Close from '@components/Close.astro'
+
+interface Props {
+  id: string
+  name: string
+  url?: string
+  class?: string
+}
+
+const { id, name, url, class: className, ...attrs } = Astro.props as Props
+---
+
+<section
+  class:list={['window border-window grid relative bg-blue', className]}
+  aria-labelledby={id}
+  {...attrs}
+>
+  <div
+    class="absolute flex items-center -top-[20px] -left-[4px] -right-[4px] h-[18px]"
+  >
+    <div class="flex-none">
+      <Close name={`Close the ${name} window`} url={url} />
+    </div>
+    <div class="flex-auto overflow-hidden leading-[18px]">
+      <h2 class="text-ellipsis whitespace-nowrap" id={id}>{name}</h2>
+    </div>
+  </div>
+  <div class="p-3 bg-gray overflow-auto flex-auto">
+    <slot />
+  </div>
+</section>

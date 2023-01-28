@@ -1,0 +1,34 @@
+---
+interface Props {
+  name: string
+  url: string
+  target: string
+  rel?: string
+}
+
+const { name, url, target, rel, ...props } = Astro.props
+---
+
+<a
+  href={url}
+  class="file inline-flex items-center flex-col gap-1 focus:bg-blue outline-none"
+  {target}
+  {rel}
+  {...props}>{name}</a
+>
+
+<style lang="postcss">
+  .file {
+    &::before {
+      content: '';
+
+      @apply block w-[46px] h-[62px] bg-cover bg-[url('/images/file.svg')];
+    }
+
+    &:active {
+      &::before {
+        background-position: -46px 0;
+      }
+    }
+  }
+</style>

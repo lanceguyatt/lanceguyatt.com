@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className, ...attrs } = Astro.props as Props
+---
+
+<div class:list={['titlebar', className]} {...attrs}>
+  <slot />
+</div>
+
+<style>
+  .titlebar {
+    @apply flex items-center relative h-[22px] line-clamp-1 px-1 text-base leading-5;
+  }
+</style>

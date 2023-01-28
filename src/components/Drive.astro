@@ -1,0 +1,27 @@
+---
+export interface Props {
+  name: string
+  url: string
+}
+
+const { name, url } = Astro.props as Props
+---
+
+<a href={url} class="drive">{name}</a>
+
+<style lang="postcss" is:global>
+  .drive {
+    @apply inline-flex flex-col items-center gap-1 max-w-[5rem] text-center outline-none focus:bg-blue;
+
+    &::before {
+      @apply block w-[85px] h-[44px] content-[""];
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='170' height='44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%23AAA' d='M0 0h84v44H0z' /%3E%3Cpath d='M63.5 26h.5V12h-1v12H12v2h51.5zM9 10h2v2H9v-2zm0 2h1v18H9V12zm1 16h60v2H10v-2zm58-18h2v2h-2v-2zm1 2h1v16h-1V12zm-7-2h2v2h-2v-2zm-50 0h1v14h-1V10zm1 0h1v2h-1v-2z' fill='%23AAA' fill-rule='nonzero' /%3E%3Cpath fill='%23000' d='M75 10V8H6v2H5v24h1v2h69v-2h1V10z' /%3E%3Cpath fill='%23FFF' d='M6 10h69v24H6z' /%3E%3Cpath d='M17 16h5v2h-5v-2zm28 2h1v2h-1v-2zm1 2h1v2h-1v-2zm1 2h1v2h-1v-2zm0-4h1v2h-1v-2zm1 2h1v2h-1v-2zm1 2h1v2h-1v-2zm0-4h1v2h-1v-2zm1 2h1v2h-1v-2zm1 2h1v2h-1v-2zm0-4h1v2h-1v-2zm1 2h1v2h-1v-2zm1 2h1v2h-1v-2zm-1-6h1v2h-1v-2zm1 2h1v2h-1v-2zm1 2h1v2h-1v-2zm-1-6h1v2h-1v-2zm1 2h1v2h-1v-2zm1 2h1v2h-1v-2zm0-4h1v2h-1v-2zm2 0h1v2h-1v-2zm-1 2h1v2h-1v-2z' fill='%23000' fill-rule='nonzero' /%3E%3Cpath d='M63.5 28h.5V14h-1v12H12v2h51.5zM9 12h2v2H9v-2zm0 2h1v18H9V14zm1 16h60v2H10v-2zm58-18h2v2h-2v-2zm1 2h1v16h-1V14zm-7-2h2v2h-2v-2zm-50 0h1v14h-1V12zm1 0h1v2h-1v-2z' fill='%23AAA' fill-rule='nonzero' /%3E%3Cpath d='M0 0h85v2H0V0zm0 2h1v40H0V2z' fill='%23FFF' /%3E%3Cpath d='M0 42h85v2H0v-2zM84 0h1v42h-1V0z' fill='%23000' fill-rule='nonzero' /%3E%3Cpath fill='%23AAA' d='M85 0h85v44H85z' /%3E%3Cpath d='M159 9h7v28H95v-4h-5V5h69v4zM89 7h1v24h-1V7zm70 0h1v2h-1V7z' fill='%23000' fill-rule='nonzero' /%3E%3Cpath fill='%23FFF' d='M90 7h69v24H90z' /%3E%3Cpath d='M147.5 25h.5V11h-1v12H96v2h51.5zM93 9h2v2h-2V9zm0 2h1v18h-1V11zm1 16h60v2H94v-2zm58-18h2v2h-2V9zm1 2h1v16h-1V11zm-7-2h2v2h-2V9zM96 9h1v14h-1V9zm1 0h1v2h-1V9z' fill='%23AAA' /%3E%3Cpath d='M128 15h4v2h-4v-2zm1 2h4v2h-4v-2zm1 2h6v2h-6v-2zm4-2h3v2h-3v-2zm-1-2h5v2h-5v-2zm2-2h4v2h-4v-2zm1-2h4v2h-4v-2zm5 0h1v2h-1v-2zm-1 2h1v2h-1v-2zm-1 2h1v2h-1v-2zm-1 2h1v2h-1v-2zm-1 2h1v2h-1v-2zm-36-8h5v2h-5v-2zm0 4h5v2h-5v-2zm2 2h1v2h-1v-2zm-3 0h1v2h-1v-2zm0-4h1v2h-1v-2zm0-4h1v2h-1V9zm3 0h1v2h-1V9zm3 0h1v2h-1V9zm0 4h1v2h-1v-2zm0 4h1v2h-1v-2z' fill='%23000' fill-rule='nonzero' /%3E%3Cpath fill='%236687BA' d='M101 13h5v2h-5z' /%3E%3Cg fill-rule='nonzero'%3E%3Cpath d='M85 0h85v2H85V0zm0 2h1v40h-1V2z' fill='%23000' /%3E%3Cpath d='M85 42h85v2H85v-2zm84-40h1v40h-1V2z' fill='%23FFF' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    &:active {
+      &::before {
+        background-position: -85px 0;
+      }
+    }
+  }
+</style>

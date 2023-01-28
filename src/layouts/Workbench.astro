@@ -1,0 +1,37 @@
+---
+import { SITE } from '@config'
+import {
+  BaseHead,
+  Disk,
+  Drive,
+  Nav,
+  TitleBar,
+  Window
+} from '@components/index.astro'
+import '@styles/workbench.css'
+
+const { lang, copyrightYear } = SITE
+const { title, description, url, image, ...props } = Astro.props
+---
+
+<html lang={lang}>
+  <head>
+    <BaseHead {title} {description} {url} {image} />
+    <slot name="head" />
+  </head>
+  <body>
+    <div class="grid min-h-screen grid-rows-[auto_1fr]" {...props}>
+      <TitleBar class="bg-black text-gray" role="banner">
+        {SITE.title} Copyright &copy; 2000-{copyrightYear} All Rights Reserved
+      </TitleBar>
+      <Window id="workbench-window" name="Workbench" url="/kickstart">
+        <Nav id="workbench-nav" name="Workbench" class="flex-col">
+          <Disk name="Ram Disk" url="/ram-disk" />
+          <Drive name="Work" url="/work" />
+          <Drive name="About" url="/about" />
+        </Nav>
+      </Window>
+      <slot />
+    </div>
+  </body>
+</html>

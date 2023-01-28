@@ -1,0 +1,173 @@
+---
+import { SITE } from '@config'
+import Workbench from '@layouts/Workbench.astro'
+import Work from '@containers/Work.astro'
+import { Button, Window } from '@components/index.astro'
+
+export async function getStaticPaths() {
+  const work = await Astro.glob('../../content/work/**/*.md')
+
+  return work.map(
+    ({
+      frontmatter: { name, description, sameAs, image, tags },
+      Content,
+      file
+    }) => {
+      const slug = file.split('/').at(-2)
+      return {
+        params: { slug },
+        props: { name, description, sameAs, image, tags, slug, Content }
+      }
+    }
+  )
+}
+
+export interface Props {
+  name: string
+  description: string
+  slug: string
+  image: {
+    url: string
+    width: number
+    height: number
+    alt: string
+  }
+  sameAs: string
+  tags: any
+  Content: any
+}
+
+// const { slug } = Astro.params
+const { name, description, image, sameAs, tags, Content, slug } =
+  Astro.props as Props
+const title = `${name} - Work - ${SITE.name}`
+const url = `work/${slug}`
+const keywords = tags.map((tag) => tag)
+
+const meta = { name, description, url, image }
+
+const ldData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name,
+  description,
+  url: `${SITE.url}${url}`,
+  image: {
+    '@type': 'ImageObject',
+    url: `${SITE.url}${image.url}`,
+    width: image.width,
+    height: image.height,
+    description: image.alt
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@id': `${SITE.url}`,
+          name: 'Workbench'
+        }
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: {
+          '@id': `${SITE.url}/work`,
+          name: 'Work'
+        }
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        item: {
+          '@id': `${SITE.url}/work/${slug}`,
+          name
+        }
+      }
+    ]
+  },
+  mainEntity: {
+    '@type': 'CreativeWork',
+    name,
+    url: `${SITE.url}${url}`,
+    sameAs,
+    image: {
+      '@type': 'ImageObject',
+      url: `${SITE.url}${image.url}`,
+      width: image.width,
+      height: image.height,
+      description: image.alt
+    },
+    keywords,
+    copyrightHolder: {
+      '@type': 'Organization',
+      name
+    }
+  },
+  copyrightHolder: {
+    '@type': 'Person',
+    name: 'Lance Guyatt'
+  },
+  copyrightYear: SITE.copyrightYear
+}
+---
+
+<Workbench {...meta}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(ldData, null, 2)}
+  ></script>
+  <Work />
+  <Window id={`window-${slug}`} name={name} url="/work">
+    <div class="flex flex-col justify-center gap-6">
+      <div class="w-36 h-36 self-center" v-if="project.image">
+        <div class="aspect-w-1 aspect-h-1">
+          {
+            image && (
+              <img
+                class="border-2 border-img-bar p-[2px] object-cover"
+                src={image.url}
+                loading="lazy"
+                alt={image.alt}
+              />
+            )
+          }
+        </div>
+      </div>
+      <dl class="grid gap-3 grid-cols-[min-content_1fr]">
+        <dt
+          class="flex items-center justify-end text-white after:content-[':']"
+        >
+          Name
+        </dt>
+        <dd class="border-img-foo p-[0.125rem]">{name}</dd>
+        <dt
+          class="flex items-center justify-end text-white after:content-[':']"
+        >
+          Url
+        </dt>
+        <dd class="border-img-foo p-[0.125rem]">{sameAs}</dd>
+        <dt
+          class="flex items-center justify-end text-white after:content-[':']"
+        >
+          Technologies
+        </dt>
+        <dd class="border-img-foo p-[0.125rem]">
+          <ul>
+            {tags.map((tag) => <li>{tag}</li>)}
+          </ul>
+        </dd>
+      </dl>
+      <div class="flex justify-between">
+        <Button href="/work">Cancel</Button>
+        <Button href={sameAs} target="_blank">Launch</Button>
+      </div>
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+  </Window>
+</Workbench>

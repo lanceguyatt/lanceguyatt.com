@@ -1,0 +1,27 @@
+---
+import Window from '@components/Window.astro'
+import '@styles/workbench.css'
+
+const { frontmatter } = Astro.props
+---
+
+<html>
+  <head>
+    <title>Foo</title>
+  </head>
+  <body>
+    <div class="page bg-gray">
+      <Window name={frontmatter.name}>
+        <div class="prose prose-black">
+          <slot />
+        </div>
+      </Window>
+    </div>
+  </body>
+</html>
+
+<style lang="postcss">
+  .page {
+    @apply min-h-screen w-full;
+  }
+</style>

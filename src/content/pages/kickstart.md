@@ -1,0 +1,11 @@
+---
+name: Kickstart
+description: Kickstart description
+---
+
+![Amiga tick graphic](/images/tick.svg)
+
+2.0 Roms (37.350)<br>
+Copyright &copy; 2000-2023<br>
+Lance Guyatt, Inc<br>
+All Rights Reserved

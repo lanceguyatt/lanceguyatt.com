@@ -4,8 +4,8 @@ node_modules
 yarn-error.log
 
 # Build directory
-public
 .DS_Store
 *.code-workspace
 .env
 .env.local
+dist

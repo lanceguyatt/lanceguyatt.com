@@ -1,0 +1,20 @@
+---
+import { Drawer, Nav, Window } from '@components/index.astro'
+import { frontmatter } from '../content/pages/work.md'
+
+const { name } = frontmatter
+const work = await Astro.glob('../content/work/**/*.md')
+---
+
+<Window id="work" name={name} url="/">
+  <Nav id="work-nav" name={name}>
+    {
+      work.map((project) => (
+        <Drawer
+          name={project.frontmatter.name}
+          url={`/work/${project.file.split('/').at(-2)}`}
+        />
+      ))
+    }
+  </Nav>
+</Window>

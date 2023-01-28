@@ -1,0 +1,28 @@
+---
+import Default from '@layouts/Default.astro'
+import { Alert } from '@components/index.astro'
+import Toasty from '@components/Toasty.svelte'
+import * as page from '../content/pages/404.md'
+
+const {
+  Content,
+  frontmatter: { name }
+} = page
+---
+
+<Default {...page}>
+  <div class="page">
+    <Alert aria-live="assertive">
+      <div class="prose prose-red">
+        <Content />
+      </div>
+    </Alert>
+    <Toasty client:visible image="/images/toasty.png" toasty="false" />
+  </div>
+</Default>
+
+<style>
+  .page {
+    @apply flex flex-col items-center justify-center min-h-screen bg-black text-white overflow-hidden;
+  }
+</style>

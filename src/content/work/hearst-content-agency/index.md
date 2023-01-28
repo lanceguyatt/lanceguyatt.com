@@ -1,0 +1,15 @@
+---
+name: Hearst Content Agency
+description: Hearst Content Agency corporate website
+image:
+  url: /images/work/hearst.png
+  width: 200
+  height: 200
+alt: Hearst Content Agency logo
+sameAs: https://hearstcontentagency.co.uk
+tags:
+  - Drupal 9
+  - Gulp JS
+  - Post CSS
+  - UI Patterns
+---

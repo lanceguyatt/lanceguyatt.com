@@ -1,0 +1,27 @@
+---
+import { SITE } from '@config'
+import { BaseHead } from '@components/index.astro'
+import '@styles/workbench.css'
+
+interface Props {
+  title?: string
+  description?: string
+  url?: string
+  image?: {
+    url?: string
+  }
+}
+
+const { title, description, url, image } = Astro.props as Props
+const meta = { title, description, url, image }
+---
+
+<html lang={SITE.lang}>
+  <head>
+    <BaseHead {...meta} />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
