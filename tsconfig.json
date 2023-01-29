@@ -2,6 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": ".",
+    "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@components/*": ["src/components/*"],
@@ -25,3 +26,4 @@
     "types": ["astro/env"]
   }
 }
+

@@ -1,14 +1,15 @@
 {
-  "name": "lanceguyatt-website-astro",
+  "name": "lanceguyatt.com",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "astro dev --experimental-integrations",
-    "start": "astro dev --experimental-integrations",
-    "build": "astro build --experimental-integrations",
-    "preview": "astro preview --experimental-integrations",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
     "check": "astro check --experimental-integrations",
     "format": "yarn prettier -w .",
     "surge": "PUBLIC_BASE_URL=lanceguyatt.surge.sh surge -p dist -d lanceguyatt.surge.sh"
@@ -16,6 +17,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "astro": "^2.0.2"
+  },
   "devDependencies": {
     "@astrojs/svelte": "^2.0.0",
     "@astrojs/tailwind": "^3.0.0",
@@ -23,7 +27,6 @@
     "@tailwindcss/typography": "^0.5.9",
     "astro-compress": "^1.1.28",
     "astro-seo": "^0.7.0",
-    "astro": "^2.0.2",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "prettier-plugin-astro": "^0.8.0",
