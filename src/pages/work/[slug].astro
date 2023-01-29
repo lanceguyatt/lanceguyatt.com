@@ -131,8 +131,7 @@ const ldData = {
     type="application/ld+json"
     set:html={JSON.stringify(ldData, null, 2)}
   ></script>
-  <Work />
-  <Window id={`window-${slug}`} name={name} url="/work">
+    <Window id={`window-${slug}`} name={name} url="/work">
     <div class="flex flex-col justify-center gap-6">
       {
         image && (
@@ -183,4 +182,6 @@ const ldData = {
       </div>
     </div>
   </Window>
+
+  <Work />
 </Workbench>

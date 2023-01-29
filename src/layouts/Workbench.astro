@@ -21,6 +21,7 @@ const { title, description, url, image, ...attrs } = Astro.props
       <TitleBar class="bg-black text-gray">
         {SITE.title} Copyright &copy; 2000-{copyrightYear} All Rights Reserved
       </TitleBar>
+      <slot />
       <Window id="workbench-window" name="Workbench" url="/kickstart">
         <Nav id="workbench-nav" name="Workbench" class="flex-col">
           <Disk name="Ram Disk" url="/ram-disk" />
@@ -28,7 +29,7 @@ const { title, description, url, image, ...attrs } = Astro.props
           <Drive name="About" url="/about" />
         </Nav>
       </Window>
-      <slot />
+      
     </div>
   </body>
 </html>
