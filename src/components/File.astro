@@ -1,33 +1,27 @@
 ---
-interface Props {
+export interface Props {
   name: string
   url: string
-  target: string
-  rel?: string
 }
 
-const { name, url, target, rel, ...props } = Astro.props
+const { name, url, ...attrs } = Astro.props
 ---
 
-<a
-  href={url}
-  class="file inline-flex items-center flex-col gap-1 focus:bg-blue outline-none"
-  {target}
-  {rel}
-  {...props}>{name}</a
->
+<a href={url} class="file" {...attrs}>
+  {name}
+</a>
 
 <style lang="postcss">
   .file {
-    &::before {
-      content: '';
+    @apply inline-flex items-center flex-col gap-1 focus:bg-blue outline-none before:content-[""];
 
-      @apply block w-[46px] h-[62px] bg-cover bg-[url('/images/file.svg')];
+    &::before {
+      @apply block w-[2.875rem] h-[3.875rem] bg-cover bg-[url('/images/file.svg')];
     }
 
     &:active {
       &::before {
-        background-position: -46px 0;
+        background-position: -2.875rem 0;
       }
     }
   }

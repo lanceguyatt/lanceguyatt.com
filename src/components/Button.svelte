@@ -1,12 +1,17 @@
 <script lang="ts">
-  let className: string
-  export let href: string
+  let className: string = ''
   export { className as class }
+  export let ghosted: boolean = false
+  export let tag: string = 'a'
 </script>
 
-<a {href} class="button">
+<svelte:element
+  this={tag}
+  {...$$props}
+  class={`button ${className} ${ghosted && 'button--ghosted'}`}
+>
   <slot />
-</a>
+</svelte:element>
 
 <style lang="postcss">
   .button {
@@ -18,6 +23,10 @@
       @apply bg-blue;
 
       border-image: url('/images/selected.svg') 2 stretch;
+    }
+
+    &--ghosted {
+      @apply opacity-30;
     }
   }
 </style>

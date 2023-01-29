@@ -2,7 +2,7 @@
 
 Name: Lance Guyatt
 Role: Web Developer
-Site: http://lanceguyatt.com
+Site: https://lanceguyatt.com
 Email: lance [at] lanceguyatt.com
 Twitter: @lanceguyatt
 Location: London, United Kingdom
@@ -12,7 +12,7 @@ Location: London, United Kingdom
 Language: English
 Doctype: HTML5
 Standards: HTML5, CSS4, ES6
-Components: React, GatsbyJS, Webpack, Styled Components
+Components: AStroJS, SvelteJS, Tailwind CSS
 Software: Visual Studio Code, Sketch
 
 /* THANKS */

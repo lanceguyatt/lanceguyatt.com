@@ -5,16 +5,14 @@
 @layer base {
   @font-face {
     font-family: 'Topaz';
-    src: url('/fonts/topaz.eot?#iefix') format('embedded-opentype'),
-      url('/fonts/topaz.ttf') format('truetype'),
-      url('/fonts/topaz.woff') format('woff'),
-      url('/fonts/topaz.woff2') format('woff2');
+    src: local('Topaz'), url('/fonts/topaz.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
   }
 
   body {
-    @apply font-sans text-optimize leading-5;
+    @apply font-sans text-optimize text-[1rem] leading-tight;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;

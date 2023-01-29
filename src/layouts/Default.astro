@@ -17,10 +17,7 @@ const meta = { title, description, url, image }
 ---
 
 <html lang={SITE.lang}>
-  <head>
-    <BaseHead {...meta} />
-    <slot name="head" />
-  </head>
+  <BaseHead {...meta} />
   <body>
     <slot />
   </body>

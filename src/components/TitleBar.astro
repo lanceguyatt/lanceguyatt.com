@@ -1,14 +1,15 @@
 ---
 interface Props {
   class?: string
+  tag?: string
 }
 
-const { class: className, ...attrs } = Astro.props as Props
+const { tag: Tag = 'header', class: className, ...attrs } = Astro.props as Props
 ---
 
-<div class:list={['titlebar', className]} {...attrs}>
+<Tag class:list={['titlebar', className]} {...attrs}>
   <slot />
-</div>
+</Tag>
 
 <style>
   .titlebar {

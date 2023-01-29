@@ -1,15 +1,14 @@
 ---
 import Workbench from '@layouts/Workbench.astro'
-import { SchemaWebPage, Window } from '@components/index.astro'
+import Window from '@components/Window.astro'
 import { frontmatter, Content, url } from '@content/pages/ram-disk.md'
 
-const { name } = frontmatter
-const meta = { title: name, name, url }
+const { name, description } = frontmatter
+const meta = { title: name, description, name, url }
 ---
 
 <Workbench {...meta}>
-  <SchemaWebPage slot="head" {...meta} />
-  <Window id="ram-disk" name={name} url="/">
+  <Window id="ram-disk" {name} url="/">
     <div class="prose prose-black">
       <Content />
     </div>

@@ -5,7 +5,7 @@ const name = 'Lance Guyatt, Web Developer.'
 export const SITE = {
   title: name,
   name,
-  description: name,
+  description: 'Lance Guyatt, description',
   id: `${BASE_URL}#lanceguyatt`,
   url: BASE_URL,
   image: {

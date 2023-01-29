@@ -1,5 +1,6 @@
 ---
 import { SITE } from '@config'
+import '@styles/workbench.css'
 import {
   BaseHead,
   Disk,
@@ -8,20 +9,16 @@ import {
   TitleBar,
   Window,
 } from '@components/index.astro'
-import '@styles/workbench.css'
 
 const { lang, copyrightYear } = SITE
-const { title, description, url, image, ...props } = Astro.props
+const { title, description, url, image, ...attrs } = Astro.props
 ---
 
 <html lang={lang}>
-  <head>
-    <BaseHead {title} {description} {url} {image} />
-    <slot name="head" />
-  </head>
+  <BaseHead {title} {description} {url} {image} />
   <body>
-    <div class="grid min-h-screen grid-rows-[auto_1fr]" {...props}>
-      <TitleBar class="bg-black text-gray" role="banner">
+    <div class="screen" {...attrs}>
+      <TitleBar class="bg-black text-gray">
         {SITE.title} Copyright &copy; 2000-{copyrightYear} All Rights Reserved
       </TitleBar>
       <Window id="workbench-window" name="Workbench" url="/kickstart">
@@ -35,3 +32,9 @@ const { title, description, url, image, ...props } = Astro.props
     </div>
   </body>
 </html>
+
+<style lang="postcss">
+  .screen {
+    @apply grid min-h-screen grid-rows-[auto_1fr] w-full;
+  }
+</style>

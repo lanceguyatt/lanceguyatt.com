@@ -11,7 +11,7 @@
     "preview": "astro preview --experimental-integrations",
     "check": "astro check --experimental-integrations",
     "format": "yarn prettier -w .",
-    "surge": "surge -p dist -d lanceguyatt.surge.sh"
+    "surge": "PUBLIC_BASE_URL=lanceguyatt.surge.sh surge -p dist -d lanceguyatt.surge.sh"
   },
   "keywords": [],
   "author": "",

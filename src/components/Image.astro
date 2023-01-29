@@ -1,0 +1,17 @@
+---
+export interface Props {
+  src: string
+  alt: string
+  loading?: string
+}
+
+const { src, alt, loading = 'lazy', ...attrs } = Astro.props as Props
+---
+
+<img class="image" src={src} alt={alt} loading={loading} {...attrs} />
+
+<style lang="postcss">
+  .image {
+    @apply border-2 border-img-bar p-[2px] object-cover;
+  }
+</style>

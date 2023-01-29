@@ -4,6 +4,7 @@ import Workbench from '@layouts/Workbench.astro'
 import Work from '@containers/Work.astro'
 import Window from '@components/Window.astro'
 import Button from '@components/Button.svelte'
+import Image from '@components/Image.astro'
 
 export async function getStaticPaths() {
   const work = await Astro.glob('../../content/work/**/*.md')
@@ -137,12 +138,7 @@ const ldData = {
         image && (
           <div class="w-36 h-36 self-center" v-if="project.image">
             <div class="aspect-w-1 aspect-h-1">
-              <img
-                class="border-2 border-img-bar p-[2px] object-cover"
-                src={image.url}
-                loading="lazy"
-                alt={image.alt}
-              />
+              <Image src={image.url} alt={image.alt} />
             </div>
           </div>
         )

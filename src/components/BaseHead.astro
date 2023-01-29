@@ -2,33 +2,86 @@
 import { SEO } from 'astro-seo'
 import { SITE } from '@config'
 
+// const TYPEKIT_ID = import.meta.env.PUBLIC_TYPEKIT_ID
+// const GTM_ID = import.meta.env.PUBLIC_GTM_ID
+// console.log(import.meta.env)
+
 export interface Props {
-  title?: string
+  title: string
   description?: string
   url?: string
   image?: {
     url?: string
-    width?: string
-    height?: string
+    width?: number
+    height?: number
+    alt?: string
   }
+  noindex?: boolean
 }
 
 const {
-  title = SITE.title,
+  title = SITE.name,
   description = SITE.description,
-  url = '',
-  image = SITE.image,
-} = Astro.props as Props
-
-const openGraph = {
-  basic: {
-    title,
-    description,
-    type: 'WebPage',
-    image,
-    url,
+  url = '/',
+  image = {
+    url: '/images/share.png',
+    width: 1200,
+    height: 630,
+    alt: 'Lance Guyatt, Web Developer',
   },
-}
+  noindex = false,
+} = Astro.props as Props
 ---
 
-<SEO title={title} description={description} canonical={url} {openGraph} />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <SEO
+    canonical={`${SITE.url}${url}`}
+    title={title}
+    description={description}
+    noindex={noindex}
+    openGraph={{
+      basic: {
+        title: description,
+        type: 'webpage',
+        image: `${SITE.url}${image.url}`,
+        url: `${SITE.url}${url}`,
+      },
+
+      optional: {
+        siteName: SITE.name,
+        locale: SITE.locale,
+        description,
+      },
+
+      image: {
+        width: image.width,
+        height: image.height,
+        alt: image.alt,
+      },
+    }}
+    twitter={{
+      card: 'summary_large_image',
+      site: '@lanceguyatt',
+      creator: '@lanceguyatt',
+    }}
+    extend={{
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'author', type: 'text/plain', href: '/humans.txt' },
+        { rel: 'mainfest', href: '/site.webmanifest' },
+        // {
+        //   rel: 'mask-icon',
+        //   href: '/safari-pinned-tab.svg',
+        // },
+        {
+          rel: 'apple-touch-icon',
+          href: '/apple-touch-icon.png',
+        },
+      ],
+      meta: [{ name: 'theme-color', content: SITE.themeColor }],
+    }}
+  />
+  <slot />
+</head>

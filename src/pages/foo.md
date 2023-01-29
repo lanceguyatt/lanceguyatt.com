@@ -1,5 +1,6 @@
 ---
 layout: ../layouts/Foo.astro
+id: foo
 name: Foo
 ---
 
