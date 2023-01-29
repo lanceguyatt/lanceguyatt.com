@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check --experimental-integrations",
+    "check": "astro check",
     "format": "yarn prettier -w .",
     "surge": "PUBLIC_BASE_URL=lanceguyatt.surge.sh surge -p dist -d lanceguyatt.surge.sh"
   },
