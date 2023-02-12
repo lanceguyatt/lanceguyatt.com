@@ -1,53 +1,20 @@
 ---
+import { getCollection, getEntryBySlug } from 'astro:content'
 import { SITE, LANCE_GUYATT } from '@/config'
 import Workbench from '@/layouts/Workbench.astro'
 import { Window, File } from '@/components/index.astro'
-import * as page from '@/content/page/about.md'
+import * as page from '@/content/page/about.mdx'
 
-const {
-  frontmatter: { name },
-  url,
-  Content,
-} = page
+const about = await getEntryBySlug('page', 'about')
+const { Content } = await about.render()
+const { slug, data } = about
+const { name, description } = data
 
 const title: string = `${name} - ${SITE.name}`
 const { givenName, familyName, sameAs } = LANCE_GUYATT
-
-const ldData = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name,
-  description: LANCE_GUYATT.description,
-  url: `${SITE.url}${url}`,
-  // image: {
-  //   '@type': 'ImageObject',
-  //   url: `${SITE.url}${image.url}`,
-  //   width: image.width,
-  //   height: image.height,
-  //   description: image.alt
-  // },
-  mainEntity: {
-    '@type': 'Person',
-    givenName,
-    familyName,
-    url: `${SITE.url}${url}`,
-    sameAs,
-  },
-  copyrightHolder: {
-    '@type': 'Person',
-    name: 'Lance Guyatt',
-  },
-  copyrightYear: SITE.copyrightYear,
-}
 ---
 
-<Workbench title={title} url={url}>
-  <script
-    slot="head"
-    type="application/ld+json"
-    set:html={JSON.stringify(ldData, null, 2)}
-  ></script>
-
+<Workbench title={title} description={description} url={`/${slug}`}>
   <Window id="about" name={name} url="/">
     <nav aria-labelledby="about-items">
       <h3 class="sr-only" id="about-items">About items</h3>
