@@ -11,7 +11,7 @@ const { name, url, ...attrs } = Astro.props
   {name}
 </a>
 
-<style lang="postcss">
+<style lang="postcss" is:global>
   .file {
     @apply inline-flex items-center flex-col gap-1 focus:bg-blue outline-none before:content-[""];
 

@@ -11,7 +11,7 @@ const { tag: Tag = 'header', class: className, ...attrs } = Astro.props as Props
   <slot />
 </Tag>
 
-<style>
+<style lang="postcss" is:global>
   .titlebar {
     @apply flex items-center relative h-[1.375rem] line-clamp-1 px-1 text-base;
   }

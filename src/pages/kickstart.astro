@@ -3,20 +3,21 @@ import { getEntryBySlug } from 'astro:content'
 import Icon from 'astro-icon'
 
 import Default from '@/layouts/Default.astro'
+import { Prose } from '@/components/index.astro'
 
 const kickstart = await getEntryBySlug('page', 'kickstart')
 const { Content } = await kickstart.render()
 
-const { slug, data } = kickstart
+const { slug: url, data } = kickstart
 const { name, description } = data
 ---
 
-<Default title={name} description={description} url={slug}>
+<Default title={name} description={description} url={`/${url}`}>
   <div class="page">
     <div class="flex flex-col gap-6 w-44">
-      <div class="prose prose-tan">
+      <Prose>
         <Content />
-      </div>
+      </Prose>
     </div>
     <a class="relative block w-[9.75rem] h-[10.5625rem]" href="/">
       <span class="sr-only">Return to Workbench</span>

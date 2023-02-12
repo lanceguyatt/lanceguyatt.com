@@ -13,7 +13,7 @@
   <slot />
 </svelte:element>
 
-<style lang="postcss">
+<style lang="postcss" is:global>
   .button {
     @apply inline-block h-6 px-2 appearance-none text-base leading-tight text-center whitespace-nowrap border-2;
 

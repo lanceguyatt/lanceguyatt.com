@@ -15,8 +15,8 @@ const { class: className, animate, ...attrs } = Astro.props as Props
   <slot />
 </div>
 
-<style>
+<style lang="postcss" is:global>
   .alert {
-    @apply border-2 max-w-xl text-red p-4 text-center;
+    @apply border-2 text-red p-4 text-center;
   }
 </style>

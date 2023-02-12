@@ -10,7 +10,7 @@ const { src, alt, loading = 'lazy', ...attrs } = Astro.props as Props
 
 <img class="image" src={src} alt={alt} loading={loading} {...attrs} />
 
-<style lang="postcss">
+<style lang="postcss" is:global>
   .image {
     @apply border-2 border-img-bar p-[2px] object-cover;
   }

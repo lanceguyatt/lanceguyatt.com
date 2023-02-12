@@ -3,7 +3,6 @@ import { getCollection, getEntryBySlug } from 'astro:content'
 import { SITE, LANCE_GUYATT } from '@/config'
 import Workbench from '@/layouts/Workbench.astro'
 import { Window, File } from '@/components/index.astro'
-import * as page from '@/content/page/about.mdx'
 
 const about = await getEntryBySlug('page', 'about')
 const { Content } = await about.render()
@@ -11,7 +10,7 @@ const { slug, data } = about
 const { name, description } = data
 
 const title: string = `${name} - ${SITE.name}`
-const { givenName, familyName, sameAs } = LANCE_GUYATT
+const { sameAs } = LANCE_GUYATT
 ---
 
 <Workbench title={title} description={description} url={`/${slug}`}>

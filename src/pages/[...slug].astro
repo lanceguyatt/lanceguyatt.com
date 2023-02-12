@@ -20,7 +20,7 @@ const { Content } = await entry.render()
 ---
 
 <Workbench title={name} description={description} url={`/${slug}`}>
-  <Window name={name}>
+  <Window id={slug} name={name}>
     <Prose>
       <Content />
     </Prose>

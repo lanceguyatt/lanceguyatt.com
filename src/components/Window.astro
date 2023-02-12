@@ -31,7 +31,7 @@ const { id, name, url, class: className, ...attrs } = Astro.props as Props
   </div>
 </section>
 
-<style lang="postcss">
+<style lang="postcss" is:global>
   .window {
     @apply border-window grid relative;
   }

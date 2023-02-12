@@ -24,4 +24,13 @@ export default defineConfig({
     svelte(),
     compress(),
   ],
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/[name][extname]',
+        }
+      }
+    }
+  }
 })

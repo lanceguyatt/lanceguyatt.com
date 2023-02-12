@@ -1,6 +1,7 @@
 ---
 import { SITE } from '@/config'
 import { BaseHead } from '@/components/index.astro'
+
 import '@/styles/workbench.css'
 
 interface Props {
@@ -10,15 +11,16 @@ interface Props {
   image?: {
     url?: string
   }
+  class?: string
 }
 
-const { title, description, url, image } = Astro.props as Props
+const { title, description, url, image, class: className } = Astro.props as Props
 const meta = { title, description, url, image }
 ---
 
 <html lang={SITE.lang}>
   <BaseHead {...meta} />
-  <body>
+  <body class:list={[className]}>
     <slot />
   </body>
 </html>

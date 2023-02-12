@@ -63,41 +63,23 @@ module.exports = {
       // transitionProperty: {
       //   url: 'text-decoration, color',
       // },
+      // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
       typography: ({ theme }) => ({
-        black: {
+        gray: {
           css: {
-            '--tw-prose-body': theme('colors.black'),
-            '--tw-prose-headings': theme('colors.black'),
-            '--tw-prose-lead': theme('colors.black'),
-            '--tw-prose-links': theme('colors.black'),
-            '--tw-prose-bold': theme('colors.black'),
-            '--tw-prose-quotes': theme('colors.black'),
-            '--tw-prose-quote-borders': theme('colors.black'),
-            '--tw-prose-bullets': theme('colors.black'),
-            '--tw-prose-counters': theme('colors.black'),
-            '--tw-prose-hr': theme('colors.black'),
-            '--tw-prose-th-borders': theme('colors.black'),
-            '--tw-prose-td-borders': theme('colors.black'),
-          },
-        },
-        red: {
-          '--tw-prose-body': theme('colors.red'),
-        },
-        tan: {
-          css: {
-            '--tw-prose-body': theme('colors.tan'),
-            '--tw-prose-headings': theme('colors.black'),
-            '--tw-prose-lead': theme('colors.black'),
-            '--tw-prose-links': theme('colors.black'),
-            '--tw-prose-bold': theme('colors.black'),
-            '--tw-prose-quotes': theme('colors.black'),
-            '--tw-prose-quote-borders': theme('colors.black'),
-            '--tw-prose-bullets': theme('colors.black'),
-            '--tw-prose-counters': theme('colors.black'),
-            '--tw-prose-hr': theme('colors.black'),
-            '--tw-prose-th-borders': theme('colors.black'),
-            '--tw-prose-td-borders': theme('colors.black'),
-          },
+            '--tw-prose-body': theme('colors.current'),
+            '--tw-prose-headings': theme('colors.current'),
+            '--tw-prose-lead': theme('colors.current'),
+            '--tw-prose-links': theme('colors.current'),
+            '--tw-prose-bold': theme('colors.current'),
+            '--tw-prose-quotes': theme('colors.current'),
+            '--tw-prose-quote-borders': theme('colors.current'),
+            '--tw-prose-bullets': theme('colors.current'),
+            '--tw-prose-counters': theme('colors.current'),
+            '--tw-prose-hr': theme('colors.current'),
+            '--tw-prose-th-borders': theme('colors.current'),
+            '--tw-prose-td-borders': theme('colors.current'),
+          }
         },
         DEFAULT: {
           css: {

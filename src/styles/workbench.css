@@ -25,16 +25,15 @@
     }
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-normal;
-  }
-
   pre {
     @apply font-sans;
   }
+}
+
+[astro-icon="floppy-drive"] {
+  @apply w-[156px] h-[38px];
+}
+
+[astro-icon="floppy-disk"] {
+  @apply w-[134px] h-[120px];
 }

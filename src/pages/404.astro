@@ -1,28 +1,22 @@
 ---
-import Default from '@/layouts/Default.astro'
-import { Alert } from '@/components/index.astro'
-import Toasty from '@/components/Toasty.svelte'
-import * as page from '../content/page/404.md'
+import { getEntryBySlug } from 'astro:content'
 
-const {
-  Content,
-  frontmatter: { name },
-} = page
+import Default from '@/layouts/Default.astro'
+import Toasty from '@/components/Toasty.svelte'
+
+const page = await getEntryBySlug('page', '404')
+const { Content } = await page.render()
+
+const { slug: url, data } = page
+const { name, description } = data
 ---
 
-<Default {...page}>
-  <div class="page">
-    <Alert aria-live="assertive">
-      <div class="prose prose-red">
-        <Content />
-      </div>
-    </Alert>
-    <Toasty client:visible image="/images/toasty.png" toasty="false" />
-  </div>
+<Default
+  title={name}
+  description={description}
+  url={`/${url}`}
+  class="bg-black text-white flex flex-col items-center justify-center min-h-screen p-6"
+>
+  <Content />
+  <Toasty client:visible image="/images/toasty.png" toasty="false" />
 </Default>
-
-<style>
-  .page {
-    @apply flex flex-col items-center justify-center min-h-screen bg-black text-white overflow-hidden;
-  }
-</style>
