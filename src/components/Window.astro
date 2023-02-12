@@ -1,5 +1,5 @@
 ---
-import Close from '@components/Close.astro'
+import Close from '@/components/Close.astro'
 
 interface Props {
   id: string
@@ -12,7 +12,7 @@ const { id, name, url, class: className, ...attrs } = Astro.props as Props
 ---
 
 <section
-  class:list={['window border-window grid relative bg-blue', className]}
+  class:list={['window', 'bg-blue', className]}
   aria-labelledby={id}
   {...attrs}
 >
@@ -30,3 +30,9 @@ const { id, name, url, class: className, ...attrs } = Astro.props as Props
     <slot />
   </div>
 </section>
+
+<style lang="postcss">
+  .window {
+    @apply border-window grid relative;
+  }
+</style>

@@ -1,14 +1,21 @@
 import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
+import mdx from '@astrojs/mdx'
 import svelte from '@astrojs/svelte'
+import tailwind from '@astrojs/tailwind'
 import compress from 'astro-compress'
+import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://lanceguyatt.surge.sh',
   markdown: {
-    drafts: true,
   },
   integrations: [
+    mdx({
+      // rehypePlugins: [
+      //   rehypeExternalLinks()
+      // ],
+    }),
     tailwind({
       config: {
         applyBaseStyles: false,
@@ -17,5 +24,4 @@ export default defineConfig({
     svelte(),
     compress(),
   ],
-  site: 'https://lanceguyatt.surge.sh',
 })

@@ -28,7 +28,7 @@ export const LANCE_GUYATT = {
   description: name,
   url: BASE_URL,
   jobTitle: 'Web Developer',
-  sameAs: [
+  urls: [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lanceguyatt' },
     { name: 'Github', url: 'https://github.com/lanceguyatt' },
   ],

@@ -1,9 +1,9 @@
 ---
-import Workbench from '@layouts/Workbench.astro'
-import { SchemaWebPage } from '@components/index.astro'
-import Work from '@containers/Work.astro'
+import Workbench from '@/layouts/Workbench.astro'
+import { SchemaWebPage } from '@/components/index.astro'
+import Work from '@/containers/Work.astro'
 
-import { frontmatter } from '../../content/pages/work.md'
+import { frontmatter } from '../../content/page/work.mdx'
 
 const { name, description } = frontmatter
 const page = {

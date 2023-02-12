@@ -1,22 +1,17 @@
 ---
-import Default from '@layouts/Default.astro'
+import { getEntryBySlug } from 'astro:content'
+import Icon from 'astro-icon'
 
-import * as page from '@content/pages/kickstart.md'
-import SchemaWebPage from '@components/SchemaWebPage.astro'
-import FloppyDrive from '@components/FloppyDrive.astro'
-import FloppyDisk from '@components/FloppyDisk.astro'
+import Default from '@/layouts/Default.astro'
 
-const {
-  Content,
-  frontmatter: { name, description },
-  url,
-} = page
+const kickstart = await getEntryBySlug('page', 'kickstart')
+const { Content } = await kickstart.render()
 
-const meta = { name, description, url }
+const { slug, data } = kickstart
+const { name, description } = data
 ---
 
-<Default title={name} {...meta}>
-  <SchemaWebPage slot="head" {...meta} />
+<Default title={name} description={description} url={slug}>
   <div class="page">
     <div class="flex flex-col gap-6 w-44">
       <div class="prose prose-tan">
@@ -25,8 +20,11 @@ const meta = { name, description, url }
     </div>
     <a class="relative block w-[9.75rem] h-[10.5625rem]" href="/">
       <span class="sr-only">Return to Workbench</span>
-      <FloppyDrive />
-      <FloppyDisk class="absolute bottom-[-25px] left-[12px] animate-disk" />
+      <Icon name="floppy-drive" />
+      <Icon
+        name="floppy-disk"
+        class="absolute bottom-[-25px] left-[12px] animate-disk w-[134px] h-[120px]"
+      />
     </a>
   </div>
 </Default>

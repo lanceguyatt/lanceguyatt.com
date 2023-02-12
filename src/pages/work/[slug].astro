@@ -1,68 +1,39 @@
 ---
-import { SITE } from '@config'
-import Workbench from '@layouts/Workbench.astro'
-import Work from '@containers/Work.astro'
-import Window from '@components/Window.astro'
-import Button from '@components/Button.svelte'
-import Image from '@components/Image.astro'
+import { getCollection } from 'astro:content'
+
+import { SITE } from '@/config'
+import Workbench from '@/layouts/Workbench.astro'
+import Window from '@/components/Window.astro'
+import Button from '@/components/Button.svelte'
+import Image from '@/components/Image.astro'
 
 export async function getStaticPaths() {
-  const work = await Astro.glob('../../content/work/**/*.md')
+  const work = await getCollection('work')
 
-  return work.map(
-    ({
-      frontmatter: { name, description, sameAs, image, tags, archive },
-      Content,
-      file,
-    }) => {
-      const slug = file.split('/').at(-2)
-      return {
-        params: { slug },
-        props: {
-          name,
-          description,
-          sameAs,
-          image,
-          tags,
-          slug,
-          archive,
-          Content,
-        },
-      }
-    }
-  )
+  return work.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
 }
 
-export interface Props {
-  name: string
-  description: string
-  slug: string
-  image: {
-    url: string
-    width: number
-    height: number
-    alt: string
-  }
-  sameAs: string
-  tags: any
-  Content: any
-}
+const { entry } = Astro.props
+const { data, slug } = entry
+const { name, description, image, tags, url, sameAs } = data
 
-// const { slug } = Astro.params
-const { name, description, image, sameAs, tags, Content, slug } =
-  Astro.props as Props
+const { Content } = await entry.render()
+
 const title = `${name} - Work - ${SITE.name}`
-const url = `work/${slug}`
+// const url = `work/${slug}`
 const keywords = tags.map((tag) => tag)
 
-const meta = { name, description, url, image }
+const meta = { name, description, slug, sameAs, image }
 
 const ldData = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name,
   description,
-  url: `${SITE.url}${url}`,
+  url: `${SITE.url}/work/${slug}`,
   image: {
     '@type': 'ImageObject',
     url: `${SITE.url}${image.url}`,
@@ -102,7 +73,7 @@ const ldData = {
   mainEntity: {
     '@type': 'CreativeWork',
     name,
-    url: `${SITE.url}${url}`,
+    url: `${SITE.url}/work/${slug}`,
     sameAs,
     image: {
       '@type': 'ImageObject',
@@ -131,11 +102,11 @@ const ldData = {
     type="application/ld+json"
     set:html={JSON.stringify(ldData, null, 2)}
   ></script>
-    <Window id={`window-${slug}`} name={name} url="/work">
+  <Window id={`window-${slug}`} name={name} url="/work" class="window">
     <div class="flex flex-col justify-center gap-6">
       {
         image && (
-          <div class="w-36 h-36 self-center" v-if="project.image">
+          <div class="w-36 h-36 self-center">
             <div class="aspect-w-1 aspect-h-1">
               <Image src={image.url} alt={image.alt} />
             </div>
@@ -154,7 +125,7 @@ const ldData = {
         >
           Url
         </dt>
-        <dd class="border-img-foo p-[0.125rem]">{sameAs}</dd>
+        <dd class="border-img-foo p-[0.125rem]">{url}</dd>
         <dt
           class="flex items-center justify-end text-white after:content-[':']"
         >
@@ -178,10 +149,18 @@ const ldData = {
       }
       <div class="flex justify-between">
         <Button href="/work">Cancel</Button>
-        <Button href={sameAs} target="_blank">Launch</Button>
+        <Button href={url} target="_blank">Launch</Button>
       </div>
     </div>
   </Window>
-
-  <Work />
 </Workbench>
+
+<style lang="postcss">
+.window {
+  @apply absolute top-[22px] right-0 bottom-0 left-0 z-20;
+
+  @screen md {
+    @apply top-1/2 left-1/2 w-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2;
+  }
+}
+</style>

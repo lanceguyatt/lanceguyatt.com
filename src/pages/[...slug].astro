@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content'
+
+import Workbench from '@/layouts/Workbench.astro'
+import { Prose, Window } from '@/components/index.astro'
+
+export async function getStaticPaths() {
+  const pageEntries = await getCollection('page')
+  return pageEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { data, slug } = entry
+const { name, description } = data
+
+const { Content } = await entry.render()
+---
+
+<Workbench title={name} description={description} url={`/${slug}`}>
+  <Window name={name}>
+    <Prose>
+      <Content />
+    </Prose>
+  </Window>
+</Workbench>

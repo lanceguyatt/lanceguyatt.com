@@ -6,7 +6,7 @@ image:
   width: 558
   height: 558
   alt: ''
-sameAs: https://ap.org
+url: https://ap.org
 tags:
   - Gulp JS
   - Post CSS

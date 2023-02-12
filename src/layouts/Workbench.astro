@@ -1,6 +1,6 @@
 ---
-import { SITE } from '@config'
-import '@styles/workbench.css'
+import { SITE } from '@/config'
+import '@/styles/workbench.css'
 import {
   BaseHead,
   Disk,
@@ -8,7 +8,7 @@ import {
   Nav,
   TitleBar,
   Window,
-} from '@components/index.astro'
+} from '@/components/index.astro'
 
 const { lang, copyrightYear } = SITE
 const { title, description, url, image, ...attrs } = Astro.props

@@ -33,6 +33,10 @@ module.exports = {
       animation: {
         disk: 'disk 1.5s forwards infinite',
       },
+      fontSize: {
+        base: ['1rem', '1.25'],
+        xl: ['1.25rem', '1.25'],
+      },
       keyframes: {
         disk: {
           '0%': {
@@ -133,7 +137,7 @@ module.exports = {
         //   }
         // },
         '.border-window': {
-          borderWidth: '22px 4px 4px 4px',
+          borderWidth: `${rem(22)} ${rem(4)} ${rem(4)} ${rem(4)}`,
           borderImage: 'url(/images/window.svg) 22 4 4 4 stretch',
         },
         '.border-img-foo': {
