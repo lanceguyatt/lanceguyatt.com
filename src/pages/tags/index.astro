@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content'
+import getUniqueTags from '@/utils/getUniqueTags'
+import Workbench from '@/layouts/Workbench.astro'
+import Drawer from '@/components/Drawer.astro'
+import Nav from '@/components/Nav.astro'
+import Window from '@/components/Window.astro'
+
+const work = await getCollection('work')
+let tags = getUniqueTags(work)
+---
+
+<Workbench>
+  <Window name="Tags" id="tags-window">
+    <Nav id="tags" name="Tags">
+      {tags.map(tag => <Drawer name={tag} url={`/tags/${tag}`} />)}
+    </Nav>
+  </Window>
+</Workbench>

@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply font-sans text-optimize text-xl;
+    @apply font-sans text-2xl text-optimize;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -30,10 +30,10 @@
   }
 }
 
-[astro-icon="floppy-drive"] {
-  @apply w-[156px] h-[38px];
+[astro-icon='floppy-drive'] {
+  @apply h-[38px] w-[156px];
 }
 
-[astro-icon="floppy-disk"] {
-  @apply w-[134px] h-[120px];
+[astro-icon='floppy-disk'] {
+  @apply h-[120px] w-[134px];
 }

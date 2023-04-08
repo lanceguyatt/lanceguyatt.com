@@ -1,0 +1,135 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "astro",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.preview.host": "http://localhost:3000",
+  "frontMatter.content.pageFolders": [
+    {
+      "path": "[[workspace]]/src/content/about",
+      "title": "about"
+    },
+    {
+      "path": "[[workspace]]/src/content/page",
+      "title": "page"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/awin",
+      "title": "awin"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/cannonburyyard",
+      "title": "cannonburyyard"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/associated-press",
+      "title": "associated-press"
+    },
+    {
+      "path": "[[workspace]]/src/content/tag",
+      "title": "tag"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/bauer-media",
+      "title": "bauer-media"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/hearst-content-agency",
+      "title": "hearst-content-agency"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/futurestate-design",
+      "title": "futurestate-design"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/hearst-spain",
+      "title": "hearst-spain"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/hearst-uk",
+      "title": "hearst-uk"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/novagraaf",
+      "title": "novagraaf"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/hearst-global-solutions",
+      "title": "hearst-global-solutions"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/hearst-italy",
+      "title": "hearst-italy"
+    },
+    {
+      "path": "[[workspace]]/src/content/work/lance-guyatt",
+      "title": "lance-guyatt"
+    },
+    {
+      "title": "wilson-fletcher",
+      "path": "[[workspace]]/src/content/work/wilson-fletcher"
+    }
+  ],
+  "frontMatter.taxonomy.tags": [
+    "Astro JS",
+    "Drupal 9",
+    "Gulp JS",
+    "Keystone 4",
+    "Keystone JS (CMS)",
+    "Laravel Mix",
+    "Laravel mix",
+    "Post CSS",
+    "Pug JS",
+    "React JS",
+    "Slevete JS",
+    "Svelte JS",
+    "Tailwind CSS",
+    "UI Patterns"
+  ],
+  "frontMatter.taxonomy.categories": []
+}

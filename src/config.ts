@@ -1,3 +1,5 @@
+import type { SocialObjects } from './types'
+
 const BASE_URL = import.meta.env.PUBLIC_BASE_URL
 
 const name = 'Lance Guyatt, Web Developer.'
@@ -21,6 +23,21 @@ export const SITE = {
   lang: 'en',
   copyrightYear: 2023,
 }
+
+export const SOCIALS: SocialObjects = [
+  {
+    name: 'Github',
+    href: 'https://github.com/satnaing/astro-paper',
+    linkTitle: ` ${SITE.title} on Github`,
+    active: true,
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://github.com/satnaing/astro-paper',
+    linkTitle: `${SITE.title} on LinkedIn`,
+    active: true,
+  },
+]
 
 export const LANCE_GUYATT = {
   givenName: 'Lance',

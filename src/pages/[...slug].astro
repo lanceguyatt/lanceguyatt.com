@@ -6,7 +6,7 @@ import { Prose, Window } from '@/components/index.astro'
 
 export async function getStaticPaths() {
   const pageEntries = await getCollection('page')
-  return pageEntries.map((entry) => ({
+  return pageEntries.map(entry => ({
     params: { slug: entry.slug },
     props: { entry },
   }))

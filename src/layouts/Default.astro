@@ -14,7 +14,13 @@ interface Props {
   class?: string
 }
 
-const { title, description, url, image, class: className } = Astro.props as Props
+const {
+  title,
+  description,
+  url,
+  image,
+  class: className,
+} = Astro.props as Props
 const meta = { title, description, url, image }
 ---
 

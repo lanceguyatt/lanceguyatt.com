@@ -3,18 +3,35 @@ import mdx from '@astrojs/mdx'
 import svelte from '@astrojs/svelte'
 import tailwind from '@astrojs/tailwind'
 import compress from 'astro-compress'
-import rehypeExternalLinks from 'rehype-external-links'
+import remarkToc from 'remark-toc'
+import remarkCollapse from 'remark-collapse'
+// import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lanceguyatt.surge.sh',
+  site: 'https://lanceguyatt.surge.sh/',
   markdown: {
+    remarkPlugins: [
+      remarkToc,
+      [
+        remarkCollapse,
+        {
+          test: 'Table of contents',
+        },
+      ],
+    ],
   },
   integrations: [
     mdx({
-      // rehypePlugins: [
-      //   rehypeExternalLinks()
-      // ],
+      remarkPlugins: [
+        remarkToc,
+        [
+          remarkCollapse,
+          {
+            test: 'Table of contents',
+          },
+        ],
+      ],
     }),
     tailwind({
       config: {
@@ -24,13 +41,14 @@ export default defineConfig({
     svelte(),
     compress(),
   ],
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          assetFileNames: 'assets/[name][extname]',
-        }
-      }
-    }
-  }
+
+  // vite: {
+  //   build: {
+  //     rollupOptions: {
+  //       output: {
+  //         assetFileNames: 'assets/[name][extname]',
+  //       }
+  //     }
+  //   }
+  // }
 })

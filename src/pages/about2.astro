@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from 'astro:content'
+import { getEntryBySlug } from 'astro:content'
 import { SITE, LANCE_GUYATT } from '@/config'
 import Workbench from '@/layouts/Workbench.astro'
 import { Window, File } from '@/components/index.astro'
@@ -27,7 +27,7 @@ const { sameAs } = LANCE_GUYATT
         }
       </ul>
     </nav>
-    <div class="prose prose-black">
+    <div class="prose-black prose">
       <Content />
     </div>
   </Window>

@@ -1,0 +1,42 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content'
+
+import getUniqueTags from '@/utils/getUniqueTags'
+import getWorkByTag from '@/utils/getWorkByTag'
+import Default from '@/layouts/Default.astro'
+import Window from '@/components/Window.astro'
+import Nav from '@/components/Nav.astro'
+import Drawer from '@/components/Drawer.astro'
+
+export interface Props {
+  post: CollectionEntry<'work'>
+  tag: string
+}
+
+export async function getStaticPaths() {
+  const work = await getCollection('work')
+  const tags = getUniqueTags(work)
+  return tags.map(tag => {
+    return {
+      params: { tag },
+      props: { tag },
+    }
+  })
+}
+
+const { tag } = Astro.props
+const work = await getCollection('work', ({ data }) => !data.draft)
+const tagWork = getWorkByTag(work, tag)
+---
+
+<Default>
+  <Window id="tag-window" name={tag} class="h-screen">
+    <Nav id="tag-nav" name={tag}>
+      {
+        tagWork.map(({ slug, data: { name } }) => (
+          <Drawer name={name} url={`/work/${slug}`} />
+        ))
+      }
+    </Nav>
+  </Window>
+</Default>
