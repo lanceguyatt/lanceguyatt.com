@@ -1,12 +1,12 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
 
-import getUniqueTags from '@/utils/getUniqueTags'
-import getWorkByTag from '@/utils/getWorkByTag'
-import Default from '@/layouts/Default.astro'
-import Window from '@/components/Window.astro'
-import Nav from '@/components/Nav.astro'
-import Drawer from '@/components/Drawer.astro'
+import getUniqueTags from '~/utils/getUniqueTags'
+import getWorkByTag from '~/utils/getWorkByTag'
+import Default from '~/layouts/Default.astro'
+import Window from '~/components/Window.astro'
+import Nav from '~/components/Nav.astro'
+import Drawer from '~/components/Drawer.astro'
 
 export interface Props {
   post: CollectionEntry<'work'>

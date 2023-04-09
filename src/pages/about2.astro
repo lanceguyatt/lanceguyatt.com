@@ -1,8 +1,8 @@
 ---
 import { getEntryBySlug } from 'astro:content'
-import { SITE, LANCE_GUYATT } from '@/config'
-import Workbench from '@/layouts/Workbench.astro'
-import { Window, File } from '@/components/index.astro'
+import { SITE, LANCE_GUYATT } from '~/config'
+import Workbench from '~/layouts/Workbench.astro'
+import { Window, File } from '~/components/index.astro'
 
 const about = await getEntryBySlug('page', 'about')
 const { Content } = await about.render()

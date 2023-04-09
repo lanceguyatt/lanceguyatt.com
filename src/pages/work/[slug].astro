@@ -1,11 +1,11 @@
 ---
 import { getCollection } from 'astro:content'
 
-import { SITE } from '@/config'
-import Workbench from '@/layouts/Workbench.astro'
-import Window from '@/components/Window.astro'
-import Button from '@/components/Button.svelte'
-import Image from '@/components/Image.astro'
+import { SITE } from '~/config'
+import Workbench from '~/layouts/Workbench.astro'
+import Window from '~/components/Window.astro'
+import Button from '~/components/Button.svelte'
+import Image from '~/components/Image.astro'
 
 export async function getStaticPaths() {
   const work = await getCollection('work')

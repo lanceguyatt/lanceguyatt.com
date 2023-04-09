@@ -1,8 +1,8 @@
 ---
 import { getEntryBySlug } from 'astro:content'
 
-import Default from '@/layouts/Default.astro'
-import Toasty from '@/components/Toasty.svelte'
+import Default from '~/layouts/Default.astro'
+import Toasty from '~/components/Toasty.svelte'
 
 const page = await getEntryBySlug('page', '404')
 const { Content } = await page.render()
