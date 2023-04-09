@@ -15,8 +15,8 @@ const { name, description } = data
   title={name}
   description={description}
   url={`/${url}`}
-  class="bg-black text-white flex flex-col items-center justify-center min-h-screen p-6"
+  class="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white"
 >
   <Content />
-  <Toasty client:visible image="/images/toasty.png" toasty="false" />
+  <Toasty client:visible />
 </Default>

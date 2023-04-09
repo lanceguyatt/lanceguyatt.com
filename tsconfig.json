@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "types": ["svelte"],
     "baseUrl": ".",
     "paths": {
       "~*": ["./src/*"],

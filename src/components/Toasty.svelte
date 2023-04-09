@@ -8,14 +8,14 @@
   let toasty: boolean = false
 
   onMount(() => {
-    let konamiCodeArray = []
+    let konamiCodeArray: Array<string> = []
     const konamiCodeKey: string =
       'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA'
     const toastyAudio = <HTMLVideoElement>(
       document.getElementById('js-toasty-audio')
     )
 
-    document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', event => {
       konamiCodeArray.push(event.code)
       if (konamiCodeArray.toString().indexOf(konamiCodeKey) >= 0) {
         toastyAudio.load()
@@ -30,7 +30,9 @@
 <input
   type="checkbox"
   bind:checked={toasty}
-  class={`hidden ${toasty ? 'bg-red' : 'bg-blue'} appearance-none w-4 h-4 block`}
+  class={`sr-only ${
+    toasty ? 'bg-red' : 'bg-blue'
+  } appearance-none w-4 h-4 block`}
 />
 
 {#if toasty}
@@ -50,6 +52,6 @@
 
 <style lang="postcss">
   .toasty {
-    @apply fixed bottom-0 z-10 right-0 w-[12.5rem] h-[12.5rem];
+    @apply fixed bottom-0 right-0 z-10 h-[12.5rem] w-[12.5rem];
   }
 </style>
