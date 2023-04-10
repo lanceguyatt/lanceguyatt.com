@@ -4,7 +4,7 @@ import { BaseHead } from '~/components/index.astro'
 
 import '~/styles/workbench.css'
 
-interface Props {
+export interface DefaultProps {
   title?: string
   description?: string
   url?: string
@@ -20,7 +20,7 @@ const {
   url,
   image,
   class: className,
-} = Astro.props as Props
+} = Astro.props as DefaultProps
 const meta = { title, description, url, image }
 ---
 

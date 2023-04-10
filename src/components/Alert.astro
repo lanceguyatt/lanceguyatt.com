@@ -20,7 +20,15 @@ const {
 </div>
 
 <style lang="postcss" is:global>
-  .alert {
-    @apply border-2 text-red p-4 text-center border-current animate-pulse;
+.alert {
+  @apply border-2 text-red p-4 text-center border-current animate-pulse relative;
+
+  & a {
+    @apply hover:underline;
+
+    &::before {
+      @apply content-[""] block absolute inset-0 z-0;
+    }
   }
+}
 </style>

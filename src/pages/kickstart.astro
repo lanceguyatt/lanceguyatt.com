@@ -32,10 +32,6 @@ const { name, description } = data
 
 <style lang="postcss" scoped>
   .page {
-    @apply flex flex-col p-6 justify-center items-center gap-6 min-h-screen bg-purple text-tan;
-
-    @screen md {
-      @apply p-12 flex-row items-end justify-between gap-12;
-    }
+    @apply flex flex-col p-6 justify-center items-center gap-6 min-h-screen bg-purple text-tan md:(flex-row items-end justify-between gap-12 p-12);
   }
 </style>

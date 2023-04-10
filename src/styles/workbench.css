@@ -1,6 +1,7 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
+@unocss all;
 
 @font-face {
   font-family: 'Topaz';
@@ -10,9 +11,12 @@
   font-display: swap;
 }
 
-body {
-  @apply font-sans text-base text-optimize;
+html {
+  @apply font-sans;
+}
 
+body {
+  @apply text-base/6 text-optimize;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;
@@ -25,9 +29,9 @@ pre {
 }
 
 [astro-icon='floppy-drive'] {
-  @apply h-[38px] w-[156px];
+  @apply h-38px w-156px;
 }
 
 [astro-icon='floppy-disk'] {
-  @apply h-[120px] w-[134px];
+  @apply h-120px w-134px;
 }

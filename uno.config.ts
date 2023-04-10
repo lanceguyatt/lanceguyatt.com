@@ -1,5 +1,5 @@
 // uno.config.ts
-import { defineConfig, presetAttributify, presetTypography, presetUno, presetWind, transformerDirectives } from 'unocss'
+import { presetUno, defineConfig, presetAttributify, presetTypography, presetWind, transformerDirectives } from 'unocss'
 import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 const round = (num: number) =>
@@ -17,6 +17,7 @@ export default defineConfig({
       borderImage: 'url(/images/window.svg) 22 4 4 4 stretch',
     },
     '.border-img-foo': {
+      background: 'red',
       borderWidth: 4,
       borderImage:
         'url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMSAyNmg2N3YySDF2LTJ6TTY2IDJoMnYyNGgtMlYyem0xLTJoMXYyaC0xVjB6TTIgMmg2M3YySDJWMnptMCAyaDJ2MjBIMlY0em0wIDIwaDF2Mkgydi0yeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0wIDBoNjd2MkgwVjB6bTAgMmgydjI0SDBWMnptMCAyNGgxdjJIMHYtMnptMy0yaDYzdjJIM3YtMnpNNjQgNGgydjIwaC0yVjR6bTEtMmgxdjJoLTFWMnoiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+Cg==) 4 stretch',
@@ -28,19 +29,48 @@ export default defineConfig({
     },
   },
   theme: {
+    fontFamily: {
+      sans: ['Topaz', 'ui-sans-serif', 'sans-serif'],
+    },
     colors: {
       red: '#ed1c24',
       blue: '#6080b0',
       gray: '#a0a0a0',
       purple: 'rgb(68, 16, 68)',
       tan: 'rgb(224, 160, 128)',
-    }
+    },
+    animation: {
+      disk: 'disk 1.5s forwards infinite',
+    },
+    keyframes: {
+      disk: {
+        '0%': {
+          transformOrigin: '0% 0%',
+        },
+
+        '20%': {
+          transform: 'translate3d(0, 2rem, 0)',
+          transformOrigin: '0% 0%',
+        },
+
+        '100%': {
+          transform: 'rotateX(83deg) translateY(-35rem)',
+          transformOrigin: '0% 0%',
+        },
+      },
+    },
+    backgroundImage: {
+      window: '/images/window.svg',
+    },
+    backgroundPosition: {
+      disk: '-43px 0',
+    },
   },
   presets: [
+    presetUno(),
     presetWind(),
-    presetAttributify({ /* preset options */ }),
+    presetAttributify(),
     presetTypography(),
-    // ...custom presets
   ],
   transformers: [
     transformerDirectives(),
