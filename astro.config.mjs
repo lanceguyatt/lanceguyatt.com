@@ -5,6 +5,8 @@ import tailwind from '@astrojs/tailwind'
 import compress from 'astro-compress'
 import remarkToc from 'remark-toc'
 import remarkCollapse from 'remark-collapse'
+import UnoCSS from 'unocss/astro'
+
 // import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
@@ -22,6 +24,9 @@ export default defineConfig({
     ],
   },
   integrations: [
+    UnoCSS({
+      injectReset: true, // or a path to the reset file
+    }),
     mdx({
       remarkPlugins: [
         remarkToc,
@@ -33,11 +38,11 @@ export default defineConfig({
         ],
       ],
     }),
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
+    // tailwind({
+    //   config: {
+    //     applyBaseStyles: false,
+    //   },
+    // }),
     svelte(),
     compress(),
   ],

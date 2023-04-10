@@ -4,5 +4,19 @@ description: About description
 menu: true
 ---
 
-- [Linkedin](https://www.linkedin.com/in/lanceguyatt/)
-- [Github](https://github.com/lanceguyatt)
+import File from '~/components/File.astro'
+
+export const ul = props => (
+  <nav class="not-prose">
+    <ul class="flex flex-wrap gap-4">{props.children}</ul>
+  </nav>
+)
+
+export const components = { ul }
+
+- <File
+    name="Linkedin"
+    url="https://www.linkedin.com/in/lanceguyatt/"
+    external={true}
+  />
+- <File name="Github" url="https://github.com/lanceguyatt" external={true} />

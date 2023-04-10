@@ -1,10 +1,14 @@
 ---
-interface Props {
+export interface AlertProps {
   class?: string
   animate?: boolean
 }
 
-const { class: className, animate, ...attrs } = Astro.props as Props
+const {
+  class: className,
+  animate = false,
+  ...attrs
+} = Astro.props as AlertProps
 ---
 
 <div
@@ -17,6 +21,6 @@ const { class: className, animate, ...attrs } = Astro.props as Props
 
 <style lang="postcss" is:global>
   .alert {
-    @apply border-2 text-red p-4 text-center;
+    @apply border-2 text-red p-4 text-center border-current animate-pulse;
   }
 </style>

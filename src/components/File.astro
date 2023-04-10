@@ -1,13 +1,14 @@
 ---
-export interface Props {
+export interface FileProps {
   name: string
   url: string
+  external?: boolean
 }
 
-const { name, url, ...attrs } = Astro.props
+const { name, url, external = false, ...attrs } = Astro.props as FileProps
 ---
 
-<a href={url} class="file" {...attrs}>
+<a href={url} class="file" target={external ? '_blank' : null} {...attrs}>
   {name}
 </a>
 

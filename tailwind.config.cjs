@@ -11,7 +11,7 @@ const em = (px, base) => `${round(px / base)}em`
 module.exports = {
   content: [
     './public/**/*.html',
-    './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}',
+    './src/**/*.{astro,js,jsx,mdx,svelte,ts,tsx,vue}',
   ],
   // safelist: ['text-grey'],
   theme: {
@@ -140,7 +140,6 @@ module.exports = {
         },
       })
     }),
-    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
   ],
 }

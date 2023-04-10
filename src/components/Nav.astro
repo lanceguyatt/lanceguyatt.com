@@ -1,5 +1,5 @@
 ---
-export interface Props {
+export interface NavProps {
   class?: string
   id: string
   name: string
@@ -12,7 +12,7 @@ const {
   class: className,
   vertical = false,
   ...props
-} = Astro.props as Props
+} = Astro.props as NavProps
 ---
 
 <nav

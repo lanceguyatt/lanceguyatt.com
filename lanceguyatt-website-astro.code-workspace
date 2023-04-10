@@ -5,6 +5,6 @@
 		}
 	],
 	"settings": {
-		"frontMatter.dashboard.openOnStart": true
+		"frontMatter.dashboard.openOnStart": false
 	}
 }

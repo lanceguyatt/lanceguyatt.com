@@ -3,6 +3,17 @@ import Default from '~/layouts/Default.astro'
 import { Alert } from '~/components/index.astro'
 ---
 
-<Default>
-  <Alert animate>dssd</Alert>
+<Default
+  class="flex min-h-screen w-full flex-col border-2 bg-gray"
+  title="Bar"
+  description="Bar description"
+>
+  <main class="flex-auto border-2 bg-blue">
+    <div class="container mx-auto px-5">
+      <div class="grid gap-5">
+        <Alert animate>Yes animate</Alert>
+        <Alert>No animate</Alert>
+      </div>
+    </div>
+  </main>
 </Default>

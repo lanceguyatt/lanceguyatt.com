@@ -15,7 +15,7 @@ const { name, description } = data
 <Default title={name} description={description} url={`/${url}`}>
   <div class="page">
     <div class="flex w-44 flex-col gap-6">
-      <Prose>
+      <Prose class="text-tan dark:prose-invert">
         <Content />
       </Prose>
     </div>
@@ -24,13 +24,13 @@ const { name, description } = data
       <Icon name="floppy-drive" />
       <Icon
         name="floppy-disk"
-        class="absolute bottom-[-25px] left-[12px] animate-disk w-[134px] h-[120px]"
+        class="absolute bottom-[-25px] left-[12px] h-[120px] w-[134px] animate-disk"
       />
     </a>
   </div>
 </Default>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
   .page {
     @apply flex flex-col p-6 justify-center items-center gap-6 min-h-screen bg-purple text-tan;
 

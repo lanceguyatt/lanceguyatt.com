@@ -1,14 +1,14 @@
 ---
 import Close from '~/components/Close.astro'
 
-interface Props {
+interface WindowProps {
   id: string
   name: string
   url?: string
   class?: string
 }
 
-const { id, name, url, class: className, ...attrs } = Astro.props as Props
+const { id, name, url, class: className, ...attrs } = Astro.props as WindowProps
 ---
 
 <section
@@ -17,7 +17,7 @@ const { id, name, url, class: className, ...attrs } = Astro.props as Props
   {...attrs}
 >
   <div
-    class="absolute -top-[20px] -left-[4px] -right-[4px] flex h-[18px] items-center"
+    class="absolute -left-[4px] -right-[4px] -top-[20px] flex h-[18px] items-center"
   >
     <div class="flex-none">
       <Close name={`Close the ${name} window`} url={url} />

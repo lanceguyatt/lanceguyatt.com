@@ -6,6 +6,6 @@ interface Props {
 const { class: className, ...props } = Astro.props as Props
 ---
 
-<div class:list={['prose prose-gray', className]} {...props}>
+<div class:list={['prose', className]} {...props}>
   <slot />
 </div>

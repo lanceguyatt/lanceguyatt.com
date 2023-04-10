@@ -1,6 +1,9 @@
 ---
 import { SITE } from '~/config'
+
+// import '@unocss/reset/tailwind.css'
 import '~/styles/workbench.css'
+
 import {
   BaseHead,
   Disk,
@@ -10,12 +13,26 @@ import {
   Window,
 } from '~/components/index.astro'
 
+export interface WorkbenchProps {
+  title: string
+  description: string
+  url: string
+  image: {
+    url: string
+    width: string
+    height: string
+    alt: string
+  }
+}
+
 const { lang, copyrightYear } = SITE
-const { title, description, url, image, ...attrs } = Astro.props
+const { title, description, url, image, ...attrs } =
+  Astro.props as WorkbenchProps
+const meta = { title, description, url, image }
 ---
 
 <html lang={lang}>
-  <BaseHead {title} {description} {url} {image} />
+  <BaseHead {...meta} />
   <body>
     <div class="screen" {...attrs}>
       <TitleBar class="bg-black text-gray">
@@ -23,16 +40,17 @@ const { title, description, url, image, ...attrs } = Astro.props
       </TitleBar>
       <slot />
       <Window id="workbench-window" name="Workbench" url="/kickstart">
-        <Nav id="workbench-nav" name="Workbench" class="flex-col">
+        <Nav id="workbench-nav" name="Workbench" vertical>
           <Disk name="Ram Disk" url="/ram-disk" />
           <Drive name="Work" url="/work" />
           <Drive name="About" url="/about" />
         </Nav>
       </Window>
     </div>
-  </body><style lang="postcss" is:global>
+    <style lang="postcss" is:global>
   .screen {
-    @apply grid min-h-screen grid-rows-[auto_1fr] w-full;
+    @apply min-h-screen flex flex-col w-full;
   }
 </style>
+  </body>
 </html>

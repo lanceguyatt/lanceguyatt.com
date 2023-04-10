@@ -59,10 +59,6 @@
       "title": "page"
     },
     {
-      "path": "[[workspace]]/src/content/work/awin",
-      "title": "awin"
-    },
-    {
       "path": "[[workspace]]/src/content/work/cannonburyyard",
       "title": "cannonburyyard"
     },
@@ -95,24 +91,12 @@
       "title": "hearst-uk"
     },
     {
-      "path": "[[workspace]]/src/content/work/novagraaf",
-      "title": "novagraaf"
-    },
-    {
       "path": "[[workspace]]/src/content/work/hearst-global-solutions",
       "title": "hearst-global-solutions"
     },
     {
       "path": "[[workspace]]/src/content/work/hearst-italy",
       "title": "hearst-italy"
-    },
-    {
-      "path": "[[workspace]]/src/content/work/lance-guyatt",
-      "title": "lance-guyatt"
-    },
-    {
-      "title": "wilson-fletcher",
-      "path": "[[workspace]]/src/content/work/wilson-fletcher"
     }
   ],
   "frontMatter.taxonomy.tags": [
