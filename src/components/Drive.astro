@@ -1,15 +1,15 @@
 ---
-export interface Props {
-  name: string
-  url: string
+export interface IDrive {
+  name?: string
+  url?: string
 }
 
-const { name, url } = Astro.props as Props
+const { name = 'Foo', url = '/bar', ...props } = Astro.props as IDrive
 ---
 
-<a href={url} class="drive">{name}</a>
+<a class="drive" href={url} {...props}><slot>{name}</slot></a>
 
-<style lang="postcss" is:global>
+<style lang="postcss">
   .drive {
     @apply inline-flex flex-col items-center gap-1 max-w-[5rem] text-center outline-none focus:bg-blue;
 

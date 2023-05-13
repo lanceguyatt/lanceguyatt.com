@@ -1,10 +1,10 @@
 ---
-export interface Props {
+export interface IClose {
   name: string
   url?: string
 }
 
-const { name, url = '/' } = Astro.props
+const { name, url = '/' } = Astro.props as IClose
 ---
 
 <a href={url} class="disk">

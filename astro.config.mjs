@@ -25,7 +25,7 @@ export default defineConfig({
   },
   integrations: [
     UnoCSS({
-      injectReset: true, // or a path to the reset file
+      injectReset: false, // or a path to the reset file
     }),
     mdx({
       remarkPlugins: [
@@ -38,11 +38,6 @@ export default defineConfig({
         ],
       ],
     }),
-    // tailwind({
-    //   config: {
-    //     applyBaseStyles: false,
-    //   },
-    // }),
     svelte(),
     compress(),
   ],

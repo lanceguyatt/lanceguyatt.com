@@ -1,14 +1,10 @@
 ---
-export interface AlertProps {
+export interface IAlert {
   class?: string
   animate?: boolean
 }
 
-const {
-  class: className,
-  animate = false,
-  ...attrs
-} = Astro.props as AlertProps
+const { class: className, animate = false, ...attrs } = Astro.props as IAlert
 ---
 
 <div
@@ -16,7 +12,7 @@ const {
   class:list={[
     'alert',
     className,
-    animate && ['animate-pulse', 'animate-alternate'],
+    animate && ['animate-pulse', 'animate-alternate']
   ]}
   {...attrs}
 >

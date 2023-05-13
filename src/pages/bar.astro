@@ -1,24 +1,21 @@
 ---
 import Default from '~/layouts/Default.astro'
-import { Alert } from '~/components/index.astro'
-import Window from '~components/Window.astro'
+import { Button, Drive } from '~/components/index.astro'
+// import Window from '~components/Window.astro'
 ---
 
 <Default
-  class="flex min-h-screen w-full flex-col"
+  class="flex flex-col min-h-screen w-full border-8 bg-gray"
   title="Bar"
   description="Bar description"
 >
-  <main class="flex-auto">
-    <Window
-      class="min-h-screen"
-      name="sdklskdl skds d kslksdls lsl skldks sldk sdlskjds ks dklskdl sdlskdsldks sldklsdk"
-      id="bar"
-    >
-      <div class="grid gap-5">
-        <Alert animate>Yes animate</Alert>
-        <Alert>No animate</Alert>
-      </div>
-    </Window>
-  </main>
+  <div class="grid gap-5 m-5">
+    <Drive href="/">Home</Drive>
+    <Drive />
+    <form>
+      <fieldset>
+        <Button type="submit" tag="button">Send</Button>
+      </fieldset>
+    </form>
+  </div>
 </Default>

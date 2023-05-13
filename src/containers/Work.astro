@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 
-import { Drawer, Nav, Window } from '~/components/index.astro'
+import { Drawer, Nav } from '~/components/index.astro'
 
 const work = await getCollection('work', ({ data }) => {
   return data.draft !== true
@@ -13,9 +13,7 @@ const work = await getCollection('work', ({ data }) => {
 <Nav id="work-nav" name="Work menu" class="not-prose">
   {
     work.map(({ slug, data: { name } }) => (
-      <>
-        <Drawer name={name} url={`/work/${slug}`} />
-      </>
+      <Drawer name={name} url={`/work/${slug}`} />
     ))
   }
 </Nav>

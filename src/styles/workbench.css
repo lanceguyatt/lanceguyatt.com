@@ -1,3 +1,5 @@
+@import url('@unocss/reset/tailwind.css');
+
 @font-face {
   font-family: 'Topaz';
   src: local('Topaz'), url('/fonts/topaz.woff2') format('woff2');
@@ -11,7 +13,7 @@ html {
 }
 
 body {
-  @apply text-base;
+  /* @apply text-base; */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;

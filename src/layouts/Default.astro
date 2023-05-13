@@ -20,7 +20,7 @@ const {
   description,
   url,
   image,
-  class: className,
+  class: className
 } = Astro.props as DefaultProps
 const meta = { title, description, url, image }
 ---
@@ -30,6 +30,8 @@ const meta = { title, description, url, image }
     <slot name="head" />
   </BaseHead>
   <body class:list={[className]}>
-    <slot />
+    <main class="flex-auto">
+      <slot />
+    </main>
   </body>
 </html>
