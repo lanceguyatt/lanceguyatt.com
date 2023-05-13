@@ -12,27 +12,31 @@ const { id, name, url, class: className, ...attrs } = Astro.props as WindowProps
 ---
 
 <section
-  class:list={['window', 'bg-blue', className]}
+  class:list={['window', 'bg-blue', 'relative', className]}
   aria-labelledby={id}
   {...attrs}
 >
-  <div
-    class="absolute -left-[4px] -right-[4px] -top-[20px] flex h-[18px] items-center"
-  >
+  <div class="-left-4px -right-4px -top-20px h-18px absolute flex items-center">
     <div class="flex-none">
       <Close name={`Close the ${name} window`} url={url} />
     </div>
-    <div class="flex-auto overflow-hidden leading-[18px]">
-      <h2 class="text-ellipsis whitespace-nowrap" id={id}>{name}</h2>
-    </div>
+    <h2
+      class="text-ellipsis flex-auto whitespace-nowrap overflow-hidden text-base/18px"
+      id={id}
+    >
+      {name}
+    </h2>
   </div>
   <div class="flex-auto overflow-auto bg-gray p-3">
     <slot />
   </div>
 </section>
 
-<style lang="postcss" is:global>
+<style lang="postcss">
   .window {
-    @apply border-window grid relative;
+    @apply grid;
+
+    border-width: 22px 4px 4px 4px;
+    border-image: url(/images/window.svg) 22 4 4 4 stretch;
   }
 </style>

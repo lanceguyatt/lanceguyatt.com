@@ -107,31 +107,35 @@ const ldData = {
       {
         image && (
           <div class="h-36 w-36 self-center">
-            <div class="aspect-w-1 aspect-h-1">
+            <div class="aspect-square">
               <Image src={image.url} alt={image.alt} />
             </div>
           </div>
         )
       }
-      <dl class="mx-auto grid max-w-[40rem] grid-cols-[1fr_11fr] gap-3">
+      <dl class="max-w-40rem mx-auto grid grid-cols-[1fr_11fr] gap-3">
         <dt
           class="flex items-center justify-end text-white after:content-[':']"
         >
           Name
         </dt>
-        <dd class="border-img-foo p-[0.125rem]">{name}</dd>
-        <dt
-          class="flex items-center justify-end text-white after:content-[':']"
-        >
-          Url
-        </dt>
-        <dd class="border-img-foo p-[0.125rem]">{url}</dd>
+        <dd class="p-2px border-img-foo">{name}</dd>
+        {
+          url && (
+            <>
+              <dt class="flex items-center justify-end text-white after:content-[':']">
+                Url
+              </dt>
+              <dd class="p-2px border-img-foo">{url}</dd>
+            </>
+          )
+        }
         <dt
           class="flex items-center justify-end text-white after:content-[':']"
         >
           Technologies
         </dt>
-        <dd class="border-img-foo p-[0.125rem]">
+        <dd class="p-2px border-img-foo">
           <ul>
             {tags.map(tag => <li>{tag}</li>)}
           </ul>
@@ -141,7 +145,7 @@ const ldData = {
         Content && (
           <div class="mx-auto grid max-w-[40rem] grid-cols-[1fr_11fr] gap-3">
             <div />
-            <div class="prose prose-gray">
+            <div class="prose-black">
               <Content />
             </div>
           </div>

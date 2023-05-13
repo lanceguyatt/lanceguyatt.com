@@ -7,16 +7,20 @@ export interface TitleBarProps {
 const {
   tag: Tag = 'header',
   class: className,
-  ...attrs
+  ...props
 } = Astro.props as TitleBarProps
 ---
 
-<Tag class:list={['titlebar', className]} {...attrs}>
-  <slot />
+<Tag class:list={['titlebar', className]} {...props}>
+  <div
+    class="text-ellipsis flex-auto whitespace-nowrap overflow-hidden text-base/18px"
+  >
+    <slot />
+  </div>
 </Tag>
 
-<style lang="postcss" is:global>
+<style lang="postcss">
   .titlebar {
-    @apply flex items-center relative h-[1.375rem] line-clamp-1 px-1 text-base text-ellipsis whitespace-nowrap;
+    @apply h-1.375rem px-1 flex items-center;
   }
 </style>

@@ -2,6 +2,7 @@
 import { SITE } from '~/config'
 import { BaseHead } from '~/components/index.astro'
 
+// import 'uno:base.css'
 import '~/styles/workbench.css'
 
 export interface DefaultProps {
@@ -25,7 +26,9 @@ const meta = { title, description, url, image }
 ---
 
 <html lang={SITE.lang}>
-  <BaseHead {...meta} />
+  <BaseHead {...meta}>
+    <slot name="head" />
+  </BaseHead>
   <body class:list={[className]}>
     <slot />
   </body>

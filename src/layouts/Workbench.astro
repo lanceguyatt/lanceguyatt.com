@@ -1,7 +1,6 @@
 ---
 import { SITE } from '~/config'
 
-// import '@unocss/reset/tailwind.css'
 import '~/styles/workbench.css'
 
 import {
@@ -9,9 +8,12 @@ import {
   Disk,
   Drive,
   Nav,
+  Prose,
   TitleBar,
   Window,
 } from '~/components/index.astro'
+
+import Home from '../content/page/home.mdx'
 
 export interface WorkbenchProps {
   title: string
@@ -33,13 +35,16 @@ const meta = { title, description, url, image }
 
 <html lang={lang}>
   <BaseHead {...meta} />
-  <body>
-    <div class="screen" {...attrs}>
+  <body class="bg-gray text-black">
+    <div class="grid min-h-screen w-full grid-rows-[auto,1fr]" {...attrs}>
       <TitleBar class="bg-black text-gray">
         {SITE.title} Copyright &copy; 2000-{copyrightYear} All Rights Reserved
       </TitleBar>
       <slot />
       <Window id="workbench-window" name="Workbench" url="/kickstart">
+        <Prose class="p-6">
+          <Home components={{ ul: Nav }} />
+        </Prose>
         <Nav id="workbench-nav" name="Workbench" vertical>
           <Disk name="Ram Disk" url="/ram-disk" />
           <Drive name="Work" url="/work" />
@@ -47,10 +52,5 @@ const meta = { title, description, url, image }
         </Nav>
       </Window>
     </div>
-    <style lang="postcss" is:global>
-  .screen {
-    @apply min-h-screen flex flex-col w-full;
-  }
-</style>
   </body>
 </html>

@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 
 import Default from '~/layouts/Default.astro'
@@ -15,8 +16,12 @@ const { name, description } = data
   title={name}
   description={description}
   url={`/${url}`}
-  class="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white"
+  class="flex flex-col items-center justify-center min-h-screen bg-black p-6 text-white"
 >
+  <SEO
+    slot="head"
+    extend={{ meta: [{ name: 'theme-color', content: '#000000' }] }}
+  />
   <Content />
   <Toasty client:visible />
 </Default>

@@ -24,7 +24,7 @@ export const workSchema = z.object({
       alt: z.string().optional(),
     })
     .optional(),
-  tags: z.array(z.string()),
+  tags: z.array(z.string()).optional(),
   draft: z.boolean().optional(),
 })
 

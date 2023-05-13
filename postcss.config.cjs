@@ -1,6 +1,6 @@
 module.exports = {
   plugins: {
-    'postcss-nesting': {},
+    'postcss-nested': {},
     autoprefixer: {
       grid: true,
     },

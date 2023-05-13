@@ -13,15 +13,19 @@ const {
 
 <div
   role="dialog"
-  class:list={['alert', className, { animate: 'animate-pulse' }]}
+  class:list={[
+    'alert',
+    className,
+    animate && ['animate-pulse', 'animate-alternate'],
+  ]}
   {...attrs}
 >
   <slot />
 </div>
 
-<style lang="postcss" is:global>
+<style lang="postcss">
 .alert {
-  @apply border-2 text-red p-4 text-center border-current animate-pulse relative;
+  @apply border-4 border-current text-red p-8 text-center relative;
 
   & a {
     @apply hover:underline;

@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 import Icon from 'astro-icon'
 
@@ -12,26 +13,38 @@ const { slug: url, data } = kickstart
 const { name, description } = data
 ---
 
-<Default title={name} description={description} url={`/${url}`}>
+<Default
+  title={name}
+  description={description}
+  url={`/${url}`}
+  class="bg-purple text-tan"
+>
+  <SEO
+    slot="head"
+    extend={{ meta: [{ name: 'theme-color', content: 'rgb(68, 16, 68)' }] }}
+  />
   <div class="page">
     <div class="flex w-44 flex-col gap-6">
-      <Prose class="text-tan dark:prose-invert">
+      <Prose class="text-tan">
         <Content />
       </Prose>
     </div>
-    <a class="relative block h-[10.5625rem] w-[9.75rem]" href="/">
+
+    <a class="relative block h-10.5625rem w-9.75rem" href="/">
       <span class="sr-only">Return to Workbench</span>
       <Icon name="floppy-drive" />
       <Icon
         name="floppy-disk"
-        class="absolute bottom-[-25px] left-[12px] h-[120px] w-[134px] animate-disk"
+        class="absolute bottom-0 left-12px animate-disk"
       />
     </a>
   </div>
 </Default>
 
-<style lang="postcss" scoped>
-  .page {
-    @apply flex flex-col p-6 justify-center items-center gap-6 min-h-screen bg-purple text-tan md:(flex-row items-end justify-between gap-12 p-12);
-  }
+<style lang="postcss">
+.page {
+  @apply flex flex-col p-6 justify-center items-center gap-6 min-h-screen  md:(flex-row items-end justify-between gap-12 p-12);
+}
+
+
 </style>

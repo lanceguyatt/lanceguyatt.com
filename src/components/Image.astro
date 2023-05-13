@@ -1,17 +1,11 @@
 ---
-export interface Props {
+export interface ImageProps {
   src: string
   alt: string
   loading?: string
 }
 
-const { src, alt, loading = 'lazy', ...attrs } = Astro.props as Props
+const { src, alt, loading = 'lazy', ...props } = Astro.props as ImageProps
 ---
 
-<img class="image" src={src} alt={alt} loading={loading} {...attrs} />
-
-<style lang="postcss" is:global>
-  .image {
-    @apply border-2 border-img-bar p-[2px] object-cover;
-  }
-</style>
+<img class="border-img-bar p-2px object-cover" src={src} alt={alt} loading={loading} {...props} />
