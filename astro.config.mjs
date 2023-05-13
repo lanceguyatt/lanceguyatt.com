@@ -47,13 +47,16 @@ export default defineConfig({
     compress(),
   ],
 
-  // vite: {
-  //   build: {
-  //     rollupOptions: {
-  //       output: {
-  //         assetFileNames: 'assets/[name][extname]',
-  //       }
-  //     }
-  //   }
-  // }
+  vite: {
+    build: {
+      // cssCodeSplit: false,
+      // rollupOptions: {
+      //   output: {
+      //     entryFileNames: 'scripts/[name].js',
+      //     chunkFileNames: 'chunks/[name].js',
+      //     assetFileNames: 'assets/[name][extname]',
+      //   },
+      // },
+    },
+  },
 })

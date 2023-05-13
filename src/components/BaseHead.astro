@@ -1,20 +1,12 @@
 ---
 import { SEO } from 'astro-seo'
 import { SITE } from '~/config'
+import type { IWorkbench } from '~layouts/Workbench.astro'
 
 // const GTM_ID = import.meta.env.PUBLIC_GTM_ID
 // console.log(import.meta.env)
 
-export interface Props {
-  title: string
-  description?: string
-  url?: string
-  image?: {
-    url?: string
-    width?: number
-    height?: number
-    alt?: string
-  }
+interface IBaseHead extends IWorkbench {
   noindex?: boolean
 }
 
@@ -26,10 +18,17 @@ const {
     url: '/images/share.png',
     width: 1200,
     height: 630,
-    alt: 'Lance Guyatt, Web Developer',
+    alt: 'Lance Guyatt, Web Developer'
   },
-  noindex = false,
-} = Astro.props as Props
+  noindex = false
+} = Astro.props as IBaseHead
+
+// const schema = {
+//   '@context': 'https://schema.org/',
+//   '@type': 'webpage',
+//   name: title,
+//   url
+// }
 ---
 
 <head>
@@ -45,25 +44,25 @@ const {
         title: description,
         type: 'webpage',
         image: `${SITE.url}${image.url}`,
-        url: `${SITE.url}${url}`,
+        url: `${SITE.url}${url}`
       },
 
       optional: {
         siteName: SITE.name,
         locale: SITE.locale,
-        description,
+        description
       },
 
       image: {
         width: image.width,
         height: image.height,
-        alt: image.alt,
-      },
+        alt: image.alt
+      }
     }}
     twitter={{
       card: 'summary_large_image',
       site: '@lanceguyatt',
-      creator: '@lanceguyatt',
+      creator: '@lanceguyatt'
     }}
     extend={{
       link: [
@@ -76,11 +75,12 @@ const {
         // },
         {
           rel: 'apple-touch-icon',
-          href: '/apple-touch-icon.png',
-        },
+          href: '/apple-touch-icon.png'
+        }
       ],
-      meta: [{ name: 'theme-color', content: SITE.themeColor }],
+      meta: [{ name: 'theme-color', content: SITE.themeColor }]
     }}
   />
+  <!-- <script type="application/ld+json" set:html={JSON.stringify(schema)}></script> -->
   <slot />
 </head>
