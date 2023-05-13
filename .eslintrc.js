@@ -2,18 +2,18 @@ module.exports = {
   env: {
     node: true,
     es2022: true,
-    browser: true
+    browser: true,
   },
   extends: [
     'eslint:recommended',
-    'plugin:astro/recommended',
     '@unocss',
+    'plugin:astro/recommended',
     'plugin:storybook/recommended',
-    'prettier'
+    'prettier',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['prettier'],
   overrides: [
@@ -22,12 +22,12 @@ module.exports = {
       parser: 'astro-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro']
+        extraFileExtensions: ['.astro'],
       },
-      rules: {}
-    }
+      rules: {},
+    },
   ],
   rules: {
-    'prettier/prettier': ['error']
-  }
+    'prettier/prettier': ['error'],
+  },
 }

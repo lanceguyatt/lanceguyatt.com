@@ -1,13 +1,14 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import svelte from '@astrojs/svelte'
-// import tailwind from '@astrojs/tailwind'
 import compress from 'astro-compress'
 import remarkToc from 'remark-toc'
 import remarkCollapse from 'remark-collapse'
 import UnoCSS from 'unocss/astro'
 
 // import rehypeExternalLinks from 'rehype-external-links'
+
+import partytown from '@astrojs/partytown'
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,14 +19,14 @@ export default defineConfig({
       [
         remarkCollapse,
         {
-          test: 'Table of contents'
-        }
-      ]
-    ]
+          test: 'Table of contents',
+        },
+      ],
+    ],
   },
   integrations: [
     UnoCSS({
-      injectReset: false // or a path to the reset file
+      injectReset: false,
     }),
     mdx({
       remarkPlugins: [
@@ -33,15 +34,20 @@ export default defineConfig({
         [
           remarkCollapse,
           {
-            test: 'Table of contents'
-          }
-        ]
-      ]
+            test: 'Table of contents',
+          },
+        ],
+      ],
     }),
     svelte(),
-    compress()
+    compress(),
+    partytown({
+      // Adds dataLayer.push as a forwarding-event.
+      config: {
+        forward: ['dataLayer.push'],
+      },
+    }),
   ],
-
   vite: {
     build: {
       // cssCodeSplit: false,
@@ -52,6 +58,6 @@ export default defineConfig({
       //     assetFileNames: 'assets/[name][extname]',
       //   },
       // },
-    }
-  }
+    },
+  },
 })

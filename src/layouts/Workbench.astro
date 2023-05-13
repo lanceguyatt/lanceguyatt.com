@@ -38,7 +38,7 @@ const meta = { title, name, description, url, image }
 <html lang={lang}>
   <BaseHead {...meta} />
   <body class="bg-gray text-black">
-    <div class="grid grid-rows-[auto_1fr] min-h-screen w-full" {...attrs}>
+    <div class="flex flex-col min-h-screen w-full" {...attrs}>
       <TitleBar class="bg-black text-gray" role="banner">
         {SITE.title} Copyright &copy; 2000-{copyrightYear} All Rights Reserved
       </TitleBar>
