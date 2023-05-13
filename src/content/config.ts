@@ -9,5 +9,5 @@ const workCollection = defineCollection({ schema: workSchema })
 export const collections = {
   about: aboutCollection,
   page: pageCollection,
-  work: workCollection,
+  work: workCollection
 }

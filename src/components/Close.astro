@@ -17,7 +17,12 @@ const {
 const Tag = tag
 ---
 
-<Tag href={url ? url : false} data-component="close" {...props}>
+<Tag
+  href={url ? url : false}
+  data-component="close"
+  class:list={[className]}
+  {...props}
+>
   <span class="sr-only">{{ name }}</span>
 </Tag>
 

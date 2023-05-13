@@ -110,20 +110,20 @@ const schema = {
           </div>
         )
       }
-      <dl class="max-w-40rem mx-auto grid grid-cols-[1fr_11fr] gap-3">
+      <dl class="grid grid-cols-[1fr_11fr] mx-auto max-w-40rem gap-3">
         <dt
           class="flex items-center justify-end text-white after:content-[':']"
         >
           Name
         </dt>
-        <dd class="p-2px border-img-foo">{name}</dd>
+        <dd class="border-img-foo p-2px">{name}</dd>
         {
           url && (
             <>
               <dt class="flex items-center justify-end text-white after:content-[':']">
                 Url
               </dt>
-              <dd class="p-2px border-img-foo">{url}</dd>
+              <dd class="border-img-foo p-2px">{url}</dd>
             </>
           )
         }
@@ -132,7 +132,7 @@ const schema = {
         >
           Technologies
         </dt>
-        <dd class="p-2px border-img-foo">
+        <dd class="border-img-foo p-2px">
           <ul>
             {tags.map(tag => <li>{tag}</li>)}
           </ul>
@@ -140,7 +140,7 @@ const schema = {
       </dl>
       {
         Content && (
-          <div class="mx-auto grid max-w-[40rem] grid-cols-[1fr_11fr] gap-3">
+          <div class="grid grid-cols-[1fr_11fr] mx-auto max-w-[40rem] gap-3">
             <div />
             <div class="prose-black">
               <Content />

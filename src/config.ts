@@ -14,14 +14,14 @@ export const SITE = {
     url: `${BASE_URL}images/share.png`,
     width: 1200,
     height: 628,
-    alt: 'Foo',
+    alt: 'Foo'
   },
   logo: `${BASE_URL}/logo.svg`,
   themeColor: '#a0a0a0',
   backgroundColor: '#000000',
   locale: 'en-GB',
   lang: 'en',
-  copyrightYear: 2023,
+  copyrightYear: 2023
 }
 
 export const SOCIALS: SocialObjects = [
@@ -29,14 +29,14 @@ export const SOCIALS: SocialObjects = [
     name: 'Github',
     href: 'https://github.com/satnaing/astro-paper',
     linkTitle: ` ${SITE.title} on Github`,
-    active: true,
+    active: true
   },
   {
     name: 'LinkedIn',
     href: 'https://github.com/satnaing/astro-paper',
     linkTitle: `${SITE.title} on LinkedIn`,
-    active: true,
-  },
+    active: true
+  }
 ]
 
 export const LANCE_GUYATT = {
@@ -47,8 +47,8 @@ export const LANCE_GUYATT = {
   jobTitle: 'Web Developer',
   sameAs: [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lanceguyatt' },
-    { name: 'Github', url: 'https://github.com/lanceguyatt' },
-  ],
+    { name: 'Github', url: 'https://github.com/lanceguyatt' }
+  ]
 }
 
 export type Lance = Mapped<typeof LANCE_GUYATT>

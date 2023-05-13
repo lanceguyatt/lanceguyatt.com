@@ -8,4 +8,10 @@ export interface ImageProps {
 const { src, alt, loading = 'lazy', ...props } = Astro.props as ImageProps
 ---
 
-<img class="border-img-bar p-2px object-cover" src={src} alt={alt} loading={loading} {...props} />
+<img
+  class="border-img-bar object-cover p-2px"
+  src={src}
+  alt={alt}
+  loading={loading}
+  {...props}
+/>

@@ -18,14 +18,14 @@ export default defineConfig({
       [
         remarkCollapse,
         {
-          test: 'Table of contents',
-        },
-      ],
-    ],
+          test: 'Table of contents'
+        }
+      ]
+    ]
   },
   integrations: [
     UnoCSS({
-      injectReset: false, // or a path to the reset file
+      injectReset: false // or a path to the reset file
     }),
     mdx({
       remarkPlugins: [
@@ -33,13 +33,13 @@ export default defineConfig({
         [
           remarkCollapse,
           {
-            test: 'Table of contents',
-          },
-        ],
-      ],
+            test: 'Table of contents'
+          }
+        ]
+      ]
     }),
     svelte(),
-    compress(),
+    compress()
   ],
 
   vite: {
@@ -52,6 +52,6 @@ export default defineConfig({
       //     assetFileNames: 'assets/[name][extname]',
       //   },
       // },
-    },
-  },
+    }
+  }
 })

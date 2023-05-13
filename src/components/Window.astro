@@ -16,12 +16,12 @@ const { id, name, url, class: className, ...attrs } = Astro.props as WindowProps
   aria-labelledby={id}
   {...attrs}
 >
-  <div class="-left-4px -right-4px -top-20px h-18px absolute flex items-center">
+  <div class="absolute h-18px flex items-center -left-4px -right-4px -top-20px">
     <div class="flex-none">
       <Close name={`Close the ${name} window`} url={url} />
     </div>
     <h2
-      class="text-ellipsis flex-auto whitespace-nowrap overflow-hidden text-base/18px"
+      class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap text-base/18px"
       id={id}
     >
       {name}
