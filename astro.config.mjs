@@ -6,8 +6,6 @@ import remarkToc from 'remark-toc'
 import remarkCollapse from 'remark-collapse'
 import UnoCSS from 'unocss/astro'
 
-// import rehypeExternalLinks from 'rehype-external-links'
-
 import partytown from '@astrojs/partytown'
 
 // https://astro.build/config
