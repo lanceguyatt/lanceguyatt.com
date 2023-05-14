@@ -12,7 +12,7 @@ Location: London, United Kingdom
 Language: English
 Doctype: HTML5
 Standards: HTML5, CSS4, ES6
-Components: AStroJS, SvelteJS, Tailwind CSS
+Components: AStroJS, SvelteJS, Uno CSS
 Software: Visual Studio Code, Sketch
 
 /* THANKS */

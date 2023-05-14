@@ -14,14 +14,15 @@ export const SITE = {
     url: `${BASE_URL}images/share.png`,
     width: 1200,
     height: 628,
-    alt: 'Foo'
+    alt: 'Lance Guyatt, Web Developer'
   },
   logo: `${BASE_URL}/logo.svg`,
   themeColor: '#a0a0a0',
   backgroundColor: '#000000',
   locale: 'en-GB',
   lang: 'en',
-  copyrightYear: 2023
+  copyrightYear: 2023,
+  twitter: '@lanceguyatt'
 }
 
 export const SOCIALS: SocialObjects = [

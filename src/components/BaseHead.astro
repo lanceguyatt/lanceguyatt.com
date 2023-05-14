@@ -3,8 +3,8 @@ import { SEO } from 'astro-seo'
 import { SITE } from '~/config'
 import type { IWorkbench } from '~layouts/Workbench.astro'
 
-// const GTM_ID = import.meta.env.PUBLIC_GTM_ID
-// console.log(import.meta.env)
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID
+console.log(import.meta.env)
 
 interface IBaseHead extends IWorkbench {
   noindex?: boolean
@@ -14,38 +14,34 @@ const {
   title = SITE.name,
   description = SITE.description,
   url = '/',
-  image = {
-    url: '/images/share.png',
-    width: 1200,
-    height: 630,
-    alt: 'Lance Guyatt, Web Developer'
-  },
+  image = SITE.image,
   noindex = false
 } = Astro.props as IBaseHead
 ---
 
 <head>
-  <meta charset="utf-8" />
+  <meta name="charset" content="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <SEO
-    canonical={`${SITE.url}${url}`}
     title={title}
+    titleTemplate={`%s - ${SITE.name}`}
+    titleDefault={`Default title`}
     description={description}
+    canonical={`${SITE.url}${url}`}
     noindex={noindex}
     openGraph={{
       basic: {
-        title: description,
+        title,
         type: 'webpage',
         image: `${SITE.url}${image.url}`,
         url: `${SITE.url}${url}`
       },
-
       optional: {
-        siteName: SITE.name,
+        description,
         locale: SITE.locale,
-        description
+        siteName: SITE.name
       },
-
       image: {
         width: image.width,
         height: image.height,
@@ -54,18 +50,18 @@ const {
     }}
     twitter={{
       card: 'summary_large_image',
-      site: '@lanceguyatt',
-      creator: '@lanceguyatt'
+      site: SITE.twitter,
+      creator: SITE.twitter
     }}
     extend={{
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'author', type: 'text/plain', href: '/humans.txt' },
-        { rel: 'mainfest', href: '/site.webmanifest' },
-        // {
-        //   rel: 'mask-icon',
-        //   href: '/safari-pinned-tab.svg',
-        // },
+        {
+          rel: 'mainfest',
+          href: '/manifest.webmanifest',
+          crossOrigin: 'anonymous'
+        },
         {
           rel: 'apple-touch-icon',
           href: '/apple-touch-icon.png'
@@ -75,10 +71,9 @@ const {
     }}
   />
   <slot />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script
     type="text/partytown"
-    src="https://www.googletagmanager.com/gtag/js?id=UA-19641705-1"
+    src=`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`
   ></script>
   <script>
     window.dataLayer = window.dataLayer || []
@@ -86,6 +81,6 @@ const {
       window.dataLayer.push(arguments)
     }
     gtag('js', new Date())
-    gtag('config', 'UA-19641705-1')
+    gtag('config', GTM_ID)
   </script>
 </head>
