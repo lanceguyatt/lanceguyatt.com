@@ -46,7 +46,8 @@
     "remark-toc": "^8.0.1",
     "svelte": "^3.59.1",
     "svgo": "2.8.0",
-    "unocss": "^0.51.12"
+    "unocss": "^0.51.12",
+    "unocss-preset-theme": "^0.6.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.11",
@@ -62,7 +63,6 @@
     "eslint-plugin-storybook": "^0.6.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.11",
-    "unocss-preset-theme": "^0.6.0"
+    "storybook": "^7.0.11"
   }
 }
