@@ -1,28 +1,23 @@
 ---
-import { SITE } from '~/config'
-import { BaseHead } from '~/components/index.astro'
+import { ISITE, SITE } from '~/config'
+import { BaseHead, SchemaWebPage } from '~/components/index.astro'
 
 // import 'uno:base.css'
 import '~/styles/workbench.css'
 
-export interface DefaultProps {
-  title?: string
-  description?: string
-  url?: string
-  image?: {
-    url?: string
-  }
+export interface IDefault extends ISITE {
   class?: string
 }
 
 const {
   title,
+  name,
   description,
   url,
   image,
   class: className
-} = Astro.props as DefaultProps
-const meta = { title, description, url, image }
+} = Astro.props as IDefault
+const meta = { name, title, description, url, image }
 ---
 
 <html lang={SITE.lang}>
@@ -30,8 +25,11 @@ const meta = { title, description, url, image }
     <slot name="head" />
   </BaseHead>
   <body class:list={[className]}>
+    <slot name="header" />
     <main class="flex-auto">
       <slot />
     </main>
+    <slot name="footer" />
+    <SchemaWebPage {...meta} />
   </body>
 </html>

@@ -4,7 +4,23 @@ const BASE_URL = import.meta.env.PUBLIC_BASE_URL
 
 const name = 'Lance Guyatt, Web Developer.'
 
-export const SITE = {
+export interface ISITE {
+  title?: string
+  name?: string
+  description?: string
+  id?: string
+  url?: string
+  image: object
+  logo: string
+  themeColor: string
+  backgroundColor: string
+  locale: string
+  lang: string
+  copyrightYear: number
+  twitter?: string
+}
+
+export const SITE: ISITE = {
   title: name,
   name,
   description: 'Lance Guyatt, description',

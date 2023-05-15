@@ -4,25 +4,24 @@ export interface IAlert {
   animate?: boolean
 }
 
-const { class: className, animate = false, ...attrs } = Astro.props as IAlert
+const { class: className, animate = false, ...props } = Astro.props as IAlert
 ---
 
 <div
   role="dialog"
+  data-component="alert"
   class:list={[
-    'alert',
+    'border-4 border-current text-red p-8 text-center relative',
     className,
     animate && ['animate-pulse', 'animate-alternate']
   ]}
-  {...attrs}
+  {...props}
 >
   <slot />
 </div>
 
 <style lang="postcss">
-.alert {
-  @apply border-4 border-current text-red p-8 text-center relative;
-
+[data-component="alert"] {
   & a {
     @apply hover:underline;
 

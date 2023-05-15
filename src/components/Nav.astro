@@ -1,18 +1,18 @@
 ---
-export interface NavProps {
+export interface INav {
   class?: string
-  id: string
   name: string
+  id: string
   vertical?: boolean
 }
 
 const {
-  id,
-  name,
   class: className,
+  name,
+  id,
   vertical = false,
   ...props
-} = Astro.props as NavProps
+} = Astro.props as INav
 ---
 
 <nav
@@ -23,11 +23,11 @@ const {
     'justify-start',
     'items-start',
     'gap-3',
-    { 'flex-col': vertical },
+    { 'flex-col': !vertical },
     className
   ]}
   {...props}
 >
-  <h2 id={id} class="sr-only">{name}</h2>
+  <h2 id={id} class="srs-only">{name}</h2>
   <slot />
 </nav>

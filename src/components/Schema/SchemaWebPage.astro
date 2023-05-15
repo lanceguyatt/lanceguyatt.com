@@ -1,7 +1,7 @@
 ---
 import { SITE } from '~/config'
 
-export interface Props {
+export interface ISchemaWebPage {
   name?: string
   description?: string
   url?: string
@@ -18,7 +18,7 @@ const {
   description = SITE.description,
   url = '/',
   image = SITE.image
-} = Astro.props as Props
+} = Astro.props as ISchemaWebPage
 
 const ldData = {
   '@context': 'https://schema.org',

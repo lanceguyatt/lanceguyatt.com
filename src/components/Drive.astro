@@ -1,10 +1,10 @@
 ---
 export interface IDrive {
-  name?: string
-  url?: string
+  name: string
+  url: string
 }
 
-const { name = 'Foo', url = '/bar', ...props } = Astro.props as IDrive
+const { name, url, ...props } = Astro.props as IDrive
 ---
 
 <a class="drive" href={url} {...props}><slot>{name}</slot></a>

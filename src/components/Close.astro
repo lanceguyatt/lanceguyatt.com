@@ -1,30 +1,25 @@
 ---
-export interface CloseProps {
-  name?: string
+export interface IClose {
+  name: string
   url?: string
   class?: string
-  tag?: string
 }
 
 const {
-  tag = 'a',
-  name,
+  name = 'Close',
   url = '/',
   class: className,
   ...props
-} = Astro.props as CloseProps
-
-const Tag = tag
+} = Astro.props as IClose
 ---
 
-<Tag
-  href={url ? url : false}
-  data-component="close"
-  class:list={[className]}
-  {...props}
->
-  <span class="sr-only">{{ name }}</span>
-</Tag>
+<a href={url} data-component="close" class:list={[className]} {...props}>
+  <span class="sr-only">
+    <slot>
+      {name}
+    </slot>
+  </span>
+</a>
 
 <style lang="postcss" is:global>
   [data-component='close'] {

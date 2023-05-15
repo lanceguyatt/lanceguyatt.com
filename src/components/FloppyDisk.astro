@@ -1,9 +1,9 @@
 ---
-export interface Props {
+export interface IFloppyDisk {
   class?: string
 }
 
-const { class: className, ...attrs } = Astro.props as Props
+const { class: className, ...props } = Astro.props as IFloppyDisk
 ---
 
 <svg
@@ -11,7 +11,7 @@ const { class: className, ...attrs } = Astro.props as Props
   width={134}
   height={120}
   class:list={[className]}
-  {...attrs}
+  {...props}
 >
   <g fill="none" fill-rule="evenodd">
     <path

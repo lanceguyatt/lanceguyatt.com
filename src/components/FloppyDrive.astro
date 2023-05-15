@@ -1,9 +1,9 @@
 ---
-export interface Props {
+export interface IFloppyDrive {
   class?: string
 }
 
-const { class: className, ...attrs } = Astro.props as Props
+const { class: className, ...attrs } = Astro.props as IFloppyDrive
 ---
 
 <svg

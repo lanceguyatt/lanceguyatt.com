@@ -1,20 +1,19 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { fly } from 'svelte/transition'
-
   import toastyMp3 from '/audio/toasty.mp3'
   import toastyImage from '/images/toasty.png'
 
   let toasty: boolean = false
+  let konamiCodeArray: Array<string> = []
+  const konamiCodeKey: string =
+    'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA'
 
   onMount(() => {
-    let konamiCodeArray: Array<string> = []
-    const konamiCodeKey: string =
-      'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA'
     const toastyAudio = <HTMLVideoElement>(
       document.getElementById('js-toasty-audio')
     )
-
+    
     document.addEventListener('keydown', event => {
       konamiCodeArray.push(event.code)
       if (konamiCodeArray.toString().indexOf(konamiCodeKey) >= 0) {
@@ -33,7 +32,8 @@
   class={`sr-only ${
     toasty ? 'bg-red' : 'bg-blue'
   } appearance-none w-4 h-4 block`}
-/>
+  value="Toasty"
+>
 
 {#if toasty}
   <img

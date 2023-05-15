@@ -10,7 +10,7 @@ const work = await getCollection('work', ({ data }) => {
 // work.sort((a, b) => a.data.sortOrder - b.data.sortOrder)
 ---
 
-<Nav id="work-nav" name="Work menu" class="not-prose">
+<Nav id="work-nav" name="Work menu" class="not-prose" vertical>
   {
     work.map(({ slug, data: { name } }) => (
       <Drawer name={name} url={`/work/${slug}`} />
