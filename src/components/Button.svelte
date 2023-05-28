@@ -20,7 +20,7 @@
     border-image: url('/images/unselected.svg') 2 stretch;
 
     &:active {
-      @apply bg-blue;
+      @apply bg-primary;
 
       border-image: url('/images/selected.svg') 2 stretch;
     }

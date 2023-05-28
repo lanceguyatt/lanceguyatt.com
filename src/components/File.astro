@@ -14,7 +14,7 @@ const { name, url, external = false, ...attrs } = Astro.props as FileProps
 
 <style lang="postcss" is:global>
   .file {
-    @apply inline-flex items-center flex-col gap-1 focus:bg-blue outline-none before:content-[""];
+    @apply inline-flex items-center flex-col gap-1 focus:bg-primary outline-none before:content-[""];
 
     &::before {
       @apply block w-[2.875rem] h-[3.875rem] bg-cover bg-[url('/images/file.svg')];

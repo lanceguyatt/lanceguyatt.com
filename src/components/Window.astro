@@ -12,7 +12,12 @@ const { id, name, url, class: className, ...attrs } = Astro.props as WindowProps
 ---
 
 <section
-  class:list={['window', 'bg-blue', 'relative', className]}
+  class:list={[
+    'window',
+    'bg-primary text-primary-foreground',
+    'relative',
+    className
+  ]}
   aria-labelledby={id}
   {...attrs}
 >
@@ -27,7 +32,7 @@ const { id, name, url, class: className, ...attrs } = Astro.props as WindowProps
       {name}
     </h2>
   </div>
-  <div class="flex-auto overflow-auto bg-gray p-3">
+  <div class="flex-auto overflow-auto bg-secondary p-3">
     <slot />
   </div>
 </section>

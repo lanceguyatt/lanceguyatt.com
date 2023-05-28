@@ -3,10 +3,11 @@ import { ISITE, SITE } from '~/config'
 import { BaseHead, SchemaWebPage } from '~/components/index.astro'
 
 // import 'uno:base.css'
-import '~/styles/workbench.css'
+import '~/styles/globals.css'
 
 export interface IDefault extends ISITE {
   class?: string
+  theme?: string
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   description,
   url,
   image,
+  theme,
   class: className
 } = Astro.props as IDefault
 const meta = { name, title, description, url, image }
@@ -24,7 +26,7 @@ const meta = { name, title, description, url, image }
   <BaseHead {...meta}>
     <slot name="head" />
   </BaseHead>
-  <body class:list={[className]}>
+  <body class:list={[className, 'bg-background', 'text-foreground', theme]}>
     <slot name="header" />
     <main class="flex-auto">
       <slot />

@@ -17,14 +17,14 @@ export default defineConfig({
       [
         remarkCollapse,
         {
-          test: 'Table of contents',
-        },
-      ],
-    ],
+          test: 'Table of contents'
+        }
+      ]
+    ]
   },
   integrations: [
     UnoCSS({
-      injectReset: false,
+      injectReset: false
     }),
     mdx({
       remarkPlugins: [
@@ -32,19 +32,19 @@ export default defineConfig({
         [
           remarkCollapse,
           {
-            test: 'Table of contents',
-          },
-        ],
-      ],
+            test: 'Table of contents'
+          }
+        ]
+      ]
     }),
     svelte(),
     compress(),
     partytown({
       // Adds dataLayer.push as a forwarding-event.
       config: {
-        forward: ['dataLayer.push'],
-      },
-    }),
+        forward: ['dataLayer.push']
+      }
+    })
   ],
   vite: {
     build: {
@@ -56,6 +56,6 @@ export default defineConfig({
       //     assetFileNames: 'assets/[name][extname]',
       //   },
       // },
-    },
-  },
+    }
+  }
 })

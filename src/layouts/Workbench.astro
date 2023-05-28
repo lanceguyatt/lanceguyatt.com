@@ -1,5 +1,6 @@
 ---
-import { ISITE, SITE } from '~/config'
+import type { ISITE } from '~/config'
+import { SITE } from '~/config'
 
 import { Disk, Drive, Nav, TitleBar, Window } from '~/components/index.astro'
 import Default from './Default.astro'
@@ -12,8 +13,12 @@ const { title, name, description, url, image, ...props } =
 const meta = { title, name, description, url, image }
 ---
 
-<Default class="bg-background text-text" {...meta} {...props}>
-  <TitleBar class="text-black text-gray" role="banner" slot="header">
+<Default {...meta} {...props}>
+  <TitleBar
+    class="bg-secondary-foreground text-secondary"
+    role="banner"
+    slot="header"
+  >
     {SITE.title} Copyright &copy; 2000-{copyrightYear} All Rights Reserved
   </TitleBar>
   <slot />

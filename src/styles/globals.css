@@ -13,7 +13,6 @@ html {
 }
 
 body {
-  /* @apply text-base; */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;

@@ -30,7 +30,7 @@
   type="checkbox"
   bind:checked={toasty}
   class={`sr-only ${
-    toasty ? 'bg-red' : 'bg-blue'
+    toasty ? 'bg-red' : 'bg-primary'
   } appearance-none w-4 h-4 block`}
   value="Toasty"
 >

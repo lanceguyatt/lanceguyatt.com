@@ -11,7 +11,7 @@ const { class: className, animate = false, ...props } = Astro.props as IAlert
   role="dialog"
   data-component="alert"
   class:list={[
-    'border-4 border-current text-red p-8 text-center relative',
+    'border-4 border-primary text-primary p-8 text-center relative',
     className,
     animate && ['animate-pulse', 'animate-alternate']
   ]}

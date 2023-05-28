@@ -28,14 +28,12 @@ export default defineConfig({
       xxl: '1280px',
     },
     colors: {
-      primary: '#6080b0',
-      background: '#a0a0a0',
-      text: 'rgba(0,0,0,0.85)',
-      red: '#ed1c24',
-      blue: '#6080b0',
-      gray: '#a0a0a0',
-      purple: 'rgb(68, 16, 68)',
-      tan: 'rgb(224, 160, 128)',
+      background: 'hsl(0, 0%, 62.7%)',
+      foreground: 'hsl(0, 0%, 0%)',
+      primary: 'hsl(216, 33.6%, 53.3%)',
+      'primary-foreground': 'hsl(0, 0%, 0%)',
+      secondary: 'hsl(0, 0%, 62.7%)',
+      'secondary-foreground': 'hsl(0, 0%, 0%)',
     },
     animation: {
       keyframes: {
@@ -77,19 +75,35 @@ export default defineConfig({
     }
   },
   presets: [
-    presetUno(),
+    presetUno({
+      'dark': 'media'
+    }),
     presetWind(),
     presetAttributify(),
     presetTypography(),
+    // presetUno<Theme>(),
     presetTheme<Theme>({
       theme: {
-        dark: {
+        workbench: {
           colors: {
-            'primary': 'rgba(0,0,0, 0.85)',
-            'background': 'rgba(0,0,0, 0.85)',
-            'text': 'rgba(255, 255, 255, 0.85)',
+            background: 'hsl(0, 0%, 62.7%)',
+            foreground: 'hsl(0, 0%, 0%)',
+            primary: 'hsl(216, 33.6%, 53.3%)',
           },
         },
+        kickstart: {
+          colors: {
+            background: 'hsl(300, 61.9%, 16.5%)',
+            foreground: 'hsl(20, 60.8%, 69%)',
+          }
+        },
+        guru: {
+          colors: {
+            background: 'hsl(0, 0%, 10%)',
+            foreground: 'hsl(357.7, 85.3%, 52%)',
+            primary: 'hsl(357.7, 85.3%, 52%)',
+          }
+        }
       }
     }),
   ],
