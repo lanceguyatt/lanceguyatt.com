@@ -75,26 +75,20 @@ export default defineConfig({
     }
   },
   presets: [
-    presetUno({
-      'dark': 'media'
-    }),
+    presetUno(),
     presetWind(),
     presetAttributify(),
     presetTypography(),
-    // presetUno<Theme>(),
     presetTheme<Theme>({
       theme: {
-        workbench: {
-          colors: {
-            background: 'hsl(0, 0%, 62.7%)',
-            foreground: 'hsl(0, 0%, 0%)',
-            primary: 'hsl(216, 33.6%, 53.3%)',
-          },
-        },
         kickstart: {
           colors: {
             background: 'hsl(300, 61.9%, 16.5%)',
             foreground: 'hsl(20, 60.8%, 69%)',
+            primary: 'hsl(20, 60.8%, 69%)',
+            'primary-foreground': 'hsl(300, 61.9%, 16.5%)',
+            secondary: 'hsl(300, 61.9%, 16.5%)',
+            'secondary-foreground': 'hsl(0, 0%, 0%)',
           }
         },
         guru: {
@@ -102,6 +96,7 @@ export default defineConfig({
             background: 'hsl(0, 0%, 10%)',
             foreground: 'hsl(357.7, 85.3%, 52%)',
             primary: 'hsl(357.7, 85.3%, 52%)',
+            secondary: 'hsl(0, 0%, 10%)',
           }
         }
       }
