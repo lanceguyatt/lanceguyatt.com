@@ -2,8 +2,7 @@
 import { ISITE, SITE } from '~/config'
 import { BaseHead, SchemaWebPage } from '~/components/index.astro'
 
-// import 'uno:base.css'
-import '~/styles/globals.css'
+import '~/styles/global.css'
 
 export interface IDefault extends ISITE {
   class?: string
@@ -28,9 +27,7 @@ const meta = { name, title, description, url, image }
   </BaseHead>
   <body class:list={[className, 'bg-background', 'text-foreground', theme]}>
     <slot name="header" />
-    <main class="flex-auto">
-      <slot />
-    </main>
+    <slot />
     <slot name="footer" />
     <SchemaWebPage {...meta} />
   </body>

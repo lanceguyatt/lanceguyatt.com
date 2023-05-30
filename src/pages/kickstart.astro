@@ -25,18 +25,18 @@ const { name, description } = data
     extend={{ meta: [{ name: 'theme-color', content: 'rgb(68, 16, 68)' }] }}
   />
   <div class="page">
-    <div class="w-44 flex flex-col gap-6">
+    <div class="w-[44px] flex flex-col gap-6">
       <Prose>
         <Content />
       </Prose>
     </div>
 
-    <a class="relative block h-10.5625rem w-9.75rem" href="/">
+    <a class="relative block h-[10.5625rem] w-[9.75rem]" href="/">
       <span class="sr-only">Return to Workbench</span>
       <Icon name="floppy-drive" />
       <Icon
         name="floppy-disk"
-        class="absolute bottom-0 left-12px animate-disk"
+        class="absolute bottom-0 left-[12px] animate-disk"
       />
     </a>
   </div>
@@ -44,6 +44,6 @@ const { name, description } = data
 
 <style lang="postcss">
 .page {
-  @apply flex flex-col p-6 justify-center items-center gap-6 min-h-screen  md:(flex-row items-end justify-between gap-12 p-12);
+  @apply flex flex-col p-6 justify-center items-center gap-6 min-h-screen md:flex-row md:items-end md:justify-between md:gap-12 md:p-12;
 }
 </style>

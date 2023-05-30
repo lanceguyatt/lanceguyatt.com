@@ -1,0 +1,22 @@
+---
+import Default from '~layouts/Default.astro'
+import TitleBar from '~/components/TitleBar.astro'
+
+import { Alert, AlertDescription, AlertTitle } from '~/components/ui/alert'
+import { AlertDialogDemo } from '~/components/AlertDialogDemo'
+import ThemeToggle from '@/components/ui/theme-toggle.astro'
+---
+
+<Default>
+  <TitleBar class="bg-foreground text-background">Shadcn ui</TitleBar>
+  <div class="px-6 max-w-4xl w-full">
+    <ThemeToggle />
+    <AlertDialogDemo client:load />
+    <Alert className="text-destructive text-center">
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
+        You can add components to your app using the cli.
+      </AlertDescription>
+    </Alert>
+  </div>
+</Default>

@@ -7,7 +7,7 @@ const name = 'Workbench'
 ---
 
 <Default>
-  <div class="grid min-h-screen md:(grid-cols-3)">
+  <div class="grid min-h-screen md:grid-cols-3">
     <div class="grid grid-rows-[auto_1fr]">
       <TitleBar class="bg-foreground text-background">{name}</TitleBar>
       <Window {name}>
@@ -23,7 +23,7 @@ const name = 'Workbench'
       </Window>
     </div>
     <div class="grid grid-rows-[auto_1fr] min-h-screen kickstart">
-      <TitleBar class="bg-foreground text-background">{name}</TitleBar>
+      <TitleBar class="bg-foreground text-background">Kickstart</TitleBar>
       <Window {name}>
         <div class="mx-auto max-w-screen w-full">
           <p>Workbench</p>

@@ -1,47 +1,8 @@
 ---
 import Workbench from '~/layouts/Workbench.astro'
-// import Close from '~/components/Close.astro'
+import { DialogDemo } from '~/components/DialogDemo'
 ---
 
 <Workbench>
-  <button class="open-dialog">Open</button>
-
-  <dialog id="dialog">
-    <!-- <div
-    class="-topx-[20px] absolute -left-[4px] -right-[4px] z-20 flex h-[18px] items-center border-2"
-  >
-    <div class="flex-none">
-      <form action="modal">
-        <button type="submit">Close</button>
-      </form>
-    </div>
-    <div class="flex-auto overflow-hidden leading-[18px]">
-      <h2 class="text-ellipsis whitespace-nowrap">About</h2>
-    </div>
-  </div> -->
-    <div
-      class="relative w-full flex-auto overflow-auto bg-gray p-3 -bottom-7 -left-4 -right-4 -top-4"
-    >
-      <p>sdslkdlsksld</p>
-    </div>
-  </dialog>
+  <DialogDemo client:load />
 </Workbench>
-
-<script>
-  const dialog = document.querySelector('#dialog')
-  const openDialog = document.querySelector('.open-dialog')
-
-  openDialog.addEventListener('click', () => {
-    dialog.showModal()
-  })
-</script>
-
-<style lang="postcss" is:global>
-  dialog {
-    @apply border-window relative h-screen w-screen;
-
-    &[open] {
-      @apply grid bg-primary;
-    }
-  }
-</style>

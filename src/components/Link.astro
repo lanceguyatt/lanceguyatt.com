@@ -17,7 +17,7 @@ const { href, external = false, icon = 'drive' } = Astro.props as ILink
   rel={external ? 'noopener noreferrer' : null}
 >
   <Icon name={icon} class="mb-1" />
-  <span class="max-w-5rem">
+  <span class="max-w-[5rem]">
     <slot />
   </span>
 </a>

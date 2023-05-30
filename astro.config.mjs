@@ -4,9 +4,9 @@ import svelte from '@astrojs/svelte'
 import compress from 'astro-compress'
 import remarkToc from 'remark-toc'
 import remarkCollapse from 'remark-collapse'
-import UnoCSS from 'unocss/astro'
-
 import partytown from '@astrojs/partytown'
+import react from '@astrojs/react'
+import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,9 +23,6 @@ export default defineConfig({
     ]
   },
   integrations: [
-    UnoCSS({
-      injectReset: false
-    }),
     mdx({
       remarkPlugins: [
         remarkToc,
@@ -44,9 +41,14 @@ export default defineConfig({
       config: {
         forward: ['dataLayer.push']
       }
-    })
+    }),
+    react(),
+    tailwind()
   ],
   vite: {
+    ssr: {
+      noExternal: ['@radix-ui/*']
+    },
     build: {
       // cssCodeSplit: false,
       // rollupOptions: {

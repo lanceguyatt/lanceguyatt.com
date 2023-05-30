@@ -1,14 +1,13 @@
 ---
-name: Guru Meditation
-description: Software Failure. Press left mouse button to continue. Guru Meditation #00004040.00004040
+name: Software Failure. Press left mouse button to continue.
+description: 'Guru Meditation #00004040.00004040'
 ---
 
-import { Prose, Alert } from '~/components/index.astro'
+import { Alert, AlertDescription, AlertTitle } from '~/components/ui/alert'
 
-<Alert animate>
-
-Software Failure. [Press left mouse button to continue.](/)
-
-Guru Meditation #00004040.00004040
-
+<Alert className="mx-auto max-w-lg text-center" animate>
+  <AlertTitle>
+    Software Failure. [Press left mouse button to continue.](/)
+  </AlertTitle>
+  <AlertDescription>{frontmatter.description}</AlertDescription>
 </Alert>

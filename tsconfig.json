@@ -5,14 +5,18 @@
     "baseUrl": ".",
     "paths": {
       "~*": ["./src/*"],
+      "@*": ["./src/*"],
       "~/components/*": ["src/components/*"],
       "~/config": ["src/config"],
       "~/containers/*": ["src/containers/*"],
       "~/content/*": ["src/content/*"],
       "~/layouts/*": ["src/layouts/*"],
+      "~/lib/*": ["src/lib/*"],
       "~/schema/*": ["src/schema/*"],
       "~/styles/*": ["src/styles/*"],
       "~/utils/*": ["src/utils/*"]
-    }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
