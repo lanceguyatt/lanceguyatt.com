@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
 
-import { Drawer, Nav } from '~/components/index.astro'
+import Nav from '~/components/Nav.astro'
+import Link from '~/components/Link.astro'
 
 const work = await getCollection('work', ({ data }) => {
   return data.draft !== true
@@ -10,10 +11,12 @@ const work = await getCollection('work', ({ data }) => {
 // work.sort((a, b) => a.data.sortOrder - b.data.sortOrder)
 ---
 
-<Nav id="work-nav" name="Work menu" class="not-prose" vertical>
+<Nav id="work-nav" name="Work menu" class="not-prose">
   {
     work.map(({ slug, data: { name } }) => (
-      <Drawer name={name} url={`/work/${slug}`} />
+      <Link icon="drawer" href={`/work/${slug}`}>
+        {name}
+      </Link>
     ))
   }
 </Nav>

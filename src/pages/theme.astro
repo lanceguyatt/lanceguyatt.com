@@ -1,22 +1,54 @@
 ---
-import { Window } from '~components/index.astro'
+import Link from '~components/Link.astro'
+import { Nav, TitleBar, Window } from '~components/index.astro'
 import Default from '~layouts/Default.astro'
+
+const name = 'Workbench'
 ---
 
 <Default>
-  <article>
-    <div class="mx-auto max-w-screen w-full px-8">
-      <div class="grid min-h-screen gap-8 md:grid-cols-3 py-8">
-        <Window name="Workbench">
+  <div class="grid min-h-screen md:(grid-cols-3)">
+    <div class="grid grid-rows-[auto_1fr]">
+      <TitleBar class="bg-foreground text-background">{name}</TitleBar>
+      <Window {name}>
+        <div class="mx-auto max-w-screen w-full">
           <p>Workbench</p>
-        </Window>
-        <Window name="Kickstart" class="kickstart">
-          <p>Kickstart</p>
-        </Window>
-        <Window name="Guru" class="guru">
-          <p>Guru meditation</p>
-        </Window>
-      </div>
+          <Nav>
+            <Link href="/about">About</Link>
+            <Link icon="drawer" href="/work">Work</Link>
+            <Link icon="file" href="/about">About</Link>
+            <Link icon="disk" href="/about">About</Link>
+          </Nav>
+        </div>
+      </Window>
     </div>
-  </article>
+    <div class="grid grid-rows-[auto_1fr] min-h-screen kickstart">
+      <TitleBar class="bg-foreground text-background">{name}</TitleBar>
+      <Window {name}>
+        <div class="mx-auto max-w-screen w-full">
+          <p>Workbench</p>
+          <Nav>
+            <Link href="/about">About</Link>
+            <Link icon="drawer" href="/work">Work</Link>
+            <Link icon="file" href="/about">About</Link>
+            <Link icon="disk" href="/about">About</Link>
+          </Nav>
+        </div>
+      </Window>
+    </div>
+    <div class="grid grid-rows-[auto_1fr] min-h-screen guru">
+      <TitleBar class="bg-foreground text-background">{name}</TitleBar>
+      <Window {name}>
+        <div class="mx-auto max-w-screen w-full">
+          <p>Workbench</p>
+          <Nav>
+            <Link href="/about">About</Link>
+            <Link icon="drawer" href="/work">Work</Link>
+            <Link icon="file" href="/about">About</Link>
+            <Link icon="disk" href="/about">About</Link>
+          </Nav>
+        </div>
+      </Window>
+    </div>
+  </div>
 </Default>

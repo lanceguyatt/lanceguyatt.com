@@ -1,18 +1,23 @@
 ---
-import Icon from 'astro-icon'
+import Icon from '~/components/Icon.astro'
 
 export interface ILink {
   href: string
-  icon: string
+  icon: 'drive' | 'drawer' | 'file' | 'disk'
+  external: boolean
 }
 
-const { href, icon = 'floppy-disk' } = Astro.props as ILink
+const { href, external = false, icon = 'drive' } = Astro.props as ILink
 ---
 
 <a
   href={href}
-  class="inline-flex flex-col items-center text-center outline-none focus:bg-primary"
+  class="inline-flex flex-col items-center text-center no-underline outline-none focus:bg-primary"
+  target={external ? '_blank' : null}
+  rel={external ? 'noopener noreferrer' : null}
 >
   <Icon name={icon} class="mb-1" />
-  <slot />
+  <span class="max-w-5rem">
+    <slot />
+  </span>
 </a>

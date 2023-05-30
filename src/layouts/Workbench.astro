@@ -2,18 +2,27 @@
 import type { ISITE } from '~/config'
 import { SITE } from '~/config'
 
-import { Disk, Drive, Nav, TitleBar, Window } from '~/components/index.astro'
+import { Link, Nav, TitleBar, Window } from '~/components/index.astro'
 import Default from './Default.astro'
 
-export interface IWorkbench extends ISITE {}
+export interface IWorkbench extends ISITE {
+  class?: string
+}
 
 const { copyrightYear } = SITE
-const { title, name, description, url, image, ...props } =
-  Astro.props as IWorkbench
+const {
+  title,
+  name,
+  description,
+  url,
+  image,
+  class: className,
+  ...props
+} = Astro.props as IWorkbench
 const meta = { title, name, description, url, image }
 ---
 
-<Default {...meta} {...props}>
+<Default {...meta} {...props} class={className}>
   <TitleBar
     class="bg-secondary-foreground text-secondary"
     role="banner"
@@ -23,10 +32,10 @@ const meta = { title, name, description, url, image }
   </TitleBar>
   <slot />
   <Window id="workbench-window" name="Workbench" url="/kickstart">
-    <Nav id="workbench-nav" name="Workbench">
-      <Disk name="Ram Disk" url="/ram-disk" />
-      <Drive name="Work" url="/work" />
-      <Drive name="About" url="/about" />
+    <Nav id="workbench-nav" name="Workbench" vertical>
+      <Link icon="disk" href="/ram-disk">Ram Disk</Link>
+      <Link icon="drive" href="/work">Work</Link>
+      <Link icon="drive" href="/about">About</Link>
     </Nav>
   </Window>
 </Default>

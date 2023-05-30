@@ -24,14 +24,6 @@ pre {
   @apply font-sans;
 }
 
-[astro-icon='floppy-drive'] {
-  @apply h-38px w-156px;
-}
-
-[astro-icon='floppy-disk'] {
-  @apply h-120px w-134px;
-}
-
 .border-img-foo {
   @apply border-4;
 

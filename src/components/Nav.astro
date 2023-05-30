@@ -23,11 +23,11 @@ const {
     'justify-start',
     'items-start',
     'gap-3',
-    { 'flex-col': !vertical },
+    { 'flex-col': vertical },
     className
   ]}
   {...props}
 >
-  <h2 id={id} class="srs-only">{name}</h2>
+  <h2 id={id} class="sr-only">{name}</h2>
   <slot />
 </nav>

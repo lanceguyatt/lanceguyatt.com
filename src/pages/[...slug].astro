@@ -20,9 +20,11 @@ const { Content } = await entry.render()
 ---
 
 <Workbench title={name} description={description} url={`/${slug}`}>
-  <Window id={slug} name={name} class="absolute tsop-0">
-    <Prose class="prose-black">
-      <Content />
-    </Prose>
+  <Window id={slug} name={`${name}`}>
+    <div class="px-6 w-full max-w-xl">
+      <Prose class="prose">
+        <Content />
+      </Prose>
+    </div>
   </Window>
 </Workbench>

@@ -8,18 +8,20 @@ interface WindowProps {
   class?: string
 }
 
-const { id, name, url, class: className, ...attrs } = Astro.props as WindowProps
+const { id, name, url, class: className, ...props } = Astro.props as WindowProps
 ---
 
 <section
   class:list={[
     'window',
-    'bg-primary text-primary-foreground',
+    'grid',
+    'bg-primary',
+    'text-primary-foreground',
     'relative',
     className
   ]}
   aria-labelledby={id}
-  {...attrs}
+  {...props}
 >
   <div class="absolute h-18px flex items-center -left-4px -right-4px -top-20px">
     <div class="flex-none">
@@ -39,8 +41,6 @@ const { id, name, url, class: className, ...attrs } = Astro.props as WindowProps
 
 <style lang="postcss">
   .window {
-    @apply grid;
-
     border-width: 22px 4px 4px 4px;
     border-image: url(/images/window.svg) 22 4 4 4 stretch;
   }
