@@ -19,7 +19,28 @@ const {
   class: className,
   ...props
 } = Astro.props as IWorkbench
+
 const meta = { title, name, description, url, image }
+
+const pathname = new URL(Astro.request.url).pathname
+
+const links = [
+  {
+    name: 'Ram Disk',
+    url: '/ram-disk',
+    icon: 'disk'
+  },
+  {
+    name: 'Work',
+    url: '/work',
+    icon: 'drive'
+  },
+  {
+    name: 'About',
+    url: '/about',
+    icon: 'drive'
+  }
+]
 ---
 
 <Default {...meta} {...props} class={className}>
@@ -31,11 +52,21 @@ const meta = { title, name, description, url, image }
     {SITE.title} Copyright &copy; 2000-{copyrightYear} All Rights Reserved
   </TitleBar>
   <slot />
-  <Window id="workbench-window" name="Workbench" url="/kickstart">
+  <Window
+    id="workbench-window"
+    name="Workbench"
+    url="/kickstart"
+    intent="backdrop"
+    active={pathname === '/'}
+  >
     <Nav id="workbench-nav" name="Workbench" vertical>
-      <Link icon="disk" href="/ram-disk">Ram Disk</Link>
-      <Link icon="drive" href="/work">Work</Link>
-      <Link icon="drive" href="/about">About</Link>
+      {
+        links.map(({ name, url, icon }) => (
+          <Link icon={icon} href={url} active={pathname === url}>
+            {name}
+          </Link>
+        ))
+      }
     </Nav>
   </Window>
 </Default>

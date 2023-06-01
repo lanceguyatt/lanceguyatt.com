@@ -1,33 +1,29 @@
 ---
-export interface INav {
-  class?: string
+import type { HTMLAttributes } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
+
+const nav = cva('flex gap-3', {
+  variants: {
+    vertical: {
+      true: 'flex-col items-center w-24',
+      false: 'flex-wrap'
+    }
+  },
+  defaultVariants: {
+    vertical: false
+  }
+})
+
+export interface Props extends HTMLAttributes<'nav'>, VariantProps<typeof nav> {
+  className?: string
   name: string
   id: string
-  vertical?: boolean
 }
 
-const {
-  class: className,
-  name,
-  id,
-  vertical = false,
-  ...props
-} = Astro.props as INav
+const { className, name, id, vertical } = Astro.props
 ---
 
-<nav
-  aria-labelledby={id}
-  class:list={[
-    'flex',
-    'flex-wrap',
-    'justify-start',
-    'items-start',
-    'gap-3',
-    { 'flex-col': vertical },
-    className
-  ]}
-  {...props}
->
+<nav aria-labelledby={id} class={nav({ vertical, className })}>
   <h2 id={id} class="sr-only">{name}</h2>
   <slot />
 </nav>

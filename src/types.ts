@@ -30,3 +30,9 @@ export type SocialMedia =
   | 'Steam'
   | 'Telegram'
   | 'Mastodon'
+
+export type Icons =
+  | 'disk'
+  | 'drawer'
+  | 'drive'
+  | 'file'

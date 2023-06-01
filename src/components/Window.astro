@@ -1,34 +1,53 @@
 ---
-import Close from '~/components/Close.astro'
+import type { HTMLAttributes } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-interface WindowProps {
+import Close from '~components/Close.astro'
+
+const window = cva('window grid', {
+  variants: {
+    intent: {
+      default: '',
+      backdrop: 'absolute top-titlebar bottom-0 w-full z-0',
+      modal:
+        'absolute top-titlebar bottom-0 w-full z-10 md:w-1/2 md:h-1/2 md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2',
+      modal2:
+        'absolute top-titlebar bottom-0 w-full z-20 md:w-1/2 md:h-1/2 md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2'
+    },
+    size: {
+      small: ['text-sm'],
+      medium: ['text-base'],
+      large: ['text-lg']
+    },
+    active: {
+      true: 'bg-primary text-primary-foreground'
+    }
+  },
+  defaultVariants: { intent: 'default', size: 'medium', active: false }
+})
+
+export interface Props
+  extends HTMLAttributes<'section'>,
+    VariantProps<typeof window> {
   id: string
   name: string
   url?: string
-  class?: string
+  className?: string
 }
 
-const { id, name, url, class: className, ...props } = Astro.props as WindowProps
+const { id, name, intent, size, active, url = '/', className } = Astro.props
 ---
 
 <section
-  class:list={[
-    'window',
-    'grid',
-    'bg-primary',
-    'text-primary-foreground',
-    'relative',
-    className
-  ]}
+  class={window({ intent, size, active, className })}
   aria-labelledby={id}
-  {...props}
 >
-  <div class="absolute h-[18px] flex items-center -mx-1 -top-5">
+  <div class="absolute -top-5 -mx-1 flex h-[18px] items-center">
     <div class="flex-none">
       <Close name={`Close the ${name} window`} url={url} />
     </div>
     <h2
-      class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap text-base/18px"
+      class="text-base/tightest flex-auto overflow-hidden text-ellipsis whitespace-nowrap"
       id={id}
     >
       {name}
@@ -39,7 +58,7 @@ const { id, name, url, class: className, ...props } = Astro.props as WindowProps
   </div>
 </section>
 
-<style lang="postcss">
+<style lang="postcss" is:global>
   .window {
     border-width: 22px 4px 4px 4px;
     border-image: url(/images/window.svg) 22 4 4 4 stretch;

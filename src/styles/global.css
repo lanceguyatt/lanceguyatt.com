@@ -1,17 +1,50 @@
-/* @import url('@unocss/reset/tailwind.css'); */
 @import url('tailwindcss/base');
 @import url('tailwindcss/components');
 @import url('tailwindcss/utilities');
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
     --background: 0 0% 62.7%;
     --foreground: 0 0% 0%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
     --primary: 216 33.6% 53.3%;
     --primary-foreground: 0 0% 0%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
     --secondary: 0 0% 62.7%;
     --secondary-foreground: 0 0% 0%;
-    --destructive: 357.7 85.3% 52%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    /* --destructive: 357.7 85.3% 52%; */
+
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0;
   }
 
   .kickstart {
@@ -24,9 +57,36 @@
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 357.7, 85.3%, 52%;
-    --primary: 357.7, 85.3%, 52%;
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
   }
 
   @font-face {
@@ -44,11 +104,9 @@
     cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMiAwaDJ2MkgyVjB6bTIgMmg0djJINFYyem00IDJoNHYySDhWNHptNCAyaDR2MmgtNFY2em00IDJoNHYyaC00Vjh6bS0yIDRoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yeiIgZmlsbD0iI0VCRjNENiIvPjxwYXRoIGQ9Ik04IDE2aDJ2NEg3di00SDZ2LTRoMnY0ek0wIDJoMnYySDBWMnptMiAyaDJ2NEgyVjR6bTIgNGgydjRINFY4em04IDZoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0xNiAxMmgtMnYyaC0ydjZoLTJ2LTRIOHYtNEg2VjhINFY0aDR2Mmg0djJoNHYyaDR2MmgtNHpNMCAwaDJ2MkgwVjB6bTIgMmgydjJIMlYyem0xMiAxMmgydjJoLTJ2LTJ6bTIgMmgydjJoLTJ2LTJ6bTIgMmgydjJoLTJ2LTJ6bTIgMmgydjJoLTJ2LTJ6IiBmaWxsPSIjRTc1RDU1Ii8+PC9nPjwvc3ZnPgo=),
       default;
   }
+}
 
-  pre {
-    @apply font-sans;
-  }
-
+@layer components {
   .border-img-foo {
     @apply border-4;
 

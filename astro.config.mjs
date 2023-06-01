@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
-import svelte from '@astrojs/svelte'
 import compress from 'astro-compress'
 import remarkToc from 'remark-toc'
 import remarkCollapse from 'remark-collapse'
@@ -34,7 +33,6 @@ export default defineConfig({
         ]
       ]
     }),
-    svelte(),
     compress(),
     partytown({
       // Adds dataLayer.push as a forwarding-event.

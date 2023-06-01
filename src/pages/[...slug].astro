@@ -17,11 +17,18 @@ const { data, slug } = entry
 const { name, description } = data
 
 const { Content } = await entry.render()
+
+const pathname = new URL(Astro.request.url).pathname
 ---
 
 <Workbench title={name} description={description} url={`/${slug}`}>
-  <Window id={slug} name={`${name}`}>
-    <div class="px-6 w-full max-w-xl">
+  <Window
+    id={slug}
+    name={`${name}`}
+    intent="modal"
+    active={pathname === `/${slug}`}
+  >
+    <div class="w-full max-w-xl border">
       <Prose class="prose">
         <Content />
       </Prose>

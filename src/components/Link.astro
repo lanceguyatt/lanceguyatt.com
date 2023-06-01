@@ -1,23 +1,57 @@
 ---
-import Icon from '~/components/Icon.astro'
+import type { HTMLAttributes } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-export interface ILink {
-  href: string
-  icon: 'drive' | 'drawer' | 'file' | 'disk'
-  external: boolean
+import Icon from '~components/Icon.astro'
+
+const link = cva(
+  'flex flex-col items-center text-base/tight no-underline outline-none',
+  {
+    variants: {
+      active: {
+        true: 'bg-destructive',
+        false: 'focus:bg-white focus:text-primary'
+      }
+    },
+    compoundVariants: [
+      {
+        active: false
+      }
+    ]
+  }
+)
+
+enum Icons {
+  drive,
+  drawer,
+  file,
+  disk
 }
 
-const { href, external = false, icon = 'drive' } = Astro.props as ILink
+export interface Props extends HTMLAttributes<'a'>, VariantProps<typeof link> {
+  className?: string
+  external?: boolean
+  href: string
+  icon: Icons
+}
+
+const {
+  active,
+  className,
+  external = false,
+  href,
+  icon = Icons.disk
+} = Astro.props
 ---
 
 <a
   href={href}
-  class="inline-flex flex-col items-center text-center no-underline outline-none focus:bg-primary"
+  class={link({ active, className })}
   target={external ? '_blank' : null}
   rel={external ? 'noopener noreferrer' : null}
 >
   <Icon name={icon} class="mb-1" />
-  <span class="max-w-[5rem]">
+  <span class="block max-w-24 text-center">
     <slot />
   </span>
 </a>

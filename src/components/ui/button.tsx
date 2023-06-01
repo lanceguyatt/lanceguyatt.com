@@ -17,7 +17,10 @@ const buttonVariants = cva(
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'underline-offset-4 hover:underline text-primary'
+        link: 'underline-offset-4 hover:underline text-primary',
+        fullWidth: {
+          true: 'w-full'
+        }
       },
       size: {
         default: 'h-6 px-2 text-base/tight',
@@ -50,6 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     )
   }
 )
+
 Button.displayName = 'Button'
 
 export { Button, buttonVariants }

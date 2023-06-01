@@ -1,5 +1,5 @@
 ---
-import { SITE } from '~/config'
+import { SITE } from '~config'
 
 export interface ISchemaWebPage {
   name?: string
@@ -45,5 +45,4 @@ const ldData = {
 }
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(ldData, null, 2)}
-></script>
+<script type="application/ld+json" set:html={JSON.stringify(ldData, null, 2)} />
