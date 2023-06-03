@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'input'> {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props
+---
+
+<input
+  type="checkbox"
+  class:list={[
+    'h-22px w-26px appearance-none bg-checkbox outline-0 checked:bg-[-52px] focus:bg-primary',
+    className
+  ]}
+  {...props}
+/>

@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-const nav = cva('flex gap-3', {
+const nav = cva(['flex', 'gap-3'], {
   variants: {
     vertical: {
       true: 'flex-col items-center w-24',
@@ -14,13 +14,13 @@ const nav = cva('flex gap-3', {
   }
 })
 
-export interface Props extends HTMLAttributes<'nav'>, VariantProps<typeof nav> {
-  className?: string
+interface Props extends HTMLAttributes<'nav'>, VariantProps<typeof nav> {
   name: string
   id: string
+  class?: string
 }
 
-const { className, name, id, vertical } = Astro.props
+const { class: className, name, id, vertical } = Astro.props
 ---
 
 <nav aria-labelledby={id} class={nav({ vertical, className })}>

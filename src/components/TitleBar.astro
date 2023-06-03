@@ -1,20 +1,36 @@
 ---
-export interface ITitleBar {
-  class?: string
-  tag?: string
+import type { HTMLAttributes } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
+
+import Depth from '@components/Depth.astro'
+
+const titlebar = cva('h-titlebar flex items-center', {
+  variants: {
+    intent: {
+      default: 'bg-foreground text-secondary',
+      primary: 'bg-primary text-primary-foreground',
+      secondary: 'bg-white text-foreground'
+    }
+  },
+  defaultVariants: { intent: 'default' }
+})
+
+interface Props extends HTMLAttributes<'div'>, VariantProps<typeof titlebar> {
+  className?: string
+  depth?: boolean
 }
 
-const {
-  tag: Tag = 'header',
-  class: className,
-  ...props
-} = Astro.props as ITitleBar
+const { className, depth = false, intent, ...props } = Astro.props
 ---
 
-<Tag class:list={['h-titlebar px-1 flex items-center', className]} {...props}>
+<div class={titlebar({ intent, className })} {...props}>
+  <slot name="prefix" />
   <div
-    class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap text-base/18px"
+    class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap px-1 text-base/tighter"
   >
     <slot />
   </div>
-</Tag>
+  <slot name="suffix">
+    {depth && <Depth class="bg-background" />}
+  </slot>
+</div>

@@ -1,13 +1,13 @@
 ---
-export interface IDrive {
+export interface Props {
   name: string
   url: string
 }
 
-const { name, url, ...props } = Astro.props as IDrive
+const { name, url } = Astro.props
 ---
 
-<a class="drive" href={url} {...props}><slot>{name}</slot></a>
+<div class="block h-[44px] w-[85px]"></div>
 
 <style lang="postcss">
   .drive {

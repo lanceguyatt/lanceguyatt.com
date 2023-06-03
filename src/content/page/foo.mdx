@@ -3,17 +3,12 @@ name: Hello word
 draft: true
 ---
 
-import Icon from 'astro-icon'
-import { Prose, Button } from '~/components/index.astro'
-
 export const authors = [
   { name: 'Jane', email: 'hi@jane.com' },
   { name: 'John', twitter: '@john2002' }
 ]
 
 export const published = new Date('2022-02-01')
-
-<Prose>
 
 # Foo
 
@@ -155,17 +150,3 @@ Eiusmod ut dolore nostrud amet quis id minim id nisi in pariatur aliqua nisi adi
 Tempor officia aliqua laboris culpa ad laboris do ex dolor voluptate laboris laboris consectetur. Culpa consequat in et Lorem sint labore Lorem minim voluptate aliqua reprehenderit dolore deserunt. Cupidatat reprehenderit commodo dolore eiusmod duis aliquip laborum cupidatat dolor esse dolor.
 
 </details>
-
-## Buttons
-
-<Button class="not-prose">Play</Button>
-
----
-
-## Icons
-
-<Icon name="floppy-drive" />
-<Icon name="floppy-disk" />
-<Icon name="floppy-disk" />
-
-</Prose>

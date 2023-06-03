@@ -1,9 +1,11 @@
 ---
-export interface IFloppyDrive {
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'svg'> {
   class?: string
 }
 
-const { class: className, ...attrs } = Astro.props as IFloppyDrive
+const { class: className, ...props } = Astro.props
 ---
 
 <svg
@@ -11,7 +13,7 @@ const { class: className, ...attrs } = Astro.props as IFloppyDrive
   width={156}
   height={38}
   class:list={[className]}
-  {...attrs}
+  {...props}
 >
   <g fill="none" fill-rule="evenodd">
     <path fill="#E0A080" d="M0 0h156v38H0z"></path>

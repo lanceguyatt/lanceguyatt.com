@@ -1,7 +1,8 @@
 ---
-import Link from '~components/Link.astro'
-import { Nav, TitleBar, Window } from '~components/index.astro'
-import Default from '~layouts/Default.astro'
+import Default from '@layouts/Default.astro'
+import Link from '@components/Link.astro'
+import { Nav, TitleBar, Window } from '@components/index.astro'
+import Depth from '@components/Depth.astro'
 
 const name = 'Workbench'
 ---
@@ -10,11 +11,11 @@ const name = 'Workbench'
   <div class="grid min-h-screen md:grid-cols-3">
     <div class="grid grid-rows-[auto_1fr]">
       <TitleBar class="bg-foreground text-background">{name}</TitleBar>
-      <Window {name}>
-        <div class="mx-auto max-w-screen w-full">
+      <Window id="workbench-window" name={name} active url="/" depth zoom>
+        <div class="max-w-screen mx-auto w-full">
           <p>Workbench</p>
-          <Nav>
-            <Link href="/about">About</Link>
+          <Nav id="workbench-nav" name="nav 1" vertical>
+            <Link href="/about" active>About</Link>
             <Link icon="drawer" href="/work">Work</Link>
             <Link icon="file" href="/about">About</Link>
             <Link icon="disk" href="/about">About</Link>
@@ -22,12 +23,12 @@ const name = 'Workbench'
         </div>
       </Window>
     </div>
-    <div class="grid grid-rows-[auto_1fr] min-h-screen kickstart">
+    <div class="kickstart grid min-h-screen grid-rows-[auto_1fr]">
       <TitleBar class="bg-foreground text-background">Kickstart</TitleBar>
-      <Window {name}>
-        <div class="mx-auto max-w-screen w-full">
+      <Window id="theme-2" {name} depth>
+        <div class="max-w-screen mx-auto w-full">
           <p>Workbench</p>
-          <Nav>
+          <Nav id="nav-2" name="Nav 2">
             <Link href="/about">About</Link>
             <Link icon="drawer" href="/work">Work</Link>
             <Link icon="file" href="/about">About</Link>
@@ -36,12 +37,12 @@ const name = 'Workbench'
         </div>
       </Window>
     </div>
-    <div class="grid grid-rows-[auto_1fr] min-h-screen guru">
+    <div class="dark grid min-h-screen grid-rows-[auto_1fr]">
       <TitleBar class="bg-foreground text-background">{name}</TitleBar>
-      <Window {name}>
-        <div class="mx-auto max-w-screen w-full">
+      <Window id="window-3" name={name}>
+        <div class="max-w-screen mx-auto w-full">
           <p>Workbench</p>
-          <Nav>
+          <Nav id="nav-3" name="Nav 3">
             <Link href="/about">About</Link>
             <Link icon="drawer" href="/work">Work</Link>
             <Link icon="file" href="/about">About</Link>

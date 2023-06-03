@@ -5,43 +5,36 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import Icon from '~components/Icon.astro'
 
 const link = cva(
-  'flex flex-col items-center text-base/tight no-underline outline-none',
+  [
+    'flex',
+    'flex-col',
+    'items-center',
+    'text-base/tight',
+    'no-underline',
+    'outline-none'
+  ],
   {
     variants: {
       active: {
-        true: 'bg-destructive',
-        false: 'focus:bg-white focus:text-primary'
+        true: 'bg-primary',
+        false: ['focus:bg-white', 'focus:text-primary']
       }
     },
-    compoundVariants: [
-      {
-        active: false
-      }
-    ]
+    defaultVariants: {
+      active: false
+    }
   }
 )
 
-enum Icons {
-  drive,
-  drawer,
-  file,
-  disk
-}
-
-export interface Props extends HTMLAttributes<'a'>, VariantProps<typeof link> {
+interface Props extends HTMLAttributes<'a'>, VariantProps<typeof link> {
   className?: string
   external?: boolean
   href: string
-  icon: Icons
+  icon?: any
+  active?: any
 }
 
-const {
-  active,
-  className,
-  external = false,
-  href,
-  icon = Icons.disk
-} = Astro.props
+const { active, className, external = false, href, icon = 'disk' } = Astro.props
 ---
 
 <a
@@ -50,8 +43,8 @@ const {
   target={external ? '_blank' : null}
   rel={external ? 'noopener noreferrer' : null}
 >
-  <Icon name={icon} class="mb-1" />
-  <span class="block max-w-24 text-center">
+  <Icon name={icon} active={active} className="mb-1" />
+  <div class="max-w-24 text-center">
     <slot />
-  </span>
+  </div>
 </a>

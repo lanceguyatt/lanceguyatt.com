@@ -1,4 +1,3 @@
-// import * as React from 'react'
 import { useState, useEffect } from 'react'
 
 import toastyMp3 from '/audio/toasty.mp3'

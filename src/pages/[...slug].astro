@@ -27,6 +27,9 @@ const pathname = new URL(Astro.request.url).pathname
     name={`${name}`}
     intent="modal"
     active={pathname === `/${slug}`}
+    depth
+    zoom
+    url="/"
   >
     <div class="w-full max-w-xl border">
       <Prose class="prose">

@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'button'> {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props
+---
+
+<button
+  type="button"
+  class:list={['block h-[22px] w-[23px] bg-depth active:bg-[-23px]', className]}
+  {...props}
+>
+  <span class="sr-only">Toggle Depth</span></button
+>

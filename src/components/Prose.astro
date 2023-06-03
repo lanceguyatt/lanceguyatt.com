@@ -1,9 +1,9 @@
 ---
-export interface IProse {
-  class?: string
+interface Props {
+  className?: string
 }
 
-const { class: className, ...props } = Astro.props as IProse
+const { className, ...props } = Astro.props
 ---
 
 <div class:list={['prose', className]} {...props}>

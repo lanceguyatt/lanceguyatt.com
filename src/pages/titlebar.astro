@@ -1,0 +1,14 @@
+---
+import Default from '@layouts/Default.astro'
+import TitleBar from '@components/TitleBar.astro'
+---
+
+<Default>
+  <TitleBar>Default</TitleBar>
+  <TitleBar intent="primary" depth>Primary</TitleBar>
+  <TitleBar intent="primary" className="kickstart">
+    Primary (kickstart)
+  </TitleBar>
+  <TitleBar intent="primary" className="dark">Primary (dark)</TitleBar>
+  <TitleBar intent="secondary">Secondary</TitleBar>
+</Default>

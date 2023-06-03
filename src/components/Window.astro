@@ -2,56 +2,58 @@
 import type { HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import Close from '~components/Close.astro'
+import Close from '@components/Close.astro'
+import Depth from '@components/Depth.astro'
+import Zoom from '@components/Zoom.astro'
 
-const window = cva('window grid', {
+const window = cva(['window', 'grid'], {
   variants: {
     intent: {
-      default: '',
+      default: 'relative h-[calc(100vh-22px)]',
       backdrop: 'absolute top-titlebar bottom-0 w-full z-0',
       modal:
         'absolute top-titlebar bottom-0 w-full z-10 md:w-1/2 md:h-1/2 md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2',
       modal2:
         'absolute top-titlebar bottom-0 w-full z-20 md:w-1/2 md:h-1/2 md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2'
     },
-    size: {
-      small: ['text-sm'],
-      medium: ['text-base'],
-      large: ['text-lg']
-    },
     active: {
       true: 'bg-primary text-primary-foreground'
     }
   },
-  defaultVariants: { intent: 'default', size: 'medium', active: false }
+  defaultVariants: { intent: 'default', active: false }
 })
 
-export interface Props
-  extends HTMLAttributes<'section'>,
-    VariantProps<typeof window> {
+interface Props extends HTMLAttributes<'section'>, VariantProps<typeof window> {
   id: string
   name: string
-  url?: string
   className?: string
+  depth?: boolean
+  url?: string
+  zoom?: boolean
 }
 
-const { id, name, intent, size, active, url = '/', className } = Astro.props
+const { id, name, intent, active, url, className, zoom, depth } = Astro.props
 ---
 
-<section
-  class={window({ intent, size, active, className })}
-  aria-labelledby={id}
->
-  <div class="absolute -top-5 -mx-1 flex h-[18px] items-center">
-    <div class="flex-none">
-      <Close name={`Close the ${name} window`} url={url} />
+<section class={window({ intent, active, className })} aria-labelledby={id}>
+  <div class="absolute -left-1 -right-1 -top-5 flex h-[18px] items-center">
+    <div class="flex grow-0 items-center">
+      <slot name="prefix">
+        {url && <Close name={`Close the ${name} window`} url={url} />}
+      </slot>
     </div>
     <h2
-      class="text-base/tightest flex-auto overflow-hidden text-ellipsis whitespace-nowrap"
+      class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap px-1 text-base/tight"
       id={id}
     >
       {name}
     </h2>
+    <div class="flex grow-0 items-center">
+      <slot name="suffix">
+        {zoom && <Zoom />}
+        {depth && <Depth />}
+      </slot>
+    </div>
   </div>
   <div class="flex-auto overflow-auto bg-secondary p-3">
     <slot />

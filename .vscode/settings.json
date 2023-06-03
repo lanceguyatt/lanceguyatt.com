@@ -12,5 +12,8 @@
   ],
   "[svelte]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  }
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }

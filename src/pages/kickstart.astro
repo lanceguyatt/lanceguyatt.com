@@ -1,10 +1,11 @@
 ---
 import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
-import Icon from 'astro-icon'
 
-import Default from '~/layouts/Default.astro'
-import { Prose } from '~/components/index.astro'
+import Default from '@layouts/Default.astro'
+import FloppyDisk from '@components/FloppyDisk.astro'
+import FloppyDrive from '@components/FloppyDrive.astro'
+import Prose from '@components/Prose.astro'
 
 const kickstart = await getEntryBySlug('page', 'kickstart')
 const { Content } = await kickstart.render()
@@ -15,7 +16,7 @@ const { name, description } = data
 
 <Default
   title={name}
-  {name}
+  name={name}
   description={description}
   url={`/${url}`}
   theme="kickstart"
@@ -25,9 +26,9 @@ const { name, description } = data
     extend={{ meta: [{ name: 'theme-color', content: 'rgb(68, 16, 68)' }] }}
   />
   <div
-    class="flex flex-col p-6 justify-center items-center gap-6 min-h-screen md:flex-row md:items-end md:justify-between md:gap-12 md:p-12"
+    class="flex min-h-screen flex-col items-center justify-center gap-6 p-6 md:flex-row md:items-end md:justify-between md:gap-12 md:p-12"
   >
-    <div class="w-44 flex flex-col gap-6">
+    <div class="flex w-44 flex-col gap-6">
       <Prose>
         <Content />
       </Prose>
@@ -35,10 +36,9 @@ const { name, description } = data
 
     <a class="relative block h-[10.5625rem] w-39" href="/">
       <span class="sr-only">Return to Workbench</span>
-      <Icon name="floppy-drive" />
-      <Icon
-        name="floppy-disk"
-        class="absolute bottom-0 left-2 animate-insert-disk repeat-infinite"
+      <FloppyDrive />
+      <FloppyDisk
+        class="absolute bottom-0 left-3 animate-insert-disk repeat-infinite"
       />
     </a>
   </div>

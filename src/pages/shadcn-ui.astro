@@ -5,13 +5,20 @@ import { AlertDialogDemo } from '~components/AlertDialogDemo'
 import { ContextMenuDemo } from '~components/ContextMenuDemo'
 import ThemeToggle from '~components/ui/theme-toggle.astro'
 import TitleBar from '~components/TitleBar.astro'
+import Icon from '~components/Icon.astro'
 ---
 
 <Default>
   <TitleBar class="bg-foreground text-background">Shadcn ui</TitleBar>
   <ContextMenuDemo client:load />
 
-  <div class="px-6 max-w-4xl w-full">
+  <div class="w-full max-w-4xl px-6">
+    <Icon name="drive" />
+    <Icon name="disk" />
+    <Icon name="floppy-drive" />
+    <Icon name="floppy-disk" />
+    <Icon name="drawer" />
+    <Icon name="file" />
     <ThemeToggle />
     <AlertDialogDemo client:load />
     <Alert className="text-destructive text-center">

@@ -41,7 +41,9 @@ export default defineConfig({
       }
     }),
     react(),
-    tailwind()
+    tailwind({
+      config: { applyBaseStyles: false }
+    })
   ],
   vite: {
     ssr: {
