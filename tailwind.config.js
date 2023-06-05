@@ -1,7 +1,10 @@
+const base = require('./tailwind.base.config')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	darkMode: 'class',
+	presets: [base],
 	theme: {
 		extend: {
 			fontFamily: {
@@ -31,16 +34,6 @@ module.exports = {
 				"accordion-up": "accordion-up 0.2s ease-out",
 				'insert-disk': 'insert-disk 1.5s ease',
 				foo: 'foo 1s ease'
-			},
-			backgroundImage: {
-				close: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMjAgMGgyMHYyMkgyMHoiLz48cGF0aCBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0zOSAwaDF2MjBoLTF6Ii8+PHBhdGggZD0iTTI3IDZoNXYyaC01VjZ6bTAgMmgxdjhoLTFWOHptMSA2aDR2MmgtNHYtMnptMy02aDF2NmgtMVY4eiIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZmlsbD0iI0FBQSIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNMjggOGgzdjZoLTN6Ii8+PHBhdGggZD0iTTIwIDBoMTl2MkgyMFYwem0wIDJoMXYyMGgtMVYyeiIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTM4IDJoMXYyMGgtMVYyek0yMSAyMGgxN3YySDIxdi0yeiIgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNMzkgMjBoMXYyaC0xeiIvPjxnPjxwYXRoIGQ9Ik0wIDBoMjB2MjJIMHoiLz48cGF0aCBkPSJNMTkgMmgxdjE4aC0xVjJ6TTAgMGgyMHYySDBWMHptMCAyaDF2MjBIMFYyeiIgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTEgMjBoMTl2Mkgxdi0yek0xOCAyaDF2MThoLTFWMnpNNyA2aDV2Mkg3VjZ6bTAgMmgxdjhIN1Y4em0xIDZoNHYySDh2LTJ6bTMtNmgxdjZoLTFWOHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTggOGgzdjZIOHoiLz48L2c+PC9nPjwvc3ZnPgo=')",
-				checkbox: 'url(/images/checkbox.svg)',
-				depth: 'url(/images/depth.svg)',
-				disk: 'url(/images/disk.svg)',
-				drawer: 'url(/images/drawer.svg)',
-				drive: 'url(/images/drive.svg)',
-				file: 'url(/images/file.svg)',
-				zoom: 'url(/images/zoom.svg)'
 			},
 			lineHeight: {
 				tighter: '1.125'
@@ -90,6 +83,12 @@ module.exports = {
 				24: '6rem',
 				160: '40rem'
 			},
+			// borderWidth: {
+			// 	window: '1.375rem 0.25rem 0.25rem 0.25rem',
+			// },
+			// borderImage: {
+			// 	window: 'url(/images/window.svg) 22 4 4 4 stretch',
+			// },
 			typography: ({ theme }) => ({
 				DEFAULT: {
 					css: {

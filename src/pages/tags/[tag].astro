@@ -1,12 +1,12 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
 
-import getUniqueTags from '~/utils/getUniqueTags'
-import getWorkByTag from '~/utils/getWorkByTag'
-import Window from '~/components/Window.astro'
-import Nav from '~/components/Nav.astro'
-import Link from '~/components/Link.astro'
-import Workbench from '~layouts/Workbench.astro'
+import Workbench from '@layouts/Workbench.astro'
+import getUniqueTags from '@utils/getUniqueTags'
+import getWorkByTag from '@utils/getWorkByTag'
+import Window from '@components/Window.astro'
+import Nav from '@components/Nav.astro'
+import Link from '@components/Link.astro'
 
 export interface Props {
   post: CollectionEntry<'work'>
@@ -30,7 +30,7 @@ const tagWork = getWorkByTag(work, tag)
 ---
 
 <Workbench>
-  <Window id="tag-window" name={tag} class="h-screen" url="/tags">
+  <Window id="tag-window" name={tag} active level={2} url="/tags">
     <Nav id="tag-nav" name={tag}>
       {
         tagWork.map(({ slug, data: { name } }) => (

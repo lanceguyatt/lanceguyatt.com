@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content'
 
-import { SITE } from '~/config'
-import Workbench from '~/layouts/Workbench.astro'
-import Window from '~/components/Window.astro'
-import { Button } from '~components/ui/button'
-import Image from '~/components/Image.astro'
-import Work from '~/containers/Work.astro'
+import { SITE } from '@config'
+import Workbench from '@layouts/Workbench.astro'
+import Window from '@components/Window.astro'
+import { Button } from '@components/ui/button'
+import Image from '@components/Image.astro'
+import Work from '@containers/Work.astro'
+import Prose from '@components/Prose.astro'
 
 export async function getStaticPaths() {
   const work = await getCollection('work')
@@ -101,9 +102,10 @@ const schema = {
   <script
     type="application/ld+json"
     set:html={JSON.stringify(schema, null, 2)}
+    slot="head"
   />
-  <Window id={`window-${slug}`} name={name} url="/work" active intent="modal2">
-    <div class="flex flex-col justify-center gap-6">
+  <Window id={`window-${slug}`} name={name} url="/work" active level={2} depth zoom>
+    <div class="flex h-full bg-red-50 flex-col gap-6">
       {
         image && (
           <div class="h-36 w-36 self-center">
@@ -113,6 +115,7 @@ const schema = {
           </div>
         )
       }
+
       <dl class="grid max-w-160 gap-3 sm:grid-cols-[1fr_11fr]">
         <dt
           class="flex items-center text-foreground after:content-[':'] sm:justify-end"
@@ -141,25 +144,34 @@ const schema = {
           </ul>
         </dd>
       </dl>
+
       {
         Content && (
-          <div class="mx-auto grid max-w-[40rem] grid-cols-[1fr_11fr] gap-3">
+          <div class="mx-auto grid max-w-[40rem] sm:grid-cols-[1fr_11fr] gap-3">
             <div />
-            <div class="prose-black">
+            <Prose>
               <Content />
-            </div>
+            </Prose>
           </div>
         )
       }
-      <div class="flex justify-between">
-        <Button>
-          <a href="/work">Cancel</a>
+
+      <div class="flex justify-between mt-auto">
+        <Button asChild>
+          <a href="/work">
+          Cancel
+          </a>
         </Button>
-        <Button href={url} target="_blank">Launch</Button>
+        {url && (
+          <Button href={url} target="_blank" rel="noopener noreferrer">
+          Launch
+          </Button>
+        )}
       </div>
     </div>
   </Window>
-  <Window id="work" name="Work" intent="modal">
+
+  <Window id="work" name="Work" level={1} depth zoom>
     <Work />
   </Window>
 </Workbench>

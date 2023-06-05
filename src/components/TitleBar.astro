@@ -16,11 +16,11 @@ const titlebar = cva('h-titlebar flex items-center', {
 })
 
 interface Props extends HTMLAttributes<'div'>, VariantProps<typeof titlebar> {
-  className?: string
+  class?: string
   depth?: boolean
 }
 
-const { className, depth = false, intent, ...props } = Astro.props
+const { class: className, depth = false, intent, ...props } = Astro.props
 ---
 
 <div class={titlebar({ intent, className })} {...props}>

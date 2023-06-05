@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
 
-import Workbench from '~/layouts/Workbench.astro'
-import { Prose, Window } from '~/components/index.astro'
+import Workbench from '@layouts/Workbench.astro'
+import { Prose, Window } from '@components/index.astro'
 
 export async function getStaticPaths() {
   const pageEntries = await getCollection('page')
@@ -25,14 +25,14 @@ const pathname = new URL(Astro.request.url).pathname
   <Window
     id={slug}
     name={`${name}`}
-    intent="modal"
+    level={1}
     active={pathname === `/${slug}`}
     depth
     zoom
     url="/"
   >
-    <div class="w-full max-w-xl border">
-      <Prose class="prose">
+    <div class="w-full max-w-xl">
+      <Prose>
         <Content />
       </Prose>
     </div>

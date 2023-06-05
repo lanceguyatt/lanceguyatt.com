@@ -1,11 +1,11 @@
 ---
-import Default from '~layouts/Default.astro'
-import { Alert, AlertDescription, AlertTitle } from '~components/ui/alert'
-import { AlertDialogDemo } from '~components/AlertDialogDemo'
-import { ContextMenuDemo } from '~components/ContextMenuDemo'
-import ThemeToggle from '~components/ui/theme-toggle.astro'
-import TitleBar from '~components/TitleBar.astro'
-import Icon from '~components/Icon.astro'
+import Default from '@layouts/Default.astro'
+import { Alert, AlertDescription, AlertTitle } from '@components/ui/alert'
+import { AlertDialogDemo } from '@components/AlertDialogDemo'
+import { ContextMenuDemo } from '@components/ContextMenuDemo'
+import ThemeToggle from '@components/ui/theme-toggle.astro'
+import TitleBar from '@components/TitleBar.astro'
+import Icon from '@components/Icon.astro'
 ---
 
 <Default>
@@ -15,9 +15,7 @@ import Icon from '~components/Icon.astro'
   <div class="w-full max-w-4xl px-6">
     <Icon name="drive" />
     <Icon name="disk" />
-    <Icon name="floppy-drive" />
-    <Icon name="floppy-disk" />
-    <Icon name="drawer" />
+    <Icon name="drawer" active="drawer" />
     <Icon name="file" />
     <ThemeToggle />
     <AlertDialogDemo client:load />

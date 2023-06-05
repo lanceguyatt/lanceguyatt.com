@@ -1,17 +1,17 @@
 ---
 import { getCollection } from 'astro:content'
-import getUniqueTags from '~/utils/getUniqueTags'
-import Workbench from '~/layouts/Workbench.astro'
-import Link from '~/components/Link.astro'
-import Nav from '~/components/Nav.astro'
-import Window from '~/components/Window.astro'
+import getUniqueTags from '@utils/getUniqueTags'
+import Workbench from '@layouts/Workbench.astro'
+import Link from '@components/Link.astro'
+import Nav from '@components/Nav.astro'
+import Window from '@components/Window.astro'
 
 const work = await getCollection('work')
 let tags = getUniqueTags(work)
 ---
 
 <Workbench class="grid grid-rows-[auto_1fr_1fr] h-screen bg-red">
-  <Window name="Tags" id="tags-window">
+  <Window name="Tags" id="tags-window" level={1} active>
     <Nav id="tags" name="Tags">
       {
         tags.map(tag => (

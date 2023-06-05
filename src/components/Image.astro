@@ -1,17 +1,18 @@
 ---
-export interface IImage {
+interface Props {
   src: string
   alt: string
   loading?: 'lazy' | 'eager'
+  class?: string
 }
 
-const { src, alt, loading = 'lazy', ...props } = Astro.props as IImage
+const { src, alt, class: className, loading = 'lazy', ...props } = Astro.props
 ---
 
 <img
   src={src}
   alt={alt}
   loading={loading}
-  class="border-img-bar object-cover p-2px"
+  class:list={['border-img-bar object-cover p-2px', className]}
   {...props}
 />

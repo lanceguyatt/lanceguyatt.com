@@ -2,21 +2,21 @@
 import type { HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import Icon from '~components/Icon.astro'
+import Icon from '@components/Icon.astro'
 
 const link = cva(
   [
     'flex',
     'flex-col',
     'items-center',
-    'text-base/tight',
+    'text-base/tighter',
     'no-underline',
     'outline-none'
   ],
   {
     variants: {
       active: {
-        true: 'bg-primary',
+        // true: 'bg-primary',
         false: ['focus:bg-white', 'focus:text-primary']
       }
     },
@@ -43,7 +43,7 @@ const { active, className, external = false, href, icon = 'disk' } = Astro.props
   target={external ? '_blank' : null}
   rel={external ? 'noopener noreferrer' : null}
 >
-  <Icon name={icon} active={active} className="mb-1" />
+  <Icon name={icon} active={active && icon} className="mb-1" />
   <div class="max-w-24 text-center">
     <slot />
   </div>

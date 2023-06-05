@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '~lib/utils'
+import { cn } from '@lib/utils'
 
 const alertVariants = cva('w-full border-4 p-8', {
   variants: {
@@ -16,7 +16,7 @@ const alertVariants = cva('w-full border-4 p-8', {
   }
 })
 
-interface IAlert {
+interface Props {
   className?: string
   variant?: string
   animate?: boolean

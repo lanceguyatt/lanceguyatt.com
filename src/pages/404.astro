@@ -2,8 +2,8 @@
 import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 
-import Default from '~/layouts/Default.astro'
-import Toasty from '~components/Toasty'
+import Default from '@layouts/Default.astro'
+import Toasty from '@components/Toasty'
 
 const page = await getEntryBySlug('page', '404')
 const { Content } = await page.render()

@@ -11,8 +11,6 @@ export const icon = cva(['bg-cover'], {
       drawer: 'bg-drawer w-[65px] h-[38px]',
       drive: 'bg-drive w-[85px] h-[44px]',
       file: 'bg-file w-[46px] h-[62px]',
-      'floppy-disk': 'bg-floppy-disk h-[120] w-[134px]',
-      'floppy-drive': 'bg-floppy-drive h-[38px] w-[156px]'
     },
     active: {
       disk: 'bg-[43px]',
@@ -27,7 +25,7 @@ export const icon = cva(['bg-cover'], {
   }
 })
 
-export interface Props extends HTMLAttributes<'div'>, IconProps {
+interface Props extends HTMLAttributes<'div'>, IconProps {
   className?: string
 }
 

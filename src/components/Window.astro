@@ -8,19 +8,16 @@ import Zoom from '@components/Zoom.astro'
 
 const window = cva(['window', 'grid'], {
   variants: {
-    intent: {
-      default: 'relative h-[calc(100vh-22px)]',
-      backdrop: 'absolute top-titlebar bottom-0 w-full z-0',
-      modal:
-        'absolute top-titlebar bottom-0 w-full z-10 md:w-1/2 md:h-1/2 md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2',
-      modal2:
-        'absolute top-titlebar bottom-0 w-full z-20 md:w-1/2 md:h-1/2 md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2'
+    level: {
+      0: 'absolute top-titlebar bottom-0 w-full z-0',
+      1: 'absolute top-titlebar bottom-0 w-full z-10 md:w-1/2 md:h-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2',
+      2: 'absolute top-titlebar bottom-0 w-full z-20 md:w-1/2 md:h-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2'
     },
     active: {
       true: 'bg-primary text-primary-foreground'
-    }
+    },
   },
-  defaultVariants: { intent: 'default', active: false }
+  defaultVariants: { level: 0, active: false }
 })
 
 interface Props extends HTMLAttributes<'section'>, VariantProps<typeof window> {
@@ -32,37 +29,72 @@ interface Props extends HTMLAttributes<'section'>, VariantProps<typeof window> {
   zoom?: boolean
 }
 
-const { id, name, intent, active, url, className, zoom, depth } = Astro.props
+const { id, name, level, active, url, className, zoom, depth } = Astro.props
+
+const { message = 'Welcome, world!' } = Astro.props;
 ---
 
-<section class={window({ intent, active, className })} aria-labelledby={id}>
-  <div class="absolute -left-1 -right-1 -top-5 flex h-[18px] items-center">
+<section class={window({ level, active, className })} aria-labelledby={id}>
+
+  <div class="absolute -inset-x-1 -top-5 flex h-[18px] items-center">
     <div class="flex grow-0 items-center">
       <slot name="prefix">
         {url && <Close name={`Close the ${name} window`} url={url} />}
       </slot>
     </div>
+
     <h2
-      class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap px-1 text-base/tight"
+      class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap px-1 text-base/tighter"
       id={id}
     >
       {name}
     </h2>
+
     <div class="flex grow-0 items-center">
       <slot name="suffix">
-        {zoom && <Zoom />}
+        {zoom && <Zoom class="zoom" />}
         {depth && <Depth />}
       </slot>
     </div>
   </div>
+
   <div class="flex-auto overflow-auto bg-secondary p-3">
+    <astro-greet data-message={message}>
+      <button>Say hi!</button>
+    </astro-greet>
     <slot />
   </div>
 </section>
 
 <style lang="postcss" is:global>
   .window {
-    border-width: 22px 4px 4px 4px;
+    @apply border-t-[22px] border-b-4 border-x-4;
+
     border-image: url(/images/window.svg) 22 4 4 4 stretch;
   }
 </style>
+
+<script>
+  const buttons = document.querySelectorAll('.zoom');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      console.log('Button was clicked!');
+    });
+  });
+
+  class AstroGreet extends HTMLElement {
+    constructor() {
+      super();
+
+      // Read the message from the data attribute.
+      const message = this.dataset.message;
+      const button = this.querySelector('button');
+      button.addEventListener('click', () => {
+        alert(message);
+      });
+    }
+  }
+
+  customElements.define('astro-greet', AstroGreet);
+</script>
