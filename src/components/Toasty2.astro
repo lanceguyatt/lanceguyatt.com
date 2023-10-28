@@ -5,10 +5,19 @@ import toastyImage from '@/images/toasty.png'
 import toastyMp3 from '@/assets/toasty.mp3'
 ---
 
-<div class="h-screen w-screen overflow-hidden" x-data="{ toasty: false }">
+<div
+  class="h-screen w-screen overflow-hidden flex items-center justify-center bg-foreground text-[red]"
+  x-data="{ toasty: false }"
+>
   <div x-text="toasty"></div>
 
   <button x-on:click="toasty = ! toasty">Toasty?</button>
+
+  <button @click="$refs.ouch.play()">Click Me</button>
+
+  <audio x-ref="ouch">
+    <source src={toastyMp3} type="audio/mpeg" />
+  </audio>
 
   <Image
     x-show="toasty"
@@ -22,10 +31,6 @@ import toastyMp3 from '@/assets/toasty.mp3'
     width={200}
     height={200}
     alt="Toasty"
-    class="fixed bottom-0 right-0 z-10 h-toasty w-toasty"
+    class="fixed bottom-0 right-0 h-toasty w-toasty"
   />
-
-  <audio id="js-toasty-audio">
-    <source src={toastyMp3} type="audio/mp3" />
-  </audio>
 </div>
