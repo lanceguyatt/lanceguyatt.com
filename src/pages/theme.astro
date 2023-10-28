@@ -1,14 +1,13 @@
 ---
-import Default from '@layouts/Default.astro'
-import Link from '@components/Link.astro'
-import { Nav, TitleBar, Window } from '@components/index.astro'
-import Depth from '@components/Depth.astro'
+import Default from '~/layouts/Default.astro'
+import Link from '~/components/Link.astro'
+import { Nav, TitleBar, Window } from '~/components/index.astro'
 
 const name = 'Workbench'
 ---
 
 <Default>
-  <div class="grid min-h-screen md:grid-cols-3">
+  <div class="grid min-h-screen md:grid-cols-3 funk">
     <div class="grid grid-rows-[auto_1fr]">
       <TitleBar class="bg-foreground text-background">{name}</TitleBar>
       <Window id="workbench-window" name={name} active url="/" depth zoom>

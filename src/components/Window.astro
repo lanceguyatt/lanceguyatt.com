@@ -1,10 +1,10 @@
 ---
-import type { HTMLAttributes } from 'astro/types'
+import { type HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import Close from '@components/Close.astro'
-import Depth from '@components/Depth.astro'
-import Zoom from '@components/Zoom.astro'
+import Close from '~/components/Close.astro'
+import Depth from '~/components/Depth.astro'
+import Zoom from '~/components/Zoom.astro'
 
 const window = cva(['window', 'grid'], {
   variants: {
@@ -15,7 +15,7 @@ const window = cva(['window', 'grid'], {
     },
     active: {
       true: 'bg-primary text-primary-foreground'
-    },
+    }
   },
   defaultVariants: { level: 0, active: false }
 })
@@ -31,11 +31,10 @@ interface Props extends HTMLAttributes<'section'>, VariantProps<typeof window> {
 
 const { id, name, level, active, url, className, zoom, depth } = Astro.props
 
-const { message = 'Welcome, world!' } = Astro.props;
+const { message = 'Welcome, world!' } = Astro.props
 ---
 
 <section class={window({ level, active, className })} aria-labelledby={id}>
-
   <div class="absolute -inset-x-1 -top-5 flex h-[18px] items-center">
     <div class="flex grow-0 items-center">
       <slot name="prefix">
@@ -75,26 +74,26 @@ const { message = 'Welcome, world!' } = Astro.props;
 </style>
 
 <script>
-  const buttons = document.querySelectorAll('.zoom');
+  const buttons = document.querySelectorAll('.zoom')
 
-  buttons.forEach((button) => {
+  buttons.forEach(button => {
     button.addEventListener('click', () => {
-      console.log('Button was clicked!');
-    });
-  });
+      console.log('Button was clicked!')
+    })
+  })
 
   class AstroGreet extends HTMLElement {
     constructor() {
-      super();
+      super()
 
       // Read the message from the data attribute.
-      const message = this.dataset.message;
-      const button = this.querySelector('button');
+      const message = this.dataset.message
+      const button = this.querySelector('button')
       button.addEventListener('click', () => {
-        alert(message);
-      });
+        alert(message)
+      })
     }
   }
 
-  customElements.define('astro-greet', AstroGreet);
+  customElements.define('astro-greet', AstroGreet)
 </script>

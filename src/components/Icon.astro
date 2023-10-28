@@ -2,15 +2,13 @@
 import type { HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-export type IconProps = VariantProps<typeof icon>
-
 export const icon = cva(['bg-cover'], {
   variants: {
     name: {
       disk: 'bg-disk w-[43px] h-[46px]',
       drawer: 'bg-drawer w-[65px] h-[38px]',
       drive: 'bg-drive w-[85px] h-[44px]',
-      file: 'bg-file w-[46px] h-[62px]',
+      file: 'bg-file w-[46px] h-[62px]'
     },
     active: {
       disk: 'bg-[43px]',
@@ -25,11 +23,9 @@ export const icon = cva(['bg-cover'], {
   }
 })
 
-interface Props extends HTMLAttributes<'div'>, IconProps {
-  className?: string
-}
+type Props = HTMLAttributes<'div'> & VariantProps<typeof icon>
 
-const { name, active, className } = Astro.props
+const { name, active, class: className } = Astro.props
 ---
 
 <div class={icon({ name, active, className })}></div>

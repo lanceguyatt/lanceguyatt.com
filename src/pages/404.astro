@@ -2,12 +2,11 @@
 import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 
-import Default from '@layouts/Default.astro'
-import Toasty from '@components/Toasty'
+import Default from '~/layouts/Default.astro'
+import Toasty from '~/components/Toasty'
 
 const page = await getEntryBySlug('page', '404')
 const { Content } = await page.render()
-
 const { slug: url, data } = page
 const { name, description } = data
 ---
@@ -17,7 +16,7 @@ const { name, description } = data
   description={description}
   url={`/${url}`}
   theme="dark"
-  class="min-h-screen flex flex-col items-center justify-center p-6"
+  class="min-h-screen flex flex-col w-full items-center justify-center p-6"
 >
   <SEO
     slot="head"

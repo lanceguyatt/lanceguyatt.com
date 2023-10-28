@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content'
 import getUniqueTags from '@utils/getUniqueTags'
-import Workbench from '@layouts/Workbench.astro'
-import Link from '@components/Link.astro'
-import Nav from '@components/Nav.astro'
-import Window from '@components/Window.astro'
+import Workbench from '~/layouts/Workbench.astro'
+import Link from '~/components/Link.astro'
+import Nav from '~/components/Nav.astro'
+import Window from '~/components/Window.astro'
 
 const work = await getCollection('work')
 let tags = getUniqueTags(work)

@@ -1,32 +1,39 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry, getEntries } from 'astro:content'
+import { Image } from 'astro:assets'
 
 import { SITE } from '@config'
-import Workbench from '@layouts/Workbench.astro'
-import Window from '@components/Window.astro'
-import { Button } from '@components/ui/button'
-import Image from '@components/Image.astro'
-import Work from '@containers/Work.astro'
-import Prose from '@components/Prose.astro'
+import Workbench from '~/layouts/Workbench.astro'
+import Window from '~/components/Window.astro'
+import { Button } from '~/components/ui/button'
+// import Image from '~/components/Image.astro'
+import Work from '~/containers/Work.astro'
+import Prose from '~/components/Prose.astro'
 
 export async function getStaticPaths() {
-  const work = await getCollection('work')
+  const entries = await getCollection('work')
 
-  return work.map(entry => ({
+  return entries.map(entry => ({
     params: { slug: entry.slug },
     props: { entry }
   }))
 }
 
+type Props = {
+  entry: CollectionEntry<'work'>
+}
+
 const { entry } = Astro.props
-const { data, slug } = entry
+const { Content } = await entry.render()
+const { data, id } = entry
 const { name, description, image, tags, url, sameAs } = data
 
-const { Content } = await entry.render()
-
 const title = `${name} - Work - ${SITE.name}`
-// const url = `work/${slug}`
-const keywords = tags.map(tag => tag)
+// const url = `work/${id}`
+// const keywords = tags.map(tag => tag)
+
+let selectedTags = null
+if (tags) selectedTags = await getEntries(tags)
 
 const meta = { title, name, description, url, image }
 
@@ -35,14 +42,14 @@ const schema = {
   '@type': 'WebPage',
   name,
   description,
-  url: `${SITE.url}/work/${slug}`,
-  image: {
-    '@type': 'ImageObject',
-    url: `${SITE.url}${image.url}`,
-    width: image.width,
-    height: image.height,
-    description: image.alt
-  },
+  url: `${SITE.url}/work/${id}`,
+  // image: {
+  //   '@type': 'ImageObject',
+  //   url: `${SITE.url}${image.url}`,
+  //   width: image.width,
+  //   height: image.height,
+  //   description: image.alt
+  // },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -66,7 +73,7 @@ const schema = {
         '@type': 'ListItem',
         position: 3,
         item: {
-          '@id': `${SITE.url}/work/${slug}`,
+          '@id': `${SITE.url}/work/${id}`,
           name
         }
       }
@@ -75,16 +82,16 @@ const schema = {
   mainEntity: {
     '@type': 'CreativeWork',
     name,
-    url: `${SITE.url}/work/${slug}`,
+    url: `${SITE.url}/work/${id}`,
     sameAs,
-    image: {
-      '@type': 'ImageObject',
-      url: `${SITE.url}${image.url}`,
-      width: image.width,
-      height: image.height,
-      description: image.alt
-    },
-    keywords,
+    // image: {
+    //   '@type': 'ImageObject',
+    //   url: `${SITE.url}${image.url}`,
+    //   width: image.width,
+    //   height: image.height,
+    //   description: image.alt
+    // },
+    // keywords,
     copyrightHolder: {
       '@type': 'Organization',
       name
@@ -104,13 +111,25 @@ const schema = {
     set:html={JSON.stringify(schema, null, 2)}
     slot="head"
   />
-  <Window id={`window-${slug}`} name={name} url="/work" active level={2} depth zoom>
+  <Window
+    id={`window-${id}`}
+    name={name}
+    url="/work"
+    active
+    level={2}
+    depth
+    zoom
+  >
     <div class="flex h-full bg-red-50 flex-col gap-6">
       {
         image && (
           <div class="h-36 w-36 self-center">
             <div class="aspect-square">
-              <Image src={image.url} alt={image.alt} />
+              <Image
+                src={image}
+                alt=""
+                class="border-img-bar object-cover p-2px"
+              />
             </div>
           </div>
         )
@@ -133,16 +152,22 @@ const schema = {
             </>
           )
         }
-        <dt
-          class="flex items-center text-foreground after:content-[':'] sm:justify-end"
-        >
-          Technologies
-        </dt>
-        <dd class="border-img-foo p-2px">
-          <ul>
-            {tags.map(tag => <li>{tag}</li>)}
-          </ul>
-        </dd>
+        {
+          selectedTags && (
+            <>
+              <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">
+                Technologies
+              </dt>
+              <dd class="border-img-foo p-2px">
+                <ul>
+                  {selectedTags.map(tag => (
+                    <li>{tag.data.name}</li>
+                  ))}
+                </ul>
+              </dd>
+            </>
+          )
+        }
       </dl>
 
       {
@@ -158,15 +183,15 @@ const schema = {
 
       <div class="flex justify-between mt-auto">
         <Button asChild>
-          <a href="/work">
-          Cancel
-          </a>
+          <a href="/work"> Cancel</a>
         </Button>
-        {url && (
-          <Button href={url} target="_blank" rel="noopener noreferrer">
-          Launch
-          </Button>
-        )}
+        {
+          url && (
+            <Button href={url} target="_blank" rel="noopener noreferrer">
+              Launch
+            </Button>
+          )
+        }
       </div>
     </div>
   </Window>

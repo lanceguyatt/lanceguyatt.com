@@ -3,35 +3,31 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@lib/utils'
 
-const alertVariants = cva('w-full border-4 p-8', {
+const alert = cva('w-full border-4 p-8', {
   variants: {
-    variant: {
+    intent: {
       default: 'bg-background text-destructive border-destructive',
       destructive:
         'text-destructive border-destructive/50 dark:border-destructive'
+    },
+    animate: {
+      true: 'animate-pulse animate-alternate'
     }
   },
   defaultVariants: {
-    variant: 'default'
+    intent: 'default',
+    animate: false,
   }
 })
-
-interface Props {
-  className?: string
-  variant?: string
-  animate?: boolean
-}
-
 const Alert = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
->(({ className, variant, animate = false, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alert>
+>(({ className, intent, animate, ...props }, ref) => (
   <div
     ref={ref}
     role="alert"
     className={cn(
-      animate && 'animate-foo repeat-infinite',
-      alertVariants({ variant }),
+      alert({ intent, animate }),
       className
     )}
     {...props}

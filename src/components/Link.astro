@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import Icon from '@components/Icon.astro'
+import Icon from '~/components/Icon.astro'
 
 const link = cva(
   [
@@ -26,19 +26,24 @@ const link = cva(
   }
 )
 
-interface Props extends HTMLAttributes<'a'>, VariantProps<typeof link> {
-  className?: string
-  external?: boolean
-  href: string
-  icon?: any
-  active?: any
-}
+type Props = HTMLAttributes<'a'> &
+  VariantProps<typeof link> & {
+    external?: boolean
+    icon?: any
+    active?: any
+  }
 
-const { active, className, external = false, href, icon = 'disk' } = Astro.props
+const {
+  active,
+  class: className,
+  external = false,
+  href,
+  icon = 'disk'
+} = Astro.props
 ---
 
 <a
-  href={href}
+  {href}
   class={link({ active, className })}
   target={external ? '_blank' : null}
   rel={external ? 'noopener noreferrer' : null}

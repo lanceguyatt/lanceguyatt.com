@@ -1,13 +1,17 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 
-export interface Props extends HTMLAttributes<'a'> {
+export type Props = HTMLAttributes<'a'> & {
   name: string
   url?: string
-  class?: string
 }
 
-const { name = 'Close this window', url = '/', class: className, ...props } = Astro.props
+const {
+  name = 'Close this window',
+  url = '/',
+  class: className,
+  ...props
+} = Astro.props
 ---
 
 <a

@@ -1,12 +1,12 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
 
-import Workbench from '@layouts/Workbench.astro'
+import Workbench from '~/layouts/Workbench.astro'
 import getUniqueTags from '@utils/getUniqueTags'
 import getWorkByTag from '@utils/getWorkByTag'
-import Window from '@components/Window.astro'
-import Nav from '@components/Nav.astro'
-import Link from '@components/Link.astro'
+import Window from '~/components/Window.astro'
+import Nav from '~/components/Nav.astro'
+import Link from '~/components/Link.astro'
 
 export interface Props {
   post: CollectionEntry<'work'>

@@ -1,3 +1,10 @@
+const round = (num) =>
+  num
+    .toFixed(7)
+    .replace(/(\.[0-9]+?)0+$/, '$1')
+    .replace(/\.0$/, '');
+const rem = (px) => `${round(px / 16)}rem`;
+
 const base = require('./tailwind.base.config')
 
 /** @type {import('tailwindcss').Config} */
@@ -67,9 +74,12 @@ module.exports = {
 			height: {
 				titlebar: '1.375rem',
 				'22px': '1.375rem',
+				169: rem(169),
 			},
 			spacing: {
 				'2px': '0.125rem',
+				'22px': rem(22),
+				'23px': rem(23),
 				titlebar: '1.375rem',
 			},
 			width: {

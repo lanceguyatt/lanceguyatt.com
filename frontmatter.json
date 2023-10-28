@@ -62,22 +62,5 @@
       "path": "[[workspace]]/src/content/tag",
       "title": "tag"
     }
-  ],
-  "frontMatter.taxonomy.tags": [
-    "Astro JS",
-    "Drupal 9",
-    "Gulp JS",
-    "Keystone 4",
-    "Keystone JS (CMS)",
-    "Laravel Mix",
-    "Laravel mix",
-    "Post CSS",
-    "Pug JS",
-    "React JS",
-    "Slevete JS",
-    "Svelte JS",
-    "Tailwind CSS",
-    "UI Patterns"
-  ],
-  "frontMatter.taxonomy.categories": []
+  ]
 }

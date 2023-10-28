@@ -56,6 +56,10 @@
     --secondary-foreground: 0 0% 0%;
   }
 
+  .funk {
+    --background: 180 45.8% 46.3%;
+  }
+
   .dark {
     --background: 224 71% 4%;
     --foreground: 213 31% 91%;

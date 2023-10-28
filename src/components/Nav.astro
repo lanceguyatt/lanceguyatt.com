@@ -1,5 +1,5 @@
 ---
-import type { HTMLAttributes } from 'astro/types'
+import { type HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const nav = cva(['flex', 'gap-3'], {
@@ -14,11 +14,12 @@ const nav = cva(['flex', 'gap-3'], {
   }
 })
 
-interface Props extends HTMLAttributes<'nav'>, VariantProps<typeof nav> {
-  name: string
-  id: string
-  class?: string
-}
+type Props = HTMLAttributes<'nav'> &
+  VariantProps<typeof nav> & {
+    name: string
+    id: string
+    class?: string
+  }
 
 const { class: className, name, id, vertical } = Astro.props
 ---

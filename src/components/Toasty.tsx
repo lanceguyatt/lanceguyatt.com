@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import toastyMp3 from '/audio/toasty.mp3'
-import toastyImage from '/images/toasty.png'
+import toastyImage from '../images/toasty.png'
 
 export default function Toasty() {
   const [toasty, setToasty] = useState(false)
@@ -30,7 +30,7 @@ export default function Toasty() {
   return (
     <>
       <img
-        src={toastyImage}
+        src={toastyImage.src}
         alt="Toasty"
         className="fixed bottom-0 -right-full z-10 h-[12.5rem] w-[12.5rem]"
       />

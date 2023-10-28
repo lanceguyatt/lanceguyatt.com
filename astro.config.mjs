@@ -42,7 +42,7 @@ export default defineConfig({
     }),
     react(),
     tailwind({
-      config: { applyBaseStyles: false }
+      applyBaseStyles: false
     })
   ],
   vite: {

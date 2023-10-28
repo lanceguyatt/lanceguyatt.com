@@ -1,10 +1,11 @@
 ---
-export interface IAlert {
-  class?: string
+import { type HTMLAttributes } from 'astro/types'
+
+export type Props = HTMLAttributes<'div'> & {
   animate?: boolean
 }
 
-const { class: className, animate = false, ...props } = Astro.props as IAlert
+const { class: className, animate = false, ...props } = Astro.props
 ---
 
 <div
@@ -13,21 +14,21 @@ const { class: className, animate = false, ...props } = Astro.props as IAlert
   class:list={[
     'border-4 border-foreground text-primary p-8 text-center relative',
     className,
-    animate && ['animate-pulse', 'animate-alternate']
+    { 'animate-pulse animate-alternate': animate }
   ]}
   {...props}
 >
   <slot />
 </div>
 
-<style lang="postcss">
-[data-component="alert"] {
-  & a {
-    @apply hover:underline;
+<style>
+  [data-component='alert'] {
+    & a {
+      @apply hover:underline;
 
-    &::before {
-      @apply content-[""] block absolute inset-0 z-0;
+      &::before {
+        @apply content-[""] block absolute inset-0 z-0;
+      }
     }
   }
-}
 </style>

@@ -2,10 +2,10 @@
 import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 
-import Default from '@layouts/Default.astro'
-import FloppyDisk from '@components/FloppyDisk.astro'
-import FloppyDrive from '@components/FloppyDrive.astro'
-import Prose from '@components/Prose.astro'
+import Default from '~/layouts/Default.astro'
+import FloppyDisk from '~/components/FloppyDisk.astro'
+import FloppyDrive from '~/components/FloppyDrive.astro'
+import Prose from '~/components/Prose.astro'
 
 const kickstart = await getEntryBySlug('page', 'kickstart')
 const { Content } = await kickstart.render()
@@ -32,7 +32,7 @@ const { name, description } = data
       <Content />
     </Prose>
 
-    <a class="relative block h-[10.5625rem] w-39" href="/">
+    <a class="relative block h-169 w-39" href="/">
       <span class="sr-only">Return to Workbench</span>
       <FloppyDrive />
       <FloppyDisk
