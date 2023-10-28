@@ -7,13 +7,13 @@ import toastyMp3 from '@/assets/toasty.mp3'
 
 <div
   class="h-screen w-screen overflow-hidden flex items-center justify-center bg-foreground text-[red]"
-  x-data="{ toasty: false }"
+  x-data="danForden"
 >
   <div x-text="toasty"></div>
 
   <button x-on:click="toasty = ! toasty">Toasty?</button>
 
-  <button @click="$refs.ouch.play()">Click Me</button>
+  <button x-on:click="play()">Click Me</button>
 
   <audio x-ref="ouch">
     <source src={toastyMp3} type="audio/mpeg" />
@@ -31,6 +31,62 @@ import toastyMp3 from '@/assets/toasty.mp3'
     width={200}
     height={200}
     alt="Toasty"
+    x-cloak
     class="fixed bottom-0 right-0 h-toasty w-toasty"
   />
 </div>
+
+<script>
+  import Alpine from 'alpinejs'
+
+  window.Alpine = Alpine
+
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('danForden', () => ({
+      toasty: false,
+      init() {
+        console.log('Loaded')
+        // this.toasty = true
+      },
+      playToasty() {
+        this.$refs.ouch.play()
+      }
+      // konami(feature) {
+      //   const required = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+      //     current = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+      //   const on =
+      //     'addEventListener' in document
+      //       ? function (object, event, func) {
+      //           object.addEventListener(event, func, false)
+      //         }
+      //       : function (object, event, func) {
+      //           object.attachEvent('on' + event, func)
+      //         }
+
+      //   var load = function () {
+      //     if (
+      //       !(function () {
+      //         try {
+      //           return !!document.createEvent('TouchEvent')
+      //         } catch (e) {}
+      //       })()
+      //     ) {
+      //       on(window, 'keyup', function (event) {
+      //         current.push(event.keyCode ? event.keyCode : event.which)
+      //         current.shift()
+
+      //         if (current >= required && current <= required) {
+      //           return toasty = true
+      //         }
+      //       })
+      //     }
+      //   }
+
+      //   on(window, 'load', load)
+      //}
+    }))
+  })
+
+  Alpine.start()
+</script>

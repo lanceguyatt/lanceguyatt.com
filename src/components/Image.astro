@@ -1,18 +1,25 @@
 ---
-interface Props {
+import { cn } from '@/lib/utils'
+type ImageProps = {
   src: string
   alt: string
   loading?: 'lazy' | 'eager'
   class?: string
 }
 
-const { src, alt, class: className, loading = 'lazy', ...props } = Astro.props
+const {
+  src,
+  alt,
+  class: className,
+  loading = 'lazy',
+  ...props
+} = Astro.props as ImageProps
 ---
 
 <img
   src={src}
   alt={alt}
   loading={loading}
-  class:list={['border-img-bar object-cover p-2px', className]}
+  class:list={[cn('border-img-bar object-cover p-2px', className)]}
   {...props}
 />

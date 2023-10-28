@@ -1,12 +1,12 @@
 ---
 import { SEO } from 'astro-seo'
 import { SITE } from '@/config'
-import type { IWorkbench } from '@/layouts/Workbench.astro'
+import type { WorkbenchProps } from '@/layouts/Workbench.astro'
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID
 // console.log(import.meta.env)
 
-interface IBaseHead extends IWorkbench {
+type BaseHeadProps = WorkbenchProps & {
   noindex?: boolean
 }
 
@@ -16,7 +16,7 @@ const {
   url = '/',
   image = SITE.image,
   noindex = false
-} = Astro.props as IBaseHead
+} = Astro.props as BaseHeadProps
 ---
 
 <head>

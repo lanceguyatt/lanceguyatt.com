@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import Icon from '@/components/Icon.astro'
 
-const link = cva(
+const linkVariants = cva(
   [
     'flex',
     'flex-col',
@@ -17,7 +17,7 @@ const link = cva(
     variants: {
       active: {
         // true: 'bg-primary',
-        false: ['focus:bg-white', 'focus:text-primary']
+        false: ['focus:bg-background', 'focus:text-primary']
       }
     },
     defaultVariants: {
@@ -26,8 +26,8 @@ const link = cva(
   }
 )
 
-type Props = HTMLAttributes<'a'> &
-  VariantProps<typeof link> & {
+export type LinkProps = HTMLAttributes<'a'> &
+  VariantProps<typeof linkVariants> & {
     external?: boolean
     icon?: any
     active?: any
@@ -39,16 +39,16 @@ const {
   external = false,
   href,
   icon = 'disk'
-} = Astro.props
+} = Astro.props as LinkProps
 ---
 
 <a
   {href}
-  class={link({ active, className })}
+  class={linkVariants({ active, className })}
   target={external ? '_blank' : null}
   rel={external ? 'noopener noreferrer' : null}
 >
-  <Icon name={icon} active={active && icon} className="mb-1" />
+  <Icon name={icon} active={active && icon} class="mb-2" />
   <div class="max-w-24 text-center">
     <slot />
   </div>

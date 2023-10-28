@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 
+import { cn } from '@/lib/utils'
 import toastyMp3 from '/audio/toasty.mp3'
 import toastyImage from '../images/toasty.png'
+import type { list } from 'postcss'
 
 export const Toasty = () => {
   const [toasty, setToasty] = useState(false)
@@ -32,7 +34,9 @@ export const Toasty = () => {
       <img
         src={toastyImage.src}
         alt="Toasty"
-        className="fixed bottom-0 -right-full z-10 h-[12.5rem] w-[12.5rem]"
+        class:list={cn(
+          'fixed bottom-0 -right-full z-10 h-[12.5rem] w-[12.5rem]'
+        )}
       />
 
       <audio id="js-toasty-audio">

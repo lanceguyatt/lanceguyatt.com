@@ -24,7 +24,7 @@ const pathname = new URL(Astro.request.url).pathname
 <Workbench title={name} description={description} url={`/${slug}`}>
   <Window
     id={slug}
-    name={`${name}`}
+    {name}
     level={1}
     active={pathname === `/${slug}`}
     depth

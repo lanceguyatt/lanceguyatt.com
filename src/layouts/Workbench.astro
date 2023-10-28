@@ -1,8 +1,13 @@
 ---
-import { type SiteProps, SITE } from '@/config'
+import { getEntry, getEntries } from 'astro:content'
 
+import { type SiteProps, SITE } from '@/config'
+import Default from '@/layouts/Default.astro'
 import { Link, Nav, TitleBar, Window } from '@/components/index.astro'
-import Default from './Default.astro'
+
+const nav = await getEntry('nav', 'main')
+let navItems = null
+if (nav.data?.items) navItems = await getEntries(nav.data.items)
 
 export type WorkbenchProps = SiteProps & {
   class?: string
@@ -20,33 +25,16 @@ const {
 } = Astro.props as WorkbenchProps
 
 const meta = { title, name, description, url, image }
-
 const pathname = new URL(Astro.request.url).pathname
-
-const links = [
-  {
-    name: 'Ram Disk',
-    url: '/ram-disk',
-    icon: 'disk'
-  },
-  {
-    name: 'Work',
-    url: '/work',
-    icon: 'drive'
-  },
-  {
-    name: 'About',
-    url: '/about',
-    icon: 'drive'
-  }
-]
 ---
 
-<Default {...meta} {...props} class={className}>
+<Default {...meta} class={className} {...props}>
   <TitleBar role="banner" slot="header" depth>
     {SITE.title} Copyright &copy; 2000-{copyrightYear} All Rights Reserved
   </TitleBar>
+
   <slot />
+
   <Window
     id="workbench-window"
     name="Workbench"
@@ -56,14 +44,21 @@ const links = [
     depth
     zoom
   >
-    <Nav id="workbench-nav" name="Workbench" vertical>
-      {
-        links.map(({ name, url, icon }) => (
-          <Link icon={icon} href={url} active={pathname.includes(url)}>
-            {name}
-          </Link>
-        ))
-      }
-    </Nav>
+    {
+      navItems && (
+        <Nav id="workbench-nav" name="Workbench" vertical>
+          {navItems &&
+            navItems.map(item => (
+              <Link
+                icon={item.data.icon}
+                href={item.slug}
+                active={pathname.includes(item.slug)}
+              >
+                {item.data.name}
+              </Link>
+            ))}
+        </Nav>
+      )
+    }
   </Window>
 </Default>

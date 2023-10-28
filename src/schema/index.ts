@@ -1,5 +1,10 @@
 import { z, reference } from 'astro:content'
 
+export const navSchema = z.object({
+  name: z.string(),
+  items: z.array(reference('page')),
+})
+
 export const aboutSchema = z.object({
   name: z.string(),
   url: z.string(),
@@ -9,6 +14,7 @@ export const aboutSchema = z.object({
 export const pageSchema = z.object({
   name: z.string(),
   description: z.string().optional(),
+  icon: z.string().optional(),
   draft: z.boolean().optional()
 })
 
