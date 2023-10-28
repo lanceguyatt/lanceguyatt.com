@@ -2,8 +2,8 @@
 import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 
-import Default from '~/layouts/Default.astro'
-import Toasty from '~/components/Toasty'
+import Default from '@/layouts/Default.astro'
+import { Toasty as T } from '@/components/Toasty'
 
 const page = await getEntryBySlug('page', '404')
 const { Content } = await page.render()
@@ -23,5 +23,5 @@ const { name, description } = data
     extend={{ meta: [{ name: 'theme-color', content: '#000000' }] }}
   />
   <Content />
-  <Toasty client:load />
+  <T client:load />
 </Default>

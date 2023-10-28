@@ -31,8 +31,4 @@ export type SocialMedia =
   | 'Telegram'
   | 'Mastodon'
 
-export type Icons =
-  | 'disk'
-  | 'drawer'
-  | 'drive'
-  | 'file'
+export type Icons = 'disk' | 'drawer' | 'drive' | 'file'

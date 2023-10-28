@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets'
+
+import toastyImage from '@/images/toasty.png'
+import toastyMp3 from '@/assets/toasty.mp3'
+---
+
+<div class="h-screen w-screen overflow-hidden" x-data="{ toasty: false }">
+  <div x-text="toasty"></div>
+
+  <button x-on:click="toasty = ! toasty">Toasty?</button>
+
+  <Image
+    x-show="toasty"
+    x-transition:enter="transform ease-out duration-300"
+    x-transition:enter-start="translate-x-full"
+    x-transition:enter-end="translate-x-0"
+    x-transition:leave="transform ease-in duration-300"
+    x-transition:leave-start="translate-x-0"
+    x-transition:leave-end="translate-x-full"
+    src={toastyImage}
+    width={200}
+    height={200}
+    alt="Toasty"
+    class="fixed bottom-0 right-0 z-10 h-toasty w-toasty"
+  />
+
+  <audio id="js-toasty-audio">
+    <source src={toastyMp3} type="audio/mp3" />
+  </audio>
+</div>

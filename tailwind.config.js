@@ -81,6 +81,7 @@ module.exports = {
 				'22px': rem(22),
 				'23px': rem(23),
 				titlebar: '1.375rem',
+				toasty: rem(200),
 			},
 			width: {
 				39: '9.75rem',

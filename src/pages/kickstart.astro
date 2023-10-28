@@ -2,23 +2,20 @@
 import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 
-import Default from '~/layouts/Default.astro'
-import FloppyDisk from '~/components/FloppyDisk.astro'
-import FloppyDrive from '~/components/FloppyDrive.astro'
-import Prose from '~/components/Prose.astro'
+import Default from '@/layouts/Default.astro'
+import FloppyDisk from '@/components/FloppyDisk.astro'
+import FloppyDrive from '@/components/FloppyDrive.astro'
+import Prose from '@/components/Prose.astro'
 
 const kickstart = await getEntryBySlug('page', 'kickstart')
 const { Content } = await kickstart.render()
-
-const { slug: url, data } = kickstart
-const { name, description } = data
 ---
 
 <Default
-  title={name}
-  name={name}
-  description={description}
-  url={`/${url}`}
+  title={kickstart.data.name}
+  name={kickstart.data.name}
+  description={kickstart.data.description}
+  url={kickstart.slug}
   theme="kickstart"
 >
   <SEO

@@ -1,0 +1,38 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+
+import Workbench from '@/layouts/Workbench.astro'
+import Window from '@components/Window.astro'
+import Prose from '@components/Prose.astro'
+
+export type TagProps = {
+  entry: CollectionEntry<'tag'>
+}
+
+export async function getStaticPaths() {
+  const entries = await getCollection('tag')
+
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry }
+  }))
+}
+
+const { entry } = Astro.props as TagProps
+---
+
+<Workbench>
+  <Window
+    id={entry.id}
+    level={1}
+    active
+    name={entry.data.name}
+    url="/tags"
+    depth
+    zoom
+  >
+    <Prose>
+      <pre>{JSON.stringify(entry, null, 2)}</pre>
+    </Prose>
+  </Window>
+</Workbench>

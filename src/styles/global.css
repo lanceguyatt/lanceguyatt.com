@@ -95,7 +95,9 @@
 
   @font-face {
     font-family: 'Topaz';
-    src: local('Topaz'), url('/fonts/topaz.woff2') format('woff2');
+    src:
+      local('Topaz'),
+      url('/fonts/topaz.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

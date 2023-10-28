@@ -6,6 +6,7 @@ import remarkCollapse from 'remark-collapse'
 import partytown from '@astrojs/partytown'
 import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
+import AutoImport from 'astro-auto-import'
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,17 +23,10 @@ export default defineConfig({
     ]
   },
   integrations: [
-    mdx({
-      remarkPlugins: [
-        remarkToc,
-        [
-          remarkCollapse,
-          {
-            test: 'Table of contents'
-          }
-        ]
-      ]
+    AutoImport({
+      imports: ['./src/containers/Work.astro']
     }),
+
     compress(),
     partytown({
       // Adds dataLayer.push as a forwarding-event.
@@ -43,21 +37,17 @@ export default defineConfig({
     react(),
     tailwind({
       applyBaseStyles: false
+    }),
+    mdx({
+      remarkPlugins: [
+        remarkToc,
+        [
+          remarkCollapse,
+          {
+            test: 'Table of contents'
+          }
+        ]
+      ]
     })
-  ],
-  vite: {
-    ssr: {
-      noExternal: ['@radix-ui/*']
-    },
-    build: {
-      // cssCodeSplit: false,
-      // rollupOptions: {
-      //   output: {
-      //     entryFileNames: 'scripts/[name].js',
-      //     chunkFileNames: 'chunks/[name].js',
-      //     assetFileNames: 'assets/[name][extname]',
-      //   },
-      // },
-    }
-  }
+  ]
 })

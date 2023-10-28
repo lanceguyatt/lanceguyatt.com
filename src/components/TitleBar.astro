@@ -2,25 +2,30 @@
 import { type HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import Depth from '~/components/Depth.astro'
+import Depth from '@/components/Depth.astro'
 
 const titlebar = cva('h-titlebar flex items-center', {
   variants: {
     intent: {
       default: 'bg-foreground text-secondary',
       primary: 'bg-primary text-primary-foreground',
-      secondary: 'bg-white text-foreground'
+      secondary: 'bg-background text-foreground'
     }
   },
   defaultVariants: { intent: 'default' }
 })
 
-type Props = HTMLAttributes<'div'> &
+export type TitleProps = HTMLAttributes<'div'> &
   VariantProps<typeof titlebar> & {
     depth?: boolean
   }
 
-const { class: className, depth = false, intent, ...props } = Astro.props
+const {
+  class: className,
+  depth = false,
+  intent,
+  ...props
+} = Astro.props as TitleProps
 ---
 
 <div class={titlebar({ intent, className })} {...props}>

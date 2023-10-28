@@ -12,19 +12,20 @@ export const pageSchema = z.object({
   draft: z.boolean().optional()
 })
 
-export const workSchema = ({ image }: { image: any }) => z.object({
-  name: z.string(),
-  description: z.string().optional(),
-  url: z.string().optional(),
-  image: image({}).optional(),
-  tags: z.array(reference('tag')).optional(),
-  draft: z.boolean().optional()
-})
+export const workSchema = ({ image }: { image: any }) =>
+  z.object({
+    name: z.string(),
+    description: z.string().optional(),
+    url: z.string().optional(),
+    image: image({}).optional(),
+    tags: z.array(reference('tag')).optional(),
+    draft: z.boolean().optional()
+  })
 
 export const tagSchema = z.object({
   name: z.string(),
   description: z.string().optional(),
-  url: z.string().optional(),
+  url: z.string().optional()
 })
 
 // export type WorkFrontmatter = z.infer<typeof workSchema>

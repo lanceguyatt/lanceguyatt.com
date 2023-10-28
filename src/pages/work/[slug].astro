@@ -2,13 +2,13 @@
 import { getCollection, type CollectionEntry, getEntries } from 'astro:content'
 import { Image } from 'astro:assets'
 
-import { SITE } from '@config'
-import Workbench from '~/layouts/Workbench.astro'
-import Window from '~/components/Window.astro'
-import { Button } from '~/components/ui/button'
-// import Image from '~/components/Image.astro'
-import Work from '~/containers/Work.astro'
-import Prose from '~/components/Prose.astro'
+import { SITE } from '@/config'
+import Workbench from '@/layouts/Workbench.astro'
+import Window from '@/components/Window.astro'
+import Button from '@/components/Button.astro'
+// import Image from '@/components/Image.astro'
+import Work from '@/containers/Work.astro'
+import Prose from '@/components/Prose.astro'
 
 export async function getStaticPaths() {
   const entries = await getCollection('work')
@@ -182,9 +182,7 @@ const schema = {
       }
 
       <div class="flex justify-between mt-auto">
-        <Button asChild>
-          <a href="/work"> Cancel</a>
-        </Button>
+        <Button href="/work">Cancel</Button>
         {
           url && (
             <Button href={url} target="_blank" rel="noopener noreferrer">

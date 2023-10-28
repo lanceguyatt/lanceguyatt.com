@@ -1,7 +1,7 @@
 ---
-import { ISITE, SITE } from '@config'
-import { BaseHead, SchemaWebPage } from '~/components/index.astro'
-import '@styles/global.css'
+import { ISITE, SITE } from '@/config'
+import { BaseHead, SchemaWebPage } from '@/components/index.astro'
+import '@/styles/global.css'
 
 export interface IDefault extends ISITE {
   class?: string
@@ -21,9 +21,13 @@ const meta = { name, title, description, url, image }
 ---
 
 <html lang={SITE.lang}>
-  <BaseHead {...meta}>
-    <slot name="head" />
-  </BaseHead>
+  <head>
+    <BaseHead {...meta}>
+      <slot name="head" />
+    </BaseHead>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
   <body class:list={['bg-background', 'text-foreground', className, theme]}>
     <slot name="header" />
     <slot />

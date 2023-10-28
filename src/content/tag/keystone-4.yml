@@ -1,1 +1,5 @@
 name: Keystone JS 4
+url: https://v4.keystonejs.com/
+description: KeystoneJS is an open source framework for developing
+  database-driven websites, applications and APIs in Node.js. Built on Express
+  and MongoDB.

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import toastyMp3 from '/audio/toasty.mp3'
 import toastyImage from '../images/toasty.png'
 
-export default function Toasty() {
+export const Toasty = () => {
   const [toasty, setToasty] = useState(false)
 
   useEffect(() => {

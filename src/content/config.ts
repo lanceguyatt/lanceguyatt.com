@@ -1,6 +1,6 @@
 import { defineCollection } from 'astro:content'
 
-import { aboutSchema, pageSchema, tagSchema, workSchema } from '../schema'
+import { aboutSchema, pageSchema, tagSchema, workSchema } from '@/schema'
 
 const about = defineCollection({ type: 'data', schema: aboutSchema })
 const page = defineCollection({ type: 'content', schema: pageSchema })

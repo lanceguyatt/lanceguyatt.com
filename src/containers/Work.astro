@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
 
-import Nav from '~/components/Nav.astro'
-import Link from '~/components/Link.astro'
+import Nav from '@/components/Nav.astro'
+import Link from '@/components/Link.astro'
 
 const work = await getCollection('work', ({ data }) => {
   return data.draft !== true

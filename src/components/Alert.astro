@@ -1,11 +1,15 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
 
-export type Props = HTMLAttributes<'div'> & {
+export type AlertProps = HTMLAttributes<'div'> & {
   animate?: boolean
 }
 
-const { class: className, animate = false, ...props } = Astro.props
+const {
+  class: className,
+  animate = false,
+  ...props
+} = Astro.props as AlertProps
 ---
 
 <div
