@@ -1,9 +1,9 @@
 ---
-import { ISITE, SITE } from '@/config'
+import { type SiteProps, SITE } from '@/config'
 import { BaseHead, SchemaWebPage } from '@/components/index.astro'
 import '@/styles/global.css'
 
-export interface IDefault extends ISITE {
+export type DefaultProps = SiteProps & {
   class?: string
   theme?: string
 }
@@ -16,7 +16,7 @@ const {
   image,
   theme,
   class: className
-} = Astro.props as IDefault
+} = Astro.props as DefaultProps
 const meta = { name, title, description, url, image }
 ---
 

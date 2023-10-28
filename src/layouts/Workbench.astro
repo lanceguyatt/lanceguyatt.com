@@ -1,11 +1,10 @@
 ---
-import type { ISITE } from '@/config'
-import { SITE } from '@/config'
+import { type SiteProps, SITE } from '@/config'
 
 import { Link, Nav, TitleBar, Window } from '@/components/index.astro'
 import Default from './Default.astro'
 
-export interface IWorkbench extends ISITE {
+export type WorkbenchProps = SiteProps & {
   class?: string
 }
 
@@ -18,7 +17,7 @@ const {
   image,
   class: className,
   ...props
-} = Astro.props as IWorkbench
+} = Astro.props as WorkbenchProps
 
 const meta = { title, name, description, url, image }
 
