@@ -1,12 +1,32 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-export type AlertProps = HTMLAttributes<'div'> & {
-  animate?: boolean
-}
+import { cn } from '@/lib/utils'
+
+export const alertVariants = cva('border-4 p-8 relative', {
+  variants: {
+    intent: {
+      descructive: 'border-destructive text-destructive'
+    },
+    animate: {
+      true: 'animate-foo animate-alternate'
+    }
+  },
+  defaultVariants: {
+    intent: 'descructive',
+    animate: false
+  }
+})
+
+export type AlertProps = HTMLAttributes<'div'> &
+  VariantProps<typeof alertVariants> & {
+    animate?: boolean
+  }
 
 const {
   class: className,
+  intent,
   animate = false,
   ...props
 } = Astro.props as AlertProps
@@ -15,11 +35,7 @@ const {
 <div
   role="dialog"
   data-component="alert"
-  class:list={[
-    'border-4 border-foreground text-primary p-8 text-center relative',
-    className,
-    { 'animate-pulse animate-alternate': animate }
-  ]}
+  class:list={[cn(alertVariants({ intent, animate })), className]}
   {...props}
 >
   <slot />

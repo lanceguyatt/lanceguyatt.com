@@ -4,9 +4,14 @@ import Checkbox from '@/components/Checkbox.astro'
 import Button from '@/components/Button.astro'
 import Icon from '@/components/Icon.astro'
 import ThemeToggle from '@/components/theme-toggle.astro'
+import Alert from '@/components/Alert.astro'
 ---
 
 <Default name="Form" title="Form">
+  <Alert class="mx-auto max-w-lg text-center" animate>
+    <p>Software Failure. Press left mouse button to continue.</p>
+  </Alert>
+
   <div class="max-w-xl p-20">
     <Button href="/">Launch</Button>
     <form>
