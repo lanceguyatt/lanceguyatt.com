@@ -3,7 +3,7 @@ import { type SiteProps, SITE } from '@/config'
 import { BaseHead, SchemaWebPage } from '@/components/index.astro'
 import '@/styles/workbench.css'
 
-export type DefaultProps = SiteProps & {
+type Props = SiteProps & {
   class?: string
   theme?: string
 }
@@ -16,7 +16,7 @@ const {
   image,
   theme,
   class: className
-} = Astro.props as DefaultProps
+} = Astro.props
 const meta = { name, title, description, url, image }
 ---
 
@@ -25,8 +25,6 @@ const meta = { name, title, description, url, image }
     <BaseHead {...meta}>
       <slot name="head" />
     </BaseHead>
-
-    <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
   </head>
   <body class:list={['bg-background', 'text-foreground', className, theme]}>
     <slot name="header" />

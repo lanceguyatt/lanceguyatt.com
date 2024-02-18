@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import compress from 'astro-compress'
-import partytown from '@astrojs/partytown'
-import react from '@astrojs/react'
+// import partytown from '@astrojs/partytown'
+// import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import AutoImport from 'astro-auto-import'
+
+import alpine from '@astrojs/alpinejs'
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +27,6 @@ export default defineConfig({
         }
       ]
     }),
-
     compress(),
     // partytown({
     //   // Adds dataLayer.push as a forwarding-event.
@@ -33,10 +34,13 @@ export default defineConfig({
     //     forward: ['dataLayer.push']
     //   }
     // }),
-    react(),
+    // react(),
     tailwind({
       applyBaseStyles: false
     }),
-    mdx()
+    mdx(),
+    alpine({
+      entrypoint: '/src/scripts/app'
+    })
   ]
 })

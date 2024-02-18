@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets'
+
+import toastyImage from '@/images/toasty.png'
+import toastyMp3 from '@/assets/toasty.mp3'
+---
+
+<div
+  class="text-destructive grid h-screen w-screen items-center justify-center overflow-hidden"
+  x-data="danForden"
+>
+  <div>
+    <div x-text="toasty"></div>
+    <button x-on:click="toasty = ! toasty">Toasty?</button>
+    <button x-on:click="play()">Click Me</button>
+  </div>
+
+  <audio x-ref="ouch">
+    <source src={toastyMp3} type="audio/mpeg" />
+  </audio>
+
+  <Image
+    x-show="toasty"
+    x-transition:enter="transform ease-out duration-300"
+    x-transition:enter-start="translate-x-full"
+    x-transition:enter-end="translate-x-0"
+    x-transition:leave="transform ease-in duration-300"
+    x-transition:leave-start="translate-x-0"
+    x-transition:leave-end="translate-x-full"
+    src={toastyImage}
+    width={200}
+    height={200}
+    alt="Toasty"
+    x-cloak
+    class="h-toasty w-toasty fixed bottom-0 right-0"
+  />
+</div>
