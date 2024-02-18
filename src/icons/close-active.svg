@@ -1,0 +1,8 @@
+<svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 0H20V20H19V0Z" fill="white"/>
+<path d="M7 6H12V8H7V6ZM7 8H8V16H7V8ZM8 14H12V16H8V14ZM11 8H12V14H11V8Z" fill="black"/>
+<path d="M8 8H11V14H8V8Z" fill="#AAAAAA"/>
+<path d="M0 0H19V2H0V0ZM0 2H1V22H0V2Z" fill="black"/>
+<path d="M18 2H19V22H18V2ZM1 20H18V22H1V20Z" fill="white"/>
+<path d="M19 20H20V22H19V20Z" fill="black"/>
+</svg>

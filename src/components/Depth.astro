@@ -8,7 +8,7 @@ const { class: className, ...props } = Astro.props as DepthProps
 
 <button
   type="button"
-  class:list={['block h-22px w-23px bg-depth active:bg-23px', className]}
+  class:list={['h-22px w-23px bg-depth active:bg-23px block', className]}
   {...props}
 >
   <span class="sr-only">Toggle Depth</span></button

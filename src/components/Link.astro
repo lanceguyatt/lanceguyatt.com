@@ -1,8 +1,9 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { Icon } from 'astro-icon/components'
 
-import Icon from '@/components/Icon.astro'
+// import Icon from '@/components/Icon.astro'
 
 const linkVariants = cva(
   [
@@ -26,7 +27,7 @@ const linkVariants = cva(
   }
 )
 
-export type LinkProps = HTMLAttributes<'a'> &
+type LinkProps = HTMLAttributes<'a'> &
   VariantProps<typeof linkVariants> & {
     external?: boolean
     icon?: any
@@ -39,7 +40,7 @@ const {
   external = false,
   href,
   icon = 'disk'
-} = Astro.props as LinkProps
+} = Astro.props
 ---
 
 <a

@@ -7,29 +7,24 @@ import { cn } from '@/lib/utils'
 export const alertVariants = cva('border-4 p-8 relative', {
   variants: {
     intent: {
-      descructive: 'border-destructive text-destructive'
+      destructive: 'border-destructive text-destructive'
     },
     animate: {
       true: 'animate-foo animate-alternate'
     }
   },
   defaultVariants: {
-    intent: 'descructive',
+    intent: 'destructive',
     animate: false
   }
 })
 
-export type AlertProps = HTMLAttributes<'div'> &
+type Props = HTMLAttributes<'div'> &
   VariantProps<typeof alertVariants> & {
     animate?: boolean
   }
 
-const {
-  class: className,
-  intent,
-  animate = false,
-  ...props
-} = Astro.props as AlertProps
+const { class: className, intent, animate = false, ...props } = Astro.props
 ---
 
 <div
@@ -47,7 +42,7 @@ const {
       @apply hover:underline;
 
       &::before {
-        @apply content-[""] block absolute inset-0 z-0;
+        @apply absolute inset-0 z-0 block content-[""];
       }
     }
   }

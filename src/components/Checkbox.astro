@@ -9,7 +9,7 @@ const { class: className, ...props } = Astro.props
 <input
   type="checkbox"
   class:list={[
-    'h-22px w-26px appearance-none bg-checkbox outline-0 checked:bg-[-52px] focus:bg-primary',
+    'h-22px w-26px bg-checkbox focus:bg-primary appearance-none outline-0 checked:bg-[-52px]',
     className
   ]}
   {...props}

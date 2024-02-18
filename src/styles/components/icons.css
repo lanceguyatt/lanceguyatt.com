@@ -1,0 +1,45 @@
+@layer components {
+  [data-icon] {
+    @apply border-2;
+  }
+
+  [data-icon='close'],
+  [data-icon='close-active'] {
+    width: 20px;
+    height: 22px;
+  }
+
+  [data-icon='disk'],
+  [data-icon='disk-active'] {
+    width: 43px;
+    height: 46px;
+  }
+
+  [data-icon='drawer'],
+  [data-icon='drawer-active'] {
+    width: 65px;
+    height: 38px;
+  }
+
+  [data-icon='drive'],
+  [data-icon='drive-active'] {
+    width: 85px;
+    height: 44px;
+  }
+
+  [data-icon='file'],
+  [data-icon='file-active'] {
+    width: 46px;
+    height: 62px;
+  }
+
+  [data-icon='floppy-disk'] {
+    width: 134px;
+    height: 120px;
+  }
+
+  [data-icon='floppy-drive'] {
+    width: 156px;
+    height: 38px;
+  }
+}

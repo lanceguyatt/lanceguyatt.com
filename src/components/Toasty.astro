@@ -6,11 +6,12 @@ import toastyMp3 from '@/assets/toasty.mp3'
 ---
 
 <div
-  class="text-destructive grid h-screen w-screen items-center justify-center overflow-hidden"
+  class="text-destructive grixd h-xscreen w-sxcreen itexms-center justifyx-center overflxow-hidden"
   x-data="danForden"
 >
   <div>
     <div x-text="toasty"></div>
+    <slot />
     <button x-on:click="toasty = ! toasty">Toasty?</button>
     <button x-on:click="play()">Click Me</button>
   </div>

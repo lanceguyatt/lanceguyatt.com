@@ -1,10 +1,9 @@
 ---
 import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
+import { Icon } from 'astro-icon/components'
 
 import Default from '@/layouts/Default.astro'
-import FloppyDisk from '@/components/FloppyDisk.astro'
-import FloppyDrive from '@/components/FloppyDrive.astro'
 import Prose from '@/components/Prose.astro'
 
 const kickstart = await getEntryBySlug('page', 'kickstart')
@@ -29,11 +28,12 @@ const { Content } = await kickstart.render()
       <Content />
     </Prose>
 
-    <a class="relative block h-169 w-39" href="/">
+    <a class="h-169 w-39 relative block" href="/">
       <span class="sr-only">Return to Workbench</span>
-      <FloppyDrive />
-      <FloppyDisk
-        class="absolute bottom-0 left-3 animate-insert-disk repeat-infinite"
+      <Icon name="floppy-drive" />
+      <Icon
+        name="floppy-disk"
+        class="animate-insert-disk repeat-infinite absolute bottom-0 left-3"
       />
     </a>
   </div>

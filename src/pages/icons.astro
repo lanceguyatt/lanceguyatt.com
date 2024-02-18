@@ -1,0 +1,21 @@
+---
+import Default from '@/layouts/Default.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<Default title="Icons">
+  <div class="mx-auto">
+    <div class="grid grid-cols-4 gap-6">
+      <button x-on:click="close = ! close" x-data="{ close: false }">
+        <Icon name="close" x-show="!close" />
+        <Icon name="close-active" x-show="close" />
+      </button>
+      <Icon name="disk" />
+      <Icon name="drawer" />
+      <Icon name="drive" />
+      <Icon name="file" />
+      <Icon name="floppy-disk" />
+      <Icon name="floppy-drive" />
+    </div>
+  </div>
+</Default>

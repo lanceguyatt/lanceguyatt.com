@@ -1,4 +1,4 @@
-<svg width="43" height="46" xmlns="http://www.w3.org/2000/svg">
+<svg width="43" height="46" viewBox="0 0 43 46" xmlns="http://www.w3.org/2000/svg">
   <g fill="none" fill-rule="evenodd">
     <path fill="#AAA" d="M0 0h43v46H0z" />
     <path d="M5 8V6h32v2h2v32H4V8h1z" fill="#000" />

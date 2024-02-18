@@ -10,6 +10,7 @@
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
+    "check": "astro check",
     "format:check": "prettier --plugin-search-dir=. --check .",
     "format": "prettier --plugin-search-dir=. --write .",
     "lint": "eslint .",
@@ -33,7 +34,8 @@
     "astro-auto-import": "^0.4.2",
     "astro-compress": "^2.2.10",
     "astro-eslint-parser": "^0.16.3",
-    "astro-seo": "^0.8.0",
+    "astro-icon": "^1.1.0",
+    "astro-seo": "^0.8.1",
     "autoprefixer": "^10.4.17",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -45,11 +47,14 @@
     "postcss-nesting": "^12.0.2",
     "prettier-plugin-astro": "^0.13.0",
     "rehype-external-links": "^3.0.0",
+    "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.5.4",
     "@types/alpinejs": "^3.13.6",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
