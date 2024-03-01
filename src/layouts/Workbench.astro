@@ -1,9 +1,9 @@
 ---
 import { getEntry, getEntries } from 'astro:content'
 
-import { type SiteProps, SITE } from '@/config'
-import Default from '@/layouts/Default.astro'
-import { Link, Nav, TitleBar, Window } from '@/components/index.astro'
+import { type SiteProps, SITE } from '$config/index'
+import Default from '$layouts/Default.astro'
+import { Link, Nav, TitleBar, Window } from '$components/index.astro'
 
 const nav = await getEntry('nav', 'main')
 let navItems = null

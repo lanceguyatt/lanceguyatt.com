@@ -2,7 +2,7 @@ import { z, reference } from 'astro:content'
 
 export const navSchema = z.object({
   name: z.string(),
-  items: z.array(reference('page')),
+  items: z.array(reference('page'))
 })
 
 export const aboutSchema = z.object({
@@ -34,4 +34,4 @@ export const tagSchema = z.object({
   url: z.string().optional()
 })
 
-// export type WorkFrontmatter = z.infer<typeof workSchema>
+export type WorkFrontmatter = z.infer<typeof workSchema>

@@ -2,26 +2,22 @@
 import type { HTMLAttributes } from 'astro/types'
 import { Icon } from 'astro-icon/components'
 
-export type Props = HTMLAttributes<'a'> & {
+type Props = HTMLAttributes<'a'> & {
   name: string
   url?: string
 }
 
 const {
   name = 'Close this window',
-  url = '/',
+  url: href = '/',
   class: className,
   ...props
 } = Astro.props
 ---
 
-<a
-  href={url}
-  class:list={['h-22px bg-closse block w-5 active:bg-[-1.25rem]', className]}
-  {...props}
->
-  <Icon name="close" />
+<a {href} class:list={[className]} {...props}>
   <span class="sr-only">
     {name}
   </span>
+  <Icon name="close" />
 </a>

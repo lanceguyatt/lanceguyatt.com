@@ -1,10 +1,9 @@
 ---
-import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 import { Icon } from 'astro-icon/components'
 
-import Default from '@/layouts/Default.astro'
-import Prose from '@/components/Prose.astro'
+import Default from '$layouts/Default.astro'
+import Prose from '$components/Prose.astro'
 
 const kickstart = await getEntryBySlug('page', 'kickstart')
 const { Content } = await kickstart.render()
@@ -17,10 +16,6 @@ const { Content } = await kickstart.render()
   url={kickstart.slug}
   theme="kickstart"
 >
-  <SEO
-    slot="head"
-    extend={{ meta: [{ name: 'theme-color', content: 'rgb(68, 16, 68)' }] }}
-  />
   <div
     class="flex min-h-screen flex-col items-center justify-center gap-6 p-6 md:flex-row md:items-end md:justify-between md:gap-12 md:p-12"
   >

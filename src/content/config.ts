@@ -6,7 +6,7 @@ import {
   pageSchema,
   tagSchema,
   workSchema
-} from '@/schema'
+} from '$schema/index'
 
 const about = defineCollection({ type: 'data', schema: aboutSchema })
 const nav = defineCollection({ type: 'data', schema: navSchema })

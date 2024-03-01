@@ -1,19 +1,16 @@
 ---
 import { Image } from 'astro:assets'
 
-import toastyImage from '@/images/toasty.png'
-import toastyMp3 from '@/assets/toasty.mp3'
+import toastyImage from '$/images/toasty.png'
+import toastyMp3 from '$/assets/toasty.mp3'
 ---
 
-<div
-  class="text-destructive grixd h-xscreen w-sxcreen itexms-center justifyx-center overflxow-hidden"
-  x-data="danForden"
->
+<div x-data="toasty">
   <div>
-    <div x-text="toasty"></div>
     <slot />
+
+    <div x-text="toasty"></div>
     <button x-on:click="toasty = ! toasty">Toasty?</button>
-    <button x-on:click="play()">Click Me</button>
   </div>
 
   <audio x-ref="ouch">

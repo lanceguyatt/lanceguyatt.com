@@ -1,7 +1,7 @@
 ---
-import { type SiteProps, SITE } from '@/config'
-import { BaseHead, SchemaWebPage } from '@/components/index.astro'
-import '@/styles/workbench.css'
+import { type SiteProps, SITE } from '$config/index'
+import { BaseHead, SchemaWebPage } from '$components/index.astro'
+import '$styles/workbench.css'
 
 type Props = SiteProps & {
   class?: string
@@ -17,6 +17,7 @@ const {
   theme,
   class: className
 } = Astro.props
+
 const meta = { name, title, description, url, image }
 ---
 
@@ -26,7 +27,10 @@ const meta = { name, title, description, url, image }
       <slot name="head" />
     </BaseHead>
   </head>
-  <body class:list={['bg-background', 'text-foreground', className, theme]}>
+  <body
+    class:list={['bg-background', 'text-foreground', className]}
+    data-theme={theme}
+  >
     <slot name="header" />
     <slot />
     <slot name="footer" />

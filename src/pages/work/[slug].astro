@@ -2,13 +2,13 @@
 import { getCollection, type CollectionEntry, getEntries } from 'astro:content'
 import { Image } from 'astro:assets'
 
-import { SITE } from '@/config'
-import Workbench from '@/layouts/Workbench.astro'
-import Window from '@/components/Window.astro'
-import Button from '@/components/Button.astro'
-// import Image from '@/components/Image.astro'
-import Work from '@/containers/Work.astro'
-import Prose from '@/components/Prose.astro'
+import { SITE } from '$config'
+import Workbench from '$layouts/Workbench.astro'
+import Window from '$components/Window.astro'
+import Button from '$components/Button.astro'
+// import Image from '$components/Image.astro'
+import Work from '$containers/Work.astro'
+import Prose from '$components/Prose.astro'
 
 export async function getStaticPaths() {
   const entries = await getCollection('work')
@@ -120,7 +120,7 @@ const schema = {
     depth
     zoom
   >
-    <div class="flex h-full bg-red-50 flex-col gap-6">
+    <div class="flex h-full flex-col gap-6 bg-red-50">
       {
         image && (
           <div class="h-36 w-36 self-center">
@@ -128,16 +128,16 @@ const schema = {
               <Image
                 src={image}
                 alt=""
-                class="border-img-bar object-cover p-2px"
+                class="border-img-bar p-2px object-cover"
               />
             </div>
           </div>
         )
       }
 
-      <dl class="grid max-w-160 gap-3 sm:grid-cols-[1fr_11fr]">
+      <dl class="max-w-160 grid gap-3 sm:grid-cols-[1fr_11fr]">
         <dt
-          class="flex items-center text-foreground after:content-[':'] sm:justify-end"
+          class="text-foreground flex items-center after:content-[':'] sm:justify-end"
         >
           Name
         </dt>
@@ -145,7 +145,7 @@ const schema = {
         {
           url && (
             <>
-              <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">
+              <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">
                 Url
               </dt>
               <dd class="border-img-foo p-2px">{url}</dd>
@@ -155,7 +155,7 @@ const schema = {
         {
           selectedTags && (
             <>
-              <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">
+              <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">
                 Technologies
               </dt>
               <dd class="border-img-foo p-2px">
@@ -172,7 +172,7 @@ const schema = {
 
       {
         Content && (
-          <div class="mx-auto grid max-w-[40rem] sm:grid-cols-[1fr_11fr] gap-3">
+          <div class="mx-auto grid max-w-[40rem] gap-3 sm:grid-cols-[1fr_11fr]">
             <div />
             <Prose>
               <Content />
@@ -181,7 +181,7 @@ const schema = {
         )
       }
 
-      <div class="flex justify-between mt-auto">
+      <div class="mt-auto flex justify-between">
         <Button href="/work">Cancel</Button>
         {
           url && (

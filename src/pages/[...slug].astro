@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
 
-import Workbench from '@/layouts/Workbench.astro'
-import { Prose, Window } from '@/components/index.astro'
+import Workbench from '$layouts/Workbench.astro'
+import { Prose, Window } from '$components/index.astro'
 
 export async function getStaticPaths() {
   const pageEntries = await getCollection('page')

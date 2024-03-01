@@ -1,15 +1,15 @@
 ---
 import { getCollection } from 'astro:content'
 
-import Workbench from '@/layouts/Workbench.astro'
-import Window from '@/components/Window.astro'
-import Nav from '@/components/Nav.astro'
-import Link from '@/components/Link.astro'
+import Workbench from '$layouts/Workbench.astro'
+import Window from '$components/Window.astro'
+import Nav from '$components/Nav.astro'
+import Link from '$components/Link.astro'
 
 const tags = await getCollection('tag')
 ---
 
-<Workbench class="grid grid-rows-[auto_1fr_1fr] h-screen bg-red">
+<Workbench class="bg-red grid h-screen grid-rows-[auto_1fr_1fr]">
   <Window name="Tags" id="tags-window" level={1} active>
     <Nav id="tags" name="Tags">
       {

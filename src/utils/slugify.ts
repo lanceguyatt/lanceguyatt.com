@@ -1,5 +1,6 @@
 import { slug as slugger } from 'github-slugger'
-import type { WorkFrontmatter } from '@/schema'
+
+import { type WorkFrontmatter } from '$schema/index'
 
 export const slugifyStr = (str: string) => slugger(str)
 

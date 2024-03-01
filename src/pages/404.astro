@@ -2,8 +2,8 @@
 import { SEO } from 'astro-seo'
 import { getEntryBySlug } from 'astro:content'
 
-import Default from '@/layouts/Default.astro'
-import Toasty from '@/components/Toasty.astro'
+import Default from '$layouts/Default.astro'
+import Toasty from '$components/Toasty.astro'
 
 const page = await getEntryBySlug('page', '404')
 const { Content } = await page.render()
@@ -18,11 +18,6 @@ const { name, description } = data
   theme="dark"
   class="grid min-h-screen w-full items-center justify-center"
 >
-  <SEO
-    slot="head"
-    extend={{ meta: [{ name: 'theme-color', content: '#000000' }] }}
-  />
-
   <Toasty>
     <Content />
   </Toasty>

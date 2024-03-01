@@ -1,15 +1,13 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
+import { Icon } from 'astro-icon/components'
 
 type Props = HTMLAttributes<'button'>
 
 const { class: className, ...props } = Astro.props
 ---
 
-<button
-  type="button"
-  class:list={['h-22px w-23px bg-zoom active:bg-[-23px]', className]}
-  {...props}
->
-  <span class="sr-only">Zoom</span></button
->
+<button type="button" class:list={['', className]} {...props}>
+  <span class="sr-only">Zoom</span>
+  <Icon name="zoom" />
+</button>

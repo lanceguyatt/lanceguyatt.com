@@ -1,11 +1,13 @@
 @layer components {
-  [data-icon] {
-    @apply border-2;
-  }
-
   [data-icon='close'],
   [data-icon='close-active'] {
     width: 20px;
+    height: 22px;
+  }
+
+  [data-icon='depth'],
+  [data-icon='depth-active'] {
+    width: 23px;
     height: 22px;
   }
 

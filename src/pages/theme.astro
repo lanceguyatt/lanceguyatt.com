@@ -1,13 +1,13 @@
 ---
-import Default from '@/layouts/Default.astro'
-import Link from '@/components/Link.astro'
-import { Nav, TitleBar, Window } from '@/components/index.astro'
+import Default from '$layouts/Default.astro'
+import Link from '$components/Link.astro'
+import { Nav, TitleBar, Window } from '$components/index.astro'
 
 const name = 'Workbench'
 ---
 
 <Default>
-  <div class="grid min-h-screen md:grid-cols-3 funk">
+  <div class="grid min-h-screen md:grid-cols-3" data-theme="funk">
     <div class="grid grid-rows-[auto_1fr]">
       <TitleBar class="bg-foreground text-background">{name}</TitleBar>
       <Window id="workbench-window" name={name} active url="/" depth zoom>
@@ -22,7 +22,7 @@ const name = 'Workbench'
         </div>
       </Window>
     </div>
-    <div class="kickstart grid min-h-screen grid-rows-[auto_1fr]">
+    <div class="grid min-h-screen grid-rows-[auto_1fr]" data-theme="kickstart">
       <TitleBar class="bg-foreground text-background">Kickstart</TitleBar>
       <Window id="theme-2" {name} depth>
         <div class="max-w-screen mx-auto w-full">
@@ -36,7 +36,7 @@ const name = 'Workbench'
         </div>
       </Window>
     </div>
-    <div class="dark grid min-h-screen grid-rows-[auto_1fr]">
+    <div class="grid min-h-screen grid-rows-[auto_1fr]" data-theme="dark">
       <TitleBar class="bg-foreground text-background">{name}</TitleBar>
       <Window id="window-3" name={name}>
         <div class="max-w-screen mx-auto w-full">

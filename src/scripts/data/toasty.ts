@@ -2,14 +2,14 @@ export default () => ({
   toasty: false,
   init() {
     console.log('Loaded')
-    // this.toasty = true
+    this.konami()
   },
   playToasty() {
     this.$refs.ouch.play()
   },
   konami() {
-    const required = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
-      current = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    const required = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
+    const current = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     const on =
       'addEventListener' in document
@@ -20,7 +20,7 @@ export default () => ({
             object.attachEvent('on' + event, func)
           }
 
-    var load = function () {
+    const load = function () {
       if (
         !(function () {
           try {
@@ -31,9 +31,10 @@ export default () => ({
         on(window, 'keyup', function (event) {
           current.push(event.keyCode ? event.keyCode : event.which)
           current.shift()
+          console.log(current)
 
-          if (current >= required && current <= required) {
-            return (toasty = true)
+          if (current === required) {
+            this.toasty = true
           }
         })
       }

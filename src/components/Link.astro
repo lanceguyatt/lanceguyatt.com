@@ -3,8 +3,6 @@ import type { HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Icon } from 'astro-icon/components'
 
-// import Icon from '@/components/Icon.astro'
-
 const linkVariants = cva(
   [
     'flex',
@@ -49,7 +47,8 @@ const {
   target={external ? '_blank' : null}
   rel={external ? 'noopener noreferrer' : null}
 >
-  <Icon name={icon} active={active && icon} class="mb-2" />
+  {!active && <Icon name={icon} class="mb-2" />}
+  {active && <Icon name={`${icon}-active`} class="mb-2" />}
   <div class="max-w-24 text-center">
     <slot />
   </div>

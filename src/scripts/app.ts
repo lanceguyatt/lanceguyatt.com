@@ -1,5 +1,5 @@
-import danForden from './data/danForden'
+import toasty from './data/toasty'
 
 export default (Alpine: any) => {
-  Alpine.data('danForden', danForden)
+  Alpine.data('toasty', toasty)
 }
