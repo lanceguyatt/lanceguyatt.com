@@ -1,0 +1,22 @@
+---
+import Default from '$layouts/Default.astro'
+import { TitleBar, Window, Button, Modal } from '$components/index.astro'
+---
+
+<Default title="Modals">
+  <TitleBar>Modals</TitleBar>
+  <Window name="Modals">
+    <div x-data="{ work: false, about: false }">
+      <Button as="button" x-on:click="work = true">Work</Button>
+      <Button as="button" x-on:click="about = true">About</Button>
+
+      <Modal modalId="work" name="Work">
+        <p>Work</p>
+      </Modal>
+
+      <Modal modalId="about" name="About">
+        <p>About</p>
+      </Modal>
+    </div>
+  </Window>
+</Default>

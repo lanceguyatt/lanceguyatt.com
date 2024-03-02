@@ -51,7 +51,7 @@ const pathname = new URL(Astro.request.url).pathname
             navItems.map(item => (
               <Link
                 icon={item.data.icon}
-                href={item.slug}
+                href={`/${item.slug}`}
                 active={pathname.includes(item.slug)}
               >
                 {item.data.name}

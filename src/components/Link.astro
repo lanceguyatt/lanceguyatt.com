@@ -25,7 +25,7 @@ const linkVariants = cva(
   }
 )
 
-type LinkProps = HTMLAttributes<'a'> &
+type Props = HTMLAttributes<'a'> &
   VariantProps<typeof linkVariants> & {
     external?: boolean
     icon?: any

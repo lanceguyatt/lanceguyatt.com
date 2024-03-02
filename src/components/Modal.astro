@@ -1,0 +1,52 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import { Window, Button } from '$components/index.astro'
+
+type Props = {
+  name: string
+  modalId: string
+}
+
+const { name, modalId } = Astro.props
+---
+
+<template x-teleport="body">
+  <div
+    x-show={modalId}
+    style="display: none"
+    x-on:keydown.escape.prevent.stop={`${modalId} = false`}
+    role="dialog"
+    aria-modal="true"
+    x-id="['modal-title']"
+    :aria-labelledby="$id('modal-title')"
+    class="fixed inset-0 z-10 overflow-y-auto"
+  >
+    <div
+      x-show={modalId}
+      x-transition.opacity=""
+      class="fixed inset-0 bg-black/25"
+    >
+    </div>
+
+    <div
+      {modalId}
+      x-on:click={`${modalId} = false`}
+      class="relative flex min-h-screen items-center justify-center"
+    >
+      <Window
+        active
+        {name}
+        x-on:click.stop=""
+        x-trap.noscroll.inert={modalId}
+        level={2}
+        class="relative"
+      >
+        <button type="button" slot="prefix" x-on:click={`${modalId} = false`}>
+          <Icon name="close" />
+        </button>
+        <slot />
+      </Window>
+    </div>
+  </div>
+</template>

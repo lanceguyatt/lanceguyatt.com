@@ -1,0 +1,39 @@
+---
+import { getEntryBySlug } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+
+import { type SiteProps, SITE } from '$config/index'
+import Prose from '$components/Prose.astro'
+
+const page = await getEntryBySlug('page', 'kickstart')
+const { Content } = await page.render()
+
+const {
+  title,
+  name,
+  description,
+  url,
+  image,
+  class: className,
+  ...props
+} = Astro.props
+
+const meta = { title, name, description, url, image }
+---
+
+<div
+  class="flex min-h-screen flex-col items-center justify-center gap-6 p-6 md:flex-row md:items-end md:justify-between md:gap-12 md:p-12"
+>
+  <Prose class="max-w-44">
+    <Content />
+  </Prose>
+
+  <a class="h-169 w-39 relative block" href="/">
+    <span class="sr-only">Return to Workbench</span>
+    <Icon name="floppy-drive" />
+    <Icon
+      name="floppy-disk"
+      class="animate-insert-disk repeat-infinite absolute bottom-0 left-3"
+    />
+  </a>
+</div>

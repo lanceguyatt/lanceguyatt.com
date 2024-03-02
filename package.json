@@ -5,12 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "sync": "astro sync",
-    "astro": "astro",
     "check": "astro check",
+    "sync": "astro sync",
     "format:check": "prettier --plugin-search-dir=. --check .",
     "format": "prettier --plugin-search-dir=. --write .",
     "lint": "eslint .",
@@ -20,6 +18,7 @@
   "author": "Lance Guyatt <lance@lanceguyatt.com>",
   "license": "UNLICENSED",
   "dependencies": {
+    "@alpinejs/focus": "^3.13.5",
     "@astrojs/alpinejs": "^0.4.0",
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/partytown": "^2.0.4",

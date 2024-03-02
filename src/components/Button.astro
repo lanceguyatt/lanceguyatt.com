@@ -36,19 +36,18 @@ const buttonVariants = cva(
   }
 )
 
-export type ButtonProps = VariantProps<typeof buttonVariants> & {
-  as: any
-  class?: string
+type Props = VariantProps<typeof buttonVariants> & {
+  as: 'a' | 'button' | 'input'
 }
 
-const {
-  as: Comp = 'a',
-  class: className,
-  intent,
-  ...props
-} = Astro.props as ButtonProps
+const { as: Comp = 'a', class: className, intent, ...props } = Astro.props
 ---
 
-<Comp class:list={[cn(buttonVariants({ intent }), className)]} {...props}>
+<Comp
+  type={Comp === 'button' && 'button'}
+  data-component="button"
+  class:list={[cn(buttonVariants({ intent }), className)]}
+  {...props}
+>
   <slot />
 </Comp>

@@ -28,7 +28,11 @@ const {
 } = Astro.props as TitleProps
 ---
 
-<div class={titlebar({ intent, className })} {...props}>
+<div
+  data-compoment="title-bar"
+  class={titlebar({ intent, className })}
+  {...props}
+>
   <slot name="prefix" />
   <div
     class="text-base/tighter flex-auto overflow-hidden text-ellipsis whitespace-nowrap px-1"

@@ -1,4 +1,1 @@
-# Astro Svelte
-
-- Uno CSS
-- Astro JS
+# Lance Guyatt, Web Developer
