@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
+      "$assets/*": ["./assets/*"],
       "$containers/*": ["./containers/*"],
       "$components/*": ["./components/*"],
       "$config/*": ["./config"],
