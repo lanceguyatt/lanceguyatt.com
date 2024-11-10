@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content'
 
-import Workbench from '$layouts/Workbench.astro'
-import { Prose, Window } from '$components/index.astro'
+import Workbench from '@/layouts/Workbench.astro'
+// import Window from '@/components/Window.astro'
+import Prose from '@/components/Prose.astro'
+import Dialog from '@/components/Dialog/Dialog.astro'
 
 export async function getStaticPaths() {
   const pageEntries = await getCollection('page')
@@ -21,8 +23,8 @@ const { Content } = await entry.render()
 const { pathname } = Astro.request.url
 ---
 
-<Workbench title={name} description={description} url={`/${slug}`}>
-  <Window
+<Workbench title={name} {description} url={`/${slug}`}>
+  <!-- <Window
     id={slug}
     {name}
     level={1}
@@ -36,5 +38,10 @@ const { pathname } = Astro.request.url
         <Content />
       </Prose>
     </div>
-  </Window>
+  </Window> -->
+  <Dialog {name} isDialogOpen="true">
+    <Prose>
+      <Content />
+    </Prose>
+  </Dialog>
 </Workbench>

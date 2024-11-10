@@ -1,35 +1,23 @@
 ---
-import { getEntryBySlug } from 'astro:content'
-import { Icon } from 'astro-icon/components'
+import { getEntry } from 'astro:content'
 
-import Default from '$layouts/Default.astro'
-import Prose from '$components/Prose.astro'
+import Default from '@/layouts/Default.astro'
+import K from '@/features/kickstart/Kickstart.astro'
 
-const kickstart = await getEntryBySlug('page', 'kickstart')
-const { Content } = await kickstart.render()
+const entry = await getEntry('page', 'kickstart')
+const { Content } = await entry.render()
 ---
 
 <Default
-  title={kickstart.data.name}
-  name={kickstart.data.name}
-  description={kickstart.data.description}
-  url={kickstart.slug}
+  title={entry.data.name}
+  name={entry.data.name}
+  description={entry.data.description}
+  url={entry.slug}
   theme="kickstart"
 >
-  <div
-    class="flex min-h-screen flex-col items-center justify-center gap-6 p-6 md:flex-row md:items-end md:justify-between md:gap-12 md:p-12"
-  >
-    <Prose class="max-w-44">
+  <main>
+    <K>
       <Content />
-    </Prose>
-
-    <a class="h-169 w-39 relative block" href="/">
-      <span class="sr-only">Return to Workbench</span>
-      <Icon name="floppy-drive" />
-      <Icon
-        name="floppy-disk"
-        class="animate-insert-disk repeat-infinite absolute bottom-0 left-3"
-      />
-    </a>
-  </div>
+    </K>
+  </main>
 </Default>

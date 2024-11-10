@@ -18,7 +18,6 @@ export type NavProps = HTMLAttributes<'nav'> &
   VariantProps<typeof navVariants> & {
     name: string
     id: string
-    class?: string
   }
 
 const { class: className, name, id, vertical } = Astro.props as NavProps

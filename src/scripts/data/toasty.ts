@@ -1,9 +1,5 @@
 export default () => ({
   toasty: false,
-  init() {
-    console.log('Loaded')
-    this.konami()
-  },
   playToasty() {
     this.$refs.ouch.play()
   },
@@ -41,5 +37,9 @@ export default () => ({
     }
 
     on(window, 'load', load)
+  },
+  init() {
+    console.log('Loaded')
+    this.konami()
   }
 })

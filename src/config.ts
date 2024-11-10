@@ -10,13 +10,13 @@ export type SiteProps = {
   description?: string
   id?: string
   url?: string
-  image: object
-  logo: string
-  themeColor: string
-  backgroundColor: string
-  locale: string
-  lang: string
-  copyrightYear: number
+  image?: object
+  logo?: string
+  themeColor?: string
+  backgroundColor?: string
+  locale?: string
+  lang?: string
+  copyrightYear?: number
   twitter?: string
 }
 

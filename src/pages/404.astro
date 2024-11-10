@@ -1,11 +1,11 @@
 ---
-import { SEO } from 'astro-seo'
-import { getEntryBySlug } from 'astro:content'
+// import { SEO } from 'astro-seo'
+import { getEntry } from 'astro:content'
 
-import Default from '$layouts/Default.astro'
-import Toasty from '$components/Toasty.astro'
+import Default from '@/layouts/Default.astro'
+import Toasty from '@/features/guru-meditation/components/Toasty.astro'
 
-const page = await getEntryBySlug('page', '404')
+const page = await getEntry('page', '404')
 const { Content } = await page.render()
 const { slug: url, data } = page
 const { name, description } = data
