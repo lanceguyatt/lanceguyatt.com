@@ -10,7 +10,12 @@ export type SiteProps = {
   description?: string
   id?: string
   url?: string
-  image?: object
+  image?: {
+    url?: string
+    width?: number
+    height?: number
+    alt?: string
+  }
   logo?: string
   themeColor?: string
   backgroundColor?: string

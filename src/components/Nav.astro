@@ -1,29 +1,51 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { Link } from '@/components/index.astro'
 
-const navVariants = cva(['flex', 'gap-3'], {
-  variants: {
-    vertical: {
-      true: 'flex-col items-center w-24',
-      false: 'flex-wrap'
-    }
-  },
-  defaultVariants: {
-    vertical: false
-  }
-})
+type NavItemProps = {
+  item: any
+}
 
-export type NavProps = HTMLAttributes<'nav'> &
-  VariantProps<typeof navVariants> & {
-    name: string
-    id: string
-  }
+export type NavProps = HTMLAttributes<'nav'> & {
+  name: string
+  id: string
+  items: NavItemProps[]
+  isVertical: boolean
+}
+const pathname = new URL(Astro.request.url).pathname
 
-const { class: className, name, id, vertical } = Astro.props as NavProps
+const {
+  class: className,
+  name,
+  items,
+  id,
+  isVertical = true
+} = Astro.props as NavProps
 ---
 
-<nav aria-labelledby={id} class={navVariants({ vertical, className })}>
+<nav aria-labelledby={id} class:list={[className]}>
   <h2 id={id} class="sr-only">{name}</h2>
-  <slot />
+  {
+    items.length > 0 && (
+      <ul
+        class:list={[
+          'flex',
+          'gap-3',
+          isVertical ? 'flex-col items-center w-24' : 'flex-wrap'
+        ]}
+      >
+        {items.map(item => (
+          <li>
+            <Link
+              icon={item.data.icon}
+              href={`/${item.slug}`}
+              active={pathname.includes(item.slug)}
+            >
+              {item.data.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    )
+  }
 </nav>

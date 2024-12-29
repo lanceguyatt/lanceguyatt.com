@@ -46,18 +46,7 @@ const pathname = new URL(Astro.request.url).pathname
   >
     {
       navItems && (
-        <Nav id="workbench-nav" name="Workbench" vertical>
-          {navItems &&
-            navItems.map(item => (
-              <Link
-                icon={item.data.icon}
-                href={`/${item.slug}`}
-                active={pathname.includes(item.slug)}
-              >
-                {item.data.name}
-              </Link>
-            ))}
-        </Nav>
+        <Nav id="workbench-nav" name="Workbench" vertical items={navItems} />
       )
     }
   </Window>

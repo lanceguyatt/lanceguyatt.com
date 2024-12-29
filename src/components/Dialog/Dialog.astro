@@ -1,20 +1,17 @@
 ---
-import Button from '@/components/Button.astro'
+// import Button from '@/components/Button.astro'
 import Close from '@/components/Close.astro'
 
-type Props = {
+export type DialogProps = {
+  id?: string
   name: string
   isDialogOpen?: boolean
 }
 
-const { name, isDialogOpen = false } = Astro.props
+const { name, id, isDialogOpen = false } = Astro.props as DialogProps
 ---
 
 <div x-data={`{ open: ${isDialogOpen} }`} class="flex justify-center">
-  <!-- <Button as="button" x-on:click="open = true" type="button">
-    Open dialog
-  </Button> -->
-
   <div
     x-dialog
     x-model="open"
@@ -28,13 +25,18 @@ const { name, isDialogOpen = false } = Astro.props
     >
     </div>
 
-    <div class="relative min-h-screen flex items-center justify-center lg:p-4">
+    <div
+      class="relative min-h-screen flex justify-center lg:p-4 lg:items-center"
+    >
       <div
         x-dialog:panel
-        x-transition
-        class="relative lg:max-w-xl w-full bg-white grid grid-rows-[auto, 1fr, auto]"
+        x-transition.opacity
+        class="relative border-2 min-h-80 border-foreground lg:max-w-xl w-full bg-white grid grid-rows-[22px, 1fr]"
+        {id}
       >
-        <div class="grid items-center grid-cols-[auto,1fr]">
+        <div
+          class="bg-primary grid items-center grid-cols-[auto,1fr] h-titlebar"
+        >
           <Close type="button" @click="$dialog.close()" class="outline-0" />
           <h2
             x-dialog:title
@@ -44,13 +46,8 @@ const { name, isDialogOpen = false } = Astro.props
           </h2>
         </div>
 
-        <div>
+        <div class="bg-secondary foverflow-auto p-3">
           <slot />
-        </div>
-
-        <div class="p-4 flex justify-end space-x-2 bg-gray-50 rounded-b-xl">
-          <Button x-on:click="$dialog.close()" type="button"> Cancel </Button>
-          <Button x-on:click="$dialog.close()" type="button"> Confirm </Button>
         </div>
       </div>
     </div>

@@ -32,9 +32,9 @@ const {
     noindex={noindex}
     openGraph={{
       basic: {
-        title,
+        title: title as string,
         type: 'webpage',
-        image: `${SITE.url}${image.url}`,
+        image: `${SITE.url}${image?.url}`,
         url: `${SITE.url}${url}`
       },
       optional: {
@@ -43,9 +43,9 @@ const {
         siteName: SITE.name
       },
       image: {
-        width: image.width,
-        height: image.height,
-        alt: image.alt
+        width: image?.width,
+        height: image?.height,
+        alt: image?.alt
       }
     }}
     twitter={{
@@ -72,9 +72,10 @@ const {
   />
   <slot />
   <script
+    is:inline
     type="text/partytown"
     src=`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`></script>
-  <script>
+  <script is:inline>
     window.dataLayer = window.dataLayer || []
     function gtag() {
       window.dataLayer.push(arguments)
