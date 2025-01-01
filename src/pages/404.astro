@@ -1,19 +1,19 @@
 ---
-// import { SEO } from 'astro-seo'
-import { getEntry } from 'astro:content'
+import { getEntry, render } from 'astro:content'
 
 import Default from '@/layouts/Default.astro'
 import Toasty from '@/features/guru-meditation/components/Toasty.astro'
 
 const page = await getEntry('page', '404')
-const { Content } = await page.render()
+const { Content } = await render(page)
+
 const { slug: url, data } = page
 const { name, description } = data
 ---
 
 <Default
   title={name}
-  description={description}
+  {description}
   url={`/${url}`}
   theme="dark"
   class="grid min-h-screen w-full items-center justify-center"

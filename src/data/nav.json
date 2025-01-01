@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "name": "Main nav",
+    "items": [
+      { "id": "ram-disk" },
+      { "id": "work" },
+      { "id": "about" },
+      { "id": "tags" }
+    ]
+  }
+}

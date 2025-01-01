@@ -6,14 +6,14 @@ import Window from '@/components/Window.astro'
 import Prose from '@/components/Prose.astro'
 
 export type TagProps = {
-  entry: CollectionEntry<'tag'>
+  entry: CollectionEntry<'tags'>
 }
 
 export async function getStaticPaths() {
-  const entries = await getCollection('tag')
+  const entries = await getCollection('tags')
 
   return entries.map(entry => ({
-    params: { slug: entry.id },
+    params: { id: entry.id },
     props: { entry }
   }))
 }

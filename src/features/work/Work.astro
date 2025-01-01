@@ -1,5 +1,6 @@
-<!-- ---
+---
 import { Image } from 'astro:assets'
+import { getEntries } from 'astro:content'
 
 import { SITE } from '@/config'
 import Window from '@/components/Window.astro'
@@ -9,12 +10,12 @@ import WorkCard from '@/features/work/components/WorkCard.astro'
 import Prose from '@/components/Prose.astro'
 
 type Props = {
-  entry: CollectionEntry<'work'>
+  entry: any
 }
 
 const { entry } = Astro.props
-const { data, id } = entry
-const { name, description, image, tags, url, sameAs } = data
+const { id, data } = entry
+const { name, description, image, url, sameAs, tags } = data
 
 const title = `${name} - Work - ${SITE.name}`
 // const url = `work/${id}`
@@ -46,26 +47,26 @@ const schema = {
         position: 1,
         item: {
           '@id': `${SITE.url}`,
-          name: 'Workbench'
-        }
+          name: 'Workbench',
+        },
       },
       {
         '@type': 'ListItem',
         position: 2,
         item: {
           '@id': `${SITE.url}/work`,
-          name: 'Work'
-        }
+          name: 'Work',
+        },
       },
       {
         '@type': 'ListItem',
         position: 3,
         item: {
           '@id': `${SITE.url}/work/${id}`,
-          name
-        }
-      }
-    ]
+          name,
+        },
+      },
+    ],
   },
   mainEntity: {
     '@type': 'CreativeWork',
@@ -82,84 +83,71 @@ const schema = {
     // keywords,
     copyrightHolder: {
       '@type': 'Organization',
-      name
-    }
+      name,
+    },
   },
   copyrightHolder: {
     '@type': 'Person',
-    name: 'Lance Guyatt'
+    name: 'Lance Guyatt',
   },
-  copyrightYear: SITE.copyrightYear
+  copyrightYear: SITE.copyrightYear,
 }
 ---
 
-<>
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(schema, null, 2)}
-    slot="head"
-  />
-  <Window
-    id={`window-${id}`}
-    name={name}
-    url="/work"
-    active
-    level={2}
-    depth
-    zoom
-  >
+<pre>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} slot="head" />
+
+
+  <Window id={`window-${id}`} {name} url="/work" active level={2} depth zoom>
     <div class="flex h-full flex-col gap-6 bg-red-50">
       {
         image && (
           <div class="h-36 w-36 self-center">
             <div class="aspect-square">
-              <Image
-                src={image}
-                alt=""
-                class="border-img-bar p-2px object-cover"
-              />
+              <Image src={image} alt="" class="border-img-bar object-cover p-2px" />
             </div>
           </div>
         )
       }
 
-      <dl class="max-w-160 grid gap-3 sm:grid-cols-[1fr_11fr]">
-        <dt
-          class="text-foreground flex items-center after:content-[':'] sm:justify-end"
-        >
+      <pre>{JSON.stringify(Astro.props.entry, null, 2)}</pre>
+
+      
+      <dl class="grid max-w-160 gap-3 sm:grid-cols-[1fr_11fr]">
+        <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">
           Name
         </dt>
         <dd class="border-img-foo p-2px">{name}</dd>
         {
           url && (
             <>
-              <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">
+              <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">
                 Url
               </dt>
               <dd class="border-img-foo p-2px">{url}</dd>
             </>
           )
         }
-        {
+        <!-- {
           selectedTags && (
             <>
-              <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">
+              <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">
                 Technologies
               </dt>
               <dd class="border-img-foo p-2px">
                 <ul>
-                  {selectedTags.map(tag => (
+                  {selectedTags.map((tag: any) => (
                     <li>{tag.data.name}</li>
                   ))}
                 </ul>
               </dd>
             </>
           )
-        }
+        } -->
       </dl>
 
       <div class="mx-auto grid max-w-[40rem] gap-3 sm:grid-cols-[1fr_11fr]">
-        <div></div>
+        <div />
         <Prose>
           <slot />
         </Prose>
@@ -181,4 +169,4 @@ const schema = {
   <Window id="work" name="Work" level={1} depth zoom>
     <WorkCard />
   </Window>
-</> -->
+</pre>

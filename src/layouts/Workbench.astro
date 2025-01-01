@@ -5,9 +5,9 @@ import { type SiteProps, SITE } from '@/config'
 import Default from '@/layouts/Default.astro'
 import { Link, Nav, TitleBar, Window } from '@/components/index.astro'
 
-const nav = await getEntry('nav', 'main')
-let navItems = null
-if (nav.data?.items) navItems = await getEntries(nav.data.items)
+// const nav = await getEntry('nav', 'nav')
+// let navItems = null
+// if (nav.data?.items) navItems = await getEntries(nav.data.items)
 
 export type WorkbenchProps = SiteProps & {
   class?: string
@@ -44,10 +44,10 @@ const pathname = new URL(Astro.request.url).pathname
     depth
     zoom
   >
-    {
+    <!-- {
       navItems && (
         <Nav id="workbench-nav" name="Workbench" vertical items={navItems} />
       )
-    }
+    } -->
   </Window>
 </Default>

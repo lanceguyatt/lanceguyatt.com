@@ -1,11 +1,11 @@
 ---
-import { getEntry } from 'astro:content'
+import { getEntry, render } from 'astro:content'
 
 import Default from '@/layouts/Default.astro'
 import K from '@/features/kickstart/Kickstart.astro'
 
 const entry = await getEntry('page', 'kickstart')
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 ---
 
 <Default

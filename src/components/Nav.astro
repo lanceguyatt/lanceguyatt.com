@@ -19,22 +19,22 @@ const {
   name,
   items,
   id,
-  isVertical = true
+  isVertical = true,
 } = Astro.props as NavProps
 ---
 
 <nav aria-labelledby={id} class:list={[className]}>
-  <h2 id={id} class="sr-only">{name}</h2>
+  <h2 {id} class="sr-only">{name}</h2>
   {
-    items.length > 0 && (
+    items?.length > 0 && (
       <ul
         class:list={[
           'flex',
           'gap-3',
-          isVertical ? 'flex-col items-center w-24' : 'flex-wrap'
+          isVertical ? 'w-24 flex-col items-center' : 'flex-wrap',
         ]}
       >
-        {items.map(item => (
+        {items.map((item) => (
           <li>
             <Link
               icon={item.data.icon}

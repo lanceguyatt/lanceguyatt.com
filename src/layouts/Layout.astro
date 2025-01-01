@@ -1,0 +1,36 @@
+---
+import { type SiteProps, SITE } from '@/config'
+import { BaseHead } from '@/components/index.astro'
+import '@/styles/workbench.css'
+
+type Props = SiteProps & {
+  class?: string
+  theme?: string
+}
+
+const {
+  title,
+  name,
+  description,
+  url,
+  image,
+  theme,
+  class: className
+} = Astro.props
+
+const meta = { name, title, description, url, image }
+---
+
+<html lang={SITE.lang}>
+  <head>
+    <BaseHead {...meta}>
+      <slot name="head" />
+    </BaseHead>
+  </head>
+  <body
+    class:list={['bg-background', 'text-foreground', className]}
+    data-theme={theme}
+  >
+    <slot />
+  </body>
+</html>

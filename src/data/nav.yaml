@@ -1,0 +1,7 @@
+id: main-nav
+name: Main nav
+items:
+  - ram-disk
+  - work
+  - about
+  - tags
