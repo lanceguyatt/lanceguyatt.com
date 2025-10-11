@@ -4,7 +4,6 @@ import { getCollection, render } from 'astro:content'
 import { SITE } from '@/config'
 import Workbench from '@/layouts/Workbench.astro'
 import Work from '@/features/work/Work.astro'
-import Layout from '@/layouts/Layout.astro'
 
 export async function getStaticPaths() {
   const entries = await getCollection('work')
@@ -31,14 +30,10 @@ const meta = { title, name, description, url, image }
 ---
 
 <Workbench {...meta}>
-  <div class="absolute inset-10 z-20 overflow-auto border-2 bg-secondary p-4">
+  <div class="bg-secondary absolute inset-10 z-20 overflow-auto border-2 p-4">
     <pre>{JSON.stringify(entry, null, 2)}</pre>
   </div>
   <Work {entry}>
     <Content />
   </Work>
 </Workbench>
-<!-- <Layout>
-  <pre>{JSON.stringify(entry, null, 2)}</pre>
-  <Content />
-</Layout> -->

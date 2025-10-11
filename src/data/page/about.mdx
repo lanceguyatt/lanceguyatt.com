@@ -8,16 +8,17 @@ import Link from '@/components/Link.astro'
 
 export const ul = props => (
 
-  <nav class="not-prose">
-    <ul class="flex flex-wrap gap-4">{props.children}</ul>
-  </nav>
+<nav class="not-prose">
+  <ul class="flex flex-wrap gap-4">{props.children}</ul>
+</nav>
 )
 
 export const a = props => (
 
 <Link icon="file" external {...props}>
   {props.children}
-</Link>)
+</Link>
+)
 
 export const components = { ul, a }
 

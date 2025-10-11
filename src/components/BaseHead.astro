@@ -15,7 +15,7 @@ const {
   description = SITE.description,
   url = '/',
   image = SITE.image,
-  noindex = false
+  noindex = false,
 } = Astro.props as BaseHeadProps
 ---
 
@@ -24,34 +24,34 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <SEO
-    title={title}
+    {title}
     titleTemplate={`%s - ${SITE.name}`}
     titleDefault={`Lance Guyatt`}
-    description={description}
+    {description}
     canonical={`${SITE.url}${url}`}
-    noindex={noindex}
+    {noindex}
     openGraph={{
       basic: {
         title: title as string,
         type: 'webpage',
         image: `${SITE.url}${image?.url}`,
-        url: `${SITE.url}${url}`
+        url: `${SITE.url}${url}`,
       },
       optional: {
         description,
         locale: SITE.locale,
-        siteName: SITE.name
+        siteName: SITE.name,
       },
       image: {
         width: image?.width,
         height: image?.height,
-        alt: image?.alt
-      }
+        alt: image?.alt,
+      },
     }}
     twitter={{
       card: 'summary_large_image',
       site: SITE.twitter,
-      creator: SITE.twitter
+      creator: SITE.twitter,
     }}
     extend={{
       link: [
@@ -60,17 +60,19 @@ const {
         {
           rel: 'mainfest',
           href: '/manifest.webmanifest',
-          crossOrigin: 'anonymous'
+          crossOrigin: 'anonymous',
         },
         {
           rel: 'apple-touch-icon',
-          href: '/apple-touch-icon.png'
-        }
+          href: '/apple-touch-icon.png',
+        },
       ],
-      meta: [{ name: 'theme-color', content: SITE.themeColor }]
+      meta: [{ name: 'theme-color', content: SITE.themeColor }],
     }}
   />
   <slot />
+  {GTM_ID && (
+    <>
   <script
     is:inline
     type="text/partytown"
@@ -82,5 +84,5 @@ const {
     }
     gtag('js', new Date())
     gtag('config', '`${GTM_ID}`')
-  </script>
+  </script></>)}
 </head>

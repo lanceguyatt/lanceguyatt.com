@@ -9,15 +9,15 @@ import Zoom from '@/components/Zoom.astro'
 const windowVariants = cva('window grid', {
   variants: {
     level: {
-      0: 'absolute top-titlebar bottom-0 w-full z-0',
-      1: 'absolute top-titlebar bottom-0 w-full z-10 md:w-1/2 md:h-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2',
-      2: 'absolute top-titlebar bottom-0 w-full z-20 md:w-1/2 md:h-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2'
+      0: 'absolute top-title-bar bottom-0 w-full z-0',
+      1: 'absolute top-title-bar bottom-0 w-full z-10 md:w-1/2 md:h-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2',
+      2: 'absolute top-title-bar bottom-0 w-full z-20 md:w-1/2 md:h-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2',
     },
     active: {
-      true: 'bg-primary text-primary-foreground'
-    }
+      true: 'bg-primary text-primary-foreground',
+    },
   },
-  defaultVariants: { level: 0, active: false }
+  defaultVariants: { level: 0, active: false },
 })
 
 export type WindowProps = HTMLAttributes<'section'> &
@@ -46,8 +46,8 @@ const { id, name, level, active, url, className, zoom, depth } =
     </div>
 
     <h2
-      class="text-base/tighter flex-auto overflow-hidden text-ellipsis whitespace-nowrap px-1"
-      id={id}
+      class="text-base/tighter flex-auto overflow-hidden px-1 text-ellipsis whitespace-nowrap"
+      {id}
     >
       {name}
     </h2>
@@ -76,7 +76,7 @@ const { id, name, level, active, url, className, zoom, depth } =
 <script>
   const buttons = document.querySelectorAll('.zoom')
 
-  buttons.forEach(button => {
+  buttons.forEach((button) => {
     button.addEventListener('click', () => {
       console.log('Button was clicked!')
     })

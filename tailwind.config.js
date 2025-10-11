@@ -72,7 +72,7 @@ export default {
         radius: 'hsl(var(--radius))'
       },
       height: {
-        titlebar: rem(22),
+        // titlebar: rem(22),
         '22px': rem(22),
         169: rem(169)
       },
@@ -80,7 +80,7 @@ export default {
         '2px': '0.125rem',
         '22px': rem(22),
         '23px': rem(23),
-        titlebar: '1.375rem',
+        // titlebar: '1.375rem',
         toasty: rem(200)
       },
       width: {
@@ -112,5 +112,5 @@ export default {
       })
     }
   },
-  plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')]
+  // plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')]
 }

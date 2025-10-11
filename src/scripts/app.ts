@@ -1,6 +1,6 @@
-import type { Alpine } from 'alpinejs'
 import focus from '@alpinejs/focus'
 import ui from '@alpinejs/ui'
+import type { Alpine } from 'alpinejs'
 
 import toasty from './data/toasty'
 

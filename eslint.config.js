@@ -8,6 +8,18 @@ export default [
     rules: {
       // override/add rules settings here, such as:
       // "astro/no-set-html-directive": "error"
-    }
+    },
+    overrides: [
+      {
+        files: ["*.astro"],
+        // ...
+        processor: "astro/client-side-ts", // <- Uses the "client-side-ts" processor.
+        rules: {
+          // ...
+        },
+      },
+      // ...
+    ],
   }
 ]
+

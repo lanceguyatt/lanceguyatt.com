@@ -1,17 +1,17 @@
 ---
-import Default from '@/layouts/Default.astro'
+import Layout from '@/layouts/Default.astro'
 import Link from '@/components/Link.astro'
 import { Nav, TitleBar, Window } from '@/components/index.astro'
 
 const name = 'Workbench'
 ---
 
-<Default>
+<Layout>
   <div class="grid min-h-screen md:grid-cols-3" data-theme="funk">
     <div class="grid grid-rows-[auto_1fr]">
       <TitleBar class="bg-foreground text-background">{name}</TitleBar>
-      <Window id="workbench-window" name={name} active url="/" depth zoom>
-        <div class="max-w-screen mx-auto w-full">
+      <Window id="workbench-window" {name} active url="/" depth zoom>
+        <div class="mx-auto w-full max-w-screen">
           <p>Workbench</p>
           <Nav id="workbench-nav" name="nav 1" vertical>
             <Link href="/about" active>About</Link>
@@ -25,7 +25,7 @@ const name = 'Workbench'
     <div class="grid min-h-screen grid-rows-[auto_1fr]" data-theme="kickstart">
       <TitleBar class="bg-foreground text-background">Kickstart</TitleBar>
       <Window id="theme-2" {name} depth>
-        <div class="max-w-screen mx-auto w-full">
+        <div class="mx-auto w-full max-w-screen">
           <p>Workbench</p>
           <Nav id="nav-2" name="Nav 2">
             <Link href="/about">About</Link>
@@ -38,8 +38,8 @@ const name = 'Workbench'
     </div>
     <div class="grid min-h-screen grid-rows-[auto_1fr]" data-theme="dark">
       <TitleBar class="bg-foreground text-background">{name}</TitleBar>
-      <Window id="window-3" name={name}>
-        <div class="max-w-screen mx-auto w-full">
+      <Window id="window-3" {name}>
+        <div class="mx-auto w-full max-w-screen">
           <p>Workbench</p>
           <Nav id="nav-3" name="Nav 3">
             <Link href="/about">About</Link>
@@ -51,4 +51,4 @@ const name = 'Workbench'
       </Window>
     </div>
   </div>
-</Default>
+</Layout>

@@ -16,24 +16,24 @@ const buttonVariants = cva(
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'underline-offset-4 hover:underline text-primary'
+        link: 'underline-offset-4 hover:underline text-primary',
       },
       width: {
         auto: '',
-        full: 'w-full'
+        full: 'w-full',
       },
       size: {
         default: 'h-6 px-2 text-base/tighter',
         sm: 'h-9 px-3 ',
-        lg: 'h-11 px-8'
-      }
+        lg: 'h-11 px-8',
+      },
     },
     defaultVariants: {
       intent: 'default',
       size: 'default',
-      width: 'auto'
-    }
-  }
+      width: 'auto',
+    },
+  },
 )
 
 type Props = VariantProps<typeof buttonVariants> & {

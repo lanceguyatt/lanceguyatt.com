@@ -7,16 +7,16 @@ import { cn } from '@/lib/utils'
 export const alertVariants = cva('border-4 p-8 relative', {
   variants: {
     intent: {
-      destructive: 'border-destructive text-destructive'
+      destructive: 'border-destructive text-destructive',
     },
     animate: {
-      true: 'animate-foo animate-alternate'
-    }
+      true: 'animate-foo animate-alternate',
+    },
   },
   defaultVariants: {
     intent: 'destructive',
-    animate: false
-  }
+    animate: false,
+  },
 })
 
 type Props = HTMLAttributes<'div'> &
@@ -37,6 +37,8 @@ const { class: className, intent, animate = false, ...props } = Astro.props
 </div>
 
 <style>
+  @reference "tailwindcss";
+
   [data-component='alert'] {
     & a {
       @apply hover:underline;

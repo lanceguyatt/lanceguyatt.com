@@ -4,15 +4,15 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import Depth from '@/components/Depth.astro'
 
-const titlebar = cva('h-titlebar flex items-center', {
+const titlebar = cva('h-title-bar flex items-center', {
   variants: {
     intent: {
       default: 'bg-foreground text-secondary',
       primary: 'bg-primary text-primary-foreground',
-      secondary: 'bg-background text-foreground'
-    }
+      secondary: 'bg-background text-foreground',
+    },
   },
-  defaultVariants: { intent: 'default' }
+  defaultVariants: { intent: 'default' },
 })
 
 export type TitleProps = HTMLAttributes<'div'> &
@@ -29,13 +29,13 @@ const {
 ---
 
 <div
-  data-compoment="title-bar"
-  class={titlebar({ intent, className })}
+  data-component="title-bar"
+  class:list={[titlebar({ intent }), className]}
   {...props}
 >
   <slot name="prefix" />
   <div
-    class="text-base/tighter flex-auto overflow-hidden text-ellipsis whitespace-nowrap px-1"
+    class="text-base/tighter flex-auto overflow-hidden px-1 text-ellipsis whitespace-nowrap"
   >
     <slot />
   </div>

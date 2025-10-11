@@ -21,7 +21,7 @@ const props = Astro.props
       // console.log(`setTheme: ${themeName}`);
       localStorage.setItem('color-theme', themeName)
       document.documentElement.classList.remove(
-        themeName === 'dark' ? 'light' : 'dark'
+        themeName === 'dark' ? 'light' : 'dark',
       )
       document.documentElement.classList.add(themeName)
     }
@@ -36,7 +36,7 @@ const props = Astro.props
     if (theme === '' || theme === null) {
       // console.log(`checking system pref`)
       const systemSetToDark = window.matchMedia(
-        '(prefers-color-scheme: dark)'
+        '(prefers-color-scheme: dark)',
       ).matches
       theme = systemSetToDark ? 'dark' : 'light'
 
@@ -66,7 +66,7 @@ const props = Astro.props
     id="theme-toggle"
     type="button"
     role="button"
-    class="rounded-lg p-1 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+    class="rounded-lg p-1 text-sm text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
   >
     <svg
       id="theme-toggle-dark-icon"

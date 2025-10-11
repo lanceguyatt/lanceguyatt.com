@@ -16,31 +16,31 @@ const { name, id, isDialogOpen = false } = Astro.props as DialogProps
     x-dialog
     x-model="open"
     style="display: none"
-    class="fixed inset-0 overflow-y-auto z-10"
+    class="fixed inset-0 z-10 overflow-y-auto"
   >
     <div
       x-dialog:overlay
       x-transition.opacity
-      class="fixed inset-0 bg-black bg-opacity-50"
+      class="bg-opacity-50 fixed inset-0 bg-black"
     >
     </div>
 
     <div
-      class="relative min-h-screen flex justify-center lg:p-4 lg:items-center"
+      class="relative flex min-h-screen justify-center lg:items-center lg:p-4"
     >
       <div
         x-dialog:panel
         x-transition.opacity
-        class="relative border-2 min-h-80 border-foreground lg:max-w-xl w-full bg-white grid grid-rows-[22px, 1fr]"
+        class="border-foreground grid-rows-[22px, 1fr] relative grid min-h-80 w-full border-2 bg-white lg:max-w-xl"
         {id}
       >
         <div
-          class="bg-primary grid items-center grid-cols-[auto,1fr] h-titlebar"
+          class="bg-primary h-titlebar grid grid-cols-[auto,1fr] items-center"
         >
           <Close type="button" @click="$dialog.close()" class="outline-0" />
           <h2
             x-dialog:title
-            class="text-base/tighter flex-auto overflow-hidden text-ellipsis whitespace-nowrap px-1"
+            class="text-base/tighter flex-auto overflow-hidden px-1 text-ellipsis whitespace-nowrap"
           >
             {name}
           </h2>

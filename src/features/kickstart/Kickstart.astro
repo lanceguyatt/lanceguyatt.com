@@ -1,16 +1,21 @@
 ---
-import { Icon } from 'astro-icon/components'
-
 import Prose from '@/components/Prose.astro'
 import Loading from '@/features/kickstart/components/Loading.astro'
 ---
 
 <div
-  class="flex min-h-screen flex-col items-center justify-center gap-6 p-6 md:flex-row md:items-end md:justify-between md:gap-12 md:p-12"
+  class:list={[
+    'flex min-h-screen flex-col items-center justify-center gap-6 border p-6',
+    'md:flex-row md:items-end md:justify-between md:gap-12 md:p-12',
+  ]}
 >
-  <Prose class="max-w-44">
-    <slot />
-  </Prose>
+  <div class="border">
+    <Prose class="max-w-44">
+      <slot />
+    </Prose>
+  </div>
 
-  <Loading />
+  <div class="border">
+    <Loading />
+  </div>
 </div>

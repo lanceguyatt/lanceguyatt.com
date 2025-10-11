@@ -12,9 +12,9 @@ export type TagProps = {
 export async function getStaticPaths() {
   const entries = await getCollection('tags')
 
-  return entries.map(entry => ({
+  return entries.map((entry) => ({
     params: { id: entry.id },
-    props: { entry }
+    props: { entry },
   }))
 }
 

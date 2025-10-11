@@ -41,5 +41,5 @@ export default () => ({
   init() {
     console.log('Loaded')
     this.konami()
-  }
+  },
 })

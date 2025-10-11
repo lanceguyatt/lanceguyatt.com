@@ -10,19 +10,19 @@ const linkVariants = cva(
     'items-center',
     'text-base/tighter',
     'no-underline',
-    'outline-none'
+    'outline-none',
   ],
   {
     variants: {
       active: {
         // true: 'bg-primary',
-        false: ['focus:bg-background', 'focus:text-primary']
-      }
+        false: ['focus:bg-background', 'focus:text-primary'],
+      },
     },
     defaultVariants: {
-      active: false
-    }
-  }
+      active: false,
+    },
+  },
 )
 
 type Props = HTMLAttributes<'a'> &
@@ -37,7 +37,7 @@ const {
   class: className,
   external = false,
   href,
-  icon = 'disk'
+  icon = 'disk',
 } = Astro.props
 ---
 

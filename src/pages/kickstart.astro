@@ -9,10 +9,10 @@ const { Content } = await render(entry)
 ---
 
 <Default
-  title={entry.data.name}
-  name={entry.data.name}
-  description={entry.data.description}
-  url={entry.slug}
+  title={entry?.data.name}
+  name={entry?.data.name}
+  description={entry?.data.description}
+  url={entry?.slug}
   theme="kickstart"
 >
   <main>
