@@ -1,13 +1,13 @@
 ---
 import { SEO } from 'astro-seo'
 import { SITE } from '@/config'
-import type { WorkbenchProps } from '@/layouts/Workbench.astro'
 import { Font } from 'astro:assets'
 
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID
-// console.log(import.meta.env)
-
-type BaseHeadProps = WorkbenchProps & {
+type BaseHeadProps = {
+  title?: string
+  description?: string
+  url?: string
+  image?: string
   noindex?: boolean
 }
 
@@ -73,20 +73,4 @@ const {
   />
   <slot />
   <Font cssVariable="--topaz" preload />
-  {
-    GTM_ID && (
-      <>
-        <script
-          is:inline
-          type="text/partytown"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
-        />
-        <script is:inline define:vars={{ GTM_ID }}>
-          window.dataLayer = window.dataLayer || [] function gtag(){' '}
-          {window.dataLayer.push(arguments)}
-          gtag('js', new Date()) gtag('config', GTM_ID);
-        </script>
-      </>
-    )
-  }
 </head>

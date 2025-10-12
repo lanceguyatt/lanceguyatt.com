@@ -1,7 +1,6 @@
 import alpine from '@astrojs/alpinejs'
 import mdx from '@astrojs/mdx'
 import partytown from '@astrojs/partytown'
-import react from '@astrojs/react'
 import playformCompress from '@playform/compress'
 import tailwind from '@tailwindcss/vite'
 import icon from 'astro-icon'
@@ -38,7 +37,6 @@ export default defineConfig({
         },
       ],
     }}),
-    react(),
   ],
   experimental: {
     contentIntellisense: true,
