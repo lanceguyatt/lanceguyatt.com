@@ -1,0 +1,55 @@
+---
+
+---
+
+<>
+  <div x-data="{ grid: $persist(false) }" @keyup.g.window="grid = !grid">
+    <template x-if="grid">
+      <div class="pointer-events-none fixed inset-0 z-50 grid">
+        <div class="m-auto container grid grid-cols-6 gap-8 opacity-20 md:grid-cols-8 lg:grid-cols-12">
+          <div class="bg-primary"></div>
+          <div class="bg-primary"></div>
+          <div class="bg-primary"></div>
+          <div class="bg-primary"></div>
+          <div class="bg-primary"></div>
+          <div class="bg-primary"></div>
+          <div class="bg-primary hidden md:block"></div>
+          <div class="bg-primary hidden md:block"></div>
+          <div class="bg-primary hidden lg:block"></div>
+          <div class="bg-primary hidden lg:block"></div>
+          <div class="bg-primary hidden lg:block"></div>
+          <div class="bg-primary hidden lg:block"></div>
+        </div>
+      </div>
+    </template>
+  </div>
+
+  <div x-data="{ pesticide: $persist(false) }" @keyup.p.window="pesticide = !pesticide">
+    <template x-if="pesticide">
+      <div>
+        <link rel="stylesheet" href="/styles/pesticide.css" />
+        <style>
+          [data-block] {
+            position: relative;
+            border: 2px dotted var(--color-red-400);
+
+            &::before {
+              position: sticky;
+              display: inline-flex;
+              padding: 2px 4px;
+              font-size: 14px;
+              font-weight: var(--font-weight-medium);
+              letter-spacing: var(--letter-spacing-widest);
+              text-transform: uppercase;
+              content: attr(data-block);
+              right: 0;
+              top: 0;
+              background-color: var(--color-red-400);
+              z-index: 1;
+            }
+          }
+        </style>
+      </div>
+    </template>
+  </div>
+</>

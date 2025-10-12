@@ -7,6 +7,8 @@ import tailwind from '@tailwindcss/vite'
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 
+let prefixCounter = 0
+
 // https://astro.build/config
 export default defineConfig({
   // site: 'https://lanceguyatt.surge.sh/',
@@ -20,12 +22,43 @@ export default defineConfig({
     }),
     mdx(),
     alpine({
-      entrypoint: './src/scripts/app',
+      entrypoint: './src/scripts/app.ts',
     }),
     playformCompress(),
-    icon(),
+    icon({svgoOptions: {
+      plugins: [
+        { name: 'preset-default' },
+        'prefixIds',
+        {
+          name: 'prefixIds',
+          params: {
+            delim: '',
+            prefix: () => `icon-${prefixCounter++}-`,
+          },
+        },
+      ],
+    }}),
     react(),
   ],
+  experimental: {
+    contentIntellisense: true,
+    headingIdCompat: true,
+    chromeDevtoolsWorkspace: true,
+    fonts: [
+      {
+        provider: 'local',
+        name: 'Topaz',
+        cssVariable: '--topaz',
+        variants: [
+          {
+            weight: 400,
+            style: 'normal',
+            src: ['./src/assets/fonts/topaz.woff2'],
+          },
+        ],
+      },
+    ],
+  },
   vite: {
     plugins: [tailwind()],
   },

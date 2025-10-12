@@ -1,0 +1,409 @@
+/* Base outline styles for all elements */
+:where(body) {
+  outline: 1px solid #2980b9;
+}
+:where(article) {
+  outline: 1px solid #3498db;
+}
+:where(nav) {
+  outline: 1px solid #0088c3;
+}
+:where(aside) {
+  outline: 1px solid #33a0ce;
+}
+:where(section) {
+  outline: 1px solid #66b8da;
+}
+:where(header) {
+  outline: 1px solid #99cfe7;
+}
+:where(footer) {
+  outline: 1px solid #cce7f3;
+}
+:where(h1) {
+  outline: 1px solid #162544;
+}
+:where(h2) {
+  outline: 1px solid #314e6e;
+}
+:where(h3) {
+  outline: 1px solid #3e5e85;
+}
+:where(h4) {
+  outline: 1px solid #449baf;
+}
+:where(h5) {
+  outline: 1px solid #c7d1cb;
+}
+:where(h6) {
+  outline: 1px solid #4371d0;
+}
+:where(main) {
+  outline: 1px solid #2f4f90;
+}
+:where(address) {
+  outline: 1px solid #1a2c51;
+}
+:where(div) {
+  outline: 1px solid #036cdb;
+}
+:where(p) {
+  outline: 1px solid #ac050b;
+}
+:where(hr) {
+  outline: 1px solid #ff063f;
+}
+:where(pre) {
+  outline: 1px solid #850440;
+}
+:where(blockquote) {
+  outline: 1px solid #f1b8e7;
+}
+:where(ol) {
+  outline: 1px solid #ff050c;
+}
+:where(ul) {
+  outline: 1px solid #d90416;
+}
+:where(li) {
+  outline: 1px solid #d90416;
+}
+:where(dl) {
+  outline: 1px solid #fd3427;
+}
+:where(dt) {
+  outline: 1px solid #ff0043;
+}
+:where(dd) {
+  outline: 1px solid #e80174;
+}
+:where(figure) {
+  outline: 1px solid #f0b;
+}
+:where(figcaption) {
+  outline: 1px solid #bf0032;
+}
+:where(table) {
+  outline: 1px solid #0c9;
+}
+:where(caption) {
+  outline: 1px solid #37ffc4;
+}
+:where(thead) {
+  outline: 1px solid #98daca;
+}
+:where(tbody) {
+  outline: 1px solid #64a7a0;
+}
+:where(tfoot) {
+  outline: 1px solid #22746b;
+}
+:where(tr) {
+  outline: 1px solid #86c0b2;
+}
+:where(th) {
+  outline: 1px solid #a1e7d6;
+}
+:where(td) {
+  outline: 1px solid #3f5a54;
+}
+:where(col) {
+  outline: 1px solid #6c9a8f;
+}
+:where(colgroup) {
+  outline: 1px solid #6c9a9d;
+}
+:where(button) {
+  outline: 1px solid #da8301;
+}
+:where(datalist) {
+  outline: 1px solid #c06000;
+}
+:where(fieldset) {
+  outline: 1px solid #d95100;
+}
+:where(form) {
+  outline: 1px solid #d23600;
+}
+:where(input) {
+  outline: 1px solid #fca600;
+}
+:where(keygen) {
+  outline: 1px solid #b31e00;
+}
+:where(label) {
+  outline: 1px solid #ee8900;
+}
+:where(legend) {
+  outline: 1px solid #de6d00;
+}
+:where(meter) {
+  outline: 1px solid #e8630c;
+}
+:where(optgroup) {
+  outline: 1px solid #b33600;
+}
+:where(option) {
+  outline: 1px solid #ff8a00;
+}
+:where(output) {
+  outline: 1px solid #ff9619;
+}
+:where(progress) {
+  outline: 1px solid #e57c00;
+}
+:where(select) {
+  outline: 1px solid #e26e0f;
+}
+:where(textarea) {
+  outline: 1px solid #cc5400;
+}
+:where(details) {
+  outline: 1px solid #33848f;
+}
+:where(summary) {
+  outline: 1px solid #60a1a6;
+}
+:where(command) {
+  outline: 1px solid #438da1;
+}
+:where(menu) {
+  outline: 1px solid #449da6;
+}
+:where(del) {
+  outline: 1px solid #bf0000;
+}
+:where(ins) {
+  outline: 1px solid #400000;
+}
+:where(img) {
+  outline: 1px solid #22746b;
+}
+:where(iframe) {
+  outline: 1px solid #64a7a0;
+}
+:where(embed) {
+  outline: 1px solid #98daca;
+}
+:where(object) {
+  outline: 1px solid #0c9;
+}
+:where(param) {
+  outline: 1px solid #37ffc4;
+}
+:where(video) {
+  outline: 1px solid #6ee866;
+}
+:where(audio) {
+  outline: 1px solid #027353;
+}
+:where(source) {
+  outline: 1px solid #012426;
+}
+:where(canvas) {
+  outline: 1px solid #a2f570;
+}
+:where(track) {
+  outline: 1px solid #59a600;
+}
+:where(map) {
+  outline: 1px solid #7be500;
+}
+:where(area) {
+  outline: 1px solid #305900;
+}
+:where(a) {
+  outline: 1px solid #ff62ab;
+}
+:where(em) {
+  outline: 1px solid #800b41;
+}
+:where(strong) {
+  outline: 1px solid #ff1583;
+}
+:where(i) {
+  outline: 1px solid #803156;
+}
+:where(b) {
+  outline: 1px solid #cc1169;
+}
+:where(u) {
+  outline: 1px solid #ff0430;
+}
+:where(s) {
+  outline: 1px solid #f805e3;
+}
+:where(small) {
+  outline: 1px solid #d107b2;
+}
+:where(abbr) {
+  outline: 1px solid #4a0263;
+}
+:where(q) {
+  outline: 1px solid #240018;
+}
+:where(cite) {
+  outline: 1px solid #64003c;
+}
+:where(dfn) {
+  outline: 1px solid #b4005a;
+}
+:where(sub) {
+  outline: 1px solid #dba0c8;
+}
+:where(sup) {
+  outline: 1px solid #cc0256;
+}
+:where(time) {
+  outline: 1px solid #d6606d;
+}
+:where(code) {
+  outline: 1px solid #e04251;
+}
+:where(kbd) {
+  outline: 1px solid #5e001f;
+}
+:where(samp) {
+  outline: 1px solid #9c0033;
+}
+:where(var) {
+  outline: 1px solid #d90047;
+}
+:where(mark) {
+  outline: 1px solid #ff0053;
+}
+:where(bdi) {
+  outline: 1px solid #bf3668;
+}
+:where(bdo) {
+  outline: 1px solid #6f1400;
+}
+:where(ruby) {
+  outline: 1px solid #ff7b93;
+}
+:where(rt) {
+  outline: 1px solid #ff2f54;
+}
+:where(rp) {
+  outline: 1px solid #803e49;
+}
+:where(span) {
+  outline: 1px solid #cc2643;
+}
+:where(br) {
+  outline: 1px solid #db687d;
+}
+:where(wbr) {
+  outline: 1px solid #db175b;
+}
+
+/* Common shadow and background for all elements */
+/* :where(body) {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
+  background-color: rgba(17, 34, 99, 0.25);
+} */
+
+/* Grouped selector for all other elements with the same shadow/background */
+/* :where(
+  article,
+  nav,
+  aside,
+  section,
+  header,
+  footer,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  main,
+  address,
+  div,
+  p,
+  hr,
+  pre,
+  blockquote,
+  ol,
+  ul,
+  li,
+  dl,
+  dt,
+  dd,
+  figure,
+  figcaption,
+  table,
+  caption,
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  th,
+  td,
+  col,
+  colgroup,
+  button,
+  datalist,
+  fieldset,
+  form,
+  input,
+  keygen,
+  label,
+  legend,
+  meter,
+  optgroup,
+  option,
+  output,
+  progress,
+  select,
+  textarea,
+  details,
+  summary,
+  command,
+  menu,
+  del,
+  ins,
+  img,
+  iframe,
+  embed,
+  object,
+  param,
+  video,
+  audio,
+  source,
+  canvas,
+  track,
+  map,
+  area,
+  a,
+  em,
+  strong,
+  i,
+  b,
+  u,
+  s,
+  small,
+  abbr,
+  q,
+  cite,
+  dfn,
+  sub,
+  sup,
+  time,
+  code,
+  kbd,
+  samp,
+  var,
+  mark,
+  bdi,
+  bdo,
+  ruby,
+  rt,
+  rp,
+  span,
+  br,
+  wbr
+) {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.25);
+} */

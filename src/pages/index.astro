@@ -1,7 +1,9 @@
 ---
-export const prerender = true
-
-import Workbench from '@/layouts/Workbench.astro'
+import { Layout } from '@/layouts/layout'
+import { Titlebar } from '@/components/titlebar'
 ---
 
-<Workbench />
+<Layout>
+  <Titlebar>Lance Guyatt, Web Developer. 2000-2025</Titlebar>
+  <pre>{JSON.stringify(Astro.props, null, 2)}</pre>
+</Layout>

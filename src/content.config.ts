@@ -1,11 +1,11 @@
 import {
   // aboutSchema,
-  navSchema,
-  pageSchema,
+  // navSchema,
+  // pageSchema,
   // tagSchema,
-  workSchema,
+  // workSchema,
 } from '@/schema'
-import { file, glob } from 'astro/loaders'
+import { file } from 'astro/loaders'
 import { defineCollection } from 'astro:content'
 
 // import { parse as parseToml } from 'toml'
@@ -20,10 +20,10 @@ const nav = defineCollection({
   // schema: navSchema,
 })
 
-const page = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/data/page' }),
-  schema: pageSchema,
-})
+// const page = defineCollection({
+//   loader: glob({ pattern: '**/*.mdx', base: './src/data/page' }),
+//   schema: pageSchema,
+// })
 
 // const tags = defineCollection({
 //   // loader: glob({ pattern: ['**/*.yml'], base: './src/data/tags' }),
@@ -38,15 +38,15 @@ const page = defineCollection({
 //   }),
 // })
 
-const work = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/data/work' }),
-  schema: workSchema,
-})
+// const work = defineCollection({
+//   loader: glob({ pattern: '**/*.mdx', base: './src/data/work' }),
+//   schema: workSchema,
+// })
 
 export const collections = {
   // about,
   nav,
-  page,
-  work,
+  // page,
+  // work,
   // tags
 }
