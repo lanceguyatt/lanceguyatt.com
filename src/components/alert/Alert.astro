@@ -31,7 +31,12 @@ const alert = tv({
 
 const { base } = alert()
 
-const { intent, animate = false, class: className, ...props } = Astro.props as AlertProps
+const {
+  intent,
+  animate = false,
+  class: className,
+  ...props
+} = Astro.props as AlertProps
 ---
 
 <div

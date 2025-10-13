@@ -1,15 +1,12 @@
 - id: main
   name: Main nav
   items:
-    - 
-      name: Ram Disk
+    - name: Ram Disk
       url: /ram-disk
       icon: disk
-    - 
-      name: Work
+    - name: Work
       url: /work
       icon: drive
-    - 
-      name: About
+    - name: About
       url: /about
       icon: drive

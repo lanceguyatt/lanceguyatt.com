@@ -10,11 +10,13 @@ export const navSchema = z.object({
   id: z.string(),
   name: z.string(),
   // items: z.array(reference('page')),
-  items: z.array(z.object({
-    name: z.string(),
-    url: z.string(),
-    icon: z.string(),
-  }))
+  items: z.array(
+    z.object({
+      name: z.string(),
+      url: z.string(),
+      icon: z.string(),
+    }),
+  ),
 })
 
 export const pageSchema = ({ image }: { image: any }) =>
@@ -23,10 +25,12 @@ export const pageSchema = ({ image }: { image: any }) =>
     description: z.string().optional(),
     icon: z.string().optional(),
     draft: z.boolean().optional(),
-    image: z.object({
-      src: image({}).optional(),
-      alt: z.string().optional(),
-    }).optional(),
+    image: z
+      .object({
+        src: image({}).optional(),
+        alt: z.string().optional(),
+      })
+      .optional(),
   })
 
 export const workSchema = ({ image }: { image: any }) =>

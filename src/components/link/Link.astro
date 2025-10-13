@@ -22,8 +22,8 @@ const link = tv({
     },
   },
   defaultVariants: {
-      active: false,
-    },
+    active: false,
+  },
 })
 
 const { base } = link()
@@ -37,7 +37,7 @@ const { base } = link()
 >
   {!active && <Icon name={icon} class="mb-2" />}
   {active && <Icon name={`${icon}-active`} class="mb-2" />}
-  <div class="max-w-24 bg-amber-200 h-6 text-center">
+  <div class="h-6 max-w-24 bg-amber-200 text-center">
     <slot>{name}</slot>
   </div>
 </a>

@@ -1,1 +1,5 @@
-export { default as BaseHead, baseHeadSchema, type BaseHeadProps } from './BaseHead.astro'
+export {
+  default as BaseHead,
+  baseHeadSchema,
+  type BaseHeadProps,
+} from './BaseHead.astro'

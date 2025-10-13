@@ -26,12 +26,14 @@ Welcome to my personal website and portfolio. This project showcases my work, bl
 ## 🚀 Getting Started
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/lanceguyatt.com.git
    cd lanceguyatt.com
    ```
 
 2. **Install dependencies**
+
    ```bash
    pnpm install
    ```

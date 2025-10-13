@@ -2,8 +2,8 @@ import {
   aboutSchema,
   navSchema,
   pageSchema,
-  workSchema,
   tagSchema,
+  workSchema,
 } from '@/schema'
 import { file, glob } from 'astro/loaders'
 import { defineCollection, z } from 'astro:content'

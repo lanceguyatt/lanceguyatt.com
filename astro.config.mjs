@@ -24,19 +24,21 @@ export default defineConfig({
       entrypoint: './src/scripts/app.ts',
     }),
     playformCompress(),
-    icon({svgoOptions: {
-      plugins: [
-        { name: 'preset-default' },
-        'prefixIds',
-        {
-          name: 'prefixIds',
-          params: {
-            delim: '',
-            prefix: () => `icon-${prefixCounter++}-`,
+    icon({
+      svgoOptions: {
+        plugins: [
+          { name: 'preset-default' },
+          'prefixIds',
+          {
+            name: 'prefixIds',
+            params: {
+              delim: '',
+              prefix: () => `icon-${prefixCounter++}-`,
+            },
           },
-        },
-      ],
-    }}),
+        ],
+      },
+    }),
   ],
   experimental: {
     contentIntellisense: true,

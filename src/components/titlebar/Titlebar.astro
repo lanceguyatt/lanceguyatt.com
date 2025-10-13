@@ -35,7 +35,7 @@ const titlebar = tv({
   defaultVariants: { color: 'black' },
 })
 
-const { base, wrapper } = titlebar();
+const { base, wrapper } = titlebar()
 ---
 
 <div
@@ -44,9 +44,7 @@ const { base, wrapper } = titlebar();
   {...props}
 >
   <slot name="prefix" />
-  <div
-    class={wrapper()}
-  >
+  <div class={wrapper()}>
     <slot />
   </div>
   <slot name="suffix">

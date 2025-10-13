@@ -1,6 +1,6 @@
 import focus from '@alpinejs/focus'
-import ui from '@alpinejs/ui'
 import persist from '@alpinejs/persist'
+import ui from '@alpinejs/ui'
 import type { Alpine } from 'alpinejs'
 
 export default (Alpine: Alpine) => {
