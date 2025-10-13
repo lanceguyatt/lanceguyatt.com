@@ -1,0 +1,68 @@
+---
+import { type HTMLAttributes } from 'astro/types'
+import { Link } from '@/components/link'
+import { tv } from 'tailwind-variants'
+import { z } from 'astro:content'
+import { cn } from '@/lib/utils'
+
+export const navSchema = z.object({
+  name: z.string(),
+  id: z.string(),
+  items: z.array(
+    z.object({
+      name: z.string(),
+      url: z.string(),
+      icon: z.string(),
+    })
+  ),
+  vertical: z.boolean().optional().default(false),
+})
+
+export type NavProps = HTMLAttributes<'nav'> & z.infer<typeof navSchema>
+
+const pathname = new URL(Astro.request.url).pathname
+
+const {
+  id,
+  name,
+  items,
+  vertical = false,
+  class: className,
+} = Astro.props as NavProps
+
+const nav = tv({
+  slots: {
+    base: 'nav bg-lime-500',
+    list: 'flex gap-3',
+    item: 'border',
+  },
+  variants: {
+    vertical: {
+      true: 'flex-col w-24 items-center',
+      false: 'flex-wrap',
+    },
+  },
+  defaultVariants: {
+    vertical: false,
+  },
+})
+
+const { base, list, item } = nav()
+---
+
+<nav aria-labelledby={id} class:list={[cn(base(), className)]}>
+  <h2 {id} class="sr-only">{name}</h2>
+  {
+    items?.length > 0 && (
+      <ul class:list={[list({ vertical })]}>
+        {items.map(({ name, url, icon }) => (
+          <li class:list={item()}>
+            <Link icon={icon} href={url} active={pathname.includes(url)}>
+              {name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</nav>

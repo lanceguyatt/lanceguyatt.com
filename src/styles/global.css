@@ -1,4 +1,4 @@
-@layer theme, base, components, features, vendor, utilities;
+@layer theme, base, components, utilities;
 
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
@@ -7,31 +7,14 @@
 @plugin '@tailwindcss/typography';
 @plugin 'tailwindcss-animate';
 
-@custom-variant dark (&:is(.dark *));
-
-@theme {
-  --font-sans: var(--topaz);
-  --font-mono: var(--topaz);
-
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-}
-
-[data-theme='kickstart'] {
-  --color-background: oklch(0.286 0.1053 327.9);
-  --color-foreground: oklch(0.7585 0.0874 47.9);
-  --color-primary: oklch(0.286 0.1053 327.9);
-  --color-primary-foreground: oklch(0.7585 0.0874 47.9);
-  --color-secondary: oklch(0.286 0.1053 327.9);
-  --color-secondary-foreground: oklch(0.7585 0.0874 47.9);
-}
+@import './themes/workbench.css' layer(theme);
 
 @layer base {
   body {
     text-size-adjust: 100%;
-    cursor:
+    /* cursor:
       url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMiAwaDJ2MkgyVjB6bTIgMmg0djJINFYyem00IDJoNHYySDhWNHptNCAyaDR2MmgtNFY2em00IDJoNHYyaC00Vjh6bS0yIDRoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yeiIgZmlsbD0iI0VCRjNENiIvPjxwYXRoIGQ9Ik04IDE2aDJ2NEg3di00SDZ2LTRoMnY0ek0wIDJoMnYySDBWMnptMiAyaDJ2NEgyVjR6bTIgNGgydjRINFY4em04IDZoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yem0yIDJoMnYyaC0ydi0yeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0xNiAxMmgtMnYyaC0ydjZoLTJ2LTRIOHYtNEg2VjhINFY0aDR2Mmg0djJoNHYyaDR2MmgtNHpNMCAwaDJ2MkgwVjB6bTIgMmgydjJIMlYyem0xMiAxMmgydjJoLTJ2LTJ6bTIgMmgydjJoLTJ2LTJ6bTIgMmgydjJoLTJ2LTJ6bTIgMmgydjJoLTJ2LTJ6IiBmaWxsPSIjRTc1RDU1Ii8+PC9nPjwvc3ZnPgo=),
-      default;
+      default; */
   }
 
   [x-cloak] {

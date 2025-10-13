@@ -1,9 +1,22 @@
 ---
 import { Layout } from '@/layouts/layout'
 import { Titlebar } from '@/components/titlebar'
+import { Window } from '@/components/window'
+import { getEntry } from 'astro:content'
+import { Nav } from '@/components/nav'
+
+const nav = await getEntry('nav', 'main')
 ---
 
 <Layout>
-  <Titlebar>Lance Guyatt, Web Developer. 2000-2025</Titlebar>
-  <pre>{JSON.stringify(Astro.props, null, 2)}</pre>
+  <div class="grid min-h-screen grid-rows-[auto_1fr]">
+    <Titlebar
+      >Lance Guyatt, Web Developer. 2000-2025 All Rights Reserved</Titlebar
+    >
+    <div class="grid grid-cols-2">
+      <Window name="Hi, I'm Lance Guyatt. I'm a web developer based in the UK.">
+        {nav && <Nav {...nav.data} />}
+      </Window>
+    </div>
+  </div>
 </Layout>

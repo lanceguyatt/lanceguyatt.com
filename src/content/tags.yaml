@@ -1,0 +1,88 @@
+- id: alpinejs
+  name: Alpine.js
+  description: Your new, lightweight, JavaScript framework.
+  url: https://alpinejs.dev/
+- id: astro
+  name: Astro
+  description: stro builds fast content sites, powerful web applications, dynamic
+    server APIs, and everything in-between.
+  url: https://astro.build/
+- id: drupal
+  name: Drupal
+  description: Drupal is the open source content management system.
+  url: https://www.drupal.org/about
+- id: express
+  name: Express
+  description: Express.js, or simply Express, is a web application framework for
+    Node.js, based on Sinatra, and is the foundation for many Node.js web
+    applications.
+  url: https://expressjs.com/
+- id: gulp
+  name: Gulp
+  description: A toolkit to automate & enhance your workflow
+  url: https://gulpjs.com/
+- id: keystonejs
+  name: KeystoneJS
+  description: KeystoneJS is an open source framework for developing
+    database-driven websites, applications and APIs in Node.js. Built on Express
+    and MongoDB.
+  url: https://v4.keystonejs.com/
+- id: laravel-mix
+  name: Laravel Mix
+  description: Laravel Mix provides a clean, fluent API for defining basic Webpack build steps for Laravel applications.
+  url: https://laravel-mix.com/
+- id: nodejs
+  name: Node.js
+  description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript
+    engine.
+  url: https://nodejs.org/
+- id: nuxtjs
+  name: Nuxt.js
+  description: Nuxt.js is a framework for building server-rendered Vue.js applications.
+  url: https://nuxtjs.org/
+- id: postcss
+  name: PostCSS
+  description: PostCSS is a tool for transforming CSS with JavaScript.
+  url: https://postcss.org/
+- id: prsimic
+  name: Prismic
+  description: Prismic is a headless CMS that helps you build fast, modern websites.
+  url: https://prismic.io/
+- id: pugjs
+  name: Pug
+  description: Pug is a high performance template engine designed to be a template engine for Node.js.
+  url: https://pugjs.org/
+- id: reactjs
+  name: React.js
+  description: React is a JavaScript library for building user interfaces.
+  url: https://reactjs.org/
+- id: svelte
+  name: Svelte
+  description: Svelte is a JavaScript framework for building user interfaces.
+  url: https://svelte.dev/
+- id: tailwindcss
+  name: Tailwind CSS
+  description: Tailwind CSS is a utility-first CSS framework for rapidly building custom designs.
+  url: https://tailwindcss.com/
+- id: typescript
+  name: TypeScript
+  description: TypeScript is a programming language developed and maintained by Microsoft.
+  url: https://www.typescriptlang.org/
+- id: uipatterns
+  name: UI Patterns
+  description: Define and expose self-contained UI patterns as Drupal plugins and use them seamlessly as drop-in templates for panels, field groups, views, Display Suite field templates, paragraphs, nodes or any other entity types.
+  url: https://www.drupal.org/project/ui_patterns
+- id: unocss
+  name: UnoCSS
+  description: UnoCSS is a utility-first CSS framework for rapidly building custom designs.
+  url: https://unocss.dev/
+- id: vuejs
+  name: Vue.js
+  description: Vue.js is a progressive JavaScript framework for building user interfaces.
+  url: https://vuejs.org/
+- id: windicss
+  name: Windi CSS
+  description: Windi CSS is a utility-first CSS framework for rapidly building custom designs.
+  url: https://windicss.org/
+
+  

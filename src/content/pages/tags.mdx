@@ -1,0 +1,10 @@
+---
+name: Tags
+description: Tags description
+icon: drive
+---
+import { getCollection } from 'astro:content'
+
+export const tags = await getCollection('tags')
+
+<div class="prose"><pre>{JSON.stringify(tags, null, 2)}</pre></div>

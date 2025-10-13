@@ -1,0 +1,179 @@
+---
+import { Image } from 'astro:assets'
+// import { getEntries } from 'astro:content'
+
+import { SITE } from '@/config'
+import { Window } from '@/components/window'
+import { Button } from '@/components/button'
+// import Image from '@/components/Image.astro'
+import WorkCard from '@/features/work/components/WorkCard.astro'
+import { Prose } from '@/components/prose'
+
+type Props = {
+  entry: any
+}
+
+const { entry } = Astro.props
+const { id, data } = entry
+const { name, description, image, url, sameAs } = data
+
+const title = `${name} - Work - ${SITE.name}`
+// const url = `work/${id}`
+// const keywords = tags.map(tag => tag)
+
+// let selectedTags = null
+// if (tags) selectedTags = await getEntries(tags)
+
+const meta = { title, name, description, url, image }
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name,
+  description,
+  url: `${SITE.url}/work/${id}`,
+  // image: {
+  //   '@type': 'ImageObject',
+  //   url: `${SITE.url}${image.url}`,
+  //   width: image.width,
+  //   height: image.height,
+  //   description: image.alt
+  // },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@id': `${SITE.url}`,
+          name: 'Workbench',
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: {
+          '@id': `${SITE.url}/work`,
+          name: 'Work',
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        item: {
+          '@id': `${SITE.url}/work/${id}`,
+          name,
+        },
+      },
+    ],
+  },
+  mainEntity: {
+    '@type': 'CreativeWork',
+    name,
+    url: `${SITE.url}/work/${id}`,
+    sameAs,
+    // image: {
+    //   '@type': 'ImageObject',
+    //   url: `${SITE.url}${image.url}`,
+    //   width: image.width,
+    //   height: image.height,
+    //   description: image.alt
+    // },
+    // keywords,
+    copyrightHolder: {
+      '@type': 'Organization',
+      name,
+    },
+  },
+  copyrightHolder: {
+    '@type': 'Person',
+    name: 'Lance Guyatt',
+  },
+  copyrightYear: SITE.copyrightYear,
+}
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(schema, null, 2)}
+  slot="head"
+/>
+
+<Window id={`window-${id}`} {name} url="/work" active level={2} depth zoom>
+  <div class="flex h-full flex-col gap-6 bg-red-50">
+    {
+      image && (
+        <div class="h-36 w-36 self-center">
+          <div class="aspect-square">
+            <Image
+              src={image}
+              alt=""
+              class="border-img-bar p-2px object-cover"
+            />
+          </div>
+        </div>
+      )
+    }
+
+    <pre>{JSON.stringify(Astro.props.entry, null, 2)}</pre>
+
+    <dl class="grid max-w-160 gap-3 sm:grid-cols-[1fr_11fr]">
+      <dt
+        class="text-foreground flex items-center after:content-[':'] sm:justify-end"
+      >
+        Name
+      </dt>
+      <dd class="border-img-foo p-2px">{name}</dd>
+      {
+        url && (
+          <>
+            <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">
+              Url
+            </dt>
+            <dd class="border-img-foo p-2px">{url}</dd>
+          </>
+        )
+      }
+      <!-- {
+          selectedTags && (
+            <>
+              <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">
+                Technologies
+              </dt>
+              <dd class="border-img-foo p-2px">
+                <ul>
+                  {selectedTags.map((tag: any) => (
+                    <li>{tag.data.name}</li>
+                  ))}
+                </ul>
+              </dd>
+            </>
+          )
+        } -->
+    </dl>
+
+    <div class="mx-auto grid max-w-[40rem] gap-3 sm:grid-cols-[1fr_11fr]">
+      <div></div>
+      <Prose>
+        <slot />
+      </Prose>
+    </div>
+
+    <div class="mt-auto flex justify-between">
+      <Button href="/work">Cancel</Button>
+      {
+        url && (
+          <Button href={url} target="_blank" rel="noopener noreferrer">
+            Launch
+          </Button>
+        )
+      }
+    </div>
+  </div>
+</Window>
+
+<Window id="work" name="Work" level={1} depth zoom>
+  <WorkCard />
+</Window>

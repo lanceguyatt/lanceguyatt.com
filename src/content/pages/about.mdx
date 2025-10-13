@@ -1,0 +1,12 @@
+---
+name: About
+description: About description
+icon: drive
+---
+import { getCollection } from 'astro:content'
+
+export const about = await getCollection('about')
+
+<div class="prose"><pre>{JSON.stringify(about, null, 2)}</pre></div>
+
+

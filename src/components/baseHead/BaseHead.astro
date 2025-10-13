@@ -2,14 +2,17 @@
 import { SEO } from 'astro-seo'
 import { SITE } from '@/config'
 import { Font } from 'astro:assets'
+import { z } from 'astro:content'
 
-type BaseHeadProps = {
-  title?: string
-  description?: string
-  url?: string
-  image?: string
-  noindex?: boolean
-}
+export const baseHeadSchema = z.object({
+  title: z.string().optional(),
+  description: z.string().optional(),
+  url: z.string().optional(),
+  image: z.string().optional(),
+  noindex: z.boolean().optional(),
+})
+
+export type BaseHeadProps = z.infer<typeof baseHeadSchema>
 
 const {
   title = SITE.name,
@@ -20,7 +23,7 @@ const {
 } = Astro.props as BaseHeadProps
 ---
 
-<head>
+<>
   <meta name="charset" content="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -73,4 +76,4 @@ const {
   />
   <slot />
   <Font cssVariable="--topaz" preload />
-</head>
+</>

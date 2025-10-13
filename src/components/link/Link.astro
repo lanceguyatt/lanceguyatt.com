@@ -1,0 +1,43 @@
+---
+// import type { HTMLAttributes } from 'astro/types'
+import { Icon } from 'astro-icon/components'
+import { tv } from 'tailwind-variants'
+
+const {
+  name,
+  active,
+  class: className,
+  external = false,
+  href,
+  icon = 'disk',
+} = Astro.props
+
+const link = tv({
+  slots: {
+    base: 'flex flex-col items-center text-base/tighter outline-none',
+  },
+  variants: {
+    active: {
+      false: ['focus:bg-background', 'focus:text-primary'],
+    },
+  },
+  defaultVariants: {
+      active: false,
+    },
+})
+
+const { base } = link()
+---
+
+<a
+  {href}
+  class={base({ active, className })}
+  target={external ? '_blank' : null}
+  rel={external ? 'noopener noreferrer' : null}
+>
+  {!active && <Icon name={icon} class="mb-2" />}
+  {active && <Icon name={`${icon}-active`} class="mb-2" />}
+  <div class="max-w-24 bg-amber-200 h-6 text-center">
+    <slot>{name}</slot>
+  </div>
+</a>

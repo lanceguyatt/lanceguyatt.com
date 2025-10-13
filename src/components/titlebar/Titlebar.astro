@@ -2,45 +2,50 @@
 import { type HTMLAttributes } from 'astro/types'
 import { tv } from 'tailwind-variants'
 import { z } from 'astro:content'
-
 import { Depth } from '@/components/depth'
 import { cn } from '@/lib/utils'
 
-export const schema = z.object({
-  intent: z.enum(['default', 'primary', 'secondary']),
-  depth: z.boolean().optional().default(false),
+export const titlebarSchema = z.object({
+  color: z.enum(['black', 'white', 'primary', 'secondary']).optional(),
+  depth: z.boolean().optional(),
 })
 
-const titlebar = tv({
-  base: 'h-title-bar flex items-center gap-1',
-  variants: {
-    intent: {
-      default: 'bg-black text-white',
-      primary: 'bg-primary text-primary-foreground',
-      secondary: 'bg-background text-foreground',
-    },
-  },
-  defaultVariants: { intent: 'default' },
-})
-
-export type TitleProps = HTMLAttributes<'div'> & z.infer<typeof schema>
+export type TitleProps = HTMLAttributes<'div'> & z.infer<typeof titlebarSchema>
 
 const {
   class: className,
-  depth = false,
-  intent = 'default',
+  depth = true,
+  color = 'black',
   ...props
 } = Astro.props as TitleProps
+
+const titlebar = tv({
+  slots: {
+    base: 'h-titlebar flex items-center gap-1',
+    wrapper: 'flex-1 overflow-hidden text-ellipsis whitespace-nowrap',
+  },
+  variants: {
+    color: {
+      black: 'bg-black text-secondary',
+      white: 'bg-white text-black',
+      primary: 'bg-primary text-primary-foreground',
+      secondary: 'bg-secondary text-secondary-foreground',
+    },
+  },
+  defaultVariants: { color: 'black' },
+})
+
+const { base, wrapper } = titlebar();
 ---
 
 <div
-  data-component="title-bar"
-  class:list={[cn(titlebar({ intent }), className)]}
+  data-component="titlebar"
+  class:list={[cn(base({ color }), className)]}
   {...props}
 >
   <slot name="prefix" />
   <div
-    class="text-base/tighter flex-auto overflow-hidden text-ellipsis whitespace-nowrap"
+    class={wrapper()}
   >
     <slot />
   </div>

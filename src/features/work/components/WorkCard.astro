@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content'
+
+import { Nav } from '@/components/nav'
+import { Link } from '@/components/link'
+
+const work = await getCollection('work', ({ data }) => {
+  return !data.draft === true
+})
+
+// work.sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+const pathname = new URL(Astro.request.url).pathname
+---
+
+<Nav id="work-nav" name="Work menu" class="not-prose">
+  {
+    work.map(({ slug, data: { name } }) => (
+      <Link
+        icon="drawer"
+        href={`/work/${slug}`}
+        active={pathname === `/work/${slug}`}
+      >
+        {name}
+      </Link>
+    ))
+  }
+</Nav>

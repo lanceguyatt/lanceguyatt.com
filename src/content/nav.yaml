@@ -1,7 +1,15 @@
-id: main-nav
-name: Main nav
-items:
-  - ram-disk
-  - work
-  - about
-  - tags
+- id: main
+  name: Main nav
+  items:
+    - 
+      name: Ram Disk
+      url: /ram-disk
+      icon: disk
+    - 
+      name: Work
+      url: /work
+      icon: drive
+    - 
+      name: About
+      url: /about
+      icon: drive

@@ -1,0 +1,58 @@
+---
+import { type HTMLAttributes } from 'astro/types'
+import { tv } from 'tailwind-variants'
+import { z } from 'astro:content'
+import { cn } from '@/lib/utils'
+
+export const alertSchema = z.object({
+  intent: z.enum(['destructive']).optional().default('destructive'),
+  animate: z.boolean().optional().default(false),
+})
+
+export type AlertProps = z.infer<typeof alertSchema> & HTMLAttributes<'div'>
+
+const alert = tv({
+  slots: {
+    base: 'border-4 p-8 relative',
+  },
+  variants: {
+    intent: {
+      destructive: 'border-destructive text-destructive',
+    },
+    animate: {
+      true: 'animate-foo animate-alternate',
+    },
+  },
+  defaultVariants: {
+    intent: 'destructive',
+    animate: false,
+  },
+})
+
+const { base } = alert()
+
+const { intent, animate = false, class: className, ...props } = Astro.props as AlertProps
+---
+
+<div
+  role="dialog"
+  data-component="alert"
+  class:list={[cn(base({ intent, animate })), className]}
+  {...props}
+>
+  <slot />
+</div>
+
+<style is:global>
+  @reference "tailwindcss";
+
+  [data-component='alert'] {
+    & a {
+      @apply hover:underline;
+
+      &::before {
+        @apply absolute inset-0 z-0 block content-[""];
+      }
+    }
+  }
+</style>

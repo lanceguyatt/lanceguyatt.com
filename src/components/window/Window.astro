@@ -1,0 +1,73 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { z } from 'astro:content'
+import { tv } from 'tailwind-variants'
+
+import { Icon } from 'astro-icon/components'
+
+export const windowSchema = z.object({
+  name: z.string(),
+  color: z.enum(['primary', 'secondary']).optional().default('primary'),
+  close: z
+    .object({
+      name: z.string(),
+      href: z.string(),
+    })
+    .optional(),
+})
+
+export type WindowProps = z.infer<typeof windowSchema> &
+  HTMLAttributes<'section'>
+
+const {
+  name,
+  class: className,
+  color = 'primary',
+  close = {
+    name: 'Close',
+    href: '/',
+  },
+} = Astro.props as WindowProps
+
+const window = tv({
+  slots: {
+    base: 'window grid grid-rows-[auto_1fr] relative',
+    header: 'window-header absolute -inset-x-1.5 -top-5 bg-amber-500 h-4.5',
+    content: 'window-content bg-secondary p-2',
+  },
+  variants: {
+    color: {
+      primary: 'bg-primary text-black',
+      secondary: 'bg-secondary text-primary',
+    },
+  },
+  defaultVariants: { color: 'primary' },
+})
+
+const { base, header, content } = window()
+---
+
+<section class:list={[base({ color }), className]}>
+  <div class={header()}>
+    {
+      close ? (
+        <>
+          <a href={close.href} aria-label={close.name}>
+            <Icon name="close" />
+          </a>
+        </>
+      ) : null
+    }
+    {name}
+  </div>
+  <div class={content()}>
+    <slot />
+  </div>
+</section>
+
+<style is:global>
+  .window {
+    border-width: 22px 4px 4px 4px;
+    border-image: url(/images/window.svg) 22 4 4 4 stretch;
+  }
+</style>
