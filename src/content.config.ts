@@ -6,7 +6,7 @@ import {
   workSchema,
 } from '@/schema'
 import { file, glob } from 'astro/loaders'
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
 
 const about = defineCollection({
   loader: file('./src/content/about.yaml'),
