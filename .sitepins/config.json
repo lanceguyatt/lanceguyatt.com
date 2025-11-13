@@ -13,5 +13,5 @@
     "astro.config.mjs"
   ],
   "arrangement": [],
-  "showCommitModal": false
+  "showCommitModal": true
 }
