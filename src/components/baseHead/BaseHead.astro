@@ -1,8 +1,8 @@
 ---
-import { SEO } from 'astro-seo'
 import { SITE } from '@/config'
+import { SEO } from 'astro-seo'
+import { z } from 'astro/zod'
 import { Font } from 'astro:assets'
-import { z } from 'astro:content'
 
 export const baseHeadSchema = z.object({
   title: z.string().optional(),

@@ -1,21 +1,24 @@
-module.exports = {
+/** @type {import("prettier").Config} */
+export default {
   singleQuote: true,
   semi: false,
-  importOrder: ["^components/(.*)$", "^[./]"],
+  printWidth: 100,
+  importOrder: ['^blocks/(.*)$', '^components/(.*)$', '^[./]'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   plugins: [
-    require.resolve("prettier-plugin-astro"),
-    require.resolve("prettier-plugin-tailwindcss"),
-    require.resolve("@trivago/prettier-plugin-sort-imports"),
+    'prettier-plugin-astro',
+    'prettier-plugin-tailwindcss',
+    '@trivago/prettier-plugin-sort-imports',
   ],
+  tailwindFunctions: ['tv'],
   overrides: [
     {
-      files: "*.astro",
+      files: ['**/*.astro'],
       options: {
         astroAllowShorthand: true,
-        parser: "astro",
+        parser: 'astro',
       },
     },
   ],
-};
+}

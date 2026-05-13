@@ -2,7 +2,7 @@ import alpine from '@astrojs/alpinejs'
 import mdx from '@astrojs/mdx'
 import tailwind from '@tailwindcss/vite'
 import icon from 'astro-icon'
-import { defineConfig } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config'
 
 let prefixCounter = 0
 
@@ -31,15 +31,12 @@ export default defineConfig({
     }),
     (await import('@playform/compress')).default(),
   ],
-  experimental: {
-    contentIntellisense: true,
-    headingIdCompat: true,
-    chromeDevtoolsWorkspace: true,
-    fonts: [
-      {
-        provider: 'local',
-        name: 'Topaz',
-        cssVariable: '--topaz',
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: 'Topaz',
+      cssVariable: '--topaz',
+      options: {
         variants: [
           {
             weight: 400,
@@ -48,8 +45,8 @@ export default defineConfig({
           },
         ],
       },
-    ],
-  },
+    },
+  ],
   vite: {
     plugins: [tailwind()],
   },

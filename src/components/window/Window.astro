@@ -1,8 +1,9 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import { z } from 'astro:content'
+import { z } from 'astro/zod'
 import { tv } from 'tailwind-variants'
 
+import { Depth } from '@/components/depth'
 import { Icon } from 'astro-icon/components'
 
 export const windowSchema = z.object({
@@ -32,7 +33,7 @@ const {
 const window = tv({
   slots: {
     base: 'window grid grid-rows-[auto_1fr] relative',
-    header: 'window-header absolute -inset-x-1.5 -top-5 bg-amber-500 h-4.5',
+    header: 'window-header flex items-center absolute -inset-x-1.5 -top-5 bg-amber-500 h-4',
     content: 'window-content bg-secondary p-2',
   },
   variants: {
@@ -51,14 +52,15 @@ const { base, header, content } = window()
   <div class={header()}>
     {
       close ? (
-        <>
           <a href={close.href} aria-label={close.name}>
             <Icon name="close" />
           </a>
-        </>
       ) : null
     }
-    {name}
+    <div class="flex-auto bg-amber-300">
+      {name}
+    </div>
+    <Depth />
   </div>
   <div class={content()}>
     <slot />

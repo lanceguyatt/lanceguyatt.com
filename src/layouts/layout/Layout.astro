@@ -1,11 +1,11 @@
 ---
-import { type HTMLAttributes } from 'astro/types'
-import { type SiteProps, SITE } from '@/config'
 import { BaseHead } from '@/components/baseHead'
-import { z } from 'astro:content'
-import '@/styles/global.css'
-import { cn } from '@/lib/utils'
 import { DevTools } from '@/components/devTools'
+import { type SiteProps, SITE } from '@/config'
+import { cn } from '@/lib/utils'
+import '@/styles/global.css'
+import { type HTMLAttributes } from 'astro/types'
+import { z } from 'astro/zod'
 
 export const layoutSchema = z.object({
   theme: z.string().optional(),

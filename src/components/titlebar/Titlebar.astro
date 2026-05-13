@@ -1,9 +1,9 @@
 ---
-import { type HTMLAttributes } from 'astro/types'
-import { tv } from 'tailwind-variants'
-import { z } from 'astro:content'
 import { Depth } from '@/components/depth'
 import { cn } from '@/lib/utils'
+import { type HTMLAttributes } from 'astro/types'
+import { z } from 'astro/zod'
+import { tv } from 'tailwind-variants'
 
 export const titlebarSchema = z.object({
   color: z.enum(['black', 'white', 'primary', 'secondary']).optional(),

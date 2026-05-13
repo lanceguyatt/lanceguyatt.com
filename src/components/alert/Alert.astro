@@ -1,8 +1,8 @@
 ---
-import { type HTMLAttributes } from 'astro/types'
-import { tv } from 'tailwind-variants'
-import { z } from 'astro:content'
 import { cn } from '@/lib/utils'
+import { type HTMLAttributes } from 'astro/types'
+import { z } from 'astro/zod'
+import { tv } from 'tailwind-variants'
 
 export const alertSchema = z.object({
   intent: z.enum(['destructive']).optional().default('destructive'),
@@ -17,10 +17,10 @@ const alert = tv({
   },
   variants: {
     intent: {
-      destructive: 'border-destructive text-destructive',
+      destructive: 'border-red-500 text-red-500',
     },
     animate: {
-      true: 'animate-foo animate-alternate',
+      true: 'animate-(--animate-foo) animate-alternate',
     },
   },
   defaultVariants: {
