@@ -12,12 +12,7 @@ export const titlebarSchema = z.object({
 
 export type TitleProps = HTMLAttributes<'div'> & z.infer<typeof titlebarSchema>
 
-const {
-  class: className,
-  depth = true,
-  color = 'black',
-  ...props
-} = Astro.props as TitleProps
+const { class: className, depth = true, color = 'black', ...props } = Astro.props as TitleProps
 
 const titlebar = tv({
   slots: {
@@ -26,7 +21,7 @@ const titlebar = tv({
   },
   variants: {
     color: {
-      black: 'bg-black text-secondary',
+      black: 'text-secondary bg-black',
       white: 'bg-white text-black',
       primary: 'bg-primary text-primary-foreground',
       secondary: 'bg-secondary text-secondary-foreground',
@@ -38,11 +33,7 @@ const titlebar = tv({
 const { base, wrapper } = titlebar()
 ---
 
-<div
-  data-component="titlebar"
-  class:list={[cn(base({ color }), className)]}
-  {...props}
->
+<div data-component="titlebar" class:list={[cn(base({ color }), className)]} {...props}>
   <slot name="prefix" />
   <div class={wrapper()}>
     <slot />

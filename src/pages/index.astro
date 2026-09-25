@@ -11,13 +11,11 @@ const nav = await getEntry('nav', 'main')
 
 <Layout>
   <div class="grid min-h-screen grid-rows-[auto_1fr]">
-    <Titlebar
-      >Lance Guyatt, Web Developer. 2000-2025 All Rights Reserved</Titlebar
-    >
+    <Titlebar>Lance Guyatt, Web Developer. 2000-2025 All Rights Reserved</Titlebar>
     <div class="grid grid-cols-2">
       <div>
-      <Alert animate>This is a destructive alert</Alert>
-    </div>
+        <Alert animate>This is a destructive alert</Alert>
+      </div>
       <Window name="Hi, I'm Lance Guyatt. I'm a web developer based in the UK.">
         {nav && <Nav {...nav.data} />}
       </Window>

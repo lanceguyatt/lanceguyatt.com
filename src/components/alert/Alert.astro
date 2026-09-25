@@ -13,14 +13,14 @@ export type AlertProps = z.infer<typeof alertSchema> & HTMLAttributes<'div'>
 
 const alert = tv({
   slots: {
-    base: 'border-4 p-8 relative',
+    base: 'relative border-4 p-8',
   },
   variants: {
     intent: {
       destructive: 'border-red-500 text-red-500',
     },
     animate: {
-      true: 'animate-(--animate-foo) animate-alternate',
+      true: 'animate-alternate animate-(--animate-foo)',
     },
   },
   defaultVariants: {
@@ -31,12 +31,7 @@ const alert = tv({
 
 const { base } = alert()
 
-const {
-  intent,
-  animate = false,
-  class: className,
-  ...props
-} = Astro.props as AlertProps
+const { intent, animate = false, class: className, ...props } = Astro.props as AlertProps
 ---
 
 <div

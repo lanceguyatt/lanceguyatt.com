@@ -111,6 +111,9 @@ importers:
       prettier-plugin-astro:
         specifier: ^0.14.1
         version: 0.14.1
+      prettier-plugin-astro-organize-imports:
+        specifier: ^0.4.13
+        version: 0.4.13(prettier-plugin-astro@0.14.1)(prettier-plugin-tailwindcss@0.8.0(@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.8.3))(prettier-plugin-astro@0.14.1)(prettier@3.8.3))(prettier@3.8.3)
       prettier-plugin-tailwindcss:
         specifier: ^0.8.0
         version: 0.8.0(@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.8.3))(prettier-plugin-astro@0.14.1)(prettier@3.8.3)
@@ -239,6 +242,9 @@ packages:
 
   '@astrojs/compiler@2.13.1':
     resolution: {integrity: sha512-f3FN83d2G/v32ipNClRKgYv30onQlMZX1vCeZMjPsMMPl1mDpmbl0+N5BYo4S/ofzqJyS5hvwacEo0CCVDn/Qg==}
+
+  '@astrojs/compiler@3.0.1':
+    resolution: {integrity: sha512-z97oYbdebO5aoWzuJ/8q5hLK232+17KcLZ7cJ8BCWk6+qNzVxn/gftC0KzMBUTD8WAaBkPpNSQK6PXLnNrZ0CA==}
 
   '@astrojs/compiler@4.0.0':
     resolution: {integrity: sha512-eouss7G8ygdZqHuke033VMcVw5HTZUu+PXd/h06DGDUg/jt5btPYPqh66ENWw/mU78rBrf/oeC4oqoBwMtDMNA==}
@@ -3634,6 +3640,18 @@ packages:
     resolution: {integrity: sha512-SxToR7P8Y2lWmv/kTzVLC1t/GDI2WGjMwNhLLE9qtH8Q13C+aEmuRlzDst4Up4s0Wc8sF2M+J57iB3cMLqftfg==}
     engines: {node: '>=6.0.0'}
 
+  prettier-plugin-astro-organize-imports@0.4.13:
+    resolution: {integrity: sha512-AN96GT3ioy1r0MhVdT9UcqMWXtlb0itmUYvefWpclI1uMgPk9kpIqi1aW0fUzKsVWLWkfOWAPp3dOPFrf3pBRg==}
+    peerDependencies:
+      prettier: ^3.0
+      prettier-plugin-astro: '*'
+      prettier-plugin-tailwindcss: '*'
+    peerDependenciesMeta:
+      prettier-plugin-astro:
+        optional: true
+      prettier-plugin-tailwindcss:
+        optional: true
+
   prettier-plugin-astro@0.14.1:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
     engines: {node: ^14.15.0 || >=16.0.0}
@@ -4718,6 +4736,8 @@ snapshots:
   '@astrojs/compiler@2.12.2': {}
 
   '@astrojs/compiler@2.13.1': {}
+
+  '@astrojs/compiler@3.0.1': {}
 
   '@astrojs/compiler@4.0.0': {}
 
@@ -8364,6 +8384,15 @@ snapshots:
   prettier-linter-helpers@1.0.1:
     dependencies:
       fast-diff: 1.3.0
+
+  prettier-plugin-astro-organize-imports@0.4.13(prettier-plugin-astro@0.14.1)(prettier-plugin-tailwindcss@0.8.0(@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.8.3))(prettier-plugin-astro@0.14.1)(prettier@3.8.3))(prettier@3.8.3):
+    dependencies:
+      '@astrojs/compiler': 3.0.1
+      prettier: 3.8.3
+      typescript: 6.0.3
+    optionalDependencies:
+      prettier-plugin-astro: 0.14.1
+      prettier-plugin-tailwindcss: 0.8.0(@trivago/prettier-plugin-sort-imports@6.0.2(prettier@3.8.3))(prettier-plugin-astro@0.14.1)(prettier@3.8.3)
 
   prettier-plugin-astro@0.14.1:
     dependencies:

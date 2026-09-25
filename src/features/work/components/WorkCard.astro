@@ -15,11 +15,7 @@ const pathname = new URL(Astro.request.url).pathname
 <Nav id="work-nav" name="Work menu" class="not-prose">
   {
     work.map(({ slug, data: { name } }) => (
-      <Link
-        icon="drawer"
-        href={`/work/${slug}`}
-        active={pathname === `/work/${slug}`}
-      >
+      <Link icon="drawer" href={`/work/${slug}`} active={pathname === `/work/${slug}`}>
         {name}
       </Link>
     ))

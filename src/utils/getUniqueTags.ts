@@ -8,10 +8,7 @@ const getUniqueTags = (work: CollectionEntry<'work'>[]) => {
   filteredwork.forEach((project) => {
     tags = [...tags, project.data.tags]
       .map((tag) => slugifyStr(tag))
-      .filter(
-        (value: string, index: number, self: string[]) =>
-          self.indexOf(value) === index,
-      )
+      .filter((value: string, index: number, self: string[]) => self.indexOf(value) === index)
   })
   return tags
 }

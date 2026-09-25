@@ -22,13 +22,7 @@ export type NavProps = HTMLAttributes<'nav'> & z.infer<typeof navSchema>
 
 const pathname = new URL(Astro.request.url).pathname
 
-const {
-  id,
-  name,
-  items,
-  vertical = false,
-  class: className,
-} = Astro.props as NavProps
+const { id, name, items, vertical = false, class: className } = Astro.props as NavProps
 
 const nav = tv({
   slots: {
@@ -38,7 +32,7 @@ const nav = tv({
   },
   variants: {
     vertical: {
-      true: 'flex-col w-24 items-center',
+      true: 'w-24 flex-col items-center',
       false: 'flex-wrap',
     },
   },

@@ -11,9 +11,7 @@ export const layoutSchema = z.object({
   theme: z.string().optional(),
 })
 
-export type LayoutProps = SiteProps &
-  HTMLAttributes<'html'> &
-  z.infer<typeof layoutSchema>
+export type LayoutProps = SiteProps & HTMLAttributes<'html'> & z.infer<typeof layoutSchema>
 
 const {
   title,
@@ -35,10 +33,7 @@ const meta = { name, title, description, url, image }
       <slot name="head" />
     </BaseHead>
   </head>
-  <body
-    class:list={['cursor-(--cursor-amiga)', cn(className)]}
-    data-theme={theme}
-  >
+  <body class:list={['cursor-(--cursor-amiga)', cn(className)]} data-theme={theme}>
     <slot />
     <DevTools />
   </body>

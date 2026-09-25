@@ -26,10 +26,7 @@
     </template>
   </div>
 
-  <div
-    x-data="{ pesticide: $persist(false) }"
-    @keyup.p.window="pesticide = !pesticide"
-  >
+  <div x-data="{ pesticide: $persist(false) }" @keyup.p.window="pesticide = !pesticide">
     <template x-if="pesticide">
       <div>
         <link rel="stylesheet" href="/styles/pesticide.css" />

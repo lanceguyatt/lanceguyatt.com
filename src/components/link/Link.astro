@@ -3,18 +3,11 @@
 import { Icon } from 'astro-icon/components'
 import { tv } from 'tailwind-variants'
 
-const {
-  name,
-  active,
-  class: className,
-  external = false,
-  href,
-  icon = 'disk',
-} = Astro.props
+const { name, active, class: className, external = false, href, icon = 'disk' } = Astro.props
 
 const link = tv({
   slots: {
-    base: 'flex flex-col items-center text-base/tighter outline-none',
+    base: 'text-base/tighter flex flex-col items-center outline-none',
   },
   variants: {
     active: {

@@ -107,11 +107,7 @@ const schema = {
       image && (
         <div class="h-36 w-36 self-center">
           <div class="aspect-square">
-            <Image
-              src={image}
-              alt=""
-              class="border-img-bar p-2px object-cover"
-            />
+            <Image src={image} alt="" class="border-img-bar p-2px object-cover" />
           </div>
         </div>
       )
@@ -120,11 +116,7 @@ const schema = {
     <pre>{JSON.stringify(Astro.props.entry, null, 2)}</pre>
 
     <dl class="grid max-w-160 gap-3 sm:grid-cols-[1fr_11fr]">
-      <dt
-        class="text-foreground flex items-center after:content-[':'] sm:justify-end"
-      >
-        Name
-      </dt>
+      <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">Name</dt>
       <dd class="border-img-foo p-2px">{name}</dd>
       {
         url && (
