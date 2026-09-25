@@ -1,20 +1,15 @@
 ---
-import { Depth } from '@/components/depth'
-import { cn } from '@/lib/utils'
+import { Depth } from '@/components'
 import { type HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
-import { tv } from 'tailwind-variants'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 export const titlebarSchema = z.object({
   color: z.enum(['black', 'white', 'primary', 'secondary']).optional(),
   depth: z.boolean().optional(),
 })
 
-export type TitleProps = HTMLAttributes<'div'> & z.infer<typeof titlebarSchema>
-
-const { class: className, depth = true, color = 'black', ...props } = Astro.props as TitleProps
-
-const titlebar = tv({
+const titlebarVariants = tv({
   slots: {
     base: 'h-titlebar flex items-center gap-1',
     wrapper: 'flex-1 overflow-hidden text-ellipsis whitespace-nowrap',
@@ -30,10 +25,16 @@ const titlebar = tv({
   defaultVariants: { color: 'black' },
 })
 
-const { base, wrapper } = titlebar()
+
+export type TitleProps = HTMLAttributes<'div'> & z.infer<typeof titlebarSchema> & VariantProps<typeof titlebarVariants>
+
+const { class: className, depth = true, color = 'black' } = Astro.props as TitleProps
+
+
+const { base, wrapper } = titlebarVariants({ color })
 ---
 
-<div data-component="titlebar" class:list={[cn(base({ color }), className)]} {...props}>
+<div data-component="titlebar" class={base({ class: className })}>
   <slot name="prefix" />
   <div class={wrapper()}>
     <slot />
