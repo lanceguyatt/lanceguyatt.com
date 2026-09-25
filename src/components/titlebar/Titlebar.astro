@@ -5,7 +5,6 @@ import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const titlebarSchema = z.object({
-  color: z.enum(['black', 'white', 'primary', 'secondary']).optional(),
   depth: z.boolean().optional(),
 })
 
@@ -15,31 +14,29 @@ const titlebarVariants = tv({
     wrapper: 'flex-1 overflow-hidden text-ellipsis whitespace-nowrap',
   },
   variants: {
-    color: {
-      black: 'text-secondary bg-black',
-      white: 'bg-white text-black',
-      primary: 'bg-primary text-primary-foreground',
-      secondary: 'bg-secondary text-secondary-foreground',
+    intent: {
+      black: { base: 'text-secondary bg-black' },
+      white: { base: 'bg-white text-black' },
+      primary: { base: 'bg-primary text-primary-foreground' },
+      secondary: { base: 'bg-secondary text-secondary-foreground' },
     },
   },
-  defaultVariants: { color: 'black' },
+  defaultVariants: { intent: 'black' },
 })
 
+export type TitleProps = HTMLAttributes<'div'> &
+  z.infer<typeof titlebarSchema> &
+  VariantProps<typeof titlebarVariants>
 
-export type TitleProps = HTMLAttributes<'div'> & z.infer<typeof titlebarSchema> & VariantProps<typeof titlebarVariants>
+const { class: className, depth = true, intent } = Astro.props as TitleProps
 
-const { class: className, depth = true, color = 'black' } = Astro.props as TitleProps
-
-
-const { base, wrapper } = titlebarVariants({ color })
+const { base, wrapper } = titlebarVariants({ intent })
 ---
 
-<div data-component="titlebar" class={base({ class: className })}>
+<div class={base({ class: className })}>
   <slot name="prefix" />
   <div class={wrapper()}>
     <slot />
   </div>
-  <slot name="suffix">
-    {depth && <Depth class="bg-background" />}
-  </slot>
+  <slot name="suffix">{depth && <Depth class="bg-background" />}</slot>
 </div>

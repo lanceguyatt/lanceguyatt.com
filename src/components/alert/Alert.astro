@@ -3,9 +3,7 @@ import { type HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
 
-export const alertSchema = z.object({
-  animate: z.boolean().optional().default(false),
-})
+export const alertSchema = z.object({})
 
 const alertVariants = tv({
   slots: {
@@ -25,18 +23,16 @@ const alertVariants = tv({
   },
 })
 
-export type AlertProps = HTMLAttributes<'div'> & z.infer<typeof alertSchema> & VariantProps<typeof alertVariants>
+export type AlertProps = HTMLAttributes<'div'> &
+  z.infer<typeof alertSchema> &
+  VariantProps<typeof alertVariants>
 
 const { intent, animate = false, class: className } = Astro.props as AlertProps
 
 const { base } = alertVariants({ intent, animate })
 ---
 
-<div
-  role="dialog"
-  data-component="alert"
-  class={base({ class: className })}
->
+<div role="dialog" class={base({ class: className })}>
   <slot />
 </div>
 

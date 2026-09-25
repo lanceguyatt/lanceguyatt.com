@@ -1,2 +1,5 @@
-export { Depth } from '@/components/depth'
 export { Alert } from '@/components/alert'
+export { Button } from '@/components/button'
+export { Depth } from '@/components/depth'
+export { BaseHead } from '@/components/baseHead'
+export { DevTools } from '@/components/devTools'

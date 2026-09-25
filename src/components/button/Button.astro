@@ -1,20 +1,11 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import { cn } from '@/lib/utils'
-import { tv } from 'tailwind-variants'
+import { tv, type VariantProps } from 'tailwind-variants'
 import { z } from 'astro/zod'
 
-export const buttonSchema = z.object({
-  intent: z.enum(['default', 'destructive', 'outline', 'secondary', 'ghost', 'link']),
-  width: z.enum(['auto', 'full']),
-  size: z.enum(['default', 'sm', 'lg']),
-})
+export const buttonSchema = z.object({})
 
-export type ButtonProps = z.infer<typeof buttonSchema> &
-  HTMLAttributes<'button'> &
-  Omit<HTMLAttributes<'a'>, 'type'>
-
-const button = tv({
+const buttonVariants = tv({
   slots: {
     base: 'button inline-flex items-center justify-center whitespace-nowrap',
   },
@@ -44,10 +35,13 @@ const button = tv({
   },
 })
 
-const { as: Comp = 'a', class: className, intent, ...props } = Astro.props as ButtonProps
-const { base } = button()
+export type ButtonProps = z.infer<typeof buttonSchema> & HTMLAttributes<'button'> & Omit<HTMLAttributes<'a'>, 'type'> & VariantProps<typeof buttonVariants>
+
+const { as: Comp = 'a', class: className, intent } = Astro.props as ButtonProps
+
+const { base } = buttonVariants({ intent })
 ---
 
-<Comp data-component="button" class:list={[cn(base({ intent }), className)]} {...props}>
+<Comp data-component="button" class={base({ className })}>
   <slot />
 </Comp>

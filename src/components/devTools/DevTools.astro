@@ -1,14 +1,11 @@
 ---
-
 ---
 
 <>
   <div x-data="{ grid: $persist(false) }" @keyup.g.window="grid = !grid">
     <template x-if="grid">
       <div class="pointer-events-none fixed inset-0 z-50 grid">
-        <div
-          class="container m-auto grid grid-cols-6 gap-8 opacity-20 md:grid-cols-8 lg:grid-cols-12"
-        >
+        <div class="container m-auto grid grid-cols-6 gap-8 opacity-20 md:grid-cols-8 lg:grid-cols-12">
           <div class="bg-primary"></div>
           <div class="bg-primary"></div>
           <div class="bg-primary"></div>

@@ -1,13 +1,12 @@
 {
   "extends": "astro/tsconfigs/base",
+  "include": [".astro/types.d.ts", "src/**/*", "astro.config.*"],
+  "exclude": ["dist", "storybook-static"],
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
+    "noImplicitAny": false,
     "paths": {
-      "@/*": ["./*"]
-    },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "strictNullChecks": true, // add if using `base` template
-    "allowJs": true // required, and included with all Astro templates
+      "@/*": ["./src/*"]
+    }
   }
 }

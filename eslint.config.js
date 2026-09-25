@@ -27,6 +27,7 @@ export default defineConfig([
     files: ['**/*.astro'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
+      'astro/no-exports-from-components': 'off'
     },
   },
 
@@ -36,18 +37,8 @@ export default defineConfig([
       '.astro/**',
       '.vercel/**',
       'dist/**',
-      'pages/css-scroll-trigger.astro',
       'public/**',
-      'src/blocks/advertiserDirectory/scripts/widgets/**',
-      'src/layouts/default/components/**',
-      'src/pages/eventbrite.astro',
-      'src/pages/pardot.astro',
-      'src/pages/quiz.astro',
-      'src/scripts/**',
       'storybook-static',
-
-      'src/pages/css-scroll-trigger.astro',
-      'src/pages/design-system/**',
     ],
   },
 ])

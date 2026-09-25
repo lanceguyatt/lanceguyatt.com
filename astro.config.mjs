@@ -3,12 +3,16 @@ import mdx from '@astrojs/mdx'
 import tailwind from '@tailwindcss/vite'
 import icon from 'astro-icon'
 import { defineConfig, fontProviders } from 'astro/config'
+import { unified } from '@astrojs/markdown-remark';
 
 let prefixCounter = 0
 
 // https://astro.build/config
 export default defineConfig({
   // site: 'https://lanceguyatt.surge.sh/',
+  markdown: {
+    processor: unified(),
+  },
   integrations: [
     mdx(),
     alpine({

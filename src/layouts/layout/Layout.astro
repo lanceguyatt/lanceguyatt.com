@@ -1,6 +1,5 @@
 ---
-import { BaseHead } from '@/components/baseHead'
-import { DevTools } from '@/components/devTools'
+import { BaseHead, DevTools } from '@/components'
 import { type SiteProps, SITE } from '@/config'
 import { cn } from '@/lib/utils'
 import '@/styles/global.css'
@@ -33,7 +32,7 @@ const meta = { name, title, description, url, image }
       <slot name="head" />
     </BaseHead>
   </head>
-  <body class:list={['cursor-(--cursor-amiga)', cn(className)]} data-theme={theme}>
+  <body class:list={['cursor-amiga', cn(className)]} data-theme={theme}>
     <slot />
     <DevTools />
   </body>
