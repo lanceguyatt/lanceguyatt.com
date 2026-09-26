@@ -1,0 +1,19 @@
+---
+import { Layout } from '@/layouts/layout'
+import { Titlebar, Nav } from '@/components'
+import { getEntry } from 'astro:content'
+
+const nav = await getEntry('nav', 'main')
+
+const { meta } = Astro.props
+---
+
+<Layout {...meta}>
+  <div class="bg-secondary text-foreground">
+    <Titlebar>Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved</Titlebar>
+    <main class="bg-amber-200">
+      <slot />
+    </main>
+    <Nav {...nav.data} vertical />
+  </div>
+</Layout>

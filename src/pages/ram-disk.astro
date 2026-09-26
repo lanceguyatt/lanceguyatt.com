@@ -1,0 +1,17 @@
+---
+import { Workbench } from '@/layouts'
+import { getEntry } from 'astro:content'
+import { Window } from '@/components'
+
+const entry = await getEntry('pages', 'ram-disk')
+
+if (!entry) return Astro.redirect('404')
+
+const { title, description } = entry.data
+---
+
+<Workbench {title} {description}>
+  <Window as="article" {title} class="m-6">
+    <pre>{JSON.stringify(entry,null,2)}</pre>
+  </Window>
+</Workbench>

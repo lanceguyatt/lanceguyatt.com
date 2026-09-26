@@ -1,0 +1,15 @@
+---
+import { Workbench } from '@/layouts'
+import { getEntry } from 'astro:content'
+import { Window } from '@/components'
+
+const entry = await getEntry('pages', 'about')
+
+if (!entry) return Astro.redirect('404')
+---
+
+<Workbench title={entry.data.name} description={entry.data.description}>
+  <Window name="About" as="article">
+    <pre>{JSON.stringify(entry,null,2)}</pre>
+  </Window>
+</Workbench>
