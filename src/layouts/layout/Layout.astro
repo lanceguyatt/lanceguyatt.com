@@ -1,5 +1,5 @@
 ---
-import { BaseHead, DevTools } from '@/components'
+import { BaseHead } from '@/components'
 import { type SiteProps, SITE } from '@/config'
 import '@/styles/global.css'
 import { type HTMLAttributes } from 'astro/types'
@@ -34,6 +34,5 @@ const { base, body } = layoutVariants()
   </head>
   <body class={body()} data-theme={theme}>
     <slot />
-    <DevTools />
   </body>
 </html>

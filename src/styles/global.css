@@ -4,9 +4,6 @@
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities);
 
-@plugin '@tailwindcss/typography';
-@plugin 'tailwindcss-animate';
-
 @import './themes/workbench.css' layer(theme);
 
 @layer base {
