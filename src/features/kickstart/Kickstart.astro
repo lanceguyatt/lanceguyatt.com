@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<article
+  class:list={[
+    'bg-kickstart-background text-kickstart-foreground grid grid-rows-2 min-h-dvh',
+    'md:grid-rows-1 md:grid-cols-2',
+  ]}
+>
+  <div class="grid gap-8 place-content-end p-12 justify-center items-end md:justify-start">
+    <h1 class="sr-only">Kickstart</h1>
+    <Icon name="tick" class="w-41.25 h-37.5" />
+    <div>
+      <p>2.0 Roms (37.350)</p>
+      <p>Copyright © 2000-2026</p>
+      <p>Lance Guyatt, Inc</p>
+      <p class="mt-4">All Rights Reserved</p>
+    </div>
+  </div>
+  <div class="grid p-12 justify-center items-start md:place-content-end">
+    <a href="/" class="relative flex mb-20 flex-col items-center">
+      <span class="sr-only">Return to workbench</span>
+      <Icon name="floppy-drive" class="w-39 h-9.5" />
+      <Icon name="floppy-disk" class="w-33.5 h-30 relative top-9 animate-insert-disk" />
+    </a>
+  </div>
+</article>

@@ -1,0 +1,19 @@
+---
+import { type HTMLAttributes } from 'astro/types'
+import { cn } from '@/lib/utils'
+
+type Props = HTMLAttributes<'button'>
+
+const { class: className, ...rest } = Astro.props
+---
+
+<button
+  type="button"
+  class:list={cn([
+    'w-5 h-titlebar bg-(image:--bg-close) inline-block active:bg-position-[-20px_0]',
+    className,
+  ])}
+  {...rest}
+>
+  <span class="sr-only">Toggle depth</span>
+</button>

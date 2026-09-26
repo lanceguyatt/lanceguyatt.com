@@ -1,0 +1,11 @@
+---
+import { tv } from 'tailwind-variants'
+
+const { class: className, ...rest } = Astro.props
+
+const toastyVariants = tv({
+  base: 'size-50 bg-(image:--bg-toasty) bg-cover',
+})
+---
+
+<div class={toastyVariants({ class: className })} {...rest}></div>
