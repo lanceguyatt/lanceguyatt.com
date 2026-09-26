@@ -1,13 +1,14 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
-import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
 
-export const alertSchema = z.object({})
+type Props = HTMLAttributes<'dialog'> & VariantProps<typeof alertVariants>
+
+const { intent, animate = false, class: className, ...rest } = Astro.props
 
 const alertVariants = tv({
   slots: {
-    base: 'relative border-4 p-8',
+    base: 'm-auto border-4 bg-transparent p-8 text-center',
   },
   variants: {
     intent: {
@@ -23,29 +24,9 @@ const alertVariants = tv({
   },
 })
 
-export type AlertProps = HTMLAttributes<'div'> &
-  z.infer<typeof alertSchema> &
-  VariantProps<typeof alertVariants>
-
-const { intent, animate = false, class: className } = Astro.props as AlertProps
-
 const { base } = alertVariants({ intent, animate })
 ---
 
-<div role="dialog" class={base({ class: className })}>
+<dialog class={base({ class: className })} {...rest}>
   <slot />
-</div>
-
-<style is:global>
-  @reference "tailwindcss";
-
-  [data-component='alert'] {
-    & a {
-      @apply hover:underline;
-
-      &::before {
-        @apply absolute inset-0 z-0 block content-[""];
-      }
-    }
-  }
-</style>
+</dialog>

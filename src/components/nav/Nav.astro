@@ -14,14 +14,13 @@ export const navSchema = z.object({
       icon: z.string(),
     }),
   ),
-  vertical: z.boolean().optional().default(false),
 })
 
-export type NavProps = HTMLAttributes<'nav'> & z.infer<typeof navSchema> & VariantProps<typeof navVariants>
+type NavProps = HTMLAttributes<'nav'> & z.infer<typeof navSchema> & VariantProps<typeof navVariants>
 
 const pathname = new URL(Astro.request.url).pathname
 
-const { id, name, items, vertical = false, class: className } = Astro.props as NavProps
+const { id, name, items, vertical, class: className } = Astro.props
 
 const navVariants = tv({
   slots: {

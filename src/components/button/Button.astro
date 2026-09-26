@@ -35,13 +35,16 @@ const buttonVariants = tv({
   },
 })
 
-export type ButtonProps = z.infer<typeof buttonSchema> & HTMLAttributes<'button'> & Omit<HTMLAttributes<'a'>, 'type'> & VariantProps<typeof buttonVariants>
+type Props = z.infer<typeof buttonSchema> &
+  HTMLAttributes<'button'> &
+  Omit<HTMLAttributes<'a'>, 'type'> &
+  VariantProps<typeof buttonVariants>
 
-const { as: Comp = 'a', class: className, intent } = Astro.props as ButtonProps
+const { as: Comp = 'a', class: className, intent } = Astro.props
 
-const { base } = buttonVariants({ intent })
+const { base } = buttonVariants({ intent, size, width })
 ---
 
-<Comp data-component="button" class={base({ className })}>
+<Comp class={base({ className })}>
   <slot />
 </Comp>

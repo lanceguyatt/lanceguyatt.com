@@ -12,7 +12,8 @@ export const baseHeadSchema = z.object({
   noindex: z.boolean().optional(),
 })
 
-export type BaseHeadProps = z.infer<typeof baseHeadSchema>
+type Props = z.infer<typeof baseHeadSchema>
+export type BaseHeadProps = Props
 
 const {
   title = SITE.name,
@@ -20,7 +21,7 @@ const {
   url = '/',
   image = SITE.image,
   noindex = false,
-} = Astro.props as BaseHeadProps
+} = Astro.props
 ---
 
 <>

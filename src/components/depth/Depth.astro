@@ -1,13 +1,19 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
-import { Icon } from 'astro-icon/components'
+import { cn } from '@/lib/utils'
 
-export type DepthProps = HTMLAttributes<'button'>
+type Props = HTMLAttributes<'button'>
 
-const { class: className, ...props } = Astro.props as DepthProps
+const { class: className, ...rest } = Astro.props
 ---
 
-<button type="button" class:list={['', className]} {...props}>
-  <span class="sr-only">Depth</span>
-  <Icon name="depth" />
+<button
+  type="button"
+  class:list={cn([
+    'w-5.75 h-titlebar bg-(image:--bg-depth) inline-block active:bg-position-[-23px_0]',
+    className,
+  ])}
+  {...rest}
+>
+  <span class="sr-only">Toggle depth</span>
 </button>

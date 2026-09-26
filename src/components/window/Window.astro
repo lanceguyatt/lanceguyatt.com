@@ -2,62 +2,57 @@
 import type { HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
-import { Depth } from '@/components'
-import { Icon } from 'astro-icon/components'
+import { Depth, Zoom } from '@/components'
+import Close from './components/Close.astro'
 
 export const windowSchema = z.object({
   name: z.string(),
-  close: z
-    .object({
-      name: z.string(),
-      href: z.string(),
-    })
-    .optional(),
+  // close: z
+  //   .object({
+  //     name: z.string(),
+  //     href: z.string(),
+  //   })
+  //   .optional(),
 })
 
 const windowVariants = tv({
   slots: {
-    base: 'window relative grid grid-rows-[auto_1fr]',
-    header: 'window-header absolute -inset-x-1.5 -top-5 flex h-4 items-center bg-amber-500',
-    content: 'window-content bg-secondary p-2',
+    base: 'window relative grid',
+    header: 'absolute -inset-x-1 -top-5.5 flex h-5 bg-yellow-100 px-1',
+    main: 'bg-secondary row-span-2 h-full bg-amber-100 p-2',
   },
   variants: {
     intent: {
       primary: { base: 'bg-primary text-black' },
-      secondary: { base: 'bg-secondary text-primary' },
+      secondary: { base: 'bg-secondary text-black' },
     },
   },
   defaultVariants: { intent: 'primary' },
 })
 
+type Props = HTMLAttributes<'section'> &
+  z.infer<typeof windowSchema> &
+  VariantProps<typeof windowVariants>
 
-export type WindowProps = HTMLAttributes<'section'> & z.infer<typeof windowSchema> & VariantProps<typeof windowVariants>
+const { name, intent, close = true, zoom = true, depth = true, class: className } = Astro.props
 
-const {
-  name,
-  class: className,
-  intent,
-  close = {
-    name: 'Close',
-    href: '/',
-  },
-} = Astro.props as WindowProps
-
-
-const { base, header, content } = windowVariants({ intent })
+const { base, header, main } = windowVariants({ intent })
 ---
 
 <section class={base({ class: className })}>
-  <div class={header()}>
-    {close ? (
-      <a href={close.href} aria-label={close.name}>
-        <Icon name="close" />
-      </a>
-    ) : null}
-    <div class="flex-auto bg-amber-300">{name}</div>
-    <Depth />
-  </div>
-  <div class={content()}>
+  <header class={header()}>
+    <div class="flex">{close && <Close />}</div>
+
+    <div class="flex-auto">
+      <div class="truncate overflow-hidden bg-amber-700">{name}</div>
+    </div>
+
+    <div class="flex ml-auto">
+      {zoom && <Zoom />}
+      {depth && <Depth />}
+    </div>
+  </header>
+  <div class={main()}>
     <slot />
   </div>
 </section>

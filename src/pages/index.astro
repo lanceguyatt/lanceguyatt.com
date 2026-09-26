@@ -1,10 +1,7 @@
 ---
 import { Layout } from '@/layouts/layout'
-import { Titlebar } from '@/components/titlebar'
-import { Window } from '@/components/window'
 import { getEntry } from 'astro:content'
-import { Nav } from '@/components/nav'
-import { Alert } from '@/components/alert'
+import { Nav, Alert, Window, Titlebar } from '@/components'
 
 const nav = await getEntry('nav', 'main')
 ---
@@ -15,10 +12,27 @@ const nav = await getEntry('nav', 'main')
     <div class="grid grid-cols-2">
       <div>
         <Alert>This is a destructive alert</Alert>
-      </div>
-      <Window name="Hi, I'm Lance Guyatt. I'm a web developer based in the UK.">
+        <Alert animate>
+          <p>This is a destructive alert</p>
+        </Alert>
         {nav && <Nav {...nav.data} />}
-      </Window>
+      </div>
+      <Window name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved" close depth />
+      <Window
+        name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved"
+        close={false}
+        depth
+      />
+      <Window
+        name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved"
+        close
+        depth={false}
+      />
+      <Window
+        name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved"
+        depth={false}
+        close={false}
+      />
     </div>
   </div>
 </Layout>
