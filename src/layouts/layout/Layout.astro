@@ -6,11 +6,7 @@ import { type HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
 import { tv } from 'tailwind-variants'
 
-export const layoutSchema = z.object({
-  theme: z.string().optional(),
-})
-
-type Props = SiteProps & HTMLAttributes<'html'> & z.infer<typeof layoutSchema>
+type Props = SiteProps & HTMLAttributes<'html'>
 
 const layoutVariants = tv({
   slots: {
@@ -19,7 +15,7 @@ const layoutVariants = tv({
   },
 })
 
-const { title, name, description, url, image, theme, class: className } = Astro.props
+const { title, name, description, url, image, class: className } = Astro.props
 
 const meta = { name, title, description, url, image }
 
@@ -32,7 +28,7 @@ const { base, body } = layoutVariants()
       <slot name="head" />
     </BaseHead>
   </head>
-  <body class={body()} data-theme={theme}>
+  <body class={body()}>
     <slot />
   </body>
 </html>

@@ -22,7 +22,7 @@ export const navSchema = z.object({
 
 export const pageSchema = ({ image }: { image: any }) =>
   z.object({
-    name: z.string(),
+    title: z.string(),
     description: z.string().optional(),
     icon: z.string().optional(),
     draft: z.boolean().optional(),

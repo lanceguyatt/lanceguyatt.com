@@ -33,10 +33,10 @@ const { class: className, depth = true, intent } = Astro.props as TitleProps
 const { base, wrapper } = titlebarVariants({ intent })
 ---
 
-<div class={base({ class: className })}>
+<header class={base({ class: className })}>
   <slot name="prefix" />
   <div class={wrapper()}>
     <slot />
   </div>
   <slot name="suffix">{depth && <Depth class="bg-background" />}</slot>
-</div>
+</header>

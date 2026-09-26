@@ -1,38 +1,27 @@
 ---
-import { Layout } from '@/layouts/layout'
+import { Workbench } from '@/layouts'
 import { getEntry } from 'astro:content'
 import { Nav, Alert, Window, Titlebar } from '@/components'
 
 const nav = await getEntry('nav', 'main')
 ---
 
-<Layout>
-  <div class="grid h-dvh bg-secondary grid-rows-[auto_1fr]">
-    <Titlebar as="h1">Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved</Titlebar>
-    <div class="grid grid-cols-2">
-      <div>
-        <Alert>This is a destructive alert</Alert>
-        <Alert animate>
-          <p>This is a destructive alert</p>
-        </Alert>
-        {nav && <Nav {...nav.data} />}
-      </div>
-      <Window name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved" close depth />
-      <Window
-        name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved"
-        close={false}
-        depth
-      />
-      <Window
-        name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved"
-        close
-        depth={false}
-      />
-      <Window
-        name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved"
-        depth={false}
-        close={false}
-      />
+<Workbench>
+  <div class="grid grid-cols-2 bg-amber-200">
+    <div>
+      <Alert>This is a destructive alert</Alert>
+      <Alert animate>
+        <p>This is a destructive alert</p>
+      </Alert>
+      {nav && <Nav {...nav.data} />}
     </div>
+    <Window name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved" close depth />
+    <Window name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved" close={false} depth />
+    <Window name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved" close depth={false} />
+    <Window
+      name="Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved"
+      depth={false}
+      close={false}
+    />
   </div>
-</Layout>
+</Workbench>

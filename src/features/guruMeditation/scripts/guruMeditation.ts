@@ -18,11 +18,16 @@ export default function (): KonamiComponent {
 
     konami() {
       const konamiCodeKeys = [
-        'ArrowUp', 'ArrowUp',
-        'ArrowDown', 'ArrowDown',
-        'ArrowLeft', 'ArrowRight',
-        'ArrowLeft', 'ArrowRight',
-        'KeyB', 'KeyA',
+        'ArrowUp',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'ArrowLeft',
+        'ArrowRight',
+        'KeyB',
+        'KeyA',
       ]
       let konamiCodeArray: string[] = []
       this.toastyAudio = this.$refs.toastyAudio

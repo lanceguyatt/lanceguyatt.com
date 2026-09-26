@@ -5,8 +5,8 @@ import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 export const navSchema = z.object({
-  name: z.string(),
   id: z.string(),
+  name: z.string(),
   items: z.array(
     z.object({
       name: z.string(),
@@ -16,11 +16,11 @@ export const navSchema = z.object({
   ),
 })
 
-type NavProps = HTMLAttributes<'nav'> & z.infer<typeof navSchema> & VariantProps<typeof navVariants>
+type Props = HTMLAttributes<'nav'> & z.infer<typeof navSchema> & VariantProps<typeof navVariants>
 
 const pathname = new URL(Astro.request.url).pathname
 
-const { id, name, items, vertical, class: className } = Astro.props
+const { id, name, items, vertical, class: className, ...rest } = Astro.props
 
 const navVariants = tv({
   slots: {
@@ -30,8 +30,8 @@ const navVariants = tv({
   },
   variants: {
     vertical: {
-      true: 'w-24 flex-col items-center',
-      false: 'flex-wrap',
+      true: { list: 'w-24 flex-col items-center' },
+      false: { list: 'flex-wrap' },
     },
   },
   defaultVariants: {
@@ -42,7 +42,7 @@ const navVariants = tv({
 const { base, list, item } = navVariants({ vertical })
 ---
 
-<nav aria-labelledby={id} class={base({ class: className })}>
+<nav aria-labelledby={id} class={base({ class: className })} {...rest}>
   <h2 {id} class="sr-only">
     {name}
   </h2>

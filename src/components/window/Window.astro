@@ -6,20 +6,17 @@ import { Depth, Zoom } from '@/components'
 import Close from './components/Close.astro'
 
 export const windowSchema = z.object({
-  name: z.string(),
-  // close: z
-  //   .object({
-  //     name: z.string(),
-  //     href: z.string(),
-  //   })
-  //   .optional(),
+  title: z.string(),
+  close: z.boolean().optional(),
+  depth: z.boolean().optional(),
+  zoom: z.boolean().optional(),
 })
 
 const windowVariants = tv({
   slots: {
     base: 'window relative grid',
-    header: 'absolute -inset-x-1 -top-5.5 flex h-5 bg-yellow-100 px-1',
-    main: 'bg-secondary row-span-2 h-full bg-amber-100 p-2',
+    header: 'absolute -inset-x-2 -top-5.5 flex h-5 px-1',
+    main: 'bg-secondary row-span-2 h-full p-2',
   },
   variants: {
     intent: {
@@ -30,21 +27,31 @@ const windowVariants = tv({
   defaultVariants: { intent: 'primary' },
 })
 
-type Props = HTMLAttributes<'section'> &
+type Props = (HTMLAttributes<'article'> | HTMLAttributes<'section'>) &
   z.infer<typeof windowSchema> &
-  VariantProps<typeof windowVariants>
+  VariantProps<typeof windowVariants> & {
+    as?: 'article' | 'section'
+  }
 
-const { name, intent, close = true, zoom = true, depth = true, class: className } = Astro.props
+const {
+  title,
+  intent,
+  close = true,
+  zoom = true,
+  depth = true,
+  as: Tag = 'section',
+  class: className,
+} = Astro.props
 
 const { base, header, main } = windowVariants({ intent })
 ---
 
-<section class={base({ class: className })}>
+<Tag class={base({ class: className })}>
   <header class={header()}>
     <div class="flex">{close && <Close />}</div>
 
     <div class="flex-auto">
-      <div class="truncate overflow-hidden bg-amber-700">{name}</div>
+      <div class="truncate overflow-hidden">{title}</div>
     </div>
 
     <div class="flex ml-auto">
@@ -55,7 +62,7 @@ const { base, header, main } = windowVariants({ intent })
   <div class={main()}>
     <slot />
   </div>
-</section>
+</Tag>
 
 <style is:global>
   .window {
