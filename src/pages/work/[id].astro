@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content'
+import { SITE } from 'astro:env/client'
+import { Workbench } from '@/layouts'
+import { Window, Nav } from '@/components'
+import { Work } from '@/features/work'
+
+export async function getStaticPaths() {
+  const entries = await getCollection('work')
+  return entries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { data } = entry
+const { name, description, image, url } = data
+
+const work = (await getCollection('work', ({ data }) => !data.draft)).map((item) => ({
+  name: item.data.name,
+  url: `/work/${item.id}`,
+}))
+---
+
+<Workbench title={name} {description}>
+  <Work {entry} />
+
+  {work && (
+    <Window title="Work">
+      <Nav id="work" name="work" items={work} />
+    </Window>
+  )}
+</Workbench>
