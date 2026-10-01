@@ -38,7 +38,7 @@
     "async-alpine": "^2.0.3",
     "clsx": "^2.1.1",
     "github-slugger": "^2.0.0",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "tailwind-merge": "^3.7.0",
     "tailwind-variants": "^3.3.1",
     "tailwindcss": "^4.3.3",
@@ -46,9 +46,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@tailwindcss/typography": "^0.5.20",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
-    "@types/alpinejs": "^3.13.11",
-    "@typescript-eslint/parser": "^8.70.1",
+    "@types/alpinejs": "^3.17.0",
+    "@typescript-eslint/parser": "^8.71.0",
     "astro-eslint-parser": "^3.2.0",
     "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
@@ -60,7 +61,7 @@
     "prettier-plugin-astro": "^1.1.0",
     "prettier-plugin-astro-organize-imports": "^0.4.13",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "typescript-eslint": "^8.70.1"
+    "typescript-eslint": "^8.71.0"
   },
   "engines": {
     "node": ">=22"

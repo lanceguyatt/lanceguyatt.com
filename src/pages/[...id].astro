@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content'
 
 import { SITE } from '@/config'
-import { Layout } from '@/layouts/layout'
+import { Workbench } from '@/layouts'
 
 export async function getStaticPaths() {
   const entries = await getCollection('pages')
@@ -23,6 +23,6 @@ const title = `${name} - ${SITE.name}`
 const meta = { title, name, description, url, image }
 ---
 
-<Layout {...meta}>
+<Workbench {...meta}>
   <Content />
-</Layout>
+</Workbench>

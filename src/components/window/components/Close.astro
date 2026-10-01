@@ -2,18 +2,28 @@
 import { type HTMLAttributes } from 'astro/types'
 import { cn } from '@/lib/utils'
 
-type Props = HTMLAttributes<'button'>
+type Props = (HTMLAttributes<'a'> | HTMLAttributes<'button'>) & {
+  as?: 'a' | 'button'
+}
 
-const { class: className, ...rest } = Astro.props
+const { as = 'a', class: className, ...rest } = Astro.props
+
+const classes = cn([
+  'w-5 h-titlebar bg-(image:--bg-close) inline-block active:bg-position-[-20px_0]',
+  className,
+])
 ---
 
-<button
-  type="button"
-  class:list={cn([
-    'w-5 h-titlebar bg-(image:--bg-close) inline-block active:bg-position-[-20px_0]',
-    className,
-  ])}
-  {...rest}
->
-  <span class="sr-only">Toggle depth</span>
-</button>
+{as === 'button' ? (
+  <button class:list={classes} {...(rest as HTMLAttributes<'button'>)}>
+    <span class="sr-only">
+      <slot />
+    </span>
+  </button>
+) : (
+  <a class:list={classes} {...(rest as HTMLAttributes<'a'>)}>
+    <span class="sr-only">
+      <slot />
+    </span>
+  </a>
+)}

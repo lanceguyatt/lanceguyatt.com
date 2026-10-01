@@ -10,12 +10,12 @@ export const aboutSchema = z.object({
 export const navSchema = z.object({
   id: z.string(),
   name: z.string(),
-  // items: z.array(reference('page')),
   items: z.array(
     z.object({
       name: z.string(),
       url: z.string(),
-      icon: z.string(),
+      current: z.boolean().optional(),
+      type: z.enum(['disk', 'drawer', 'drive', 'file']),
     }),
   ),
 })

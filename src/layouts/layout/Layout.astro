@@ -1,25 +1,44 @@
 ---
 import { BaseHead } from '@/components'
 import { type SiteProps, SITE } from '@/config'
-import '@/styles/global.css'
+import '@/styles/app.css'
 import { type HTMLAttributes } from 'astro/types'
-import { z } from 'astro/zod'
-import { tv } from 'tailwind-variants'
+// import { z } from 'astro/zod'
+import { tv, type VariantProps } from 'tailwind-variants'
 
-type Props = SiteProps & HTMLAttributes<'html'>
+type Props = SiteProps & HTMLAttributes<'html'> & VariantProps<typeof layoutVariants>
+const defaultIntent = 'workbench'
 
 const layoutVariants = tv({
   slots: {
     base: 'scroll-smooth antialiased',
     body: 'cursor-amiga',
   },
+  variants: {
+    intent: {
+      workbench: {
+        base: 'bg-secondary text-black',
+      },
+      kickstart: {
+        base: 'bg-kickstart-background text-kickstart-foreground',
+      },
+      guru: {
+        base: 'bg-foreground text-background',
+      },
+    },
+  },
+  defaultVariants: {
+    intent: defaultIntent,
+  },
 })
 
-const { title, name, description, url, image, class: className } = Astro.props
+const { title, name, description, url, image, intent, class: className } = Astro.props
+
+const resolvedIntent = intent ?? defaultIntent
 
 const meta = { name, title, description, url, image }
 
-const { base, body } = layoutVariants()
+const { base, body } = layoutVariants({ intent: resolvedIntent })
 ---
 
 <html lang={SITE.lang} class={base({ class: className })}>

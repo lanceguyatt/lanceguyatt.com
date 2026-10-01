@@ -1,36 +1,86 @@
 ---
-// import type { HTMLAttributes } from 'astro/types'
-import { Icon } from 'astro-icon/components'
 import { tv } from 'tailwind-variants'
+import { z } from 'astro/zod'
+import type { HTMLAttributes } from 'astro/types'
 
-const { name, active, class: className, external = false, href, icon = 'disk' } = Astro.props
+export const linkSchema = z.object({
+  name: z.string(),
+  url: z.string(),
+  current: z.boolean().optional(),
+  type: z.enum(['disk', 'drawer', 'drive', 'file']).optional(),
+})
 
-const link = tv({
+type Props = z.infer<typeof linkSchema> & {
+  external?: boolean
+  class?: string
+} & Omit<HTMLAttributes<'a'>, 'href' | 'class'>
+
+const {
+  name,
+  current = false,
+  class: className,
+  external = false,
+  url,
+  type = 'drawer',
+  ...rest
+} = Astro.props
+
+const linkVariants = tv({
   slots: {
-    base: 'text-base/tighter flex flex-col items-center outline-none',
+    base: 'link group focus:bg-primary flex flex-col items-center gap-1 text-base focus:text-white',
+    sprite: '',
   },
   variants: {
-    active: {
-      false: ['focus:bg-background', 'focus:text-primary'],
+    type: {
+      disk: { sprite: 'h-[46px] w-[43px] bg-(image:--bg-disk) group-focus:bg-position-[-43px_0]' },
+      drawer: {
+        sprite: 'h-[38px] w-[65px] bg-(image:--bg-drawer) group-focus:bg-position-[-65px_0]',
+      },
+      drive: {
+        sprite: 'h-[44px] w-[85px] bg-(image:--bg-drive) group-focus:bg-position-[-85px_0]',
+      },
+      file: { sprite: 'h-[62px] w-[46px] bg-(image:--bg-file) group-focus:bg-position-[-46px_0]' },
+    },
+    current: {
+      true: {},
+      false: {},
     },
   },
+  compoundVariants: [
+    {
+      type: 'disk',
+      current: true,
+      class: { sprite: 'bg-position-[-43px_0]' },
+    },
+    {
+      type: 'drive',
+      current: true,
+      class: { sprite: 'bg-position-[-85px_0]' },
+    },
+  ],
   defaultVariants: {
-    active: false,
+    type: 'drawer',
+    current: false,
   },
 })
 
-const { base } = link()
+const { base, sprite } = linkVariants({ type, current })
 ---
 
 <a
-  {href}
-  class={base({ active, className })}
-  target={external ? '_blank' : null}
-  rel={external ? 'noopener noreferrer' : null}
+  href={url}
+  class={base({ class: className })}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  aria-current={current ? 'page' : undefined}
+  {...rest}
 >
-  {!active && <Icon name={icon} class="mb-2" />}
-  {active && <Icon name={`${icon}-active`} class="mb-2" />}
-  <div class="h-6 max-w-24 bg-amber-200 text-center">
-    <slot>{name}</slot>
-  </div>
+  <span class={sprite()} />
+  <slot>{name}</slot>
 </a>
+
+<style>
+  .link {
+    @apply text-center;
+  }
+</style>

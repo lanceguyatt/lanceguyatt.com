@@ -2,7 +2,7 @@ import alpine from '@astrojs/alpinejs'
 import mdx from '@astrojs/mdx'
 import tailwind from '@tailwindcss/vite'
 import icon from 'astro-icon'
-import { defineConfig, fontProviders } from 'astro/config'
+import { defineConfig, fontProviders, envField } from 'astro/config'
 // import { unified } from '@astrojs/markdown-remark'
 
 let prefixCounter = 0
@@ -13,6 +13,15 @@ export default defineConfig({
   // markdown: {
   //   processor: unified(),
   // },
+  env: {
+    schema: {
+      SITE: envField.string({
+        context: 'client',
+        access: 'public',
+        default: 'http://localhost:4321',
+      }),
+    },
+  },
   integrations: [
     mdx(),
     alpine({

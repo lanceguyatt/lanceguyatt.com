@@ -3,10 +3,10 @@
   items:
     - name: Ram Disk
       url: /ram-disk
-      icon: disk
+      type: disk
     - name: Work
       url: /work
-      icon: drive
+      type: drive
     - name: About
       url: /about
-      icon: drive
+      type: drive

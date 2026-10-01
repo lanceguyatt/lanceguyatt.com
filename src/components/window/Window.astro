@@ -14,29 +14,30 @@ export const windowSchema = z.object({
 
 const windowVariants = tv({
   slots: {
-    base: 'window relative grid',
+    base: 'window relative grid w-screen',
     header: 'absolute -inset-x-2 -top-5.5 flex h-5 px-1',
     main: 'bg-secondary row-span-2 h-full p-2',
   },
   variants: {
     intent: {
-      primary: { base: 'bg-primary text-black' },
+      primary: { base: 'bg-red-900 text-black' },
       secondary: { base: 'bg-secondary text-black' },
+      foo: { base: 'bg-white' },
     },
   },
   defaultVariants: { intent: 'primary' },
 })
 
-type Props = (HTMLAttributes<'article'> | HTMLAttributes<'section'>) &
+type Props = (HTMLAttributes<'article'> | HTMLAttributes<'section'> | HTMLAttributes<'dialog'>) &
   z.infer<typeof windowSchema> &
   VariantProps<typeof windowVariants> & {
-    as?: 'article' | 'section'
+    as?: 'article' | 'section' | 'dialog'
   }
 
 const {
   title,
   intent,
-  close = true,
+  close,
   zoom = true,
   depth = true,
   as: Tag = 'section',
@@ -48,7 +49,7 @@ const { base, header, main } = windowVariants({ intent })
 
 <Tag class={base({ class: className })}>
   <header class={header()}>
-    <div class="flex">{close && <Close />}</div>
+    <div class="flex">{<Close href="/">Close window</Close>}</div>
 
     <div class="flex-auto">
       <div class="truncate overflow-hidden">{title}</div>
@@ -68,5 +69,6 @@ const { base, header, main } = windowVariants({ intent })
   .window {
     border-width: 22px 4px 4px 4px;
     border-image: url(/images/window.svg) 22 4 4 4 stretch;
+    height: calc(100dvh - 22px);
   }
 </style>

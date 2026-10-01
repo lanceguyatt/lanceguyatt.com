@@ -42,7 +42,7 @@ export const SITE: SiteProps = {
   backgroundColor: '#000000',
   locale: 'en-GB',
   lang: 'en',
-  copyrightYear: 2025,
+  copyrightYear: 2026,
   twitter: '@lanceguyatt',
 }
 

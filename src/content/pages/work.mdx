@@ -4,10 +4,15 @@ description: Work description
 icon: drive
 ---
 
+import Window from '@/components/window/Window.astro'
+import Nav from '@/components/nav/Nav.astro'
 import { getCollection } from 'astro:content'
 
 export const work = await getCollection('work')
 
-<div class="prose">
-  <pre>{JSON.stringify(work, null, 2)}</pre>
-</div>
+<Window title={frontmatter.title}>
+  <Nav items={work} />
+  <div class="prose">
+    <pre>{JSON.stringify(work, null, 2)}</pre>
+  </div>
+</Window>

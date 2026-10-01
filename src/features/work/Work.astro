@@ -1,13 +1,9 @@
 ---
 import { Image } from 'astro:assets'
-// import { getEntries } from 'astro:content'
-
 import { SITE } from '@/config'
-import { Window } from '@/components/window'
-import { Button } from '@/components/button'
-// import Image from '@/components/Image.astro'
-import WorkCard from '@/features/work/components/WorkCard.astro'
-import { Prose } from '@/components/prose'
+import { Window, Button } from '@/components'
+import { Prose } from '@/components'
+import { getEntries } from 'astro:content'
 
 type Props = {
   entry: any
@@ -15,14 +11,14 @@ type Props = {
 
 const { entry } = Astro.props
 const { id, data } = entry
-const { name, description, image, url, sameAs } = data
+const { name, description, image, url, sameAs, tags } = data
 
 const title = `${name} - Work - ${SITE.name}`
 // const url = `work/${id}`
 // const keywords = tags.map(tag => tag)
 
-// let selectedTags = null
-// if (tags) selectedTags = await getEntries(tags)
+let selectedTags = null
+if (tags) selectedTags = await getEntries(tags)
 
 const meta = { title, name, description, url, image }
 
@@ -101,7 +97,7 @@ const schema = {
   slot="head"
 />
 <Window id={`window-${id}`} {name} close={{ name: 'work', url: '/work' }} depth zoom>
-  <div class="flex h-full flex-col gap-6 bg-red-50">
+  <div class="flex h-full flex-col gap-6">
     {image && (
       <div class="h-36 w-36 self-center">
         <div class="aspect-square">
@@ -110,15 +106,13 @@ const schema = {
       </div>
     )}
 
-    <pre>{JSON.stringify(Astro.props.entry, null, 2)}</pre>
-
     <dl class="grid max-w-160 gap-3 sm:grid-cols-[1fr_11fr]">
       <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">Name</dt>
-      <dd class="border-img-foo p-2px">{name}</dd>
+      <dd class="border-img-foo p-0.5">{name}</dd>
       {url && (
         <>
           <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">Url</dt>
-          <dd class="border-img-foo p-2px">{url}</dd>
+          <dd class="border-img-foo p-0.5">{url}</dd>
         </>
       )}
       <!-- {
@@ -155,8 +149,4 @@ const schema = {
       )}
     </div>
   </div>
-</Window>
-
-<Window id="work" name="Work" level={1} depth zoom>
-  <WorkCard />
 </Window>

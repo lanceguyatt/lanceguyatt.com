@@ -8,7 +8,7 @@ import toastyImg from '@/assets/images/toasty.png'
   x-load="idle"
   x-data="guruMeditation"
   x-init="$watch('toasty', value => { if (value) setTimeout(() => (toasty = false), 500) })"
-  class="bg-black text-white overflow-hidden w-screen relative min-h-dvh p-6 grid items-center justify-center"
+  class="overflow-hidden w-screen relative min-h-dvh p-6 grid items-center justify-center"
 >
   <Alert animate open aria-labelledby="alertLabel">
     <p>
