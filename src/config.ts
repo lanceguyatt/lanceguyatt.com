@@ -28,7 +28,7 @@ export type SiteProps = {
 export const SITE: SiteProps = {
   title: name,
   name,
-  description: 'Lance Guyatt, description',
+  description: 'Lance Guyatt, Web Developer.',
   id: `${BASE_URL}#lanceguyatt`,
   url: BASE_URL,
   image: {
@@ -43,19 +43,18 @@ export const SITE: SiteProps = {
   locale: 'en-GB',
   lang: 'en',
   copyrightYear: 2026,
-  twitter: '@lanceguyatt',
 }
 
 export const SOCIALS: SocialObjects = [
   {
     name: 'Github',
-    href: 'https://github.com/satnaing/astro-paper',
+    href: 'https://github.com/lanceguyatt',
     linkTitle: ` ${SITE.title} on Github`,
     active: true,
   },
   {
     name: 'LinkedIn',
-    href: 'https://github.com/satnaing/astro-paper',
+    href: 'https://linkedin.com/lanceguyatt',
     linkTitle: `${SITE.title} on LinkedIn`,
     active: true,
   },

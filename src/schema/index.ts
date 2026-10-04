@@ -1,3 +1,4 @@
+import type { ImageFunction } from 'astro:content'
 import { z } from 'astro/zod'
 import { reference } from 'astro:content'
 
@@ -20,26 +21,27 @@ export const navSchema = z.object({
   ),
 })
 
-export const pageSchema = ({ image }: { image: any }) =>
+export const pageSchema = ({ image }: { image: ImageFunction }) =>
   z.object({
     title: z.string(),
     description: z.string().optional(),
-    icon: z.string().optional(),
+    free: z.number().optional(),
+    full: z.number().optional(),
     draft: z.boolean().optional(),
     image: z
       .object({
-        src: image({}).optional(),
+        src: image().optional(),
         alt: z.string().optional(),
       })
       .optional(),
   })
 
-export const workSchema = ({ image }: { image: any }) =>
+export const workSchema = ({ image }: { image: ImageFunction }) =>
   z.object({
     name: z.string(),
     description: z.string().optional(),
     url: z.string().optional(),
-    image: image({}).optional(),
+    image: image().optional(),
     tags: z.array(reference('tag')).optional(),
     draft: z.boolean().optional(),
   })

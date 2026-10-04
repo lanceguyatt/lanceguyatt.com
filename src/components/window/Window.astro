@@ -6,10 +6,13 @@ import { Depth, Zoom } from '@/components'
 import Close from './components/Close.astro'
 
 export const windowSchema = z.object({
-  title: z.string(),
-  close: z.boolean().optional(),
-  depth: z.boolean().optional(),
+  close: z.string().optional(),
+  title: z.string().optional(),
+  full: z.number().optional(),
+  free: z.number().optional(),
+  remainer: z.number().optional(),
   zoom: z.boolean().optional(),
+  depth: z.boolean().optional(),
 })
 
 const windowVariants = tv({
@@ -35,12 +38,15 @@ type Props = (HTMLAttributes<'article'> | HTMLAttributes<'section'> | HTMLAttrib
   }
 
 const {
+  as: Tag = 'section',
+  close = '/',
   title,
   intent,
-  close,
+  full = 85,
+  free = 128,
+  remainer = 708,
   zoom = true,
   depth = true,
-  as: Tag = 'section',
   class: className,
 } = Astro.props
 
@@ -49,10 +55,17 @@ const { base, header, main } = windowVariants({ intent })
 
 <Tag class={base({ class: className })}>
   <header class={header()}>
-    <div class="flex">{<Close href="/">Close window</Close>}</div>
+    <div class="flex">
+      <Close href={close}>Close window</Close>
+    </div>
 
     <div class="flex-auto">
-      <div class="truncate overflow-hidden">{title}</div>
+      <div class="truncate overflow-hidden flex">
+        <h2 class="sr-only">{title}</h2>
+        <div class="flex-auto">
+          {full}% full, {free}k free, {remainer}k
+        </div>
+      </div>
     </div>
 
     <div class="flex ml-auto">

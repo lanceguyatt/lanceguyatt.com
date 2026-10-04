@@ -1,11 +1,20 @@
 ---
 title: About
 description: About description
-icon: drive
 ---
 
 import { getCollection } from 'astro:content'
+import { Window, Nav } from '@/components'
 
 export const about = await getCollection('about')
 
-<pre>{JSON.stringify(about, null, 2)}</pre>
+export const nav = about.map((item) => ({
+  name: item.data.name,
+  url: item.data.url,
+  type: 'file',
+  external: true
+}))
+  
+<Window title={frontmatter.title}>
+  <Nav id="about" name="About" items={nav} />
+</Window>

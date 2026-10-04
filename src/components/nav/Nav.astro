@@ -1,5 +1,5 @@
 ---
-import { Link, linkSchema } from '@/components/link'
+import NavLink, { navLinkSchema } from './NavLink.astro'
 import { type HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
@@ -7,7 +7,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 export const navSchema = z.object({
   id: z.string(),
   name: z.string(),
-  items: z.array(linkSchema),
+  items: z.array(navLinkSchema),
 })
 
 type Props = HTMLAttributes<'nav'> & z.infer<typeof navSchema> & VariantProps<typeof navVariants>
@@ -43,9 +43,9 @@ const { base, list } = navVariants({ vertical })
     <ul class={list()}>
       {items.map(({ name, url, type }) => (
         <li class="max-w-24">
-          <Link {type} {url} current={pathname.includes(url)}>
+          <NavLink {type} {url} current={pathname.includes(url)}>
             {name}
-          </Link>
+          </NavLink>
         </li>
       ))}
     </ul>

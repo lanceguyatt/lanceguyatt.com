@@ -2,20 +2,21 @@
 import { Layout } from '@/layouts/layout'
 import { Titlebar, Nav, Window } from '@/components'
 import { getEntry } from 'astro:content'
+import { SITE } from '@/config'
 
 const nav = await getEntry('nav', 'main')
 
 const { title } = Astro.props
 ---
 
-<Layout>
+<Layout {title}>
   <div class="">
-    <Titlebar>Lance Guyatt, Web Developer. 2000-2026 All Rights Reserved</Titlebar>
+    <Titlebar>
+      {SITE.title} 2000-{SITE.copyrightYear} All Rights Reserved
+    </Titlebar>
     <main>
       <slot />
-      <Window title="Nav" intent="foo">
-        <Nav {...nav.data} vertical />
-      </Window>
+      <Window close="/kickstart">{nav && <Nav {...nav.data} vertical />}</Window>
     </main>
   </div>
 </Layout>

@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content'
 
-import { SITE } from '@/config'
 import { Workbench } from '@/layouts'
 
 export async function getStaticPaths() {
@@ -14,13 +13,11 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props
 const { data } = entry
-const { name, description, image, url } = data
+const { title, description, image } = data
 
 const { Content } = await render(entry)
 
-const title = `${name} - ${SITE.name}`
-
-const meta = { title, name, description, url, image }
+const meta = { title, description, image }
 ---
 
 <Workbench {...meta}>

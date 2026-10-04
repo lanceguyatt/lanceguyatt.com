@@ -3,16 +3,16 @@ import { BaseHead } from '@/components'
 import { type SiteProps, SITE } from '@/config'
 import '@/styles/app.css'
 import { type HTMLAttributes } from 'astro/types'
-// import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 type Props = SiteProps & HTMLAttributes<'html'> & VariantProps<typeof layoutVariants>
+
 const defaultIntent = 'workbench'
 
 const layoutVariants = tv({
   slots: {
     base: 'scroll-smooth antialiased',
-    body: 'cursor-amiga',
+    body: 'cursor-amiga w-screen overflow-x-hidden',
   },
   variants: {
     intent: {

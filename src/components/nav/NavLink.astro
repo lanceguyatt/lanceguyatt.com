@@ -3,15 +3,15 @@ import { tv } from 'tailwind-variants'
 import { z } from 'astro/zod'
 import type { HTMLAttributes } from 'astro/types'
 
-export const linkSchema = z.object({
+export const navLinkSchema = z.object({
   name: z.string(),
   url: z.string(),
   current: z.boolean().optional(),
+  external: z.boolean().optional(),
   type: z.enum(['disk', 'drawer', 'drive', 'file']).optional(),
 })
 
-type Props = z.infer<typeof linkSchema> & {
-  external?: boolean
+type Props = z.infer<typeof navLinkSchema> & {
   class?: string
 } & Omit<HTMLAttributes<'a'>, 'href' | 'class'>
 
@@ -19,13 +19,13 @@ const {
   name,
   current = false,
   class: className,
-  external = false,
+  external,
   url,
   type = 'drawer',
   ...rest
 } = Astro.props
 
-const linkVariants = tv({
+const navLinkVariants = tv({
   slots: {
     base: 'link group focus:bg-primary flex flex-col items-center gap-1 text-base focus:text-white',
     sprite: '',
@@ -64,7 +64,7 @@ const linkVariants = tv({
   },
 })
 
-const { base, sprite } = linkVariants({ type, current })
+const { base, sprite } = navLinkVariants({ type, current })
 ---
 
 <a

@@ -27,7 +27,7 @@ const work = (await getCollection('work', ({ data }) => !data.draft)).map((item)
   <Work {entry} />
 
   {work && (
-    <Window title="Work">
+    <Window title="Work" close={{ url: '/work' }}>
       <Nav id="work" name="work" items={work} />
     </Window>
   )}

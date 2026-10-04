@@ -1,8 +1,16 @@
 ---
 import { Layout } from '@/layouts/layout'
 import { Kickstart } from '@/features/kickstart'
+import { getEntry } from 'astro:content'
+
+const entry = await getEntry('pages', 'ram-disk')
+
+if (!entry) return Astro.redirect('404')
+
+const { data } = entry
+const { title, description } = data
 ---
 
-<Layout intent="kickstart">
+<Layout {title} {description} intent="kickstart">
   <Kickstart />
 </Layout>
