@@ -1,4 +1,3 @@
-
 import { sequence } from 'astro/middleware'
 import { defineMiddleware } from 'astro/middleware'
 import { SITE } from 'astro:env/client'
@@ -12,6 +11,5 @@ export const siteMiddleware = defineMiddleware(async (context, next) => {
 
   return await next()
 })
-
 
 export const onRequest = sequence(siteMiddleware)

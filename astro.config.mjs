@@ -48,7 +48,7 @@ export default defineConfig({
     {
       provider: fontProviders.local(),
       name: 'Topaz',
-      cssVariable: '--topaz',
+      cssVariable: '--font-topaz',
       options: {
         variants: [
           {

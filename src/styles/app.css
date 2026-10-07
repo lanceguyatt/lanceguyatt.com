@@ -1,25 +1,38 @@
 @layer theme, base, components, utilities;
 
-@plugin '@tailwindcss/typography';
-
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities);
+@import 'tw-animate-css';
 
-@import './themes/workbench.css' layer(theme);
+@import './themes/workbench.css';
+
+@plugin '@tailwindcss/typography';
 
 @layer base {
-  body {
-    text-size-adjust: 100%;
+  /* v4 default border colour is currentColor; restore the token */
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
+  }
+
+  /* v4 preflight sets buttons to cursor: default */
+  button {
+    cursor: pointer;
   }
 
   [x-cloak] {
     @apply hidden!;
   }
-
-  button {
-    cursor: pointer;
-  }
 }
 
-@custom-variant focus-active (&:focus, &:active);
+@layer components {
+  .prose {
+    --tw-prose-body: var(--color-foreground);
+  }
+
+  .prose pre {
+    font-family: var(--font-sans);
+  }
+}

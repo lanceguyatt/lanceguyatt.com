@@ -1,7 +1,7 @@
 export { Alert } from '@/components/alert'
+export { BaseHead } from '@/components/baseHead'
 export { Button } from '@/components/button'
 export { Depth } from '@/components/depth'
-export { BaseHead } from '@/components/baseHead'
 export { Nav, NavLink } from '@/components/nav'
 export { Prose } from '@/components/prose'
 export { Titlebar } from '@/components/titlebar'
