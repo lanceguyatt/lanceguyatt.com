@@ -1,0 +1,29 @@
+---
+import { type HTMLAttributes } from 'astro/types'
+import { cn } from '@/lib/utils'
+
+type Props = (HTMLAttributes<'a'> | HTMLAttributes<'button'>) & {
+  as?: 'a' | 'button'
+}
+
+const { as = 'a', class: className, ...rest } = Astro.props
+
+const classes = cn([
+  'w-5 h-titlebar bg-(image:--bg-close) inline-block active:bg-position-[-20px_0]',
+  className,
+])
+---
+
+{as === 'button' ? (
+  <button class:list={classes} {...(rest as HTMLAttributes<'button'>)}>
+    <span class="sr-only">
+      <slot />
+    </span>
+  </button>
+) : (
+  <a class:list={classes} {...(rest as HTMLAttributes<'a'>)}>
+    <span class="sr-only">
+      <slot />
+    </span>
+  </a>
+)}

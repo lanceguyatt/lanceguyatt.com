@@ -1,0 +1,92 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { z } from 'astro/zod'
+import { tv, type VariantProps } from 'tailwind-variants'
+import { Depth, Zoom } from '@/gadgets'
+import Close from './components/Close.astro'
+
+export const windowSchema = z.object({
+  close: z.string().optional(),
+  title: z.string().optional(),
+  full: z.number().optional(),
+  free: z.number().optional(),
+  remainer: z.number().optional(),
+  zoom: z.boolean().optional(),
+  depth: z.boolean().optional(),
+})
+
+const windowVariants = tv({
+  slots: {
+    base: 'window relative grid w-screen border-4',
+    header: 'absolute -inset-x-2 -top-5.5 flex h-5',
+    main: 'bg-secondary row-span-2 h-full p-2',
+  },
+  variants: {
+    intent: {
+      primary: { header: 'bg-primary', base: '' },
+      secondary: { base: 'bg-secondary text-black' },
+      foo: { base: 'bg-white' },
+    },
+    type: {
+      default: { base: '' },
+    },
+  },
+  defaultVariants: { intent: 'primary' },
+})
+
+type WindowProps = (
+  HTMLAttributes<'article'> | HTMLAttributes<'section'> | HTMLAttributes<'dialog'>
+) &
+  z.infer<typeof windowSchema> &
+  VariantProps<typeof windowVariants> & {
+    as?: 'article' | 'section' | 'dialog'
+  }
+
+const {
+  as: Tag = 'section',
+  close = '/',
+  title,
+  intent,
+  full = 85,
+  free = 128,
+  remainer = 708,
+  zoom = true,
+  depth = true,
+  class: className,
+} = Astro.props as WindowProps
+
+const { base, header, main } = windowVariants({ intent })
+---
+
+<Tag class={base({ class: className })}>
+  <header class={header()}>
+    <div class="flex">
+      <Close href={close}>Close window</Close>
+    </div>
+
+    <div class="flex-auto px-2">
+      <div class="truncate overflow-hidden flex">
+        <h2 class="sr-only">{title}</h2>
+        <div class="flex-auto">
+          {full}% full, {free}k free, {remainer}k
+        </div>
+      </div>
+    </div>
+
+    <div class="flex ml-auto">
+      {zoom && <Zoom />}
+      {depth && <Depth />}
+    </div>
+  </header>
+  <div class={main()}>
+    <slot />
+  </div>
+</Tag>
+
+<!-- <style is:global>
+  .window {
+    border-width: 22px 4px 4px 4px;
+    border-image: url(/images/window.svg) 22 4 4 4 stretch;
+    min-height: calc(100dvh - 22px);
+  }
+</style> -->
