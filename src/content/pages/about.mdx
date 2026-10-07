@@ -4,7 +4,8 @@ description: About description
 ---
 
 import { getCollection } from 'astro:content'
-import { Window, Nav } from '@/components'
+import { Nav } from '@/components'
+import { Window } from '@/gadgets'
 
 export const about = await getCollection('about')
 

@@ -1,8 +1,9 @@
 ---
+import { Action } from '@/gadgets'
 import { Image } from 'astro:assets'
-import { SITE } from '@/config'
-import { Window, Button } from '@/components'
 import { Prose } from '@/components'
+import { SITE } from '@/config'
+import { Window } from '@/gadgets'
 import { getEntries } from 'astro:content'
 
 type Props = {
@@ -141,11 +142,11 @@ const schema = {
     </div>
 
     <div class="mt-auto flex justify-between">
-      <Button href="/work">Cancel</Button>
+      <Action href="/work">Cancel</Action>
       {url && (
-        <Button href={url} target="_blank" rel="noopener noreferrer">
+        <Action href={url} target="_blank" rel="noopener noreferrer">
           Launch
-        </Button>
+        </Action>
       )}
     </div>
   </div>

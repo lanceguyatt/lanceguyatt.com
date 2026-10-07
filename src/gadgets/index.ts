@@ -1,1 +1,5 @@
+export { Action } from '@/gadgets/action'
+export { Depth } from '@/gadgets/depth'
 export { Requester } from '@/gadgets/requester'
+export { Window } from '@/gadgets/window'
+export { Zoom } from '@/gadgets/zoom'
