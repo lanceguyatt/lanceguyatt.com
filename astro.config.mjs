@@ -3,7 +3,6 @@ import mdx from '@astrojs/mdx'
 import tailwind from '@tailwindcss/vite'
 import icon from 'astro-icon'
 import { defineConfig, fontProviders, envField } from 'astro/config'
-// import { unified } from '@astrojs/markdown-remark'
 
 let prefixCounter = 0
 

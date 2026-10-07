@@ -5,9 +5,112 @@
 @import 'tailwindcss/utilities.css' layer(utilities);
 @import 'tw-animate-css';
 
-@import './themes/workbench.css';
-
 @plugin '@tailwindcss/typography';
+
+/* https://tailwindcss.com/docs/theme#default-theme-variable-reference */
+
+/* Fonts: inline so utilities reference Astro's variables directly */
+@theme inline {
+  --font-sans: var(--font-topaz);
+  --font-mono: var(--font-mono-topaz);
+}
+
+@theme {
+  /* Colours */
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-black);
+  --color-border: var(--color-foreground);
+
+  --color-primary: rgb(96 128 176);
+  --color-primary-foreground: var(--color-foreground);
+
+  --color-secondary: rgb(160 160 160);
+  --color-secondary-foreground: var(--color-foreground);
+
+  --color-kickstart-foreground: rgb(224 160 128);
+  --color-kickstart-background: rgb(68 16 68);
+
+  /* Spacing and type */
+  --spacing-titlebar: calc(var(--spacing) * 5.5); /* same as h-5.5 */
+  --spacing-toasty: 12.5rem;
+  --leading-tighter: 1.125;
+
+  /* Animations */
+  --animate-foo: foo 0.75s ease alternate infinite;
+  --animate-insert-disk: insert-disk 1.5s ease infinite;
+
+  @keyframes foo {
+    from {
+      border-color: red;
+    }
+    to {
+      border-color: transparent;
+    }
+  }
+
+  @keyframes insert-disk {
+    0% {
+      transform-origin: 0 0;
+    }
+    20% {
+      transform: translate3d(0, 2rem, 0);
+      transform-origin: 0 0;
+    }
+    100% {
+      transform: rotateX(83deg) translateY(-35rem);
+      transform-origin: 0 0;
+    }
+  }
+}
+
+/* Theme overrides (border and *-foreground tokens follow --color-foreground) */
+:root[data-theme='kickstart'] {
+  --color-background: var(--color-kickstart-background);
+  --color-foreground: var(--color-kickstart-foreground);
+  --color-primary: var(--color-kickstart-background);
+  --color-secondary: var(--color-kickstart-background);
+}
+
+/* Custom variants */
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant focus-active (&:is(:focus, :active));
+
+/* Background images (no theme namespace in v4) */
+@utility bg-close {
+  background-image: url(/images/close.svg);
+}
+
+@utility bg-disk {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODYiIGhlaWdodD0iNDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjQUFBIiBkPSJNMCAwaDQzdjQ2SDB6Ii8+PHBhdGggZD0iTTUgOFY2aDMydjJoMnYzMkg0VjhoMXoiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMjkgMTZ2MkgxM3YtMmgtMVY2aDE4djEwaC0xeiIgZmlsbD0iI0ZGRiIvPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0yNCA3aDN2OGgtM3oiLz48cGF0aCBkPSJNOSAyNHYtMmgyNXYyaDF2MTZIOFYyNGgxeiIgZmlsbD0iI0ZGRiIvPjxwYXRoIGZpbGw9IiNBQUEiIGQ9Ik01IDM3aDJ2Mkg1eiIvPjxwYXRoIGQ9Ik0yOCAyOHYtMmgydjJoLTF2MmgtMXYyaC0xdjJoLTF2MmgtMXYyaC0ydi0yaDF2LTJoMXYtMmgxdi0yaDF2LTJoMXptLTMgMHYtMmgydjJoLTF2MmgtMXYyaC0xdjJoLTF2MmgtMXYyaC0ydi0yaC0xdi0yaC0xdi0yaDJ2Mmgydi0yaDF2LTJoMXYtMmgxem0tOCA4aC0xdi0yaC0xdi0yaDJ2MmgxdjJoMXYyaC0ydi0yeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik00MiA0Nkgxdi0yaDQxVjJoMXY0NGgtMXoiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMSAydjQ0SDBWMGg0M3YySDF6IiBmaWxsPSIjRkZGIi8+PGc+PHBhdGggZmlsbD0iI0FBQSIgZD0iTTQzIDBoNDN2NDZINDN6Ii8+PHBhdGggZD0iTTQ4IDhWNmgzMnYyaDJ2MzJINDdWOGgxeiIgZmlsbD0iI0ZGRiIvPjxwYXRoIGZpbGw9IiM2OEIiIGQ9Ik04MCA2aDJ2MmgtMnoiLz48cGF0aCBkPSJNNzIgMTZ2Mkg1NnYtMmgtMVY2aDE4djEwaC0xeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik02NyA3aDN2OGgtM3oiLz48cGF0aCBkPSJNNTIgMjR2LTJoMjV2MmgxdjE2SDUxVjI0aDF6IiBmaWxsPSIjMDAwIi8+PHBhdGggZmlsbD0iIzY4QiIgZD0iTTQ4IDM3aDJ2MmgtMnpNNDcgNmgxdjJoLTF6Ii8+PHBhdGggZD0iTTcxIDI4di0yaDJ2MmgtMXYyaC0xdjJoLTF2MmgtMXYyaC0xdjJoLTJ2LTJoMXYtMmgxdi0yaDF2LTJoMXYtMmgxem0tMyAwdi0yaDJ2MmgtMXYyaC0xdjJoLTF2MmgtMXYyaC0xdjJoLTJ2LTJoLTF2LTJoLTF2LTJoMnYyaDJ2LTJoMXYtMmgxdi0yaDF6bS04IDhoLTF2LTJoLTF2LTJoMnYyaDF2MmgxdjJoLTJ2LTJ6IiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTTg1IDQ2SDQ0di0yaDQxVjJoMXY0NGgtMXoiIGZpbGw9IiNGRkYiLz48cGF0aCBkPSJNNDQgMnY0NGgtMVYwaDQzdjJINDR6IiBmaWxsPSIjMDAwIi8+PC9nPjwvZz48L3N2Zz4K);
+}
+
+@utility bg-checkbox {
+  background-image: url(/images/checkbox.svg);
+}
+
+@utility bg-depth {
+  background-image: url(/images/depth.svg);
+}
+
+@utility bg-drawer {
+  background-image: url(/images/drawer.svg);
+}
+
+@utility bg-drive {
+  background-image: url(/images/drive.svg);
+}
+
+@utility bg-file {
+  background-image: url(/images/file.svg);
+}
+
+@utility bg-zoom {
+  background-image: url(/images/zoom.svg);
+}
+
+@utility bg-toasty {
+  background-image: url(/images/toasty.png);
+}
 
 @layer base {
   /* v4 default border colour is currentColor; restore the token */
@@ -23,11 +126,12 @@
   }
 
   [x-cloak] {
-    @apply hidden!;
+    display: none !important;
   }
 }
 
-@layer components {
+/* Typography overrides: in utilities so they come after the plugin's .prose rules */
+@layer utilities {
   .prose {
     --tw-prose-body: var(--color-foreground);
   }
@@ -35,4 +139,15 @@
   .prose pre {
     font-family: var(--font-sans);
   }
+}
+
+@utility border-window {
+  border-image: url(/images/window.svg) 22 4 4 4 stretch;
+  border-width: 22px 4px 4px 4px;
+}
+
+@utility border-action {
+  border-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBmaWxsPSJub25lIj48cGF0aCBkPSJNMCAwaDE0djJIMFYwem0wIDIyaDF2Mkgwdi0yek0wIDJoMnYyMEgwVjJ6IiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTTEgMjJoMTN2Mkgxdi0yek0xMiAyaDJ2MjBoLTJWMnptMS0yaDF2MmgtMVYweiIgZmlsbD0iIzAwMCIvPjwvZz48L3N2Zz4K)
+    2 / 1 / 0 stretch;
+  border-width: 2px;
 }

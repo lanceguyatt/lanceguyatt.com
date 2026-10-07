@@ -17,7 +17,7 @@ export const windowSchema = z.object({
 
 const windowVariants = tv({
   slots: {
-    base: 'window relative grid w-screen border-4',
+    base: 'window border-window relative grid w-screen',
     header: 'absolute -inset-x-2 -top-5.5 flex h-5',
     main: 'bg-secondary row-span-2 h-full p-2',
   },
@@ -83,10 +83,10 @@ const { base, header, main } = windowVariants({ intent })
   </div>
 </Tag>
 
-<!-- <style is:global>
+<style is:global>
   .window {
-    border-width: 22px 4px 4px 4px;
-    border-image: url(/images/window.svg) 22 4 4 4 stretch;
+    /*border-width: 22px 4px 4px 4px;
+    border-image: url(/images/window.svg) 22 4 4 4 stretch;*/
     min-height: calc(100dvh - 22px);
   }
-</style> -->
+</style>
