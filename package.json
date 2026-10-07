@@ -21,6 +21,8 @@
   "author": "Lance Guyatt <lance@lanceguyatt.com>",
   "license": "UNLICENSED",
   "dependencies": {
+    "@alpinejs/focus": "^3.17.4",
+    "@alpinejs/ui": "^3.17.4",
     "@astrojs/alpinejs": "^1.0.0",
     "alpinejs": "^3.17.4",
     "async-alpine": "^2.0.3"

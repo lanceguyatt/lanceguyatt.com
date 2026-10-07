@@ -27,18 +27,11 @@ export default defineConfig([
     files: ['**/*.astro'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
-      'astro/no-exports-from-components': 'off'
+      'astro/no-exports-from-components': 'off',
     },
   },
 
   {
-    ignores: [
-      '**/*.d.ts',
-      '.astro/**',
-      '.vercel/**',
-      'dist/**',
-      'public/**',
-      'storybook-static',
-    ],
+    ignores: ['**/*.d.ts', '.astro/**', '.vercel/**', 'dist/**', 'public/**', 'storybook-static'],
   },
 ])

@@ -1,0 +1,9 @@
+---
+// import type { HTMLAttributes } from 'astro/types'
+
+const { as: Comp = 'div', class: className, ...rest } = Astro.props
+---
+
+<Comp class:list={['min-h-6 px-0.5 border-display', className]} {...rest}>
+  <slot />
+</Comp>

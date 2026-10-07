@@ -1,0 +1,13 @@
+---
+import { type HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'input'>
+
+const { class: className, ...rest } = Astro.props
+---
+
+<input
+  type="text"
+  class:list={['h-6 px-0.5 border-action', 'focus:bg-primary', className]}
+  {...rest}
+/>

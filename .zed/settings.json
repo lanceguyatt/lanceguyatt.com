@@ -1,3 +1,15 @@
 {
-  "tab_size": 2
+  "format_on_save": "on",
+  "formatter": "prettier",
+  "languages": {
+    "Astro": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on"
+    }
+  }
 }

@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
 import { Depth, Zoom } from '@/gadgets'
-import Close from './components/Close.astro'
+import Close from '@/gadgets/Close.astro'
 
 export const windowSchema = z.object({
   close: z.string().optional(),
@@ -35,7 +35,9 @@ const windowVariants = tv({
 })
 
 type WindowProps = (
-  HTMLAttributes<'article'> | HTMLAttributes<'section'> | HTMLAttributes<'dialog'>
+  | HTMLAttributes<'article'>
+  | HTMLAttributes<'section'>
+  | HTMLAttributes<'dialog'>
 ) &
   z.infer<typeof windowSchema> &
   VariantProps<typeof windowVariants> & {

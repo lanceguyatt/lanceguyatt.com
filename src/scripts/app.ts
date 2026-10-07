@@ -1,5 +1,7 @@
 import type Alpine from 'alpinejs'
 import AsyncAlpine from 'async-alpine'
+import ui from '@alpinejs/ui'
+import focus from '@alpinejs/focus'
 
 type AlpineType = typeof Alpine
 
@@ -7,7 +9,7 @@ type AlpineType = typeof Alpine
 // Plugin Setup
 // ============================================
 const setupPlugins = (alpine: AlpineType) => {
-  // ;[focus, ui, persist].forEach((plugin) => alpine.plugin(plugin))
+  ;[ui, focus].forEach((plugin) => alpine.plugin(plugin))
   alpine.plugin(AsyncAlpine)
 }
 

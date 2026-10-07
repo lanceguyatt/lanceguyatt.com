@@ -1,0 +1,17 @@
+---
+import { Layout } from '@/layouts'
+import { Requester, Action, Cycle, Radio, Text, Display } from '@/gadgets'
+---
+
+<Layout>
+  <div class="p-8">
+    <div class="relative">
+      <button popovertarget="mypopover" popovertargetaction="show">
+        Toggle the popover
+      </button>
+      <div id="mypopover" popover>
+        <div class="top-6">Popover content</div>
+      </div>
+    </div>
+  </div>
+</Layout>

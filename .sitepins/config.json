@@ -9,9 +9,7 @@
   "code": {
     "root": "src"
   },
-  "themeConfig": [
-    "astro.config.mjs"
-  ],
+  "themeConfig": ["astro.config.mjs"],
   "arrangement": [],
   "showCommitModal": true
 }

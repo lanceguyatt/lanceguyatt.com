@@ -14,10 +14,10 @@ const { label = 'Toggle depth', class: className, ...rest } = Astro.props as Dep
 
 <button
   type="button"
-  class:list={['bg-depth',cn(
-    'w-5.75 h-titlebar inline-block active:bg-position-[-23px_0]',
-    className,
-  )]}
+  class:list={[
+    'bg-depth',
+    cn('w-5.75 h-titlebar inline-block active:bg-position-[-23px_0]', className),
+  ]}
   {...rest}
 >
   <span class="sr-only">{label}</span>

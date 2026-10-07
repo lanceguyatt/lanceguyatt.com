@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'input'>
+
+const { class: className, ...rest } = Astro.props
+---
+
+<input type="radio" class:list={['radio', className]} {...rest} />
+
+<style>
+  .radio {
+    background-image: url(data:image/svg+xml,%3Csvg%20width%3D%2234%22%20height%3D%2218%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill-rule%3D%22nonzero%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M2%200h12v2H2V0zM1%202h2v2H1V2zM0%204h2v10H0V4zm1%2010h2v2H1v-2zm1%202h1v2H2v-2z%22%20fill%3D%22%23FFF%22%2F%3E%3Cpath%20d%3D%22M15%2018H3v-2h12v2zm1-2h-2v-2h2v2zm1-2h-2V4h2v10zM16%204h-2V2h2v2zm-1-2h-1V0h1v2z%22%20fill%3D%22%23000%22%2F%3E%3Cg%3E%3Cpath%20d%3D%22M32%2018H20v-2h12v2zm1-2h-2v-2h2v2zm1-2h-2V4h2v10zM33%204h-2V2h2v2zm-1-2h-1V0h1v2z%22%20fill%3D%22%23FFF%22%2F%3E%3Cpath%20d%3D%22M19%200h12v2H19V0zm-1%202h2v2h-2V2zm-1%202h2v10h-2V4zm1%2010h2v2h-2v-2zm1%202h1v2h-1v-2z%22%20fill%3D%22%23000%22%2F%3E%3Cpath%20d%3D%22M21%206h1v6h-1V6zm1-2h7v10h-7V4zm7%202h1v6h-1V6z%22%20fill%3D%22%236080B0%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E);
+    width: 17px;
+    height: 18px;
+
+    &:checked {
+      background-position: -17px 0;
+    }
+  }
+</style>
