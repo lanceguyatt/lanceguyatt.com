@@ -15,7 +15,7 @@
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "surge": "PUBLIC_BASE_URL=lanceguyatt.surge.sh surge -p dist -d lanceguyatt.surge.sh"
+    "surge": "surge -p dist -d lanceguyatt.surge.sh"
   },
   "keywords": [],
   "author": "Lance Guyatt <lance@lanceguyatt.com>",

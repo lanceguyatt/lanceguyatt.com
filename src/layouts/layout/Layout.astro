@@ -32,11 +32,11 @@ const layoutVariants = tv({
   },
 })
 
-const { title, name, description, url, image, intent, class: className } = Astro.props
+const { title, description, url, image, intent, class: className } = Astro.props
 
 const resolvedIntent = intent ?? defaultIntent
 
-const meta = { name, title, description, url, image }
+const meta = { title, description, url, image }
 
 const { base, body } = layoutVariants({ intent: resolvedIntent })
 ---

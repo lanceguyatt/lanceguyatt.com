@@ -1,6 +1,7 @@
 import type { SocialObjects } from './types'
 
-const BASE_URL = import.meta.env.PUBLIC_BASE_URL
+// Absolute site origin from `site` in astro.config.mjs, without a trailing slash
+const BASE_URL = import.meta.env.SITE.replace(/\/$/, '')
 
 const name = 'Lance Guyatt, Web Developer.'
 
@@ -29,12 +30,13 @@ export const SITE: SiteProps = {
   title: name,
   name,
   description: 'Lance Guyatt, Web Developer.',
-  id: `${BASE_URL}#lanceguyatt`,
+  id: `${BASE_URL}/#lanceguyatt`,
   url: BASE_URL,
   image: {
-    url: `${BASE_URL}images/share.png`,
-    width: 1200,
-    height: 628,
+    // Site-relative; BaseHead resolves it against the site URL
+    url: '/android-chrome-512x512.png',
+    width: 512,
+    height: 512,
     alt: 'Lance Guyatt, Web Developer',
   },
   logo: `${BASE_URL}/logo.svg`,
@@ -70,11 +72,4 @@ export const LANCE_GUYATT = {
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lanceguyatt' },
     { name: 'Github', url: 'https://github.com/lanceguyatt' },
   ],
-}
-
-export type Lance = Mapped<typeof LANCE_GUYATT>
-export type Site = Mapped<typeof SITE>
-
-type Mapped<T> = {
-  [P in keyof T]?: any
 }

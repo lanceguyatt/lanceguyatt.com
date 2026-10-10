@@ -7,10 +7,10 @@ import { SITE } from '@/config'
 
 const nav = await getEntry('nav', 'main')
 
-const { title } = Astro.props
+const { title, description } = Astro.props
 ---
 
-<Layout {title}>
+<Layout {title} {description}>
   <div class="">
     <Titlebar>
       {SITE.title} 2000-{SITE.copyrightYear} All Rights Reserved

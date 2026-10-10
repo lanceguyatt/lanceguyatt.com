@@ -4,7 +4,6 @@ import { Image } from 'astro:assets'
 import { Prose } from '@/components'
 import { SITE } from '@/config'
 import { Window } from '@/gadgets'
-import { getEntries } from 'astro:content'
 
 type Props = {
   entry: any
@@ -12,16 +11,10 @@ type Props = {
 
 const { entry } = Astro.props
 const { id, data } = entry
-const { name, description, image, url, sameAs, tags } = data
+const { name, description, image, url, sameAs } = data
 
-const title = `${name} - Work - ${SITE.name}`
 // const url = `work/${id}`
 // const keywords = tags.map(tag => tag)
-
-let selectedTags = null
-if (tags) selectedTags = await getEntries(tags)
-
-const meta = { title, name, description, url, image }
 
 const schema = {
   '@context': 'https://schema.org',
@@ -97,7 +90,7 @@ const schema = {
   set:html={JSON.stringify(schema, null, 2)}
   slot="head"
 />
-<Window id={`window-${id}`} {name} close={{ name: 'work', url: '/work' }} depth zoom>
+<Window id={`window-${id}`} title={name} close="/work" depth zoom>
   <div class="flex h-full flex-col gap-6">
     {image && (
       <div class="h-36 w-36 self-center">

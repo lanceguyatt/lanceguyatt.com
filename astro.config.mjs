@@ -2,25 +2,13 @@ import alpine from '@astrojs/alpinejs'
 import mdx from '@astrojs/mdx'
 import tailwind from '@tailwindcss/vite'
 import icon from 'astro-icon'
-import { defineConfig, fontProviders, envField } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config'
 
 let prefixCounter = 0
 
 // https://astro.build/config
 export default defineConfig({
-  // site: 'https://lanceguyatt.surge.sh/',
-  // markdown: {
-  //   processor: unified(),
-  // },
-  env: {
-    schema: {
-      SITE: envField.string({
-        context: 'client',
-        access: 'public',
-        default: 'http://localhost:4321',
-      }),
-    },
-  },
+  site: 'https://lanceguyatt.com',
   integrations: [
     mdx(),
     alpine({

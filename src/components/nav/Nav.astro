@@ -43,9 +43,7 @@ const { base, list } = navVariants({ vertical })
     <ul class={list()}>
       {items.map(({ name, url, type }) => (
         <li class="max-w-24">
-          <NavLink {type} {url} current={pathname.includes(url)}>
-            {name}
-          </NavLink>
+          <NavLink {name} {type} {url} current={pathname.includes(url)} />
         </li>
       ))}
     </ul>

@@ -4,7 +4,7 @@ import { getCollection, render } from 'astro:content'
 import { Workbench } from '@/layouts'
 
 export async function getStaticPaths() {
-  const entries = await getCollection('pages')
+  const entries = await getCollection('pages', ({ data }) => import.meta.env.DEV || !data.draft)
   return entries.map((entry) => ({
     params: { id: entry.id },
     props: { entry },

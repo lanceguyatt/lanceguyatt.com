@@ -1,27 +1,28 @@
 ---
 import { SEO } from 'astro-seo'
-import { z } from 'astro/zod'
 import { Font } from 'astro:assets'
-import { SITE } from '@/config'
+import { SITE, type SiteProps } from '@/config'
 
-export const baseHeadSchema = z.object({
-  title: z.string().optional(),
-  description: z.string().optional(),
-  url: z.string().optional(),
-  image: z.string().optional(),
-  noindex: z.boolean().optional(),
-})
+export type BaseHeadProps = {
+  title?: string
+  description?: string
+  url?: string
+  image?: SiteProps['image']
+  noindex?: boolean
+}
 
-type Props = z.infer<typeof baseHeadSchema>
-export type BaseHeadProps = Props
+type Props = BaseHeadProps
 
 const {
   title = SITE.name,
   description = SITE.description,
-  url = '/',
+  url = Astro.url.pathname,
   image = SITE.image,
   noindex = false,
 } = Astro.props
+
+const canonical = new URL(url, Astro.site).href
+const imageUrl = image?.url ? new URL(image.url, Astro.site).href : undefined
 ---
 
 <>
@@ -33,14 +34,14 @@ const {
     titleTemplate={`%s - ${SITE.name}`}
     titleDefault={`Lance Guyatt`}
     {description}
-    canonical={`${SITE.url}${url}`}
+    canonical={canonical}
     {noindex}
     openGraph={{
       basic: {
         title: title as string,
         type: 'webpage',
-        image: `${SITE.url}${image?.url}`,
-        url: `${SITE.url}${url}`,
+        image: imageUrl ?? '',
+        url: canonical,
       },
       optional: {
         description,
@@ -61,8 +62,8 @@ const {
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'author', type: 'text/plain', href: '/humans.txt' },
         {
-          rel: 'mainfest',
-          href: '/manifest.webmanifest',
+          rel: 'manifest',
+          href: '/site.webmanifest',
           crossOrigin: 'anonymous',
         },
         {
