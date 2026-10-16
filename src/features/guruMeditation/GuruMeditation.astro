@@ -1,14 +1,15 @@
 ---
-import { Alert } from '@/components'
 import { Image } from 'astro:assets'
+
 import toastyImg from '@/assets/images/toasty.png'
+import { Alert } from '@/components'
 ---
 
 <article
   x-load="idle"
   x-data="guruMeditation"
   x-init="$watch('toasty', value => { if (value) setTimeout(() => (toasty = false), 500) })"
-  class="overflow-hidden w-screen relative min-h-dvh p-6 grid items-center justify-center"
+  class="relative grid min-h-dvh w-screen items-center justify-center overflow-hidden p-6"
 >
   <Alert animate open aria-labelledby="alertLabel">
     <p>
@@ -28,7 +29,7 @@ import toastyImg from '@/assets/images/toasty.png'
   </audio>
 
   <div
-    class="size-toasty absolute inset-e-0 bottom-0"
+    class="absolute inset-e-0 bottom-0 size-toasty"
     x-cloak
     x-show="toasty"
     x-transition:enter="transition ease-out duration-300"

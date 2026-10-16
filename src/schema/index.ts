@@ -1,5 +1,5 @@
-import type { ImageFunction } from 'astro:content'
 import { z } from 'astro/zod'
+import type { ImageFunction } from 'astro:content'
 import { reference } from 'astro:content'
 
 export const aboutSchema = z.object({

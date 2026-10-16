@@ -1,7 +1,7 @@
+import focus from '@alpinejs/focus'
+import ui from '@alpinejs/ui'
 import type Alpine from 'alpinejs'
 import AsyncAlpine from 'async-alpine'
-import ui from '@alpinejs/ui'
-import focus from '@alpinejs/focus'
 
 type AlpineType = typeof Alpine
 

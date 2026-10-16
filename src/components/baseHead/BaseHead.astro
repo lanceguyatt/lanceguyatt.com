@@ -1,6 +1,7 @@
 ---
 import { SEO } from 'astro-seo'
 import { Font } from 'astro:assets'
+
 import { SITE, type SiteProps } from '@/config'
 
 export type BaseHeadProps = {
@@ -34,7 +35,7 @@ const imageUrl = image?.url ? new URL(image.url, Astro.site).href : undefined
     titleTemplate={`%s - ${SITE.name}`}
     titleDefault={`Lance Guyatt`}
     {description}
-    canonical={canonical}
+    {canonical}
     {noindex}
     openGraph={{
       basic: {

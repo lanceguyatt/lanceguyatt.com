@@ -2,10 +2,10 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<article class:list={['grid grid-rows-2 min-h-dvh', 'md:grid-rows-1 md:grid-cols-2']}>
-  <div class="grid gap-8 place-content-end p-12 justify-center items-end md:justify-start">
+<article class:list={['grid min-h-dvh grid-rows-2', 'md:grid-cols-2 md:grid-rows-1']}>
+  <div class="grid place-content-end items-end justify-center gap-8 p-12 md:justify-start">
     <h1 class="sr-only">Kickstart</h1>
-    <Icon name="tick" class="w-41.25 h-37.5" />
+    <Icon name="tick" class="h-37.5 w-41.25" />
     <div>
       <p>2.0 Roms (37.350)</p>
       <p>Copyright © 2000-2026</p>
@@ -13,11 +13,11 @@ import { Icon } from 'astro-icon/components'
       <p class="mt-4">All Rights Reserved</p>
     </div>
   </div>
-  <div class="grid p-12 justify-center items-start md:place-content-end">
-    <a href="/" class="relative flex mb-20 flex-col items-center">
+  <div class="grid items-start justify-center p-12 md:place-content-end">
+    <a href="/" class="relative mb-20 flex flex-col items-center">
       <span class="sr-only">Return to workbench</span>
-      <Icon name="floppy-drive" class="w-39 h-9.5" />
-      <Icon name="floppy-disk" class="w-33.5 h-30 relative top-9 animate-insert-disk" />
+      <Icon name="floppy-drive" class="h-9.5 w-39" />
+      <Icon name="floppy-disk" class="relative top-9 h-30 w-33.5 animate-insert-disk" />
     </a>
   </div>
 </article>

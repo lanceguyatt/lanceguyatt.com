@@ -1,7 +1,8 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
-import { cn } from '@/lib/utils'
 import { z } from 'astro/zod'
+
+import { cn } from '@/lib/utils'
 
 export const depthSchema = z.object({
   label: z.string().optional(),
@@ -16,7 +17,7 @@ const { label = 'Toggle depth', class: className, ...rest } = Astro.props as Dep
   type="button"
   class:list={[
     'bg-depth',
-    cn('w-5.75 h-titlebar inline-block active:bg-position-[-23px_0]', className),
+    cn('inline-block h-titlebar w-5.75 active:bg-position-[-23px_0]', className),
   ]}
   {...rest}
 >

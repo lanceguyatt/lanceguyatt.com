@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
 import { tv, type VariantProps } from 'tailwind-variants'
+
 import { Depth, Zoom } from '@/gadgets'
 import Close from '@/gadgets/Close.astro'
 
@@ -17,9 +18,9 @@ export const windowSchema = z.object({
 
 const windowVariants = tv({
   slots: {
-    base: 'border-window relative',
+    base: 'relative border-window',
     header: 'absolute -top-5 -right-[3px] -left-[3px] flex h-4.5',
-    main: 'bg-secondary h-full',
+    main: 'h-full bg-secondary',
   },
   variants: {
     intent: {
@@ -76,7 +77,7 @@ const { base, header, main } = windowVariants({ intent, type, padding })
     )}
 
     <div class="flex-auto px-2">
-      <div class="truncate overflow-hidden flex">
+      <div class="flex truncate overflow-hidden">
         <h2>{title}</h2>
 
         {full && (
@@ -87,7 +88,7 @@ const { base, header, main } = windowVariants({ intent, type, padding })
       </div>
     </div>
 
-    <div class="flex ml-auto">
+    <div class="ml-auto flex">
       {zoom && <Zoom />}
       {depth && <Depth />}
     </div>

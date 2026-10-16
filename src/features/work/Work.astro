@@ -1,8 +1,9 @@
 ---
-import { Action } from '@/gadgets'
 import { Image } from 'astro:assets'
+
 import { Prose } from '@/components'
 import { SITE } from '@/config'
+import { Action } from '@/gadgets'
 import { Window } from '@/gadgets'
 
 type Props = {
@@ -101,11 +102,11 @@ const schema = {
     )}
 
     <dl class="grid max-w-160 gap-3 sm:grid-cols-[1fr_11fr]">
-      <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">Name</dt>
+      <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">Name</dt>
       <dd class="border-img-foo p-0.5">{name}</dd>
       {url && (
         <>
-          <dt class="text-foreground flex items-center after:content-[':'] sm:justify-end">Url</dt>
+          <dt class="flex items-center text-foreground after:content-[':'] sm:justify-end">Url</dt>
           <dd class="border-img-foo p-0.5">{url}</dd>
         </>
       )}

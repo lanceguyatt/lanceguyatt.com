@@ -63,7 +63,7 @@ pnpm surge
 # Run type checking
 pnpm check
 
-# Run ESLint
+# Run Oxlint (Vite+)
 pnpm lint
 
 # Format code

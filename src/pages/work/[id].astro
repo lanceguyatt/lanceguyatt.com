@@ -1,9 +1,10 @@
 ---
 import { getCollection } from 'astro:content'
-import { Workbench } from '@/layouts'
+
 import { Nav } from '@/components'
-import { Window } from '@/gadgets'
 import { Work } from '@/features/work'
+import { Window } from '@/gadgets'
+import { Workbench } from '@/layouts'
 
 export async function getStaticPaths() {
   const entries = await getCollection('work', ({ data }) => import.meta.env.DEV || !data.draft)

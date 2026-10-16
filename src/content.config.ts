@@ -1,6 +1,7 @@
-import { aboutSchema, navSchema, pageSchema, tagSchema, workSchema } from '@/schema'
 import { file, glob } from 'astro/loaders'
 import { defineCollection } from 'astro:content'
+
+import { aboutSchema, navSchema, pageSchema, tagSchema, workSchema } from '@/schema'
 
 const about = defineCollection({
   loader: file('./src/content/about.yaml'),

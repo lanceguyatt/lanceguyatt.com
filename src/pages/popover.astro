@@ -1,6 +1,6 @@
 ---
-import { Layout } from '@/layouts'
 import { Requester, Action, Cycle, Radio, Text, Display } from '@/gadgets'
+import { Layout } from '@/layouts'
 
 const menu = {
   name: 'Menu',
@@ -53,20 +53,20 @@ const menu = {
         <button
           x-popover:button
           type="button"
-          class="whitespace-nowrap bg-foreground text-secondary px-0.5 hover:bg-white hover:text-primary focus:bg-white focus:text-primary"
+          class="bg-foreground px-0.5 whitespace-nowrap text-secondary hover:bg-white hover:text-primary focus:bg-white focus:text-primary"
         >
           {item.name}
         </button>
 
         <div
           x-popover:panel
-          class="absolute top-4.5 left-0 min-w-48 z-10 bg-foreground text-secondary outline-none border-2 border-secondary"
+          class="absolute top-4.5 left-0 z-10 min-w-48 border-2 border-secondary bg-foreground text-secondary outline-none"
           x-cloak
         >
           {item.items.map((item) => (
             <a
               href="#profile"
-              class="whitespace-nowrap block bg-foreground p-0.5 hover:bg-white hover:text-primary focus:bg-white focus:text-primary"
+              class="block bg-foreground p-0.5 whitespace-nowrap hover:bg-white hover:text-primary focus:bg-white focus:text-primary"
             >
               {item.name}
             </a>

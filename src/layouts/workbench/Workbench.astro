@@ -1,9 +1,10 @@
 ---
-import { Layout } from '@/layouts'
-import { Titlebar, Nav } from '@/components'
-import { Window } from '@/gadgets'
 import { getEntry } from 'astro:content'
+
+import { Titlebar, Nav } from '@/components'
 import { SITE } from '@/config'
+import { Window } from '@/gadgets'
+import { Layout } from '@/layouts'
 
 const nav = await getEntry('nav', 'main')
 

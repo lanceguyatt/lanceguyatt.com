@@ -4,12 +4,12 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const actionVariants = tv({
   base: [
-    'border-action inline-block h-(--action-h) px-(--action-px) text-center whitespace-nowrap',
-    'text-overflow focus-visible:bg-primary outline-0',
+    'inline-block h-(--action-h) border-action px-(--action-px) text-center whitespace-nowrap',
+    'text-overflow outline-0 focus-visible:bg-primary',
   ],
   variants: {
     intent: {
-      default: 'text-primary-foreground bg-secondary active:bg-primary',
+      default: 'bg-secondary text-primary-foreground active:bg-primary',
       ghosted: 'hover:bg-accent hover:text-accent-foreground pointer-events-none',
     },
     width: {

@@ -1,7 +1,8 @@
 ---
-import { Layout } from '@/layouts/layout'
-import { Kickstart } from '@/features/kickstart'
 import { getEntry } from 'astro:content'
+
+import { Kickstart } from '@/features/kickstart'
+import { Layout } from '@/layouts/layout'
 
 const entry = await getEntry('pages', 'ram-disk')
 

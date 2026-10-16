@@ -1,6 +1,6 @@
 ---
-import { Layout } from '@/layouts'
 import { Requester, Action, Cycle, Radio, Text, Display, Window } from '@/gadgets'
+import { Layout } from '@/layouts'
 ---
 
 <Layout>
@@ -9,33 +9,33 @@ import { Requester, Action, Cycle, Radio, Text, Display, Window } from '@/gadget
       <Action label="Ok" href="#foo" />
       <Action label="Cancel" href="#cancel" intent="ghosted" />
 
-      <div class="gap-2 flex items-center">
+      <div class="flex items-center gap-2">
         <label for="cycle">Cycle</label>
         <Cycle id="cycle" />
       </div>
 
-      <div class="gap-2 flex items-center">
+      <div class="flex items-center gap-2">
         <label for="engine">Engine</label>
         <Radio id="engine" name="engine" />
       </div>
 
-      <div class="gap-2 flex items-center">
+      <div class="flex items-center gap-2">
         <label for="text">Text</label>
         <Text id="text" />
       </div>
     </div>
 
     <dl class="grid grid-cols-[auto_1fr] gap-2">
-      <dt class="text-background text-end self-center">Name:</dt>
+      <dt class="self-center text-end text-background">Name:</dt>
       <Display as="dd">Foo</Display>
-      <dt class="text-background text-end self-center">Longer name:</dt>
+      <dt class="self-center text-end text-background">Longer name:</dt>
       <Display as="dd">Foo</Display>
     </dl>
   </div>
   <Requester open>
     <Window title="Workbench" padding={false} close={false} zoom={false} depth={false}>
-      <div class="bg-foo p-2 bg-white">
-        <Display class="p-4 bg-secondary">
+      <div class="bg-white bg-foo p-2">
+        <Display class="bg-secondary p-4">
           <p>
             Kickstart version 37.350
             <br />
@@ -49,7 +49,7 @@ import { Requester, Action, Cycle, Radio, Text, Display, Window } from '@/gadget
             All Rights Reserved
           </p>
         </Display>
-        <div class="text-center pt-2">
+        <div class="pt-2 text-center">
           <Action>Ok</Action>
         </div>
       </div>
