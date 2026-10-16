@@ -15,14 +15,31 @@ const menu = {
           name: 'Execute command...',
         },
         {
-          name: 'About command...',
+          name: 'About...',
         },
         {
-          name: 'Quit command...',
+          name: 'Quit...',
         },
       ],
     },
-    { name: 'Window', items: [] },
+    {
+      name: 'Window',
+      items: [
+        {
+          name: 'New drawer',
+        },
+        {
+          name: 'Open parent',
+        },
+        { name: 'Close' },
+        { name: 'Update' },
+        { name: 'Select Contents' },
+        { name: 'Clean Up' },
+        { name: 'Snapshot' },
+        { name: 'Show' },
+        { name: 'View By' },
+      ],
+    },
     { name: 'Icons', items: [] },
     { name: 'Tools', items: [] },
   ],
@@ -46,12 +63,14 @@ const menu = {
           class="absolute top-4.5 left-0 min-w-48 z-10 bg-foreground text-secondary outline-none border-2 border-secondary"
           x-cloak
         >
-          <a
-            href="#profile"
-            class="whitespace-nowrap block bg-foreground p-0.5 hover:bg-white hover:text-primary focus:bg-white focus:text-primary"
-          >
-            Profile
-          </a>
+          {item.items.map((item) => (
+            <a
+              href="#profile"
+              class="whitespace-nowrap block bg-foreground p-0.5 hover:bg-white hover:text-primary focus:bg-white focus:text-primary"
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
       </div>
     ))}

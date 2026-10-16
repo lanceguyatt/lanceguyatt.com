@@ -1,6 +1,6 @@
 ---
 import { Layout } from '@/layouts'
-import { Requester, Action, Cycle, Radio, Text, Display } from '@/gadgets'
+import { Requester, Action, Cycle, Radio, Text, Display, Window } from '@/gadgets'
 ---
 
 <Layout>
@@ -32,5 +32,27 @@ import { Requester, Action, Cycle, Radio, Text, Display } from '@/gadgets'
       <Display as="dd">Foo</Display>
     </dl>
   </div>
-  <Requester>dsd</Requester>
+  <Requester open>
+    <Window title="Workbench" padding={false} close={false} zoom={false} depth={false}>
+      <div class="bg-foo p-2 bg-white">
+        <Display class="p-4 bg-secondary">
+          <p>
+            Kickstart version 37.350
+            <br />
+            Workbench version 37.67
+            <br />
+            <br />
+            Copyright © 2000-2019
+            <br />
+            Lance Guyatt, Inc.
+            <br />
+            All Rights Reserved
+          </p>
+        </Display>
+        <div class="text-center pt-2">
+          <Action>Ok</Action>
+        </div>
+      </div>
+    </Window>
+  </Requester>
 </Layout>

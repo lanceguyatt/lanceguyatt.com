@@ -17,9 +17,9 @@ export const windowSchema = z.object({
 
 const windowVariants = tv({
   slots: {
-    base: 'window border-window relative grid w-screen',
-    header: 'absolute -inset-x-2 -top-5.5 flex h-5',
-    main: 'bg-secondary row-span-2 h-full p-2',
+    base: 'border-window relative',
+    header: 'absolute -top-5 -right-[3px] -left-[3px] flex h-4.5',
+    main: 'bg-secondary h-full',
   },
   variants: {
     intent: {
@@ -30,8 +30,13 @@ const windowVariants = tv({
     type: {
       default: { base: '' },
     },
+    padding: {
+      true: {
+        main: 'p-2',
+      },
+    },
   },
-  defaultVariants: { intent: 'primary' },
+  defaultVariants: { intent: 'primary', padding: true },
 })
 
 type WindowProps = (
@@ -49,29 +54,36 @@ const {
   close = '/',
   title,
   intent,
-  full = 85,
-  free = 128,
-  remainer = 708,
+  full,
+  free,
+  remainer,
   zoom = true,
   depth = true,
+  type,
+  padding,
   class: className,
 } = Astro.props as WindowProps
 
-const { base, header, main } = windowVariants({ intent })
+const { base, header, main } = windowVariants({ intent, type, padding })
 ---
 
 <Tag class={base({ class: className })}>
   <header class={header()}>
-    <div class="flex">
-      <Close href={close}>Close window</Close>
-    </div>
+    {close && (
+      <div class="flex">
+        <Close href={close}>Close window</Close>
+      </div>
+    )}
 
     <div class="flex-auto px-2">
       <div class="truncate overflow-hidden flex">
-        <h2 class="sr-only">{title}</h2>
-        <div class="flex-auto">
-          {full}% full, {free}k free, {remainer}k
-        </div>
+        <h2>{title}</h2>
+
+        {full && (
+          <div class="flex-auto">
+            {full}% full, {free}k free, {remainer}k
+          </div>
+        )}
       </div>
     </div>
 
@@ -87,8 +99,8 @@ const { base, header, main } = windowVariants({ intent })
 
 <style is:global>
   .window {
-    /*border-width: 22px 4px 4px 4px;
-    border-image: url(/images/window.svg) 22 4 4 4 stretch;*/
-    min-height: calc(100dvh - 22px);
+    border-width: 22px 4px 4px 4px;
+    border-image: url(/images/window.svg) 22 4 4 4 stretch;
+    /*min-height: calc(100dvh - 22px);*/
   }
 </style>
