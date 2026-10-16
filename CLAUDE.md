@@ -24,7 +24,9 @@ Personal site for Lance Guyatt (https://lanceguyatt.com). It is a static Astro s
 - `pnpm sync`: regenerate content collection types; `pnpm clean` removes `.astro/`
 - `pnpm surge`: deploy `dist/` to lanceguyatt.surge.sh
 
-There is no test suite. Before you finish a change, run `pnpm check && pnpm lint && pnpm format:check`.
+- `pnpm test` / `pnpm test:watch`: Vitest (`vitest.config.ts` wraps Astro's `getViteConfig`). Tests sit next to their source as `*.test.ts`. Render `.astro` components with the Astro Container API, then parse the output with happy-dom: dev rendering adds `data-astro-source-*` attributes, so string matching is brittle. Use `// @vitest-environment happy-dom` for tests of DOM-dependent scripts
+
+Before you finish a change, run `pnpm check && pnpm lint && pnpm format:check && pnpm test`.
 
 ## Architecture
 
