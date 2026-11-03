@@ -29,14 +29,14 @@
     "async-alpine": "^2.0.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "0.9.12",
     "@astrojs/compiler-rs": "^0.5.2",
-    "@astrojs/mdx": "8.0.2",
+    "@astrojs/mdx": "8.1.2",
     "@playform/compress": "^0.2.5",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
     "@types/alpinejs": "^3.17.0",
-    "astro": "7.3.5",
+    "astro": "7.4.5",
     "astro-icon": "^1.2.0",
     "astro-seo": "^1.2.0",
     "clsx": "^2.1.1",
@@ -54,6 +54,5 @@
   },
   "engines": {
     "node": ">=22"
-  },
-  "packageManager": "pnpm@12.6.0"
+  }
 }
