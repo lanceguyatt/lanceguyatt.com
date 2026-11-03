@@ -8,7 +8,7 @@ export default defineConfig({
     semi: false,
     printWidth: 100,
     astro: { allowShorthand: true },
-    sortImports: {},
+    sortImports: true,
     sortTailwindcss: {
       stylesheet: './src/styles/app.css',
       functions: ['clsx', 'tv', 'cn'],
