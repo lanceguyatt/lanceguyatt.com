@@ -12,14 +12,14 @@
   --color-foreground: var(--color-black);
   --color-border: var(--color-foreground);
 
-  --color-primary: rgb(96 128 176);
+  --color-primary: #6080b0;
   --color-primary-foreground: var(--color-foreground);
 
-  --color-secondary: rgb(160 160 160);
+  --color-secondary: #a0a0a0;
   --color-secondary-foreground: var(--color-foreground);
 
-  --color-kickstart-foreground: rgb(224 160 128);
-  --color-kickstart-background: rgb(68 16 68);
+  --color-kickstart-foreground: #e0a080;
+  --color-kickstart-background: #441044;
 
   /* Spacing and type */
   --spacing-titlebar: calc(var(--spacing) * 5.5); /* same as h-5.5 */

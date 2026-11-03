@@ -99,4 +99,4 @@ This project is [UNLICENSED](LICENSE).
 
 ---
 
-Built with ❤️ by [Lance Guyatt](https://github.com/yourusername)
+Built with ❤️ by [Lance Guyatt](https://github.com/lanceguyatt)

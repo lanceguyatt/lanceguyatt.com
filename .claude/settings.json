@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm check)",
+      "Bash(pnpm lint)",
+      "Bash(pnpm format)",
+      "Bash(pnpm format:check)",
+      "Bash(pnpm test)",
+      "Bash(pnpm build)",
+      "Bash(pnpm sync)"
+    ],
+    "deny": [
+      "Bash(pnpm surge)",
+      "Bash(vp migrate *)",
+      "Bash(vp check *)",
+      "Edit(dist/**)",
+      "Edit(.astro/**)"
+    ]
+  }
+}
