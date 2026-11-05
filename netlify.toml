@@ -1,0 +1,14 @@
+# Builds the site into dist/ and Storybook into dist/storybook/, served at /storybook/
+[build]
+  command = "pnpm build && pnpm build-storybook --quiet -o dist/storybook"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  STORYBOOK_DISABLE_TELEMETRY = "1"
+
+# Keep Storybook out of search results
+[[headers]]
+  for = "/storybook/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
