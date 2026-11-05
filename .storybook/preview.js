@@ -1,3 +1,6 @@
+import './fonts.css'
+import '../src/styles/app.css'
+
 const preview = {
   parameters: {
     controls: {
@@ -8,4 +11,5 @@ const preview = {
     },
   },
 }
+
 export default preview

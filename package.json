@@ -24,7 +24,8 @@
     "chromatic": "npx chromatic",
     "test": "vp test",
     "test:watch": "vp test watch",
-    "prepare": "vp config"
+    "prepare": "vp config",
+    "surge": "surge -p dist -d lanceguyatt.surge.sh"
   },
   "devDependencies": {
     "@alpinejs/focus": "^3.17.5",
@@ -56,5 +57,8 @@
     "typescript": "^6.0.3",
     "vite-plus": "^1.5.0",
     "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

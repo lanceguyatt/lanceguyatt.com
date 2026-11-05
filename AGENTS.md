@@ -59,7 +59,7 @@ Before you finish a change, run `pnpm check && pnpm lint && pnpm format:check &&
 ## Notes
 
 - The README's project structure is partly stale (it lists `src/utils/`, which doesn't exist)
-- `.storybook/` exists, but Storybook isn't in `package.json`, so treat it as unused
+- Storybook (`@storybook-astro/framework`): `pnpm storybook` / `pnpm build-storybook`. Stories sit next to their component as `*.stories.ts`; pass slot content through `args.slots` (for example `slots: { default: '<p>…</p>' }`). The framework reads integrations, fonts and Vite plugins from `astro.config.mjs`; `.storybook/preview.js` imports `src/styles/app.css`. Import types with `import type { … }`, not `import { type … }`: under `verbatimModuleSyntax` the inline form leaves a runtime import (for example of `astro/types`), which breaks Storybook's dependency optimiser
 - Oxlint checks only the frontmatter and `<script>` blocks of `.astro` files, not the template, and skips `no-unused-vars` there. There are no Astro-specific or markup accessibility lint rules, because Oxlint can't load `astro-eslint-parser`
 - Use the `pnpm` scripts rather than other `vp` commands. Don't run `vp migrate`, which rewrites Vite dependencies and imports and can clash with the Vite version Astro pins, or `vp check`, which doesn't understand `.astro` types
 - `pnpm` reports an unmet `vite` peer dependency from vite-plus's bundled vitest. This is expected and harmless

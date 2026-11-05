@@ -3,7 +3,7 @@
 /* Fonts: inline so utilities reference Astro's variables directly */
 @theme inline {
   --font-sans: var(--font-topaz);
-  --font-mono: var(--font-mono-topaz);
+  --font-mono: var(--font-topaz);
 }
 
 @theme {

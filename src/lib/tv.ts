@@ -5,6 +5,7 @@ import { type ClassValue, clsx, createTV, createTwMerge } from 'tailwind-variant
 const twMergeConfig = {
   extend: {
     theme: {
+      color: ['primary', 'secondary'],
       spacing: ['titlebar', 'toasty'],
     },
   },

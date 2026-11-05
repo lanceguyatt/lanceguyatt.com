@@ -1,10 +1,10 @@
 ---
-import { type HTMLAttributes } from 'astro/types'
+import type { HTMLAttributes } from 'astro/types'
 
 import { tv } from '@/lib/tv'
 
 const closeVariants = tv({
-  base: 'h-titlebar bg-close inline-block w-5 active:bg-position-[-20px_0]',
+  base: 'inline-block h-titlebar w-5 bg-close active:bg-position-[-20px_0]',
 })
 
 type Props = (HTMLAttributes<'a'> | HTMLAttributes<'button'>) & {

@@ -1,11 +1,11 @@
 ---
-import { type HTMLAttributes } from 'astro/types'
+import type { HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
 
 import { tv } from '@/lib/tv'
 
 const depthVariants = tv({
-  base: 'bg-depth h-titlebar inline-block w-5.75 active:bg-position-[-23px_0]',
+  base: 'inline-block h-titlebar w-5.75 bg-depth active:bg-position-[-23px_0]',
 })
 
 export const depthSchema = z.object({

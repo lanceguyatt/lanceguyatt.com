@@ -47,26 +47,26 @@ const menu = {
 ---
 
 <Layout>
-  <div x-data x-popover:group class="bg-foreground text-secondary flex h-6 gap-8">
+  <div x-data x-popover:group class="flex h-6 gap-8 bg-foreground text-secondary">
     {menu.items.map((item) => (
       <div x-popover class="relative">
         <button
           x-popover:button
           type="button"
-          class="bg-foreground text-secondary hover:text-primary focus:text-primary px-0.5 whitespace-nowrap hover:bg-white focus:bg-white"
+          class="bg-foreground px-0.5 whitespace-nowrap text-secondary hover:bg-white hover:text-primary focus:bg-white focus:text-primary"
         >
           {item.name}
         </button>
 
         <div
           x-popover:panel
-          class="border-secondary bg-foreground text-secondary absolute top-4.5 left-0 z-10 min-w-48 border-2 outline-none"
+          class="absolute top-4.5 left-0 z-10 min-w-48 border-2 border-secondary bg-foreground text-secondary outline-none"
           x-cloak
         >
           {item.items.map((item) => (
             <a
               href="#profile"
-              class="bg-foreground hover:text-primary focus:text-primary block p-0.5 whitespace-nowrap hover:bg-white focus:bg-white"
+              class="block bg-foreground p-0.5 whitespace-nowrap hover:bg-white hover:text-primary focus:bg-white focus:text-primary"
             >
               {item.name}
             </a>

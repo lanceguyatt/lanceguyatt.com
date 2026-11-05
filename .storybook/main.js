@@ -1,17 +1,16 @@
-// This file has been automatically migrated to valid ESM format by Storybook.
-import path, { dirname } from 'node:path'
+import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import tailwindcss from '@tailwindcss/vite'
-
-const __filename = fileURLToPath(import.meta.url)
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  staticDirs: ['./public'],
+  staticDirs: ['../public'],
 
+  // Integrations, fonts and Vite plugins are read from astro.config.mjs. Point the builder at an
+  // empty Vite config so it doesn't load the root vite.config.ts (see vite.config.mjs)
   framework: {
     name: '@storybook-astro/framework',
     options: {
@@ -25,7 +24,7 @@ export default {
 
     config.resolve = config.resolve ?? {}
     config.resolve.alias = config.resolve.alias ?? {}
-    config.resolve.alias['~'] = path.resolve(__dirname, '../src')
+    config.resolve.alias['@'] = path.resolve(__dirname, '../src')
     return config
   },
 
