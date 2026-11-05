@@ -2,7 +2,7 @@
 import { SEO } from 'astro-seo'
 import { Font } from 'astro:assets'
 
-import { SITE, type SiteProps } from '@/config'
+import { LANCE_GUYATT, SITE, type SiteProps } from '@/config'
 
 export type BaseHeadProps = {
   title?: string
@@ -15,7 +15,7 @@ export type BaseHeadProps = {
 type Props = BaseHeadProps
 
 const {
-  title = SITE.name,
+  title,
   description = SITE.description,
   url = Astro.url.pathname,
   image = SITE.image,
@@ -24,6 +24,44 @@ const {
 
 const canonical = new URL(url, Astro.site).href
 const imageUrl = image?.url ? new URL(image.url, Astro.site).href : undefined
+
+const person = {
+  '@type': 'Person',
+  '@id': SITE.id,
+  name: `${LANCE_GUYATT.givenName} ${LANCE_GUYATT.familyName}`,
+  givenName: LANCE_GUYATT.givenName,
+  familyName: LANCE_GUYATT.familyName,
+  jobTitle: LANCE_GUYATT.jobTitle,
+  url: LANCE_GUYATT.url,
+  sameAs: LANCE_GUYATT.sameAs.map(({ url }) => url),
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    person,
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE.url}/#website`,
+      url: SITE.url,
+      name: SITE.name,
+      description: SITE.description,
+      inLanguage: SITE.lang,
+      author: { '@id': SITE.id },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': canonical,
+      url: canonical,
+      name: title ?? SITE.name,
+      description,
+      inLanguage: SITE.lang,
+      isPartOf: { '@id': `${SITE.url}/#website` },
+      about: { '@id': SITE.id },
+      ...(imageUrl && { primaryImageOfPage: imageUrl }),
+    },
+  ],
+}
 ---
 
 <>
@@ -33,13 +71,13 @@ const imageUrl = image?.url ? new URL(image.url, Astro.site).href : undefined
   <SEO
     {title}
     titleTemplate={`%s - ${SITE.name}`}
-    titleDefault={`Lance Guyatt`}
+    titleDefault={SITE.name}
     {description}
     {canonical}
     {noindex}
     openGraph={{
       basic: {
-        title: title as string,
+        title: title ?? (SITE.name as string),
         type: 'webpage',
         image: imageUrl ?? '',
         url: canonical,
@@ -75,6 +113,7 @@ const imageUrl = image?.url ? new URL(image.url, Astro.site).href : undefined
       meta: [{ name: 'theme-color', content: SITE.themeColor }],
     }}
   />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <slot />
   <Font cssVariable="--font-topaz" preload />
 </>

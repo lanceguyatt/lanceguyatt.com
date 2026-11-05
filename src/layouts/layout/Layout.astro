@@ -7,7 +7,9 @@ import '@/styles/app.css'
 import { type SiteProps, SITE } from '@/config'
 import { tv, type VariantProps } from '@/lib/tv'
 
-type Props = SiteProps & HTMLAttributes<'html'> & VariantProps<typeof layoutVariants>
+type Props = SiteProps &
+  HTMLAttributes<'html'> &
+  VariantProps<typeof layoutVariants> & { noindex?: boolean }
 
 const defaultIntent = 'workbench'
 
@@ -34,11 +36,11 @@ const layoutVariants = tv({
   },
 })
 
-const { title, description, url, image, intent, class: className } = Astro.props
+const { title, description, url, image, noindex, intent, class: className } = Astro.props
 
 const resolvedIntent = intent ?? defaultIntent
 
-const meta = { title, description, url, image }
+const meta = { title, description, url, image, noindex }
 
 const { base, body } = layoutVariants({ intent: resolvedIntent })
 ---

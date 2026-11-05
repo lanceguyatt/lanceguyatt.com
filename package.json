@@ -34,6 +34,7 @@
     "@astrojs/check": "^0.9.12",
     "@astrojs/compiler-rs": "^0.5.2",
     "@astrojs/mdx": "8.1.2",
+    "@astrojs/sitemap": "^3.7.4",
     "@playform/compress": "^0.2.5",
     "@storybook-astro/framework": "^1.15.0",
     "@storybook/addon-a11y": "^10.6.5",

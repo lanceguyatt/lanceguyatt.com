@@ -134,6 +134,18 @@
     outline: none;
   }
 
+  /* Keyboard focus: white ring with a black edge, visible on every Workbench colour */
+  :focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 0;
+    box-shadow: 0 0 0 4px var(--color-black);
+  }
+
+  main:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
   input {
     appearance: none;
   }

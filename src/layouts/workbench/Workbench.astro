@@ -12,11 +12,18 @@ const { title, description } = Astro.props
 ---
 
 <Layout {title} {description}>
+  <a
+    href="#main"
+    class="sr-only bg-white px-2 text-black focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-50"
+  >
+    Skip to content
+  </a>
   <div class="">
     <Titlebar>
       {SITE.title} 2000-{SITE.copyrightYear} All Rights Reserved
     </Titlebar>
-    <main>
+    <main id="main" tabindex="-1">
+      <h1 class="sr-only">{title ?? SITE.name}</h1>
       <slot />
       <Window close="/kickstart">{nav && <Nav {...nav.data} vertical />}</Window>
     </main>

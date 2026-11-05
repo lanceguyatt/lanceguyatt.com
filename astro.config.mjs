@@ -1,5 +1,6 @@
 import alpine from '@astrojs/alpinejs'
 import mdx from '@astrojs/mdx'
+import sitemap from '@astrojs/sitemap'
 import tailwind from '@tailwindcss/vite'
 import icon from 'astro-icon'
 import { defineConfig, fontProviders } from 'astro/config'
@@ -11,6 +12,10 @@ export default defineConfig({
   site: 'https://lanceguyatt.com',
   integrations: [
     mdx(),
+    sitemap({
+      // Leave out the error page and the UI playground pages
+      filter: (page) => !/\/(404|menu|popover|ui)\/$/.test(new URL(page).pathname),
+    }),
     alpine({
       entrypoint: './src/scripts/app.ts',
     }),

@@ -29,7 +29,8 @@ export type SiteProps = {
 export const SITE: SiteProps = {
   title: name,
   name,
-  description: 'Lance Guyatt, Web Developer.',
+  description:
+    'Lance Guyatt is a web developer. This site, built to look like the Amiga Workbench, shows selected work for clients including Hearst, Bauer Media and Associated Press.',
   id: `${BASE_URL}/#lanceguyatt`,
   url: BASE_URL,
   image: {
@@ -56,7 +57,7 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/lanceguyatt',
+    href: 'https://www.linkedin.com/in/lanceguyatt',
     linkTitle: `${SITE.title} on LinkedIn`,
     active: true,
   },
