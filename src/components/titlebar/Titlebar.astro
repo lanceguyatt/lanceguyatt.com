@@ -1,9 +1,9 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
-import { tv, type VariantProps } from 'tailwind-variants'
 
 import { Depth } from '@/gadgets'
+import { tv, type VariantProps } from '@/lib/tv'
 
 export const titlebarSchema = z.object({
   depth: z.boolean().optional(),

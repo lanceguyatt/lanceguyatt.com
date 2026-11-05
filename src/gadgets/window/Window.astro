@@ -1,10 +1,10 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
-import { tv, type VariantProps } from 'tailwind-variants'
 
 import { Depth, Zoom } from '@/gadgets'
 import Close from '@/gadgets/Close.astro'
+import { tv, type VariantProps } from '@/lib/tv'
 
 export const windowSchema = z.object({
   close: z.string().optional(),

@@ -38,7 +38,7 @@ Before you finish a change, run `pnpm check && pnpm lint && pnpm format:check &&
   - `src/features/`: self-contained modules (`guruMeditation`, `kickstart`, `work`), each with an `index.ts` barrel, a root `.astro` component and optional `components/` and `scripts/`
   - `src/layouts/`: `layout/` (base) and `workbench/`
 - **Client JS**: interactive behaviour is Alpine. Lazy components are registered in the `asyncMap` in `src/scripts/app.ts` and loaded on demand by async-alpine; their scripts live in the owning feature folder
-- `src/config.ts` holds `SITE`, `SOCIALS` and person metadata; `src/lib/utils.ts` provides `cn()` (clsx + tailwind-merge)
+- `src/config.ts` holds `SITE`, `SOCIALS` and person metadata; `src/lib/tv.ts` provides `tv` and `cn()`, both built on tailwind-variants v4 with a merge config that knows the custom spacing tokens (`titlebar`, `toasty`). Import `tv`, `cn` and `VariantProps` from `@/lib/tv`, not `tailwind-variants`
 
 ## Conventions
 

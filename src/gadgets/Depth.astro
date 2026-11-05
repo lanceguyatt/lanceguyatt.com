@@ -2,6 +2,12 @@
 import { type HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
 
+import { tv } from '@/lib/tv'
+
+const depthVariants = tv({
+  base: 'bg-depth h-titlebar inline-block w-5.75 active:bg-position-[-23px_0]',
+})
+
 export const depthSchema = z.object({
   label: z.string().optional(),
 })
@@ -11,14 +17,6 @@ export type DepthProps = HTMLAttributes<'button'> & z.infer<typeof depthSchema>
 const { label = 'Toggle depth', class: className, ...rest } = Astro.props as DepthProps
 ---
 
-<button
-  type="button"
-  class:list={[
-    'bg-depth',
-    'h-titlebar inline-block w-5.75 active:bg-position-[-23px_0]',
-    className,
-  ]}
-  {...rest}
->
+<button type="button" class={depthVariants({ class: className })} {...rest}>
   <span class="sr-only">{label}</span>
 </button>

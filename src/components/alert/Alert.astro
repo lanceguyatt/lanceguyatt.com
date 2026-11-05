@@ -1,6 +1,7 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
-import { tv, type VariantProps } from 'tailwind-variants'
+
+import { tv, type VariantProps } from '@/lib/tv'
 
 type Props = HTMLAttributes<'dialog'> & VariantProps<typeof alertVariants>
 

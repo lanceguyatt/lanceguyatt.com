@@ -25,3 +25,7 @@ pnpm-debug.log*
 .netlify
 
 .cache
+
+debug-storybook.log
+build-storybook.log
+storybook-static

@@ -1,10 +1,11 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
-import { tv, type VariantProps } from 'tailwind-variants'
+
+import { BaseHead } from '@/components'
 
 import '@/styles/app.css'
-import { BaseHead } from '@/components'
 import { type SiteProps, SITE } from '@/config'
+import { tv, type VariantProps } from '@/lib/tv'
 
 type Props = SiteProps & HTMLAttributes<'html'> & VariantProps<typeof layoutVariants>
 

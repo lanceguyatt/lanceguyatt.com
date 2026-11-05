@@ -2639,7 +2639,7 @@ const config = {
     sortImports: true,
     sortPackageJson: true,
     sortTailwindcss: {
-      functions: ['clsx', 'tv'],
+      functions: ['clsx', 'cn', 'tv'],
     },
     astro: {
       allowShorthand: true,

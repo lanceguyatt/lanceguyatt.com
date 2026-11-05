@@ -1,7 +1,8 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 import { z } from 'astro/zod'
-import { tv } from 'tailwind-variants'
+
+import { tv } from '@/lib/tv'
 
 export const navLinkSchema = z.object({
   name: z.string(),
