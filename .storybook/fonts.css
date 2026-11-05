@@ -1,0 +1,15 @@
+/*
+ * Topaz for Storybook. Mirrors the `fonts` entry in astro.config.mjs, which Storybook can't load:
+ * @storybook-astro/framework doesn't pass the local provider its `variants`, so it resolves no faces
+ */
+@font-face {
+  font-family: 'Topaz';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../src/assets/fonts/topaz.woff2') format('woff2');
+}
+
+:root {
+  --font-topaz: 'Topaz', sans-serif;
+}
