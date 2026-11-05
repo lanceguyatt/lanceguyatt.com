@@ -1,15 +1,13 @@
 ---
 import { type HTMLAttributes } from 'astro/types'
 
-import { cn } from '@/lib/utils'
-
 type Props = (HTMLAttributes<'a'> | HTMLAttributes<'button'>) & {
   as?: 'a' | 'button'
 }
 
 const { as = 'a', class: className, ...rest } = Astro.props
 
-const classes = cn(['inline-block h-titlebar w-5 bg-close active:bg-position-[-20px_0]', className])
+const classes = ['inline-block h-titlebar w-5 bg-close active:bg-position-[-20px_0]', className]
 ---
 
 {as === 'button' ? (

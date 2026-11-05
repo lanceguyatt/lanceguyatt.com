@@ -253,9 +253,6 @@ importers:
       async-alpine:
         specifier: ^2.0.3
         version: 2.0.3
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -265,12 +262,9 @@ importers:
       sharp:
         specifier: ^0.35.5
         version: 0.35.5(@types/node@26.1.2)
-      tailwind-merge:
-        specifier: ^3.7.0
-        version: 3.7.0
       tailwind-variants:
-        specifier: ^3.3.1
-        version: 3.3.1(tailwind-merge@3.7.0)(tailwindcss@4.3.4)
+        specifier: ^4.0.1
+        version: 4.0.1
       tailwindcss:
         specifier: ^4.3.4
         version: 4.3.4
@@ -2682,20 +2676,9 @@ packages:
   tabbable@6.5.1:
     resolution: {integrity: sha512-dMCuwDUY6Noz3zVKLefBC4wq+aJV20yc7vWmM7uTNGwtQSFF5kX7OUIUsxuVajz/bdt5Xqdah3/0NLjth+cM5A==}
 
-  tailwind-merge@3.7.0:
-    resolution: {integrity: sha512-XPPUyAc+cvspz3lHTcR/QgPfW2A0lv/xQNIjX3HGhLR+Nq2lHaLq5MtTesHn8GUr3W3DguT2KT5x3NVgRtYwmA==}
-
-  tailwind-variants@3.3.1:
-    resolution: {integrity: sha512-4pAvwUtM4HKBiRZftncAbpn6V9Hhwoa5Fl7O2u5zbp7Z5Cvu+/o/6+176WY3WCEES209543quG8zFIcXCsc5Jw==}
+  tailwind-variants@4.0.1:
+    resolution: {integrity: sha512-VumzgPklIwpneDWtskGuhEqPlfZZ2DeN1nIb2um9DRhk9XBX580s4N84A533j+oHN+dLz274HkKvSjr+64fggA==}
     engines: {node: '>=16.9.x', pnpm: '>=7.x'}
-    peerDependencies:
-      tailwind-merge: '>=3.0.0'
-      tailwindcss: '*'
-    peerDependenciesMeta:
-      tailwind-merge:
-        optional: true
-      tailwindcss:
-        optional: true
 
   tailwindcss-border-image@1.1.2:
     resolution: {integrity: sha512-bNnBLDMhLGBQkmp1Pa+o8wUqdMg4HLutIwX3dM6Glbwz/r8ItLak1Q+7exnhwOOA3bH20aA7qkxSEKvD0Mpumg==}
@@ -5385,12 +5368,7 @@ snapshots:
 
   tabbable@6.5.1: {}
 
-  tailwind-merge@3.7.0: {}
-
-  tailwind-variants@3.3.1(tailwind-merge@3.7.0)(tailwindcss@4.3.4):
-    optionalDependencies:
-      tailwind-merge: 3.7.0
-      tailwindcss: 4.3.4
+  tailwind-variants@4.0.1: {}
 
   tailwindcss-border-image@1.1.2(tailwindcss@4.3.4):
     dependencies:
