@@ -1,13 +1,21 @@
 {
   "format_on_save": "on",
-  "prettier": { "allowed": false },
-  "formatter": [{ "language_server": { "name": "oxfmt" } }],
+  "prettier": {
+    "allowed": false
+  },
+  "formatter": {
+    "language_server": {
+      "name": "oxfmt"
+    }
+  },
   "lsp": {
     "oxlint": {
       "initialization_options": {
         "settings": {
           "run": "onType",
-          "fixKind": "safe_fix"
+          "fixKind": "safe_fix",
+          "typeAware": true,
+          "unusedDisableDirectives": "deny"
         }
       }
     },
@@ -16,16 +24,6 @@
         "settings": {
           "fmt.configPath": "./vite.config.ts",
           "run": "onSave"
-        }
-      }
-    }
-  },
-  "languages": {
-    "Astro": {
-      "formatter": {
-        "external": {
-          "command": "node_modules/.bin/vp",
-          "arguments": ["fmt", "--stdin-filepath", "{buffer_path}"]
         }
       }
     }

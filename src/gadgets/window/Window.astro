@@ -18,9 +18,9 @@ export const windowSchema = z.object({
 
 const windowVariants = tv({
   slots: {
-    base: 'relative border-window',
+    base: 'border-window relative',
     header: 'absolute -top-5 -right-[3px] -left-[3px] flex h-4.5',
-    main: 'h-full bg-secondary',
+    main: 'bg-secondary h-full',
   },
   variants: {
     intent: {

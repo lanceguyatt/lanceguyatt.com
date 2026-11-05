@@ -11,12 +11,12 @@ export const titlebarSchema = z.object({
 
 const titlebarVariants = tv({
   slots: {
-    base: 'flex h-titlebar items-center gap-1',
+    base: 'h-titlebar flex items-center gap-1',
     wrapper: 'flex-1 overflow-hidden text-ellipsis whitespace-nowrap',
   },
   variants: {
     intent: {
-      black: { base: 'bg-black text-secondary' },
+      black: { base: 'text-secondary bg-black' },
       white: { base: 'bg-white text-black' },
       primary: { base: 'bg-primary text-primary-foreground' },
       secondary: { base: 'bg-secondary text-secondary-foreground' },
