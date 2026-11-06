@@ -70,11 +70,7 @@ const { base, header, main } = windowVariants({ intent, type, padding })
 
 <Tag class={base({ class: className })}>
   <header class={header()}>
-    {close && (
-      <div class="flex">
-        <Close href={close}>Close window</Close>
-      </div>
-    )}
+    {close && <Close href={close} label={`Close ${title ?? ''}`} class="-top-px opacity-50" />}
 
     <div class="flex-auto px-2">
       <div class="flex truncate overflow-hidden">

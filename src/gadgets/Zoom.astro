@@ -3,9 +3,9 @@ import type { HTMLAttributes } from 'astro/types'
 
 import { cn } from '@/lib/tv'
 
-type Props = HTMLAttributes<'button'>
+export type ZoomProps = HTMLAttributes<'button'>
 
-const { class: className, ...rest } = Astro.props
+const { class: className, ...rest } = Astro.props as ZoomProps
 ---
 
 <button
@@ -13,5 +13,7 @@ const { class: className, ...rest } = Astro.props
   class={cn('inline-block h-titlebar w-5.75 bg-zoom active:bg-position-[-23px_0]', className)}
   {...rest}
 >
-  <span class="sr-only">Toggle zoom</span>
+  <span class="sr-only">
+    <slot>Toggle zoom</slot>
+  </span>
 </button>

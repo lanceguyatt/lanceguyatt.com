@@ -1,29 +1,59 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import { z } from 'astro/zod'
 
 import { tv } from '@/lib/tv'
 
-const closeVariants = tv({
-  base: 'inline-block h-titlebar w-5 bg-close active:bg-position-[-20px_0]',
+export const closeSchema = z.object({
+  label: z.string().optional(),
 })
 
-type Props = (HTMLAttributes<'a'> | HTMLAttributes<'button'>) & {
-  as?: 'a' | 'button'
-}
+const closeVariants = tv({
+  base: 'h-titlebar w-5 bg-close',
+})
 
-const { as = 'a', class: className, ...rest } = Astro.props
+export type CloseProps = (HTMLAttributes<'a'> | HTMLAttributes<'button'>) & {
+  as?: 'a' | 'button'
+} & z.infer<typeof closeSchema>
+
+type Props = CloseProps
+
+const { as = 'a', label = 'Close', class: className, ...rest } = Astro.props as CloseProps
 ---
 
 {as === 'button' ? (
-  <button class={closeVariants({ class: className })} {...(rest as HTMLAttributes<'button'>)}>
-    <span class="sr-only">
-      <slot />
-    </span>
+  <button
+    data-gadget="close"
+    type="button"
+    class={closeVariants({ class: className })}
+    {...(rest as HTMLAttributes<'button'>)}
+  >
+    <span class="sr-only">{label}</span>
   </button>
 ) : (
-  <a class={closeVariants({ class: className })} {...(rest as HTMLAttributes<'a'>)}>
-    <span class="sr-only">
-      <slot />
-    </span>
+  <a
+    data-gadget="close"
+    class={closeVariants({ class: className })}
+    {...(rest as HTMLAttributes<'a'>)}
+  >
+    <span class="sr-only">{label}</span>
   </a>
 )}
+
+<style is:global>
+  [data-gadget='close'] {
+    &:active {
+      background-position: -20px 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      display: block;
+      inset: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+</style>
