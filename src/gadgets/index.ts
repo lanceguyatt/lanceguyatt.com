@@ -1,6 +1,6 @@
 export { Requester } from '@/gadgets/requester'
 export { Window } from '@/gadgets/window'
-export { default as Action } from '@/gadgets/Action.astro'
+export { Action } from '@/gadgets/action'
 export { default as Close } from '@/gadgets/Close.astro'
 export { default as Cycle } from '@/gadgets/Cycle.astro'
 export { default as Depth } from '@/gadgets/Depth.astro'

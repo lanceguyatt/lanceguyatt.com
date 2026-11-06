@@ -7,6 +7,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  features: {
+    componentsManifest: true,
+  },
   staticDirs: ['../public'],
 
   // Integrations, fonts and Vite plugins are read from astro.config.mjs. Point the builder at an
@@ -28,5 +31,5 @@ export default {
     return config
   },
 
-  addons: ['@storybook/addon-a11y'],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-mcp'],
 }

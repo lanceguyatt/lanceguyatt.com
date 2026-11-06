@@ -38,6 +38,7 @@
     "@playform/compress": "^0.2.5",
     "@storybook-astro/framework": "^1.15.0",
     "@storybook/addon-a11y": "^10.6.5",
+    "@storybook/addon-mcp": "^10.6.5",
     "@storybook/builder-vite": "^10.6.5",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.4",
