@@ -4,7 +4,7 @@ import { getEntry } from 'astro:content'
 import { Kickstart } from '@/features/kickstart'
 import { Layout } from '@/layouts/layout'
 
-const entry = await getEntry('pages', 'ram-disk')
+const entry = await getEntry('pages', 'kickstart')
 
 if (!entry) return Astro.redirect('404')
 
