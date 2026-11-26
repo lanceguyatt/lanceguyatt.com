@@ -68,20 +68,31 @@ pnpm lint
 
 # Format code
 pnpm format
+
+# Run tests (Vitest)
+pnpm test
 ```
 
 ## 📂 Project Structure
 
 ```
 src/
-├── assets/          # Static assets
-├── components/      # Reusable UI components
-├── content/         # Content collections (blog posts, etc.)
-├── features/        # Feature-based modules
-├── layouts/         # Page layouts
-├── pages/           # Page components
-├── styles/          # Global styles
-└── utils/           # Utility functions
+├── assets/              # Static assets
+├── components/          # General site UI
+├── content/             # Content: pages and work (MDX), about, nav and tags (YAML)
+├── features/            # Self-contained modules (guruMeditation, kickstart, work)
+├── gadgets/             # Amiga-style UI primitives (Window, Requester, Close, …)
+├── icons/               # SVG icons for astro-icon
+├── layouts/             # Base and Workbench layouts
+├── lib/                 # Helpers (tv and cn for Tailwind classes)
+├── pages/               # Routes
+├── schema/              # Zod schemas for the content collections
+├── scripts/             # Alpine entrypoint and shared client scripts
+├── styles/              # Tailwind theme and Workbench styles
+├── types/               # Type shims for the Alpine plugins
+├── config.ts            # Site, social and person metadata
+├── content.config.ts    # Content collection definitions
+└── types.ts             # Shared types
 ```
 
 ## 🤝 Contributing

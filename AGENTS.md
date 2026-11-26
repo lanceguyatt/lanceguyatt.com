@@ -25,7 +25,7 @@ Personal site for Lance Guyatt (https://lanceguyatt.com). It is a static Astro s
 - `pnpm storybook` / `pnpm build-storybook`: Storybook on port 6006
 - Deploy: Netlify (`netlify.toml`) runs `pnpm build`, then the local build plugin `netlify/plugins/storybook/` builds Storybook into `dist/storybook/` in its `onPostBuild` hook (served at `/storybook/` with `X-Robots-Tag: noindex`). `pnpm surge` is a manual fallback to lanceguyatt.surge.sh
 
-- `pnpm test` / `pnpm test:watch`: Vitest (`vitest.config.ts` wraps Astro's `getViteConfig`). Tests sit next to their source as `*.test.ts`. Render `.astro` components with the Astro Container API, then parse the output with happy-dom: dev rendering adds `data-astro-source-*` attributes, so string matching is brittle. Use `// @vitest-environment happy-dom` for tests of DOM-dependent scripts
+- `pnpm test` / `pnpm test:watch`: Vitest (`vitest.config.ts` wraps Astro's `getViteConfig`). Tests sit next to their source as `*.test.ts`. Render `.astro` components with the Astro Container API, then parse the output with happy-dom: dev rendering adds `data-astro-source-*` attributes, so string matching is brittle. Use `// @vitest-environment happy-dom` for tests of DOM-dependent scripts. Run one file with `pnpm test src/scripts/theme.test.ts`
 
 Before you finish a change, run `pnpm check && pnpm lint && pnpm format:check && pnpm test`.
 
@@ -39,7 +39,8 @@ Before you finish a change, run `pnpm check && pnpm lint && pnpm format:check &&
   - `src/components/`: general site UI, re-exported from `components/index.ts`
   - `src/features/`: self-contained modules (`guruMeditation`, `kickstart`, `work`), each with an `index.ts` barrel, a root `.astro` component and optional `components/` and `scripts/`
   - `src/layouts/`: `layout/` (base) and `workbench/`
-- **Client JS**: interactive behaviour is Alpine. Lazy components are registered in the `asyncMap` in `src/scripts/app.ts` and loaded on demand by async-alpine; their scripts live in the owning feature folder
+- **Client JS**: interactive behaviour is Alpine. Lazy components are registered in the `asyncMap` in `src/scripts/app.ts` and loaded on demand by async-alpine; their scripts live in the owning feature folder. Small components needed on every page (currently `theme`) are registered eagerly with `alpine.data` in the same file
+- **Dark mode**: a `.dark` class on `<html>`. An inline script in `BaseHead` sets it before paint (the stored `localStorage.theme`, else the system preference); the `theme` Alpine data in `src/scripts/theme.ts` toggles and stores it for the titlebar Theme gadget. Dark tokens live under `:root.dark` in `src/styles/app.css`, and Tailwind's `dark:` variant is redefined with `@custom-variant` to follow the class
 - `src/config.ts` holds `SITE`, `SOCIALS` and person metadata; `src/lib/tv.ts` provides `tv` and `cn()`, both built on tailwind-variants v4 with a merge config that knows the custom spacing tokens (`titlebar`, `toasty`). Import `tv`, `cn` and `VariantProps` from `@/lib/tv`, not `tailwind-variants`
 
 ## Conventions
@@ -60,7 +61,6 @@ Before you finish a change, run `pnpm check && pnpm lint && pnpm format:check &&
 
 ## Notes
 
-- The README's project structure is partly stale (it lists `src/utils/`, which doesn't exist)
 - Storybook (`@storybook-astro/framework`, with `@storybook/addon-a11y`). Its builder uses the empty `.storybook/vite.config.mjs` so it doesn't load the root `vite.config.ts`; Tailwind and the `@` alias are added in `.storybook/main.js`. Stories sit next to their component as `*.stories.ts`; pass slot content through `args.slots` (for example `slots: { default: '<p>…</p>' }`). The framework reads integrations, fonts and Vite plugins from `astro.config.mjs`; `.storybook/preview.js` imports `src/styles/app.css`. Import types with `import type { … }`, not `import { type … }`: under `verbatimModuleSyntax` the inline form leaves a runtime import (for example of `astro/types`), which breaks Storybook's dependency optimiser
 - Oxlint checks only the frontmatter and `<script>` blocks of `.astro` files, not the template, and skips `no-unused-vars` there. There are no Astro-specific or markup accessibility lint rules, because Oxlint can't load `astro-eslint-parser`
 - Use the `pnpm` scripts rather than other `vp` commands. Don't run `vp migrate`, which rewrites Vite dependencies and imports and can clash with the Vite version Astro pins, or `vp check`, which doesn't understand `.astro` types
