@@ -1,11 +1,15 @@
-# Builds the site into dist/ and Storybook into dist/storybook/, served at /storybook/
+# Builds the site into dist/; the local storybook plugin then builds Storybook into
+# dist/storybook/ in its onPostBuild hook, served at /storybook/
 [build]
-command = "pnpm build && pnpm build-storybook --quiet -o dist/storybook"
+command = "pnpm build"
 publish = "dist"
 
 [build.environment]
 NODE_VERSION = "22"
 STORYBOOK_DISABLE_TELEMETRY = "1"
+
+[[plugins]]
+package = "/netlify/plugins/storybook"
 
 # Keep Storybook out of search results
 [[headers]]

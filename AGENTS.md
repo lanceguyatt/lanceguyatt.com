@@ -23,7 +23,7 @@ Personal site for Lance Guyatt (https://lanceguyatt.com). It is a static Astro s
 - `pnpm format` / `pnpm format:check`: Oxfmt (`vp fmt`; sorts imports and Tailwind classes)
 - `pnpm sync`: regenerate content collection types; `pnpm clean` removes `.astro/` and `dist/`
 - `pnpm storybook` / `pnpm build-storybook`: Storybook on port 6006
-- Deploy: Netlify (`netlify.toml`) runs `pnpm build`, then builds Storybook into `dist/storybook/` (served at `/storybook/` with `X-Robots-Tag: noindex`). `pnpm surge` is a manual fallback to lanceguyatt.surge.sh
+- Deploy: Netlify (`netlify.toml`) runs `pnpm build`, then the local build plugin `netlify/plugins/storybook/` builds Storybook into `dist/storybook/` in its `onPostBuild` hook (served at `/storybook/` with `X-Robots-Tag: noindex`). `pnpm surge` is a manual fallback to lanceguyatt.surge.sh
 
 - `pnpm test` / `pnpm test:watch`: Vitest (`vitest.config.ts` wraps Astro's `getViteConfig`). Tests sit next to their source as `*.test.ts`. Render `.astro` components with the Astro Container API, then parse the output with happy-dom: dev rendering adds `data-astro-source-*` attributes, so string matching is brittle. Use `// @vitest-environment happy-dom` for tests of DOM-dependent scripts
 
