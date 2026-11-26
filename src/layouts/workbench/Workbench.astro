@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content'
 
 import { Titlebar, Nav } from '@/components'
 import { SITE } from '@/config'
-import { Window } from '@/gadgets'
+import { Depth, Theme, Window } from '@/gadgets'
 import { Layout } from '@/layouts'
 
 const nav = await getEntry('nav', 'main')
@@ -21,6 +21,10 @@ const { title, description } = Astro.props
   <div class="">
     <Titlebar>
       {SITE.title} 2000-{SITE.copyrightYear} All Rights Reserved
+      <Fragment slot="suffix">
+        <Theme class="bg-secondary" />
+        <Depth class="bg-secondary" />
+      </Fragment>
     </Titlebar>
     <main id="main" tabindex="-1">
       <h1 class="sr-only">{title ?? SITE.name}</h1>

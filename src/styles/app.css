@@ -64,6 +64,19 @@
 }
 
 /* Theme overrides (border and *-foreground tokens follow --color-foreground) */
+:root {
+  color-scheme: light;
+}
+
+/* Dark mode: `.dark` on <html>, set before paint by BaseHead (stored choice, else system) */
+:root.dark {
+  color-scheme: dark;
+  --color-background: var(--color-black);
+  --color-foreground: var(--color-white);
+  --color-primary: rgb(48 64 96);
+  --color-secondary: rgb(64 64 64);
+}
+
 :root[data-theme='kickstart'] {
   --color-background: var(--color-kickstart-background);
   --color-foreground: var(--color-kickstart-foreground);
@@ -102,6 +115,10 @@
 
 @utility bg-file {
   background-image: url(/images/file.svg);
+}
+
+@utility bg-theme {
+  background-image: url(/images/theme.svg);
 }
 
 @utility bg-zoom {

@@ -3,6 +3,8 @@ import ui from '@alpinejs/ui'
 import type Alpine from 'alpinejs'
 import AsyncAlpine from 'async-alpine'
 
+import theme from '@/scripts/theme'
+
 type AlpineType = typeof Alpine
 
 // ============================================
@@ -29,4 +31,6 @@ const registerAsyncData = (alpine: AlpineType) => {
 export default (alpine: AlpineType) => {
   setupPlugins(alpine)
   registerAsyncData(alpine)
+  // Eager: tiny, and the titlebar gadget is on every Workbench page
+  alpine.data('theme', theme)
 }

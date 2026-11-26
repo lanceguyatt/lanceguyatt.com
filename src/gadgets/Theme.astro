@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+import { cn } from '@/lib/tv'
+
+export type ThemeProps = HTMLAttributes<'button'>
+
+const { class: className, ...rest } = Astro.props as ThemeProps
+---
+
+<!-- Toggle gadget: stays pushed in (selected sprite) while dark mode is on. Hidden until Alpine runs -->
+<button
+  type="button"
+  x-data="theme"
+  x-cloak
+  x-on:click="toggle()"
+  x-bind:aria-pressed="dark"
+  class={cn(
+    'inline-block h-titlebar w-5.75 bg-theme active:bg-position-[-23px_0] aria-pressed:bg-position-[-23px_0]',
+    className,
+  )}
+  {...rest}
+>
+  <span class="sr-only">
+    <slot>Dark mode</slot>
+  </span>
+</button>

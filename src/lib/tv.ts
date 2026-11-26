@@ -8,6 +8,25 @@ const twMergeConfig = {
       color: ['primary', 'secondary'],
       spacing: ['titlebar', 'toasty'],
     },
+    // The bg-* sprite utilities in app.css are images, so they must not cancel bg-<colour>
+    classGroups: {
+      'bg-image': [
+        {
+          bg: [
+            'checkbox',
+            'close',
+            'depth',
+            'disk',
+            'drawer',
+            'drive',
+            'file',
+            'theme',
+            'toasty',
+            'zoom',
+          ],
+        },
+      ],
+    },
   },
 }
 

@@ -68,6 +68,22 @@ const jsonLd = {
   <meta name="charset" content="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Dark mode: runs before paint to avoid a flash. localStorage.theme = 'dark' | 'light'; unset follows the system -->
+  <script is:inline>
+    ;(() => {
+      const media = matchMedia('(prefers-color-scheme: dark)')
+      const apply = () => {
+        const stored = localStorage.getItem('theme')
+        document.documentElement.classList.toggle(
+          'dark',
+          stored ? stored === 'dark' : media.matches,
+        )
+      }
+      apply()
+      media.addEventListener('change', apply)
+    })()
+  </script>
+
   <SEO
     {title}
     titleTemplate={`%s - ${SITE.name}`}
